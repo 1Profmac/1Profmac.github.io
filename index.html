@@ -5,440 +5,359 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>50+ TechBridge — Empowering 50+ Individuals With Tech Skills</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet" />
   <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; }
-    h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
-    .gradient-dark { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%); }
-
-    /* ── ADA COMPLIANCE: Font Sizes & Accessibility ── */
-    /* WCAG 2.1 AA: min 16px body, 18px+ for large text, 4.5:1 contrast ratio */
-    html {
-      font-size: 18px; /* Base 18px — exceeds WCAG minimum of 16px */
-    }
-    body {
-      font-size: 1rem;       /* 18px */
-      line-height: 1.75;     /* Generous line height for readability */
-      letter-spacing: 0.01em;
-    }
-    h1 { font-size: 2.8rem;  line-height: 1.2; } /* ~50px */
-    h2 { font-size: 2.2rem;  line-height: 1.25; } /* ~40px */
-    h3 { font-size: 1.6rem;  line-height: 1.3; }  /* ~29px */
-    h4 { font-size: 1.3rem;  line-height: 1.35; } /* ~23px */
-    p, li, td, th, label, span, div {
-      font-size: 1rem;       /* 18px minimum */
-      line-height: 1.75;
-    }
-    /* Navigation links */
-    nav a {
-      font-size: 1rem;
-      font-weight: 600;
-    }
-    /* Buttons — large tap targets (min 44x44px per WCAG 2.5.5) */
-    a[class*="px-"], button {
-      min-height: 48px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.05rem;
-      font-weight: 700;
-    }
-    /* Focus indicators — visible keyboard focus outline */
-    a:focus, button:focus, input:focus, select:focus, textarea:focus {
-      outline: 3px solid #e2752e;
-      outline-offset: 3px;
-    }
-    /* Skip to main content link for screen readers */
-    .skip-link {
-      position: absolute;
-      top: -100px;
-      left: 0;
-      background: #083655;
-      color: #ffffff;
-      padding: 12px 20px;
-      font-size: 1rem;
-      font-weight: 700;
-      z-index: 9999;
-      text-decoration: none;
-      border-radius: 0 0 8px 0;
-    }
-    .skip-link:focus {
-      top: 0;
-    }
-    /* High contrast text — ensure 4.5:1 ratio */
-    .text-gray-600 { color: #4a5568 !important; } /* Darkened for contrast */
-    .text-gray-500 { color: #4a5568 !important; }
-    .text-gray-400 { color: #718096 !important; }
-    /* Small text — ensure nothing below 16px */
-    .text-sm  { font-size: 1rem !important; }    /* Override to 18px */
-    .text-xs  { font-size: 0.95rem !important; } /* Override to ~17px */
-    /* Stat numbers — keep large and bold */
-    .text-4xl { font-size: 2.5rem !important; }
-    .text-5xl { font-size: 3rem !important; }
-    .text-6xl { font-size: 3.5rem !important; }
-    /* Blockquote */
-    blockquote { font-size: 1.3rem; line-height: 1.8; }
-    /* Footer */
+    html { scroll-behavior: smooth; font-size: 18px; }
+    body { font-family: Arial, 'Helvetica Neue', sans-serif; font-size: 1rem; line-height: 1.75; letter-spacing: 0.01em; }
+    h1, h2, h3, h4 { font-family: Arial, 'Helvetica Neue', sans-serif; font-weight: 800; }
+    h1 { font-size: 2.8rem; line-height: 1.2; }
+    h2 { font-size: 2.2rem; line-height: 1.25; }
+    h3 { font-size: 1.6rem; line-height: 1.3; }
+    h4 { font-size: 1.3rem; line-height: 1.35; }
+    p, li, td, th, label, span { font-size: 1rem; line-height: 1.75; }
+    .gradient-hero { background: linear-gradient(135deg, #2b315f 0%, #083655 55%, #00a3dc 100%); }
+    .gradient-dark { background: linear-gradient(135deg, #083655 0%, #2b315f 100%); }
+    nav a { font-size: 1rem; font-weight: 600; }
+    a[class*="px-"], button { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; font-size: 1.05rem; font-weight: 700; }
+    a:focus, button:focus, input:focus, select:focus, textarea:focus { outline: 3px solid #e2752e; outline-offset: 3px; }
+    .skip-link { position: absolute; top: -100px; left: 0; background: #083655; color: #fff; padding: 12px 20px; font-size: 1rem; font-weight: 700; z-index: 9999; text-decoration: none; border-radius: 0 0 8px 0; }
+    .skip-link:focus { top: 0; }
+    .text-sm { font-size: 1rem !important; }
+    .text-xs { font-size: 0.95rem !important; }
     footer, footer p, footer a { font-size: 1rem !important; }
-    /* Form labels and inputs */
-    label { font-size: 1rem; font-weight: 600; }
-    input, select, textarea {
-      font-size: 1rem;
-      padding: 12px 16px;
-      min-height: 48px;
-    }
-    /* Responsive — maintain readability on mobile */
-    @media (max-width: 640px) {
-      html { font-size: 17px; }
-      h1   { font-size: 2.2rem; }
-      h2   { font-size: 1.8rem; }
-      h3   { font-size: 1.4rem; }
-    }
+    @media (max-width: 640px) { html { font-size: 17px; } h1 { font-size: 2.2rem; } h2 { font-size: 1.8rem; } h3 { font-size: 1.4rem; } }
   </style>
 </head>
 <body class="bg-white text-slate-800 antialiased">
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-
-  <!-- ============================================================
-       NAVIGATION
-  ============================================================ -->
+  <!-- NAVIGATION -->
   <nav role="navigation" aria-label="Main navigation" class="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <!-- Logo -->
-      <a href="#" class="flex items-center gap-3">
+      <a href="index.html" class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-lg flex items-center justify-center text-white font-extrabold text-sm"
-             style="background: linear-gradient(135deg, #1e3a5f, #f97316);">
-          50+
-        </div>
-        <span class="text-xl font-bold text-slate-900" style="font-family: 'Space Grotesk', sans-serif;">TechBridge</span>
+             style="background: linear-gradient(135deg, #083655, #e2752e);">50+</div>
+        <span class="text-xl font-extrabold" style="color:#083655;">TechBridge</span>
       </a>
-      <!-- Links -->
-      <div class="hidden md:flex items-center gap-8">
-        <a href="index.html" class="text-slate-900 font-bold border-b-2 border-orange-500 pb-0.5">Home</a>
-        <a href="start-here.html" class="text-slate-600 hover:text-slate-900 font-medium transition-colors">Start Here</a>
-        <a href="partners.html" class="text-slate-600 hover:text-slate-900 font-medium transition-colors">Partners</a>
-        <a href="impact.html" class="text-slate-600 hover:text-slate-900 font-medium transition-colors">Impact</a>
+      <div class="hidden md:flex items-center gap-6">
+        <a href="index.html" style="color:#083655; border-bottom: 2px solid #e2752e; padding-bottom:2px;">Home</a>
+        <a href="courses.html" class="hover:text-slate-900 transition-colors" style="color:#4a5568;">Courses</a>
+        <a href="partners.html" class="hover:text-slate-900 transition-colors" style="color:#4a5568;">Partners</a>
+        <a href="contact.html" class="hover:text-slate-900 transition-colors" style="color:#4a5568;">Contact</a>
       </div>
-      <!-- CTA -->
-      <a href="start-here.html"
-         class="bg-slate-900 hover:bg-slate-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors">
+      <a href="courses.html" class="text-white font-bold px-5 py-2.5 rounded-lg transition-colors" style="background:#e2752e;">
         Join Free Today
       </a>
     </div>
   </nav>
 
-  <!-- ============================================================
-       PART 1 — THE DECLARATION (HERO)
-  ============================================================ -->
-  <section id="main-content" role="main" class="gradient-dark text-white py-24 px-6">
+  <!-- HERO -->
+  <section id="main-content" role="main" class="gradient-hero text-white py-24 px-6">
     <div class="max-w-4xl mx-auto text-center">
-      <p class="text-orange-400 uppercase tracking-widest text-sm font-semibold mb-4">The Movement</p>
-      <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
+      <p class="uppercase tracking-widest text-sm font-bold mb-4" style="color:#65bd53;">The Movement</p>
+      <h1 class="font-extrabold leading-tight mb-6 text-white">
         Empowering 50+ Individuals<br class="hidden md:block" /> With Tech Skills
       </h1>
-      <p class="text-xl text-slate-300 leading-relaxed mb-4 max-w-3xl mx-auto">
+      <p class="text-xl leading-relaxed mb-4 max-w-3xl mx-auto" style="color:#c8dff0;">
         We live in a world that tells us age is a barrier — a barrier to learning, to opportunity, and to relevance.
         Every day, adults over 50 are told they are too old to learn, too slow to adapt, too irrelevant to matter.
       </p>
-      <p class="text-xl text-white font-semibold leading-relaxed mb-10 max-w-3xl mx-auto">
-        We believe that is a lie. And at 50+ TechBridge, we are not just challenging that lie —
+      <p class="text-xl font-semibold leading-relaxed mb-10 max-w-3xl mx-auto text-white">
+        We believe that is a lie. At 50+ TechBridge, we are not just challenging that lie —
         we are systematically dismantling it, one learner at a time.
       </p>
-      <!-- Trust Badges -->
-      <div class="flex flex-wrap justify-center gap-6 text-sm text-slate-300 mb-10">
+      <div class="flex flex-wrap justify-center gap-6 text-sm mb-10" style="color:#c8dff0;">
         <div class="flex items-center gap-2">
-          <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-          </svg>
-          <span>Free to join</span>
+          <svg class="w-5 h-5" style="color:#65bd53;" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span>100% Free to join</span>
         </div>
         <div class="flex items-center gap-2">
-          <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-          </svg>
+          <svg class="w-5 h-5" style="color:#65bd53;" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           <span>1,200+ lives changed</span>
         </div>
         <div class="flex items-center gap-2">
-          <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-          </svg>
-          <span>45 partner sites</span>
+          <svg class="w-5 h-5" style="color:#65bd53;" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span>No experience needed</span>
         </div>
       </div>
-      <a href="#join"
-         class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg px-10 py-4 rounded-lg transition-colors shadow-lg">
-        Join Free Today
-      </a>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="courses.html" class="font-bold text-lg px-10 py-4 rounded-lg transition-colors shadow-lg text-white" style="background:#e2752e;">
+          Start Learning Free →
+        </a>
+        <a href="contact.html" class="font-bold text-lg px-10 py-4 rounded-lg transition-colors" style="border:2px solid #00a3dc; color:#00a3dc;">
+          Get In Touch
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       PART 2 — THE PROBLEM & THE MISSION
-  ============================================================ -->
-  <section id="mission" class="py-24 px-6 bg-white">
+  <!-- MISSION: 3 PILLARS -->
+  <section class="py-24 px-6 bg-white">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-4xl md:text-5xl font-extrabold text-center text-slate-900 mb-6">
+      <h2 class="font-extrabold text-center mb-6" style="color:#083655;">
         Bridging the Digital Divide<br class="hidden md:block" /> One Adult at a Time
       </h2>
-      <p class="text-lg text-slate-600 text-center max-w-3xl mx-auto mb-6">
-        Our mission is to bridge the digital divide for every adult over 50. This isn't a niche problem —
-        it's a crisis of exclusion affecting millions.
+      <p class="text-lg text-center max-w-3xl mx-auto mb-16" style="color:#4a5568;">
+        Our mission is to bridge the digital divide for every adult over 50. This is not a niche problem —
+        it is a crisis of exclusion affecting millions.
       </p>
-      <p class="text-lg text-slate-900 font-semibold text-center max-w-3xl mx-auto mb-16">
-        We're not just teaching technology — we're fighting the lie that age equals obsolescence.
-      </p>
-
-      <!-- 3 Pillar Cards -->
       <div class="grid md:grid-cols-3 gap-8">
-        <!-- Card 1 -->
-        <div class="border-2 border-slate-200 rounded-xl p-8 hover:border-orange-400 transition-colors">
-          <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/>
-            </svg>
+        <div class="border-2 rounded-xl p-8 hover:shadow-lg transition-shadow" style="border-color:#e2e8f0;">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center mb-5" style="background:#fee2e2;">
+            <svg class="w-6 h-6" style="color:#dc2626;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-3">Ageism is Real</h3>
-          <p class="text-slate-600 font-semibold mb-3">Society assumes adults 50+ can't learn technology. We're proving them wrong every single day.</p>
-          <p class="text-slate-500 text-sm leading-relaxed">Age discrimination in hiring is rampant. AI systems are trained on bias. The myth that "you can't teach an old dog new tricks" keeps millions of capable people sidelined. We're done accepting that.</p>
+          <h3 class="font-bold mb-3" style="color:#083655;">Ageism is Real</h3>
+          <p class="font-semibold mb-3" style="color:#4a5568;">Society assumes adults 50+ can't learn technology. We're proving them wrong every single day.</p>
+          <p style="color:#64748b;">Age discrimination in hiring is rampant. The myth that "you can't teach an old dog new tricks" keeps millions of capable people sidelined. We're done accepting that.</p>
         </div>
-        <!-- Card 2 -->
-        <div class="border-2 border-slate-200 rounded-xl p-8 hover:border-orange-400 transition-colors">
-          <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-blue-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75"/>
-            </svg>
+        <div class="border-2 rounded-xl p-8 hover:shadow-lg transition-shadow" style="border-color:#e2e8f0;">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center mb-5" style="background:#dbeafe;">
+            <svg class="w-6 h-6" style="color:#1d4ed8;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75"/></svg>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-3">Economic Necessity</h3>
-          <p class="text-slate-600 font-semibold mb-3">Many adults 50+ need to work longer or start new careers. Digital skills unlock opportunity and independence.</p>
-          <p class="text-slate-500 text-sm leading-relaxed">Retirement isn't what it used to be. Without digital skills, people are invisible to employers. We're changing that by teaching the AI and tech skills that keep people employable and relevant.</p>
+          <h3 class="font-bold mb-3" style="color:#083655;">Economic Necessity</h3>
+          <p class="font-semibold mb-3" style="color:#4a5568;">Many adults 50+ need to work longer or start new careers. Digital skills unlock opportunity and independence.</p>
+          <p style="color:#64748b;">The fastest-growing segment of the workforce is adults over 50. Yet they are the least likely to receive digital skills training. We are changing that equation.</p>
         </div>
-        <!-- Card 3 -->
-        <div class="border-2 border-slate-200 rounded-xl p-8 hover:border-orange-400 transition-colors">
-          <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-green-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/>
-            </svg>
+        <div class="border-2 rounded-xl p-8 hover:shadow-lg transition-shadow" style="border-color:#e2e8f0;">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center mb-5" style="background:#dcfce7;">
+            <svg class="w-6 h-6" style="color:#16a34a;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-3">Living Independently</h3>
-          <p class="text-slate-600 font-semibold mb-3">80% of people 50+ want to live on their own terms. Technology makes that possible.</p>
-          <p class="text-slate-500 text-sm leading-relaxed">Telehealth, smart homes, online banking, staying connected with family — these aren't luxuries. They're necessities for living independently. We teach the practical skills that let people age with dignity and autonomy.</p>
+          <h3 class="font-bold mb-3" style="color:#083655;">Digital Independence</h3>
+          <p class="font-semibold mb-3" style="color:#4a5568;">Technology should empower, not isolate. Every adult deserves the confidence to navigate the digital world safely.</p>
+          <p style="color:#64748b;">From telehealth to online banking to staying connected with family — digital independence is not a luxury. It is a necessity for a full, safe, and connected life.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       PART 3 — OUR STORY
-  ============================================================ -->
-  <section id="story" class="py-24 px-6 bg-slate-50">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-4xl md:text-5xl font-extrabold text-center text-slate-900 mb-16">
-        How 50+ TechBridge Was Born
-      </h2>
-
-      <div class="space-y-6 text-lg text-slate-700 leading-relaxed mb-12">
-        <p>
-          50+ TechBridge was born from a simple, frustrating observation: <strong>traditional tech training is broken for adults 50+.</strong>
-          Classes move too fast. Instructors lack patience. The curriculum is disconnected from real-world needs.
-        </p>
-        <p>
-          So we started in public libraries with a radical idea: <strong>What if adults 50+ taught each other?</strong>
-          What if we focused on practical skills that solve real problems? What if we treated people with the respect
-          they deserve as capable, experienced adults?
-        </p>
-        <p>
-          The results were transformative. Our participants didn't just learn to use a computer. They gained confidence.
-          They built a community. They discovered new possibilities for their lives after 50. They stopped feeling invisible
-          and started feeling powerful.
-        </p>
-        <p>
-          Today, we are scaling this model nationwide — building a movement that proves experience is an asset, not a liability.
-        </p>
-      </div>
-
-      <!-- Pull Quote -->
-      <blockquote class="border-l-4 border-blue-900 pl-6 py-2 mb-12 bg-blue-50 rounded-r-lg">
-        <p class="text-lg italic text-slate-700 leading-relaxed">
-          "Participants didn't just learn technology — they gained confidence, built community, and discovered
-          new possibilities for their lives after 50."
-        </p>
-        <footer class="mt-3 text-sm font-bold text-slate-900">— Brian McKinney, Founder</footer>
-      </blockquote>
-
-      <!-- Stats -->
-      <div class="grid grid-cols-2 gap-8 text-center">
-        <div>
-          <div class="text-5xl font-extrabold text-orange-500 mb-2">2023</div>
-          <p class="text-slate-600 font-medium">Year Founded</p>
-        </div>
-        <div>
-          <div class="text-5xl font-extrabold text-orange-500 mb-2">Nationwide</div>
-          <p class="text-slate-600 font-medium">Scaling Across the US</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       PART 4 — OUR UNIQUE APPROACH
-  ============================================================ -->
-  <section id="approach" class="py-24 px-6 bg-white">
+  <!-- THIS IS FOR YOU IF... (from Start Here) -->
+  <section class="py-24 px-6" style="background:#f0f8ff;">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-4xl md:text-5xl font-extrabold text-center text-slate-900 mb-4">
-        Built Different, By Design
-      </h2>
-      <p class="text-xl text-slate-500 text-center mb-16">
-        Six principles that make our approach work where others have failed.
+      <h2 class="font-extrabold text-center mb-6" style="color:#083655;">This Is For You If...</h2>
+      <p class="text-lg text-center max-w-2xl mx-auto mb-16" style="color:#4a5568;">
+        You don't need to be "tech savvy" to join. You just need to be ready to learn.
       </p>
-
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Principle 1 -->
-        <div class="border-2 border-slate-200 rounded-xl p-8 hover:border-orange-400 transition-colors">
-          <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/>
-            </svg>
+        <div class="flex items-start gap-4 p-6 rounded-xl bg-white shadow-sm">
+          <span class="text-3xl">😤</span>
+          <div>
+            <h3 class="font-bold mb-2" style="color:#083655;">You're frustrated with technology</h3>
+            <p style="color:#4a5568;">Smartphones, apps, and computers feel overwhelming. You want to feel confident, not confused.</p>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-3">Peer-to-Peer Learning</h3>
-          <p class="text-slate-600 leading-relaxed">Adults 50+ teach each other. No condescension, no judgment — just relatable guidance from people who understand the challenges firsthand.</p>
         </div>
-        <!-- Principle 2 -->
-        <div class="border-2 border-slate-200 rounded-xl p-8 hover:border-orange-400 transition-colors">
-          <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
-            </svg>
+        <div class="flex items-start gap-4 p-6 rounded-xl bg-white shadow-sm">
+          <span class="text-3xl">💼</span>
+          <div>
+            <h3 class="font-bold mb-2" style="color:#083655;">You want to stay employable</h3>
+            <p style="color:#4a5568;">You need digital skills to find work, advance your career, or start something new after 50.</p>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-3">Real-World Focus</h3>
-          <p class="text-slate-600 leading-relaxed">We don't teach tech for tech's sake. Every lesson solves a real problem — accessing healthcare, earning income, staying safe online.</p>
         </div>
-        <!-- Principle 3 -->
-        <div class="border-2 border-slate-200 rounded-xl p-8 hover:border-orange-400 transition-colors">
-          <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
+        <div class="flex items-start gap-4 p-6 rounded-xl bg-white shadow-sm">
+          <span class="text-3xl">🏥</span>
+          <div>
+            <h3 class="font-bold mb-2" style="color:#083655;">You want to manage your health online</h3>
+            <p style="color:#4a5568;">Telehealth, patient portals, and online pharmacies — use them with confidence.</p>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-3">Free and Accessible</h3>
-          <p class="text-slate-600 leading-relaxed">Our foundational course is always free, offered in partnership with local libraries and community centers. No credit card. No commitment.</p>
         </div>
-        <!-- Principle 4 -->
-        <div class="border-2 border-slate-200 rounded-xl p-8 hover:border-orange-400 transition-colors">
-          <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/>
-            </svg>
+        <div class="flex items-start gap-4 p-6 rounded-xl bg-white shadow-sm">
+          <span class="text-3xl">👨‍👩‍👧</span>
+          <div>
+            <h3 class="font-bold mb-2" style="color:#083655;">You want to stay connected</h3>
+            <p style="color:#4a5568;">Video calls with family, social media, messaging — be part of the conversation.</p>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-3">Train-the-Trainer Model</h3>
-          <p class="text-slate-600 leading-relaxed">We don't just create students — we empower them to become teachers, building a scalable, self-sustaining ecosystem of learning.</p>
         </div>
-        <!-- Principle 5 -->
-        <div class="border-2 border-slate-200 rounded-xl p-8 hover:border-orange-400 transition-colors">
-          <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/>
-            </svg>
+        <div class="flex items-start gap-4 p-6 rounded-xl bg-white shadow-sm">
+          <span class="text-3xl">🔒</span>
+          <div>
+            <h3 class="font-bold mb-2" style="color:#083655;">You want to stay safe online</h3>
+            <p style="color:#4a5568;">Scams, phishing, and fraud target adults 50+. Protect yourself and your finances.</p>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-3">Community, Not Just Classes</h3>
-          <p class="text-slate-600 leading-relaxed">Learning continues beyond the classroom through forums, monthly meetups, and ongoing support. We're building a movement, not just running courses.</p>
         </div>
-        <!-- Principle 6 -->
-        <div class="border-2 border-slate-200 rounded-xl p-8 hover:border-orange-400 transition-colors">
-          <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0"/>
-            </svg>
+        <div class="flex items-start gap-4 p-6 rounded-xl bg-white shadow-sm">
+          <span class="text-3xl">🌟</span>
+          <div>
+            <h3 class="font-bold mb-2" style="color:#083655;">You want to prove them wrong</h3>
+            <p style="color:#4a5568;">People told you that you're too old to learn tech. You know that's not true. So do we.</p>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-3">Proven Results</h3>
-          <p class="text-slate-600 leading-relaxed">85% completion rate — nearly triple the industry average of 30%. Because we meet people where they are, with no shame and no assumptions.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       PART 5 — THE IMPACT
-  ============================================================ -->
-  <section id="impact" class="py-24 px-6 gradient-dark text-white">
+  <!-- HOW IT WORKS (from Start Here) -->
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-extrabold text-center mb-16" style="color:#083655;">How It Works</h2>
+      <div class="space-y-8">
+        <div class="flex items-start gap-6">
+          <div class="w-12 h-12 text-white rounded-full flex items-center justify-center font-extrabold text-xl flex-shrink-0" style="background:#e2752e;">1</div>
+          <div>
+            <h3 class="font-bold mb-2" style="color:#083655;">Sign Up — It's Free</h3>
+            <p style="color:#4a5568;">Fill out a simple form. No credit card, no commitment. We will match you with a cohort near you or online.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-6">
+          <div class="w-12 h-12 text-white rounded-full flex items-center justify-center font-extrabold text-xl flex-shrink-0" style="background:#e2752e;">2</div>
+          <div>
+            <h3 class="font-bold mb-2" style="color:#083655;">Join a Small Group</h3>
+            <p style="color:#4a5568;">You will be placed in a cohort of 10–15 adults 50+, led by a trained peer facilitator. Sessions meet weekly for 6 weeks, 2 hours each.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-6">
+          <div class="w-12 h-12 text-white rounded-full flex items-center justify-center font-extrabold text-xl flex-shrink-0" style="background:#e2752e;">3</div>
+          <div>
+            <h3 class="font-bold mb-2" style="color:#083655;">Learn Real Skills</h3>
+            <p style="color:#4a5568;">Each session covers practical, real-world skills — from using a smartphone to navigating healthcare portals to staying safe from online scams.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-6">
+          <div class="w-12 h-12 text-white rounded-full flex items-center justify-center font-extrabold text-xl flex-shrink-0" style="background:#e2752e;">4</div>
+          <div>
+            <h3 class="font-bold mb-2" style="color:#083655;">Stay Connected</h3>
+            <p style="color:#4a5568;">After the course, you join our ongoing community — monthly meetups, online forums, and advanced workshops. Learning never stops here.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR STORY -->
+  <section class="py-24 px-6 gradient-dark text-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="uppercase tracking-widest text-sm font-bold mb-4" style="color:#65bd53;">Our Story</p>
+      <h2 class="font-extrabold mb-8 text-white">Born From a Radical Idea</h2>
+      <p class="text-xl leading-relaxed mb-6" style="color:#c8dff0;">
+        50+ TechBridge was born from a simple but radical idea: that the adults most excluded from the digital
+        economy are also the ones with the most to gain from it.
+      </p>
+      <p class="text-xl leading-relaxed mb-6" style="color:#c8dff0;">
+        Our founder, Brian McKinney, did not set out to start a movement. He set out to help a few people in his
+        community learn how to use their smartphones. But what he discovered changed everything.
+      </p>
+      <blockquote class="border-l-4 pl-6 text-left my-10 italic" style="border-color:#e2752e; color:#e2e8f0; font-size:1.3rem; line-height:1.8;">
+        "The problem was never capability. The problem was that no one had ever believed in them enough to try."
+        <footer class="mt-3 not-italic font-bold" style="color:#e2752e; font-size:1rem;">— Brian McKinney, Founder</footer>
+      </blockquote>
+      <p class="text-xl leading-relaxed" style="color:#c8dff0;">
+        Today, 50+ TechBridge operates across 45 partner sites, has trained over 1,200 adults, and is building
+        the infrastructure for a future where age is never a barrier to digital participation.
+      </p>
+    </div>
+  </section>
+
+  <!-- 6 PRINCIPLES -->
+  <section class="py-24 px-6 bg-white">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-4">
-        The Numbers Speak for Themselves
-      </h2>
-      <p class="text-slate-300 text-center text-lg mb-16 max-w-2xl mx-auto">
-        This is not just feel-good programming. This is measurable, life-changing impact.
+      <h2 class="font-extrabold text-center mb-6" style="color:#083655;">Our Unique Approach</h2>
+      <p class="text-lg text-center max-w-3xl mx-auto mb-16" style="color:#4a5568;">
+        Six design principles that make 50+ TechBridge different from every other tech education program.
       </p>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-white/10 rounded-xl p-8 text-center">
-          <div class="text-5xl font-extrabold text-orange-400 mb-2">1,200+</div>
-          <div class="text-lg font-semibold mb-2">Lives Changed</div>
-          <p class="text-sm text-slate-300">Adults 50+ trained since 2023 — and still using their skills 6 months later.</p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="p-6 rounded-xl border-2 hover:shadow-lg transition-shadow" style="border-color:#e2e8f0;">
+          <div class="text-3xl mb-4">🤝</div>
+          <h3 class="font-bold mb-2" style="color:#083655;">Peer-Led Learning</h3>
+          <p style="color:#4a5568;">Taught by adults 50+ who have been through the same journey. Not condescending instructors — real peers.</p>
         </div>
-        <div class="bg-white/10 rounded-xl p-8 text-center">
-          <div class="text-5xl font-extrabold text-orange-400 mb-2">85%</div>
-          <div class="text-lg font-semibold mb-2">Completion Rate</div>
-          <p class="text-sm text-slate-300">Far above the industry average of 30%. Because we don't treat you like a child.</p>
+        <div class="p-6 rounded-xl border-2 hover:shadow-lg transition-shadow" style="border-color:#e2e8f0;">
+          <div class="text-3xl mb-4">🏘️</div>
+          <h3 class="font-bold mb-2" style="color:#083655;">Community-Embedded</h3>
+          <p style="color:#4a5568;">We operate inside trusted community spaces — libraries, senior centers, faith communities — where people already feel safe.</p>
         </div>
-        <div class="bg-white/10 rounded-xl p-8 text-center">
-          <div class="text-5xl font-extrabold text-orange-400 mb-2">45</div>
-          <div class="text-lg font-semibold mb-2">Partner Sites</div>
-          <p class="text-sm text-slate-300">Libraries, community centers, and agencies that trust us to deliver results.</p>
+        <div class="p-6 rounded-xl border-2 hover:shadow-lg transition-shadow" style="border-color:#e2e8f0;">
+          <div class="text-3xl mb-4">🎯</div>
+          <h3 class="font-bold mb-2" style="color:#083655;">Practical & Relevant</h3>
+          <p style="color:#4a5568;">Every lesson is tied to a real-life need — health, finances, family, safety. No abstract theory. Just skills that matter.</p>
         </div>
-        <div class="bg-white/10 rounded-xl p-8 text-center">
-          <div class="text-5xl font-extrabold text-orange-400 mb-2">92%</div>
-          <div class="text-lg font-semibold mb-2">Feel More Confident</div>
-          <p class="text-sm text-slate-300">Report increased digital confidence and reduced tech anxiety after our program.</p>
+        <div class="p-6 rounded-xl border-2 hover:shadow-lg transition-shadow" style="border-color:#e2e8f0;">
+          <div class="text-3xl mb-4">🐢</div>
+          <h3 class="font-bold mb-2" style="color:#083655;">Go At Your Pace</h3>
+          <p style="color:#4a5568;">No rushing, no judgment. Our curriculum is designed around how adults actually learn — with repetition, patience, and encouragement.</p>
         </div>
-        <div class="bg-white/10 rounded-xl p-8 text-center">
-          <div class="text-5xl font-extrabold text-orange-400 mb-2">$1.2M+</div>
-          <div class="text-lg font-semibold mb-2">Economic Impact</div>
-          <p class="text-sm text-slate-300">Estimated earnings generated by graduates who started freelancing or found employment.</p>
+        <div class="p-6 rounded-xl border-2 hover:shadow-lg transition-shadow" style="border-color:#e2e8f0;">
+          <div class="text-3xl mb-4">🆓</div>
+          <h3 class="font-bold mb-2" style="color:#083655;">Always Free</h3>
+          <p style="color:#4a5568;">Cost should never be a barrier to digital inclusion. Our program is 100% free to learners, funded by community partners and grants.</p>
         </div>
-        <div class="bg-white/10 rounded-xl p-8 text-center">
-          <div class="text-5xl font-extrabold text-orange-400 mb-2">40%</div>
-          <div class="text-lg font-semibold mb-2">Less Social Isolation</div>
-          <p class="text-sm text-slate-300">Reduction measured by UCLA Loneliness Scale among program completers.</p>
+        <div class="p-6 rounded-xl border-2 hover:shadow-lg transition-shadow" style="border-color:#e2e8f0;">
+          <div class="text-3xl mb-4">🌐</div>
+          <h3 class="font-bold mb-2" style="color:#083655;">Online & In-Person</h3>
+          <p style="color:#4a5568;">Whether you prefer to learn in a room with others or from the comfort of your home, we have a path for you.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       PART 6 — THE INVITATION (CTA)
-  ============================================================ -->
-  <section id="join" class="py-24 px-6 bg-white">
+  <!-- IMPACT STATS -->
+  <section class="py-20 px-6" style="background:#083655;">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+        <div>
+          <p class="font-extrabold mb-2" style="font-size:3rem; color:#e2752e;">1,200+</p>
+          <p style="color:#c8dff0;">Adults Trained</p>
+        </div>
+        <div>
+          <p class="font-extrabold mb-2" style="font-size:3rem; color:#e2752e;">85%</p>
+          <p style="color:#c8dff0;">Completion Rate</p>
+        </div>
+        <div>
+          <p class="font-extrabold mb-2" style="font-size:3rem; color:#e2752e;">45</p>
+          <p style="color:#c8dff0;">Partner Sites</p>
+        </div>
+        <div>
+          <p class="font-extrabold mb-2" style="font-size:3rem; color:#e2752e;">$1.2M+</p>
+          <p style="color:#c8dff0;">Economic Impact</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="py-24 px-6 bg-white">
     <div class="max-w-3xl mx-auto text-center">
-      <p class="text-orange-500 uppercase tracking-widest text-sm font-semibold mb-4">Join the Movement</p>
-      <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6">
-        Begin Your Digital Journey Today
-      </h2>
-      <p class="text-lg text-slate-600 leading-relaxed mb-4">
-        We are fighting ageism through technology education. But we cannot do it alone.
+      <p class="uppercase tracking-widest text-sm font-bold mb-8" style="color:#e2752e;">What Our Learners Say</p>
+      <blockquote class="italic mb-6" style="font-size:1.4rem; line-height:1.8; color:#083655;">
+        "I was terrified of technology. Now I video call my grandchildren every week, manage my prescriptions online, and I even started a small online business. 50+ TechBridge didn't just teach me technology — they gave me my confidence back."
+      </blockquote>
+      <p class="font-bold" style="color:#e2752e;">Margaret T., Age 67 — Graduate, Chicago Cohort</p>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section id="join" class="py-24 px-6 gradient-dark text-white">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="uppercase tracking-widest text-sm font-bold mb-4" style="color:#65bd53;">You Belong Here</p>
+      <h2 class="font-extrabold mb-6 text-white">Ready to Begin Your Journey?</h2>
+      <p class="text-xl mb-10" style="color:#c8dff0;">
+        Join 1,200+ adults 50+ who refused to be left behind. Your digital future starts today — and it starts free.
       </p>
-      <p class="text-lg text-slate-700 leading-relaxed mb-10">
-        Together, we can build a world where age is not a barrier, but a badge of honor — where everyone,
-        at every age, has the tools to live with dignity, purpose, and connection.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="#"
-           class="bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg px-10 py-4 rounded-lg transition-colors shadow-md">
-          Join Free Today
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="courses.html" class="font-bold text-lg px-10 py-4 rounded-lg transition-colors text-white shadow-lg" style="background:#e2752e;">
+          Start the Free Course →
         </a>
-        <a href="#"
-           class="border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white font-bold text-lg px-10 py-4 rounded-lg transition-colors">
-          Partner With Us
+        <a href="contact.html" class="font-bold text-lg px-10 py-4 rounded-lg transition-colors" style="border:2px solid #00a3dc; color:#00a3dc;">
+          Contact Us
         </a>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       FOOTER
-  ============================================================ -->
-  <footer class="bg-black text-gray-400 py-8 text-center text-sm">
-    <p>&copy; 2026 50+ TechBridge. All rights reserved.</p>
+  <!-- FOOTER -->
+  <footer class="py-12 px-6" style="background:#083655;">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center text-white font-extrabold text-xs"
+               style="background: linear-gradient(135deg, #e2752e, #00a3dc);">50+</div>
+          <span class="font-extrabold text-white">TechBridge</span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-6 text-sm" style="color:#a8c8e0;">
+          <a href="index.html" class="hover:text-white transition-colors" style="color:#a8c8e0;">Home</a>
+          <a href="courses.html" class="hover:text-white transition-colors" style="color:#a8c8e0;">Courses</a>
+          <a href="partners.html" class="hover:text-white transition-colors" style="color:#a8c8e0;">Partners</a>
+          <a href="contact.html" class="hover:text-white transition-colors" style="color:#a8c8e0;">Contact</a>
+        </div>
+        <p style="color:#a8c8e0; font-size:1rem;">© 2026 50+ TechBridge. All rights reserved.</p>
+      </div>
+    </div>
   </footer>
 
 </body>
