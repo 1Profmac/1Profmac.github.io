@@ -11,12 +11,98 @@
     body { font-family: 'Inter', sans-serif; }
     h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
     .gradient-dark { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%); }
+
+    /* ── ADA COMPLIANCE: Font Sizes & Accessibility ── */
+    /* WCAG 2.1 AA: min 16px body, 18px+ for large text, 4.5:1 contrast ratio */
+    html {
+      font-size: 18px; /* Base 18px — exceeds WCAG minimum of 16px */
+    }
+    body {
+      font-size: 1rem;       /* 18px */
+      line-height: 1.75;     /* Generous line height for readability */
+      letter-spacing: 0.01em;
+    }
+    h1 { font-size: 2.8rem;  line-height: 1.2; } /* ~50px */
+    h2 { font-size: 2.2rem;  line-height: 1.25; } /* ~40px */
+    h3 { font-size: 1.6rem;  line-height: 1.3; }  /* ~29px */
+    h4 { font-size: 1.3rem;  line-height: 1.35; } /* ~23px */
+    p, li, td, th, label, span, div {
+      font-size: 1rem;       /* 18px minimum */
+      line-height: 1.75;
+    }
+    /* Navigation links */
+    nav a {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    /* Buttons — large tap targets (min 44x44px per WCAG 2.5.5) */
+    a[class*="px-"], button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+    /* Focus indicators — visible keyboard focus outline */
+    a:focus, button:focus, input:focus, select:focus, textarea:focus {
+      outline: 3px solid #e2752e;
+      outline-offset: 3px;
+    }
+    /* Skip to main content link for screen readers */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 0;
+      background: #083655;
+      color: #ffffff;
+      padding: 12px 20px;
+      font-size: 1rem;
+      font-weight: 700;
+      z-index: 9999;
+      text-decoration: none;
+      border-radius: 0 0 8px 0;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+    /* High contrast text — ensure 4.5:1 ratio */
+    .text-gray-600 { color: #4a5568 !important; } /* Darkened for contrast */
+    .text-gray-500 { color: #4a5568 !important; }
+    .text-gray-400 { color: #718096 !important; }
+    /* Small text — ensure nothing below 16px */
+    .text-sm  { font-size: 1rem !important; }    /* Override to 18px */
+    .text-xs  { font-size: 0.95rem !important; } /* Override to ~17px */
+    /* Stat numbers — keep large and bold */
+    .text-4xl { font-size: 2.5rem !important; }
+    .text-5xl { font-size: 3rem !important; }
+    .text-6xl { font-size: 3.5rem !important; }
+    /* Blockquote */
+    blockquote { font-size: 1.3rem; line-height: 1.8; }
+    /* Footer */
+    footer, footer p, footer a { font-size: 1rem !important; }
+    /* Form labels and inputs */
+    label { font-size: 1rem; font-weight: 600; }
+    input, select, textarea {
+      font-size: 1rem;
+      padding: 12px 16px;
+      min-height: 48px;
+    }
+    /* Responsive — maintain readability on mobile */
+    @media (max-width: 640px) {
+      html { font-size: 17px; }
+      h1   { font-size: 2.2rem; }
+      h2   { font-size: 1.8rem; }
+      h3   { font-size: 1.4rem; }
+    }
   </style>
 </head>
 <body class="bg-white text-slate-800 antialiased">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
 
   <!-- NAVIGATION -->
-  <nav class="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
+  <nav role="navigation" aria-label="Main navigation" class="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-lg flex items-center justify-center text-white font-extrabold text-sm"
@@ -36,7 +122,7 @@
   </nav>
 
   <!-- HERO -->
-  <section class="gradient-dark text-white py-24 px-6">
+  <section id="main-content" role="main" class="gradient-dark text-white py-24 px-6">
     <div class="max-w-4xl mx-auto text-center">
       <p class="text-orange-400 uppercase tracking-widest text-sm font-semibold mb-4">Measurable Results</p>
       <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
