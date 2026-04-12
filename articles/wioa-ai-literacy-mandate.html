@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The DOL Just Mandated AI Literacy Training. Almost No One Can Deliver It. | Brian McKinney</title>
+  <meta name="description" content="The DOL authorized WIOA funds for AI literacy in 2025. Most workforce agencies can't meet delivery standards. Here's what qualified training looks like." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0a; --bg2: #111113; --card: rgba(255,255,255,0.04);
+      --card-border: rgba(255,255,255,0.08); --indigo: #6366f1;
+      --indigo-light: #818cf8; --orange: #f97316;
+      --white: #ffffff; --gray: #9ca3af; --gray-light: #d1d5db;
+    }
+    body { background: var(--bg); color: var(--white); font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.75; }
+    a { color: var(--indigo-light); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10,10,10,0.9); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 0 24px; height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-weight: 700; font-size: 15px; }
+    .nav-back { font-size: 13px; color: var(--gray); }
+    .nav-back:hover { color: var(--white); text-decoration: none; }
+
+    .hero {
+      padding: 120px 24px 60px;
+      max-width: 760px; margin: 0 auto;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .article-tag {
+      display: inline-block;
+      background: rgba(99,102,241,.15);
+      border: 1px solid rgba(99,102,241,.3);
+      border-radius: 999px;
+      padding: 4px 14px;
+      font-size: 12px; font-weight: 600;
+      color: var(--indigo-light);
+      letter-spacing: .06em; text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-weight: 900; line-height: 1.15;
+      letter-spacing: -.02em; margin-bottom: 20px;
+    }
+    h1 em {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic; color: var(--orange);
+    }
+    .article-meta {
+      display: flex; flex-wrap: wrap; gap: 16px;
+      font-size: 13px; color: var(--gray);
+      margin-bottom: 32px;
+    }
+    .article-meta span { display: flex; align-items: center; gap: 6px; }
+
+    .stats-bar {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--card-border);
+      border: 1px solid var(--card-border); border-radius: 12px;
+      overflow: hidden; margin-top: 32px;
+    }
+    .stat-box { background: var(--bg2); padding: 20px; text-align: center; }
+    .stat-box .num { font-size: 1.8rem; font-weight: 900; color: var(--indigo-light); }
+    .stat-box .lbl { font-size: 11px; color: var(--gray); margin-top: 4px; text-transform: uppercase; letter-spacing: .06em; }
+
+    .article-body {
+      max-width: 760px; margin: 0 auto;
+      padding: 60px 24px 100px;
+    }
+    .article-body h2 {
+      font-size: 1.35rem; font-weight: 800;
+      margin: 48px 0 16px;
+      letter-spacing: -.01em;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .article-body p { margin-bottom: 20px; color: var(--gray-light); }
+    .article-body strong { color: var(--white); font-weight: 700; }
+    .article-body ul, .article-body ol {
+      margin: 0 0 20px 24px; color: var(--gray-light);
+    }
+    .article-body li { margin-bottom: 8px; }
+
+    .pullquote {
+      border-left: 3px solid var(--indigo);
+      margin: 36px 0; padding: 20px 24px;
+      background: rgba(99,102,241,.06);
+      border-radius: 0 8px 8px 0;
+      font-size: 1.15rem; font-weight: 600;
+      color: var(--white); line-height: 1.5;
+    }
+
+    .action-box {
+      background: var(--card); border: 1px solid var(--card-border);
+      border-radius: 12px; padding: 28px; margin: 36px 0;
+    }
+    .action-box h3 { font-size: 1rem; font-weight: 700; margin-bottom: 16px; color: var(--indigo-light); }
+    .action-box ol { margin-left: 20px; }
+    .action-box ol li { margin-bottom: 12px; color: var(--gray-light); }
+    .action-box ol li strong { color: var(--white); }
+
+    .bio-box {
+      background: var(--card); border: 1px solid var(--card-border);
+      border-radius: 12px; padding: 28px; margin-top: 60px;
+      border-top: 2px solid var(--indigo);
+    }
+    .bio-box p { font-size: .92rem; color: var(--gray-light); margin-bottom: 12px; }
+    .bio-box p:last-child { margin-bottom: 0; }
+
+    .cta-section {
+      text-align: center; padding: 60px 24px;
+      background: var(--bg2);
+      border-top: 1px solid var(--card-border);
+    }
+    .cta-section h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; }
+    .cta-section p { color: var(--gray-light); margin-bottom: 28px; }
+    .btn {
+      display: inline-block; padding: 14px 28px; border-radius: 10px;
+      font-weight: 700; font-size: 15px; cursor: pointer;
+      background: linear-gradient(135deg, var(--indigo), var(--indigo-light));
+      color: var(--white); transition: all .2s;
+    }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(99,102,241,.4); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .stats-bar { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Brian McKinney</div>
+  <a class="nav-back" href="/brianmckinney/">← Back to site</a>
+</nav>
+
+<div class="hero">
+  <div class="article-tag">Workforce Development · AI Literacy</div>
+  <h1>The DOL Just Mandated AI Literacy Training for Every Workforce Agency in America. <em>Almost No One Can Deliver It.</em></h1>
+  <div class="article-meta">
+    <span>Brian McKinney</span>
+    <span>April 2026</span>
+    <span>~1,850 words · 8 min read</span>
+  </div>
+  <div class="stats-bar">
+    <div class="stat-box"><div class="num">347</div><div class="lbl">Pioneers Trained</div></div>
+    <div class="stat-box"><div class="num">23</div><div class="lbl">Organizations</div></div>
+    <div class="stat-box"><div class="num">3x</div><div class="lbl">Completion Rate</div></div>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <p>In August 2025, the U.S. Department of Labor issued TEGL 03-25 — federal guidance explicitly authorizing WIOA funds for AI literacy training across all American Job Centers and state workforce agencies.</p>
+  <p>It landed on every workforce director's desk. Most of them are still staring at it.</p>
+  <p>Here's why — and what it means for the 27 million adults 50+ who need this training the most.</p>
+
+  <h2>What TEGL 03-25 Actually Says</h2>
+  <p>The guidance is not a suggestion. It is a formal authorization — meaning workforce development funds that were previously confined to traditional job skills can now be directed toward AI literacy.</p>
+  <p>The DOL defined five content areas that qualify:</p>
+  <ol>
+    <li>Understanding foundational AI concepts</li>
+    <li>Using AI tools in workplace contexts</li>
+    <li>Critical evaluation of AI outputs</li>
+    <li>Data privacy and security awareness</li>
+    <li>Ethical considerations in AI use</li>
+  </ol>
+  <p>And seven delivery principles that qualified programs must meet — including accessibility, equity focus, industry alignment, and measurable outcomes.</p>
+  <p>This was a landmark moment. After years of workforce developers asking "can we use WIOA funds for this?" — the answer became an official yes.</p>
+  <p>So what happened next? Mostly: nothing.</p>
+
+  <h2>The Delivery Problem Nobody Is Talking About</h2>
+  <p>Here's the gap that the policy world created and the practitioner world has not yet filled:</p>
+
+  <div class="pullquote">The mandate exists. The delivery infrastructure does not.</div>
+
+  <p>Most workforce training providers — even experienced ones — can meet one or two of the DOL's seven delivery principles. Meeting all seven requires:</p>
+  <ul>
+    <li>A curriculum purpose-built for lower-digital-fluency learners</li>
+    <li>Accessible delivery that doesn't assume smartphone proficiency as a baseline</li>
+    <li>Instructors who understand both AI tools AND adult learning psychology</li>
+    <li>Outcomes measurement tied to workforce re-entry, not just course completion</li>
+    <li>Equity-centered design that accounts for language, disability, and economic barriers</li>
+    <li>Industry-recognized credentials (for ETPL eligibility)</li>
+    <li>A track record of completing with diverse adult populations</li>
+  </ul>
+  <p>That last point is where most programs fall apart before they start. The national average completion rate for digital skills workforce programs is approximately 20–30%. Programs design for the median learner — younger, more tech-fluent, more formally educated — and then wonder why adults 50+ don't finish.</p>
+  <p>The DOL's guidance is available. The money is available. The need is catastrophic. The qualified delivery organizations? You can count them on one hand.</p>
+
+  <h2>The Numbers Behind the Crisis</h2>
+  <p><strong>78% of organizations now use AI in at least one business function</strong> — up from 55% just one year ago. The workplace has transformed faster than training has responded.</p>
+  <p><strong>55% of workers over 55 rarely or never use AI tools at work.</strong> Not because they don't want to. Because no one has trained them.</p>
+
+  <div class="pullquote">74% of older workers are willing or very willing to participate in AI upskilling — if it's offered. Three out of four are waiting. Not resistant. Waiting.</div>
+
+  <p>Meanwhile, <strong>over 50% of workers 50+ received zero technology training from their employer last year</strong> — compared to 27% of younger workers.</p>
+  <p>We have a federal mandate. We have available funding. We have a population actively raising their hands. And we have a delivery gap so large you could drive a workforce board through it. This is not a motivation problem. It is an infrastructure problem.</p>
+
+  <h2>Why Adults 50+ Are the Right Population to Prioritize</h2>
+  <p>TEGL 03-25 doesn't specify age groups — it is population-neutral guidance. But the economic case for prioritizing adults 50+ is overwhelming.</p>
+  <p>Adults 50+ represent <strong>56% of all consumer spending</strong> in the United States. They hold <strong>$76 trillion in wealth</strong>. A 2024 analysis estimated <strong>$850 billion in annual economic losses</strong> attributable to the skills gap among workers 50+.</p>
+  <p>Compare that to what AI literacy training actually costs to deliver at scale: roughly $200–$400 per participant in a well-designed program. The ROI math is not close.</p>
+  <p>And here's what most workforce directors are missing: <strong>AI usage among adults 50+ nearly doubled in a single year — from 18% in 2024 to 30% in 2025.</strong> That is the fastest adoption velocity ever recorded for this demographic. They are not waiting to be convinced. They are already moving.</p>
+
+  <h2>What Qualified Delivery Actually Looks Like</h2>
+  <p>I have deployed 50+TechBridge across 23 organizations in Austin, Texas. We have trained 347 adults — we call them Pioneers — with a completion rate three times the national average. Here is what we learned:</p>
+  <p><strong>Project-based, not lecture-based.</strong> Adults 50+ do not learn by watching slides. They learn by building something. Every lesson ends with a tangible output. The learning is the doing.</p>
+  <p><strong>Belief before tools.</strong> The single biggest barrier is not technical. It is self-perception. Before adults 50+ can learn how to use an AI tool, they need evidence that they are capable of learning. The first session is designed entirely around that shift.</p>
+  <p><strong>Customization is not optional.</strong> A workforce training program at a healthcare system needs different AI literacy than one at a logistics company. Generic curricula produce generic outcomes — which means low completion and no measurable workforce impact.</p>
+  <p><strong>The instructor matters more than the platform.</strong> The wrong instructor can undo a well-designed curriculum in 20 minutes. Training the trainer is as important as training the trainee.</p>
+  <p><strong>Outcomes must be workforce-measurable.</strong> For WIOA compliance, "participants felt more confident" is not an outcome. Workforce re-entry rates, skill certifications, and wage data are outcomes. Programs that cannot produce these metrics will not survive the audit cycle.</p>
+
+  <h2>The Window Is Now</h2>
+  <p>TEGL 03-25 was issued eight months ago. Workforce directors are past the "reading it" phase and entering the "budget it" phase. The FY2026 program year planning is happening right now.</p>
+  <p>There is also a threat on the horizon: proposed 2026 federal budget cuts that consolidate workforce funding streams. The organizations that establish ETPL eligibility and workforce board partnerships now will be positioned to survive that consolidation. The ones that wait will compete for a smaller pool with no track record.</p>
+
+  <div class="action-box">
+    <h3>What Workforce Directors Should Do This Quarter</h3>
+    <ol>
+      <li><strong>Pull TEGL 03-25 and map your current programs against the seven delivery principles.</strong> Most organizations meet three or four. The gaps are where you need a delivery partner.</li>
+      <li><strong>Separate "AI awareness" from "AI literacy."</strong> A one-hour webinar is awareness. Literacy means a learner can use an AI tool to solve a real problem in their work context.</li>
+      <li><strong>Prioritize populations with the highest need.</strong> Adults 50+, workers with lower formal education, workers in industries facing rapid automation.</li>
+      <li><strong>Ask potential delivery partners for completion data, not enrollment data.</strong> If a provider cannot answer with specific numbers, keep looking.</li>
+      <li><strong>Start with a pilot.</strong> One cohort. Twelve weeks. Measurable outcomes. De-risk the investment, build the evidence base, then scale.</li>
+    </ol>
+  </div>
+
+  <h2>The Pioneers Are Already Waiting</h2>
+  <p>There are 27 million adults 50+ in the U.S. labor market right now. Every one of them is watching their workplace transform around AI tools they don't know how to use — not because they can't learn, but because no one has built the bridge.</p>
+  <p>The federal government has now said: build the bridge. Here is the funding. Here are the standards.</p>
+  <p>347 Pioneers in Austin proved what is possible when the right training meets the right belief. The infrastructure for a national version of that exists. The mandate exists. The funding exists.</p>
+
+  <div class="pullquote">What we need now are the workforce directors willing to act.</div>
+
+  <div class="bio-box">
+    <p><strong>Brian McKinney</strong> is the founder of 50+TechBridge and Learn More Technologies — Austin's leading AI literacy program for adults 50+. He has trained 347 Pioneers across 23 organizations with a completion rate 3x the national average.</p>
+    <p>He works with workforce boards, community organizations, and employers to deploy WIOA-aligned AI literacy training customized to each organization's population.</p>
+    <p>Ready to explore a deployment? <a href="/brianmckinney/#cta">Connect here</a> or visit <a href="https://learnmoretechnologies.com" target="_blank">learnmoretechnologies.com</a></p>
+  </div>
+
+</div>
+
+<div class="cta-section">
+  <div style="max-width:560px; margin:0 auto;">
+    <h2>Ready to Bridge the Digital Divide?</h2>
+    <p>Book a discovery call to explore deploying 50+TechBridge at your organization. Workforce boards, community orgs, and employers welcome.</p>
+    <a href="/brianmckinney/#cta" class="btn">Book a Discovery Call</a>
+  </div>
+</div>
+
+</body>
+</html>
