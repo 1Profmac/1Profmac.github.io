@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brian McKinney — 50+ Tech Educator & Keynote Speaker</title>
+  <meta name="description" content="Brian McKinney helps adults 50+ discover that technology isn't a barrier — it's the bridge to the next chapter of their lives. 347 Pioneers trained. 23 organizations deployed." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0a;
+      --bg2: #111113;
+      --bg3: #16161a;
+      --card: rgba(255,255,255,0.04);
+      --card-border: rgba(255,255,255,0.08);
+      --indigo: #6366f1;
+      --indigo-light: #818cf8;
+      --orange: #f97316;
+      --white: #ffffff;
+      --gray: #9ca3af;
+      --gray-light: #d1d5db;
+      --radius: 12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 17px;
+    }
+    .nav-logo-avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--indigo), var(--orange));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 14px;
+    }
+    .nav-links {
+      display: flex; gap: 8px;
+    }
+    .nav-links a {
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gray-light);
+      transition: all .2s;
+    }
+    .nav-links a:hover { color: var(--white); background: var(--card); }
+    .nav-links a.primary {
+      background: linear-gradient(135deg, var(--indigo), var(--indigo-light));
+      color: var(--white);
+    }
+    .nav-links a.primary:hover { opacity: .9; }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 140px 0 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg-glow {
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: .18;
+      pointer-events: none;
+    }
+    .hero-bg-glow.left  { background: var(--indigo); top: -100px; left: -200px; }
+    .hero-bg-glow.right { background: var(--orange);  top: 100px;  right: -200px; }
+
+    .hero-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 440px;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(99,102,241,.15);
+      border: 1px solid rgba(99,102,241,.3);
+      border-radius: 999px;
+      padding: 4px 14px;
+      font-size: 13px;
+      color: var(--indigo-light);
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+    .hero-badge span { width: 6px; height: 6px; border-radius: 50%; background: var(--indigo-light); }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      letter-spacing: -.02em;
+    }
+    .hero h1 em {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      color: var(--orange);
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--gray-light);
+      max-width: 520px;
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .hero-form {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .hero-form input {
+      flex: 1;
+      min-width: 200px;
+      padding: 13px 18px;
+      border-radius: 10px;
+      border: 1px solid var(--card-border);
+      background: rgba(255,255,255,.06);
+      color: var(--white);
+      font-size: 15px;
+      font-family: inherit;
+      outline: none;
+      transition: border .2s;
+    }
+    .hero-form input::placeholder { color: var(--gray); }
+    .hero-form input:focus { border-color: var(--indigo); }
+    .btn {
+      padding: 13px 26px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+      transition: all .2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--indigo), var(--indigo-light));
+      color: var(--white);
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(99,102,241,.4); }
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--card-border);
+      color: var(--gray-light);
+    }
+    .btn-secondary:hover { border-color: var(--indigo); color: var(--white); }
+
+    .hero-micro { font-size: 13px; color: var(--gray); }
+
+    .hero-proof {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 32px;
+    }
+    .hero-avatars {
+      display: flex;
+    }
+    .hero-avatars span {
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      border: 2px solid var(--bg);
+      margin-left: -8px;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-avatars span:first-child { margin-left: 0; }
+    .hero-avatars span:nth-child(1) { background: #6366f1; }
+    .hero-avatars span:nth-child(2) { background: #f97316; }
+    .hero-avatars span:nth-child(3) { background: #10b981; }
+    .hero-avatars span:nth-child(4) { background: #f59e0b; }
+    .hero-proof-text { font-size: 13px; color: var(--gray-light); }
+    .hero-proof-text strong { color: var(--white); }
+
+    /* hero image side */
+    .hero-image-wrap {
+      position: relative;
+    }
+    .hero-image-box {
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 40%, #1e3a5f 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-image-placeholder {
+      text-align: center;
+      opacity: .5;
+    }
+    .hero-image-placeholder svg { width: 80px; height: 80px; margin-bottom: 12px; }
+    .hero-image-placeholder p { font-size: 13px; color: var(--gray); }
+
+    .hero-stat-card {
+      position: absolute;
+      bottom: 24px;
+      left: -28px;
+      background: rgba(10,10,10,.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 14px 18px;
+      min-width: 160px;
+    }
+    .hero-stat-card .stat-num { font-size: 1.8rem; font-weight: 900; color: var(--indigo-light); line-height: 1; }
+    .hero-stat-card .stat-label { font-size: 12px; color: var(--gray); margin-top: 4px; }
+
+    .hero-stat-card2 {
+      position: absolute;
+      top: 24px;
+      right: -28px;
+      background: rgba(10,10,10,.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 14px 18px;
+      min-width: 160px;
+    }
+    .hero-stat-card2 .stat-num { font-size: 1.8rem; font-weight: 900; color: var(--orange); line-height: 1; }
+    .hero-stat-card2 .stat-label { font-size: 12px; color: var(--gray); margin-top: 4px; }
+
+    /* ── SECTION BASICS ── */
+    section { padding: 90px 0; }
+    section.alt { background: var(--bg2); }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--indigo-light);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--gray-light);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+    .section-header { margin-bottom: 56px; }
+
+    /* ── VALUE CARDS ── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: border-color .2s, transform .2s;
+    }
+    .card:hover { border-color: rgba(99,102,241,.4); transform: translateY(-2px); }
+    .card-num {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .1em;
+      color: var(--indigo-light);
+      margin-bottom: 16px;
+    }
+    .card-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(99,102,241,.2), rgba(99,102,241,.05));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+    .card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
+    .card p { font-size: .92rem; color: var(--gray-light); line-height: 1.65; }
+
+    /* ── STATS ── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--card-border);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .stat-box {
+      background: var(--bg3);
+      padding: 36px 28px;
+      text-align: center;
+    }
+    .stat-box .big-num {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-box .big-num span { color: var(--indigo-light); }
+    .stat-box .big-label { font-size: .85rem; color: var(--gray); font-weight: 500; }
+
+    /* ── QUALIFICATION MATRIX ── */
+    .qual-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .qual-box {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+    .qual-box h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .qual-box h3 .check { color: #10b981; }
+    .qual-box h3 .x { color: #ef4444; }
+    .qual-box ul { list-style: none; }
+    .qual-box ul li {
+      font-size: .9rem;
+      color: var(--gray-light);
+      padding: 7px 0;
+      border-bottom: 1px solid var(--card-border);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .qual-box ul li:last-child { border-bottom: none; }
+    .qual-box ul li::before { flex-shrink: 0; margin-top: 3px; }
+    .qual-for ul li::before { content: "✓"; color: #10b981; font-weight: 700; }
+    .qual-not ul li::before { content: "✗"; color: #ef4444; font-weight: 700; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .testimonial-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+    .testimonial-card .quote {
+      font-size: .95rem;
+      color: var(--gray-light);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .testimonial-card .quote::before { content: "\201C"; color: var(--indigo-light); font-size: 1.4rem; line-height: 0; vertical-align: -.2em; margin-right: 2px; }
+    .testimonial-author { font-weight: 700; font-size: .9rem; }
+    .testimonial-org { font-size: .82rem; color: var(--gray); margin-top: 2px; }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      background: linear-gradient(135deg, rgba(99,102,241,.12) 0%, rgba(249,115,22,.08) 100%);
+      border-top: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--card-border);
+      text-align: center;
+      padding: 100px 0;
+    }
+    .cta-section h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .cta-section h2 em {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      color: var(--orange);
+    }
+    .cta-section p {
+      font-size: 1.05rem;
+      color: var(--gray-light);
+      max-width: 520px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--card-border);
+      padding: 56px 0 32px;
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 40px;
+    }
+    .footer-bio { max-width: 400px; }
+    .footer-bio .logo { font-weight: 800; font-size: 1.1rem; margin-bottom: 14px; }
+    .footer-bio p { font-size: .9rem; color: var(--gray); line-height: 1.7; }
+    .footer-links h4 { font-size: .85rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--gray); margin-bottom: 16px; }
+    .footer-links ul { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 20px; }
+    .footer-links ul li a { font-size: .9rem; color: var(--gray-light); transition: color .2s; }
+    .footer-links ul li a:hover { color: var(--white); }
+    .footer-bottom {
+      border-top: 1px solid var(--card-border);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom p { font-size: .82rem; color: var(--gray); }
+    .socials { display: flex; gap: 12px; }
+    .socials a {
+      width: 34px; height: 34px;
+      border-radius: 8px;
+      border: 1px solid var(--card-border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      color: var(--gray);
+      transition: all .2s;
+    }
+    .socials a:hover { border-color: var(--indigo); color: var(--white); }
+
+    /* ── MOCK BANNER ── */
+    .mock-banner {
+      background: linear-gradient(135deg, var(--indigo), var(--orange));
+      text-align: center;
+      padding: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .04em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-image-wrap { display: none; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .qual-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .hero-stat-card, .hero-stat-card2 { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MOCK BANNER -->
+  <div class="mock-banner">DESIGN MOCKUP — BrianMckinney.com Redesign (Template: Craig Hewitt)</div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <div class="nav-logo-avatar">BM</div>
+        Brian McKinney
+      </div>
+      <div class="nav-links">
+        <a href="#speaking">Keynote Speaking</a>
+        <a href="#cta" class="primary">Work With Me</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-glow left"></div>
+    <div class="hero-bg-glow right"></div>
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span></span>
+            Austin, TX · 50+TechBridge Founder
+          </div>
+          <h1>50+ Adults Aren't Bad at Tech.<br><em>They've Never Had the Right Teacher.</em></h1>
+          <p class="hero-sub">
+            I'm Brian McKinney — founder, keynote speaker, and your guide to closing the digital divide for adults 50+.
+            Join the movement bringing real tech skills to the people everyone else wrote off.
+          </p>
+          <form class="hero-form" onsubmit="return false;">
+            <input type="email" placeholder="Enter your email address" />
+            <button class="btn btn-primary">Join the Movement</button>
+          </form>
+          <p class="hero-micro">Free forever. Unsubscribe anytime.</p>
+          <div class="hero-proof">
+            <div class="hero-avatars">
+              <span>P</span><span>M</span><span>D</span><span>+</span>
+            </div>
+            <p class="hero-proof-text">Trusted by <strong>347 Pioneers</strong> across Austin</p>
+          </div>
+        </div>
+        <div class="hero-image-wrap">
+          <div class="hero-image-box">
+            <div class="hero-image-placeholder">
+              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="40" cy="30" r="18" fill="rgba(255,255,255,0.15)"/>
+                <ellipse cx="40" cy="65" rx="28" ry="15" fill="rgba(255,255,255,0.1)"/>
+              </svg>
+              <p>Your photo here<br>(on stage or teaching)</p>
+            </div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="stat-num">347</div>
+            <div class="stat-label">Pioneers Trained</div>
+          </div>
+          <div class="hero-stat-card2">
+            <div class="stat-num">3x</div>
+            <div class="stat-label">Industry Completion Rate</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE CARDS -->
+  <section class="alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">What I Deliver</div>
+        <h2 class="section-title">Three Ways to Work Together</h2>
+        <p class="section-sub">From keynotes to course licensing to the book — every path leads to the same outcome: more adults 50+ thriving with technology.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-num">01</div>
+          <div class="card-icon">🎤</div>
+          <h3>Keynote Speaking</h3>
+          <p>Bring the 50+TechBridge message to your workforce board, senior center, library, or corporate L&D team. Not a lecture — a hands-on experience that changes how your audience sees what's possible.</p>
+        </div>
+        <div class="card">
+          <div class="card-num">02</div>
+          <div class="card-icon">🎓</div>
+          <h3>50+TechBridge Course</h3>
+          <p>Project-based AI literacy training designed specifically for adults 50+. Customized to your organization's population, goals, and pace. 3x the industry completion rate — because it actually works.</p>
+        </div>
+        <div class="card">
+          <div class="card-num">03</div>
+          <div class="card-icon">📖</div>
+          <h3>The Pioneers Book</h3>
+          <p>The story of 347 adults who were told they couldn't learn technology — and proved everyone wrong. Coming 2026. The blueprint for any organization serious about closing the digital divide.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section>
+    <div class="container">
+      <div class="section-header" style="text-align:center;">
+        <div class="section-label">By the Numbers</div>
+        <h2 class="section-title">Real Results. Real People.</h2>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="big-num"><span>347</span></div>
+          <div class="big-label">Pioneers Trained</div>
+        </div>
+        <div class="stat-box">
+          <div class="big-num"><span>23</span></div>
+          <div class="big-label">Organizations Deployed</div>
+        </div>
+        <div class="stat-box">
+          <div class="big-num"><span>3x</span></div>
+          <div class="big-label">Industry Completion Rate</div>
+        </div>
+        <div class="stat-box">
+          <div class="big-num"><span>10<span style="font-size:1.6rem">+</span></span></div>
+          <div class="big-label">Years in Tech Education</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Is This For You?</div>
+        <h2 class="section-title">Who I Work With</h2>
+        <p class="section-sub">I keep it simple. If you're serious about digital equity for adults 50+, we'll work great together. If you want generic training content, there are plenty of other options.</p>
+      </div>
+      <div class="qual-grid">
+        <div class="qual-box qual-for">
+          <h3><span class="check">✓</span> This Is For You</h3>
+          <ul>
+            <li>Workforce development organizations</li>
+            <li>Libraries and senior community centers</li>
+            <li>Faith communities serving 50+ members</li>
+            <li>HR and L&D teams with aging workforces</li>
+            <li>Grant-funded digital equity programs</li>
+            <li>Organizations willing to customize the experience for their population</li>
+          </ul>
+        </div>
+        <div class="qual-box qual-not">
+          <h3><span class="x">✗</span> This Is NOT For You</h3>
+          <ul>
+            <li>Anyone who thinks 50+ adults can't learn tech</li>
+            <li>Organizations looking for a generic off-the-shelf course</li>
+            <li>One-time events with no follow-through plan</li>
+            <li>Training that treats seniors like a problem to manage</li>
+            <li>Programs focused on compliance, not transformation</li>
+            <li>Anyone not willing to meet learners where they are</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="speaking">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Pioneer Stories</div>
+        <h2 class="section-title">What People Are Saying</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="quote">Brian doesn't just teach technology — he teaches people that they're capable of learning it. That mindset shift is worth more than any app or tool.</p>
+          <div class="testimonial-author">[Partner Name]</div>
+          <div class="testimonial-org">[Organization] — Austin, TX</div>
+        </div>
+        <div class="testimonial-card">
+          <p class="quote">Our participants come in skeptical and leave with a completely different relationship with technology. We've never seen completion rates like this from any other program.</p>
+          <div class="testimonial-author">[Partner Name]</div>
+          <div class="testimonial-org">[Workforce Development Center]</div>
+        </div>
+        <div class="testimonial-card">
+          <p class="quote">I booked Brian for our annual conference and the response was unlike anything I'd seen. He had a room full of people in their 60s and 70s building things on their phones within an hour.</p>
+          <div class="testimonial-author">[Event Organizer Name]</div>
+          <div class="testimonial-org">[Conference / Event]</div>
+        </div>
+      </div>
+      <p style="text-align:center; margin-top:24px; font-size:.85rem; color:var(--gray);">⚠️ Placeholder quotes — replace with real testimonials from partners/participants</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section" id="cta">
+    <div class="container">
+      <h2>Ready to Bridge the<br><em>Digital Divide?</em></h2>
+      <p>Whether you want Brian to speak at your event, deploy the course at your organization, or just stay connected — let's start the conversation.</p>
+      <div class="cta-buttons">
+        <button class="btn btn-primary" style="font-size:16px; padding:16px 32px;">Book a Lunch &amp; Learn</button>
+        <button class="btn btn-secondary" style="font-size:16px; padding:16px 32px;">Join the Newsletter</button>
+      </div>
+      <p style="margin-top:20px; font-size:13px; color:var(--gray);">I respond within 2 business days. I only take on partners I can genuinely help.</p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-bio">
+          <div class="logo">Brian McKinney</div>
+          <p>Brian McKinney is the founder of 50+TechBridge and Learn More Technologies — Austin's leading tech education program for adults 50+. He has trained 347 Pioneers across 23 organizations and is building a movement to close the digital divide one community at a time.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Keynote Speaking</a></li>
+            <li><a href="#">50+TechBridge Course</a></li>
+            <li><a href="#">The Book</a></li>
+            <li><a href="#">Work With Me</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Brian McKinney. All rights reserved.</p>
+        <div class="socials">
+          <a href="#" title="LinkedIn">in</a>
+          <a href="#" title="YouTube">▶</a>
+          <a href="#" title="Instagram">◎</a>
+          <a href="#" title="X">𝕏</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
