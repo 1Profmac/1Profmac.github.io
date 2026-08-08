@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>50+TechBridge — Instructor Package</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0a0a0a; --bg-alt: #111113;
+    --card: rgba(255,255,255,0.04); --card-border: rgba(255,255,255,0.08);
+    --cta: linear-gradient(135deg, #6366f1, #818cf8);
+    --orange: #f97316; --text: #ffffff; --muted: #9ca3af;
+    --navy: #1e1b4b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; }
+
+  header { background: var(--bg-alt); border-bottom: 1px solid var(--card-border); padding: 18px 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+  .logo { font-size: 16px; font-weight: 800; }
+  .logo em { font-family: 'Playfair Display', serif; font-style: italic; color: var(--orange); font-weight: 400; }
+  .header-tag { font-size: 12px; color: var(--muted); }
+
+  main { max-width: 900px; margin: 0 auto; padding: 48px 24px; display: flex; flex-direction: column; gap: 40px; }
+
+  /* HERO */
+  .pkg-hero { text-align: center; }
+  .pkg-tag { display: inline-block; background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); color: #818cf8; border-radius: 999px; padding: 5px 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; }
+  .pkg-hero h1 { font-size: clamp(28px, 5vw, 42px); font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 10px; }
+  .pkg-hero h1 em { font-family: 'Playfair Display', serif; font-style: italic; color: var(--orange); font-weight: 400; }
+  .pkg-hero p { font-size: 16px; color: var(--muted); max-width: 560px; margin: 0 auto; }
+
+  /* SECTION */
+  .section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #6366f1; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--card-border); }
+
+  /* CHECKLIST */
+  .checklist-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .checklist-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 12px; padding: 22px; }
+  .checklist-card h3 { font-size: 13px; font-weight: 800; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .checklist-card h3 .icon { font-size: 16px; }
+  .checklist-card ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .checklist-card ul li { display: flex; gap: 10px; font-size: 13px; color: var(--muted); line-height: 1.4; align-items: flex-start; }
+  .check-box { width: 16px; height: 16px; border: 1.5px solid rgba(255,255,255,0.2); border-radius: 3px; flex-shrink: 0; margin-top: 1px; }
+  .checklist-card ul li.important { color: var(--text); }
+  .checklist-card ul li.important .check-box { border-color: var(--orange); }
+
+  /* FORMS GRID */
+  .forms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+  .form-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 10px; padding: 20px; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 8px; transition: border-color 0.15s, transform 0.15s; }
+  .form-card:hover { border-color: rgba(99,102,241,0.5); transform: translateY(-2px); }
+  .form-card .form-num { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #818cf8; }
+  .form-card h4 { font-size: 14px; font-weight: 700; line-height: 1.3; }
+  .form-card p { font-size: 12px; color: var(--muted); line-height: 1.5; flex: 1; }
+  .form-card .open-btn { display: inline-block; background: var(--cta); color: #fff; padding: 7px 14px; border-radius: 6px; font-size: 11px; font-weight: 700; text-decoration: none; align-self: flex-start; margin-top: 4px; }
+  .badge { display: inline-block; padding: 2px 7px; border-radius: 999px; font-size: 10px; font-weight: 600; }
+  .badge-required { background: rgba(239,68,68,0.15); color: #f87171; border: 1px solid rgba(239,68,68,0.2); }
+  .badge-optional { background: rgba(255,255,255,0.06); color: var(--muted); border: 1px solid var(--card-border); }
+  .badge-grant { background: rgba(99,102,241,0.15); color: #818cf8; border: 1px solid rgba(99,102,241,0.2); }
+
+  /* SESSION REPORT */
+  .report-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 12px; padding: 24px; }
+  .report-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 16px; }
+  .report-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+  .report-field { display: flex; flex-direction: column; gap: 4px; }
+  .report-field label { font-size: 10px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 0.06em; }
+  .report-field .field-line { border-bottom: 1px solid rgba(255,255,255,0.15); height: 28px; }
+  .report-field.wide { grid-column: span 2; }
+  .report-field.full { grid-column: span 3; }
+  .notes-area { border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; height: 64px; width: 100%; background: rgba(255,255,255,0.02); margin-top: 4px; }
+
+  /* RULES */
+  .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .rule-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 10px; padding: 18px; }
+  .rule-card h4 { font-size: 12px; font-weight: 700; color: var(--orange); margin-bottom: 10px; letter-spacing: 0.02em; }
+  .rule-card ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .rule-card ul li { font-size: 12px; color: var(--muted); display: flex; gap: 8px; line-height: 1.4; }
+  .rule-card ul li::before { content: '→'; color: #6366f1; flex-shrink: 0; }
+
+  /* CONTACT */
+  .contact-bar { background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.2); border-radius: 10px; padding: 18px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .contact-bar p { font-size: 13px; color: var(--muted); }
+  .contact-bar strong { color: var(--text); }
+  .contact-bar a { color: #818cf8; text-decoration: none; font-weight: 600; }
+
+  footer { background: var(--bg-alt); border-top: 1px solid var(--card-border); padding: 20px 32px; text-align: center; font-size: 12px; color: #4b5563; }
+  footer strong { color: var(--muted); }
+
+  @media (max-width: 600px) {
+    .checklist-grid { grid-template-columns: 1fr; }
+    .report-grid { grid-template-columns: 1fr 1fr; }
+    .report-field.full { grid-column: span 2; }
+    .rules-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Learn More <em>Technologies</em></div>
+  <div class="header-tag">50+TechBridge — Instructor Package</div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <div class="pkg-hero">
+    <div class="pkg-tag">Instructor Resource</div>
+    <h1>Your Complete<br><em>Session Package</em></h1>
+    <p>Everything you need before, during, and after every 50+TechBridge Technology Assisted Training session.</p>
+  </div>
+
+  <!-- CHECKLISTS -->
+  <div>
+    <div class="section-label">Session Checklists</div>
+    <div class="checklist-grid">
+
+      <div class="checklist-card">
+        <h3><span class="icon">📋</span> Before the Session</h3>
+        <ul>
+          <li class="important"><div class="check-box"></div>Print sign-in sheets (1 per 20 participants)</li>
+          <li class="important"><div class="check-box"></div>Print testimonial release forms (3–5 per session)</li>
+          <li><div class="check-box"></div>Confirm room/tech setup with site contact</li>
+          <li><div class="check-box"></div>Test WiFi and projector on arrival</li>
+          <li><div class="check-box"></div>Bring printed flyers for participants to take home</li>
+          <li><div class="check-box"></div>Charge all devices</li>
+          <li><div class="check-box"></div>Have your phone ready to take 3+ session photos</li>
+        </ul>
+      </div>
+
+      <div class="checklist-card">
+        <h3><span class="icon">✅</span> During the Session</h3>
+        <ul>
+          <li class="important"><div class="check-box"></div>Pass sign-in sheet at the START — before people leave early</li>
+          <li class="important"><div class="check-box"></div>Take at least 3 photos — participants engaged with devices</li>
+          <li><div class="check-box"></div>Note any participant with a great story for a testimonial</li>
+          <li><div class="check-box"></div>Ask willing participants to fill out testimonial release</li>
+          <li><div class="check-box"></div>Confirm next session date with attendees</li>
+          <li><div class="check-box"></div>Collect any paper materials before leaving</li>
+        </ul>
+      </div>
+
+      <div class="checklist-card">
+        <h3><span class="icon">📤</span> After the Session</h3>
+        <ul>
+          <li class="important"><div class="check-box"></div>Scan sign-in sheet — save as SIGNIN-[Location]-[Date].pdf</li>
+          <li class="important"><div class="check-box"></div>Label photos: PHOTO-[Location]-[Date]-[##].jpg</li>
+          <li class="important"><div class="check-box"></div>File all docs in ELEVATE-2026 folder</li>
+          <li><div class="check-box"></div>Complete session totals on sign-in sheet before filing</li>
+          <li><div class="check-box"></div>Email Brian any testimonials or standout participant stories</li>
+          <li><div class="check-box"></div>Update attendance count in tracking spreadsheet</li>
+        </ul>
+      </div>
+
+      <div class="checklist-card">
+        <h3><span class="icon">📸</span> Photo Requirements</h3>
+        <ul>
+          <li class="important"><div class="check-box"></div>Minimum 3 photos per session</li>
+          <li><div class="check-box"></div>Show participants actively using devices — not posed</li>
+          <li><div class="check-box"></div>Include the room/location in at least 1 photo</li>
+          <li><div class="check-box"></div>Get verbal OK before photographing anyone's face</li>
+          <li><div class="check-box"></div>If someone declines, photograph from behind or angle away</li>
+          <li><div class="check-box"></div>Good lighting — near a window if possible</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FORMS -->
+  <div>
+    <div class="section-label">Forms — Print Before Every Session</div>
+    <div class="forms-grid">
+
+      <a href="signin.html" class="form-card">
+        <div class="form-num">Form 01 — Required</div>
+        <h4>Workshop Sign-In Sheet</h4>
+        <p>20-row attendance sheet. Pass at the start of every session. Complete totals at the end.</p>
+        <span class="badge badge-required">Required every session</span>
+        <span class="open-btn">Print →</span>
+      </a>
+
+      <a href="testimonial-release.html" class="form-card">
+        <div class="form-num">Form 02 — As Needed</div>
+        <h4>Testimonial & Photo Release</h4>
+        <p>Get signed permission before using anyone's quote or photo. Bring 3–5 per session.</p>
+        <span class="badge badge-grant">AACME Exhibit B</span>
+        <span class="open-btn">Print →</span>
+      </a>
+
+      <a href="photo-log.html" class="form-card">
+        <div class="form-num">Form 03 — Monthly</div>
+        <h4>Session Photo Log</h4>
+        <p>Track and label all photos. Complete monthly and identify 3 best for grant submission.</p>
+        <span class="badge badge-grant">AACME Exhibit C</span>
+        <span class="open-btn">Open →</span>
+      </a>
+
+      <a href="partner-letter.html" class="form-card">
+        <div class="form-num">Form 04 — Grant Use</div>
+        <h4>Partner Letter Template</h4>
+        <p>Pre-written letter for site managers to sign. Needed for grant documentation.</p>
+        <span class="badge badge-grant">AACME Exhibit D</span>
+        <span class="open-btn">Open →</span>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- SESSION QUICK REPORT -->
+  <div>
+    <div class="section-label">Quick Session Report — Complete After Each Session</div>
+    <div class="report-card">
+      <h3>Session Summary (fill in, photograph, send to Brian)</h3>
+      <div class="report-grid">
+        <div class="report-field"><label>Date</label><div class="field-line"></div></div>
+        <div class="report-field"><label>Location</label><div class="field-line"></div></div>
+        <div class="report-field"><label>Session # in Series</label><div class="field-line"></div></div>
+        <div class="report-field"><label>Total Participants</label><div class="field-line"></div></div>
+        <div class="report-field"><label>Adults Age 50+</label><div class="field-line"></div></div>
+        <div class="report-field"><label>First-Time Attendees</label><div class="field-line"></div></div>
+        <div class="report-field wide"><label>Topic / Module Covered</label><div class="field-line"></div></div>
+        <div class="report-field"><label>Testimonials Collected (#)</label><div class="field-line"></div></div>
+        <div class="report-field"><label>Photos Taken (#)</label><div class="field-line"></div></div>
+        <div class="report-field"><label>Sign-In Sheet Filed?</label><div class="field-line"></div></div>
+        <div class="report-field full"><label>Standout Moments / Notes for Brian</label><div class="notes-area"></div></div>
+        <div class="report-field full"><label>Issues or Follow-Up Needed</label><div class="notes-area"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GROUND RULES -->
+  <div>
+    <div class="section-label">Program Standards</div>
+    <div class="rules-grid">
+      <div class="rule-card">
+        <h4>What We Always Do</h4>
+        <ul>
+          <li>Pass the sign-in sheet at the START of every session</li>
+          <li>Take at least 3 photos per session</li>
+          <li>Get signed releases before using anyone's photo or quote</li>
+          <li>File all documentation within 24 hours of session</li>
+          <li>Treat every participant with dignity and patience</li>
+          <li>Meet participants where they are — no judgment on skill level</li>
+        </ul>
+      </div>
+      <div class="rule-card">
+        <h4>What We Never Do</h4>
+        <ul>
+          <li>Inflate attendance numbers — use only what's on the sign-in sheet</li>
+          <li>Photograph participants without verbal permission</li>
+          <li>Use participant names or quotes without a signed release</li>
+          <li>Promise participants anything not approved by Brian</li>
+          <li>Leave sessions without collecting the sign-in sheet</li>
+          <li>Use jargon or make participants feel behind</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="contact-bar">
+    <div>
+      <p><strong>Questions? Contact Brian directly.</strong></p>
+      <p>Do not wait until the next session if something is unclear.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:4px; text-align:right;">
+      <a href="mailto:hello@learnmoretechnologies.com">hello@learnmoretechnologies.com</a>
+      <a href="https://calendly.com/brianmckinney/new-meeting">Schedule a call</a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <strong>Learn More Technologies LLC</strong> dba 50+TechBridge &nbsp;|&nbsp; Austin, Texas &nbsp;|&nbsp; MBE-Certified &nbsp;|&nbsp; WIOA-Eligible<br>
+  learnmoretechnologies.com &nbsp;|&nbsp; hello@learnmoretechnologies.com
+</footer>
+
+</body>
+</html>
