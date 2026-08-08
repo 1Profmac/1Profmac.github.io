@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>50+TechBridge — Capacitación Gratuita de IA (Biblioteca)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #e5e7eb; font-family: 'Inter', sans-serif; display: flex; flex-direction: column; align-items: center; padding: 32px 16px; }
+
+  .mockup-banner {
+    background: #facc15; color: #000; text-align: center;
+    padding: 10px; font-weight: 700; font-size: 13px;
+    letter-spacing: 0.05em; width: 100%; margin-bottom: 16px;
+    border-radius: 6px;
+  }
+  .lang-switch {
+    width: 100%; max-width: 680px; text-align: right;
+    margin-bottom: 12px; font-size: 13px;
+  }
+  .lang-switch a { color: #6366f1; text-decoration: none; font-weight: 600; }
+  .lang-switch a:hover { text-decoration: underline; }
+
+  .flyer {
+    width: 100%; max-width: 680px;
+    background: #0a0a0a;
+    border-radius: 8px; overflow: hidden;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+  }
+
+  /* HERO */
+  .flyer-hero {
+    background: linear-gradient(135deg, #1e1b4b 0%, #0a0a0a 100%);
+    padding: 52px 48px 44px;
+    text-align: center;
+    border-bottom: 3px solid #f97316;
+  }
+  .free-badge {
+    display: inline-block; background: #f97316; color: #fff;
+    font-weight: 800; font-size: 13px; letter-spacing: 0.08em;
+    text-transform: uppercase; padding: 6px 18px;
+    border-radius: 999px; margin-bottom: 24px;
+  }
+  .org-tag {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #f97316; margin-bottom: 20px;
+  }
+  .flyer-hero h1 {
+    font-size: clamp(24px, 5vw, 40px); font-weight: 900;
+    color: #fff; line-height: 1.15; letter-spacing: -0.03em;
+    margin-bottom: 16px;
+  }
+  .flyer-hero h1 em {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    color: #f97316; font-weight: 400;
+  }
+  .flyer-hero .sub {
+    font-size: 15px; color: #d1d5db; line-height: 1.7;
+    max-width: 500px; margin: 0 auto;
+  }
+
+  /* BODY */
+  .flyer-body { padding: 40px 48px; }
+
+  .learn-list { list-style: none; margin-bottom: 32px; }
+  .learn-list li {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+    color: #d1d5db; font-size: 15px;
+  }
+  .learn-list li:last-child { border-bottom: none; }
+  .learn-list li .check {
+    width: 22px; height: 22px;
+    background: linear-gradient(135deg, #6366f1, #818cf8);
+    border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; font-size: 12px; font-weight: 700;
+    color: #fff; flex-shrink: 0; margin-top: 2px;
+  }
+
+  .who-box {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px; padding: 24px; margin-bottom: 32px;
+  }
+  .who-box h3 {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: #6366f1; margin-bottom: 14px;
+  }
+  .who-box ul { list-style: none; }
+  .who-box ul li {
+    font-size: 14px; color: #9ca3af; padding: 7px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    display: flex; gap: 10px;
+  }
+  .who-box ul li:last-child { border-bottom: none; }
+  .who-box ul li::before { content: '→'; color: #f97316; }
+
+  .stats-bar {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: rgba(255,255,255,0.06);
+    border-radius: 10px; overflow: hidden; margin-bottom: 0;
+  }
+  .stat-item {
+    background: rgba(255,255,255,0.03); padding: 18px 12px; text-align: center;
+  }
+  .stat-item .val {
+    font-size: 22px; font-weight: 900; letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #6366f1, #818cf8);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .stat-item .lbl { font-size: 11px; color: #6b7280; margin-top: 4px; }
+
+  .session-box {
+    background: rgba(99,102,241,0.08);
+    border: 1px solid rgba(99,102,241,0.2);
+    border-radius: 10px; padding: 24px; margin: 32px 0;
+  }
+  .session-box h3 {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: #818cf8; margin-bottom: 14px;
+  }
+  .session-row { display: flex; gap: 16px; margin-bottom: 10px; font-size: 14px; }
+  .session-row .label { color: #6b7280; font-weight: 600; width: 80px; flex-shrink: 0; }
+  .session-row .value { color: #d1d5db; }
+  .session-row .value.blank {
+    color: #4b5563; font-style: italic;
+    border-bottom: 1px dashed #374151; flex: 1;
+  }
+
+  /* CTA */
+  .flyer-cta {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    padding: 36px 48px; text-align: center;
+  }
+  .flyer-cta h2 {
+    font-size: 22px; font-weight: 900; color: #fff;
+    margin-bottom: 8px; letter-spacing: -0.02em;
+  }
+  .flyer-cta .url { font-size: 15px; color: rgba(255,255,255,0.85); font-weight: 600; margin-bottom: 6px; }
+  .flyer-cta .url span { color: #fcd34d; }
+  .flyer-cta .email { font-size: 13px; color: rgba(255,255,255,0.65); }
+
+  /* FOOTER */
+  .flyer-footer {
+    background: #060608; padding: 20px 48px;
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 10px;
+  }
+  .flyer-footer .org { font-size: 13px; font-weight: 700; color: #fff; }
+  .flyer-footer .creds { font-size: 11px; color: #4b5563; }
+  .flyer-footer .tags { font-size: 11px; color: #6366f1; font-weight: 600; }
+
+  /* NOTES */
+  .canva-notes {
+    max-width: 680px; width: 100%; margin-top: 24px;
+    background: #fff; border-radius: 8px; padding: 24px 28px;
+    font-size: 13px; color: #374151; line-height: 1.7;
+  }
+  .canva-notes h3 { font-size: 14px; font-weight: 700; color: #111; margin-bottom: 12px; }
+  .canva-notes ul { padding-left: 18px; }
+  .canva-notes ul li { margin-bottom: 6px; }
+
+  @media (max-width: 500px) {
+    .flyer-hero, .flyer-body, .flyer-cta, .flyer-footer { padding-left: 24px; padding-right: 24px; }
+    .stats-bar { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="mockup-banner">MAQUETA DE DISEÑO — Volante para Biblioteca (Español) | 8.5x11 | 50+TechBridge 2026</div>
+
+<div class="lang-switch">
+  <a href="index.html">Ver en Inglés / View in English →</a>
+</div>
+
+<div class="flyer">
+
+  <!-- HERO -->
+  <div class="flyer-hero">
+    <div class="free-badge">100% Gratis</div>
+    <div class="org-tag">50+TechBridge &nbsp;|&nbsp; Learn More Technologies</div>
+    <h1>Usted No Es Malo Para la Tecnología.<br><em>Simplemente Nunca Ha Tenido el Maestro Correcto.</em></h1>
+    <p class="sub">50+TechBridge enseña a adultos de 50 años en adelante a usar la inteligencia artificial — las mismas herramientas que están transformando el trabajo, la salud y la vida diaria. Gratis. Aquí mismo en su biblioteca.</p>
+  </div>
+
+  <!-- BODY -->
+  <div class="flyer-body">
+
+    <ul class="learn-list">
+      <li><div class="check">✓</div>Cómo usar ChatGPT y herramientas de IA en la vida real</li>
+      <li><div class="check">✓</div>IA para buscar trabajo, escribir y realizar tareas del diario</li>
+      <li><div class="check">✓</div>Cómo mantenerse seguro e inteligente en línea con IA</li>
+    </ul>
+
+    <div class="who-box">
+      <h3>Este Programa Es Para Usted Si...</h3>
+      <ul>
+        <li>Tiene 50 años o más</li>
+        <li>Quiere entender qué es realmente la inteligencia artificial</li>
+        <li>Tiene curiosidad pero no sabe por dónde empezar</li>
+        <li>Se ha sentido excluido de la conversación tecnológica — hasta ahora</li>
+      </ul>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat-item"><div class="val">264+</div><div class="lbl">Adultos Capacitados</div></div>
+      <div class="stat-item"><div class="val">13</div><div class="lbl">Ubicaciones</div></div>
+      <div class="stat-item"><div class="val">GRATIS</div><div class="lbl">Siempre y Para Siempre</div></div>
+    </div>
+
+    <div class="session-box">
+      <h3>Próximas Sesiones en Esta Ubicación</h3>
+      <div class="session-row"><div class="label">Cuándo</div><div class="value blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div>
+      <div class="session-row"><div class="label">Dónde</div><div class="value blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div>
+      <div class="session-row"><div class="label">Costo</div><div class="value">GRATIS — No se requiere registro</div></div>
+    </div>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="flyer-cta">
+    <h2>¿Listo Para Comenzar?</h2>
+    <div class="url">Visítenos: <span>learnmoretechnologies.com/start-free-lesson/</span></div>
+    <div class="email">¿Preguntas? hello@learnmoretechnologies.com</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="flyer-footer">
+    <div>
+      <div class="org">50+TechBridge | Learn More Technologies</div>
+      <div class="creds">Certificado MBE &nbsp;|&nbsp; Elegible para WIOA &nbsp;|&nbsp; Austin, Texas</div>
+    </div>
+    <div class="tags">#agentic50 &nbsp;|&nbsp; #AgeTech &nbsp;|&nbsp; #DigitalInclusion</div>
+  </div>
+
+</div>
+
+<div class="canva-notes">
+  <h3>Notas para Canva</h3>
+  <ul>
+    <li><strong>Tamaño:</strong> Carta 8.5x11 (o A4 para uso digital)</li>
+    <li><strong>35% superior:</strong> Titular en negrita + subtítulo sobre fondo oscuro/índigo</li>
+    <li><strong>40% central:</strong> 3 marcas de verificación + cuadro "para quién es" + barra de estadísticas + bloque de sesión</li>
+    <li><strong>25% inferior:</strong> Barra de llamada a la acción en índigo + franja de pie de página oscura</li>
+    <li><strong>Imagen:</strong> Foto real de adultos hispanos 50+ comprometidos con tecnología en un entorno de biblioteca</li>
+    <li><strong>Código QR:</strong> Generar en qr.io apuntando a learnmoretechnologies.com/start-free-lesson/</li>
+    <li><strong>Impresión:</strong> Exportar como PDF de impresión, 300 DPI</li>
+  </ul>
+</div>
+
+</body>
+</html>

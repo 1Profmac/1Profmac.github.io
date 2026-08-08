@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LMT AACME 2026 — Page 4: Budget & Funding Alignment</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0a0a0a; --bg-alt: #111113;
+    --card: rgba(255,255,255,0.04); --card-border: rgba(255,255,255,0.08);
+    --cta: linear-gradient(135deg, #6366f1, #818cf8);
+    --orange: #f97316; --text: #ffffff; --muted: #9ca3af;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.7; min-height: 100vh; display: flex; flex-direction: column; }
+  .mockup-banner { background: #facc15; color: #000; text-align: center; padding: 10px; font-weight: 700; font-size: 13px; letter-spacing: 0.05em; }
+  header { background: var(--bg-alt); border-bottom: 1px solid var(--card-border); padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
+  .logo em { color: var(--orange); font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; }
+  .page-indicator { font-size: 12px; color: var(--muted); font-weight: 500; }
+  .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+  main { flex: 1; padding: 64px 0; }
+  .page-tag { display: inline-block; background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); color: #818cf8; border-radius: 999px; padding: 6px 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 24px; }
+  h1 { font-size: clamp(28px, 4vw, 46px); font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 20px; }
+  h1 em { font-family: 'Playfair Display', serif; font-style: italic; color: var(--orange); font-weight: 400; }
+  .lead { font-size: 17px; color: var(--muted); max-width: 700px; margin-bottom: 40px; }
+  .divider { border: none; border-top: 1px solid var(--card-border); margin: 40px 0; }
+  h2 { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px; }
+
+  .budget-wrap { background: var(--card); border: 1px solid var(--card-border); border-radius: 12px; overflow: hidden; margin: 24px 0; }
+  .budget-table { width: 100%; border-collapse: collapse; }
+  .budget-table th { text-align: left; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding: 14px 20px; background: rgba(255,255,255,0.02); border-bottom: 1px solid var(--card-border); }
+  .budget-table td { padding: 14px 20px; font-size: 14px; border-bottom: 1px solid rgba(255,255,255,0.04); color: var(--muted); }
+  .budget-table td:last-child { text-align: right; color: var(--text); font-weight: 600; }
+  .budget-table tr.total td { color: var(--text); font-weight: 800; font-size: 15px; background: rgba(99,102,241,0.08); border-top: 1px solid rgba(99,102,241,0.2); border-bottom: none; }
+  .budget-table tr.total td:last-child { color: #818cf8; font-size: 18px; }
+  .budget-table tr:last-child td { border-bottom: none; }
+
+  .leverage-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+  .leverage-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 12px; padding: 24px; text-align: center; }
+  .leverage-card .val { font-size: 28px; font-weight: 900; letter-spacing: -0.02em; color: var(--orange); }
+  .leverage-card .source { font-size: 12px; color: var(--muted); margin-top: 6px; }
+
+  .ratio-box { background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.2); border-radius: 12px; padding: 24px; margin: 16px 0; display: flex; justify-content: space-between; align-items: center; }
+  .ratio-box .label { font-size: 14px; color: var(--muted); }
+  .ratio-box .value { font-size: 28px; font-weight: 900; color: #818cf8; }
+
+  .why-box { background: var(--card); border: 1px solid var(--card-border); border-radius: 12px; padding: 32px; margin: 32px 0; }
+  .why-box h3 { font-size: 18px; font-weight: 800; margin-bottom: 16px; }
+  .why-box ul { list-style: none; }
+  .why-box ul li { font-size: 14px; color: var(--muted); padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; gap: 12px; align-items: flex-start; }
+  .why-box ul li:last-child { border-bottom: none; }
+  .why-box ul li::before { content: '✓'; color: #6366f1; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  .cta-final { background: var(--cta); border-radius: 12px; padding: 40px 32px; text-align: center; margin: 40px 0; }
+  .cta-final h3 { font-size: 22px; font-weight: 900; margin-bottom: 10px; }
+  .cta-final p { font-size: 14px; color: rgba(255,255,255,0.8); margin-bottom: 20px; }
+  .cta-final a { display: inline-block; background: #fff; color: #6366f1; padding: 12px 24px; border-radius: 8px; font-weight: 700; font-size: 14px; text-decoration: none; margin: 0 6px; }
+
+  footer { background: var(--bg-alt); border-top: 1px solid var(--card-border); padding: 28px 24px; text-align: center; }
+  footer p { font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+  footer strong { color: var(--text); }
+
+  nav.page-nav { background: var(--bg-alt); border-top: 1px solid var(--card-border); padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; }
+  .nav-btn { display: inline-block; padding: 10px 20px; border-radius: 8px; font-weight: 700; font-size: 14px; text-decoration: none; transition: transform 0.15s; }
+  .nav-btn-prev { background: var(--card); border: 1px solid var(--card-border); color: var(--muted); }
+  .nav-btn-home { background: var(--cta); color: #fff; }
+  .nav-btn-home:hover { transform: translateY(-1px); }
+  .nav-dots { display: flex; gap: 8px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--card-border); }
+  .dot.active { background: #6366f1; }
+
+  @media (max-width: 600px) { .leverage-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="mockup-banner">DESIGN MOCKUP — AACME Elevate 2026 | Page 4 of 4</div>
+<header>
+  <div class="logo">Learn More <em>Technologies</em></div>
+  <div class="page-indicator">Page 4 of 4 — Budget & Funding Alignment</div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="page-tag">Page 4 — Budget Summary & Funding Alignment</div>
+    <h1>Grant Request: $25,500<br><em>Total Project Value: ~$42,500</em></h1>
+    <p class="lead">AACME investment extends proven, documented AI arts programming to Black and Hispanic adults 50+ — a population currently absent from the Cultural Arts Division's funded portfolio.</p>
+
+    <h2>Budget Summary</h2>
+    <div class="budget-wrap">
+      <table class="budget-table">
+        <thead><tr><th>Category</th><th style="text-align:right;">Amount</th></tr></thead>
+        <tbody>
+          <tr><td>Personnel — Founder 15% FTE, Program Coordinator, Curriculum Consultant</td><td>$12,000</td></tr>
+          <tr><td>Program Delivery — Materials, mileage, workbooks, accessibility accommodations</td><td>$5,500</td></tr>
+          <tr><td>Technology & Curriculum — AI tools, LMS, Canva, HeyGen, cloud storage</td><td>$2,500</td></tr>
+          <tr><td>Language Access — Spanish interpreter, translation, bilingual outreach</td><td>$2,000</td></tr>
+          <tr><td>Community Showcase — Display, AV, reception, photography</td><td>$2,000</td></tr>
+          <tr><td>Outreach & Marketing</td><td>$750</td></tr>
+          <tr><td>Administrative</td><td>$750</td></tr>
+          <tr class="total"><td>AACME Grant Request</td><td>$25,500</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr class="divider" />
+
+    <h2>Leverage & Match</h2>
+    <div class="leverage-grid">
+      <div class="leverage-card">
+        <div class="val">$5,000</div>
+        <div class="source">City of Austin Nexus Grant (awarded)</div>
+      </div>
+      <div class="leverage-card">
+        <div class="val">$4,000</div>
+        <div class="source">In-Kind (site space + volunteer instruction)</div>
+      </div>
+      <div class="leverage-card">
+        <div class="val">$8,000</div>
+        <div class="source">Founder Investment (uncompensated time + infrastructure)</div>
+      </div>
+    </div>
+    <div class="ratio-box">
+      <div class="label">Total Leverage &nbsp;|&nbsp; Leverage Ratio</div>
+      <div class="value">~$17,000 &nbsp;|&nbsp; 1.67:1</div>
+    </div>
+
+    <div class="why-box">
+      <h3>Why AACME Is the Right Partner</h3>
+      <ul>
+        <li>Validated program — ~100 adults trained with signed attendance records and photographic documentation</li>
+        <li>No current AACME program serves Black and Hispanic adults 50+ at the arts-technology intersection</li>
+        <li>Community-embedded model replicable in any Austin market with library or faith community infrastructure</li>
+        <li>MBE-Certified, WIOA-eligible, with prior City of Austin grant funding — documentation available</li>
+        <li>Creative output model produces measurable results and a public-facing Community Showcase</li>
+        <li>501(c)(3) in process — future Elevate Nonprofit tier application ($80K) planned upon approval</li>
+      </ul>
+    </div>
+
+    <div class="cta-final">
+      <h3>Request a Meeting or Documentation Package</h3>
+      <p>Brian McKinney | Founder & CEO | Learn More Technologies LLC</p>
+      <a href="https://calendly.com/brianmckinney/new-meeting">Schedule a Call</a>
+      <a href="mailto:hello@learnmoretechnologies.com">Email Us</a>
+    </div>
+  </div>
+</main>
+
+<nav class="page-nav">
+  <a href="page3.html" class="nav-btn nav-btn-prev">&larr; Previous</a>
+  <div class="nav-dots">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot active"></div>
+  </div>
+  <a href="index.html" class="nav-btn nav-btn-home">View One-Pager</a>
+</nav>
+
+<footer>
+  <p><strong>Learn More Technologies LLC</strong> dba 50+TechBridge | Austin, Texas</p>
+  <p>MBE-Certified &nbsp;|&nbsp; WIOA-Eligible &nbsp;|&nbsp; Nexus Grant Recipient &nbsp;|&nbsp; 501(c)(3) In Process</p>
+  <p>learnmoretechnologies.com &nbsp;|&nbsp; hello@learnmoretechnologies.com</p>
+</footer>
+</body>
+</html>

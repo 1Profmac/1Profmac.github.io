@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>50+TechBridge — Library Postcard Mockup (4x6)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #d1d5db; font-family: 'Inter', sans-serif; display: flex; flex-direction: column; align-items: center; padding: 32px 16px; gap: 24px; }
+
+  .mockup-banner {
+    background: #facc15; color: #000; text-align: center;
+    padding: 10px 20px; font-weight: 700; font-size: 13px;
+    letter-spacing: 0.05em; width: 100%; max-width: 800px;
+    border-radius: 6px;
+  }
+  .lang-switch {
+    width: 100%; max-width: 800px; text-align: right; font-size: 13px;
+  }
+  .lang-switch a { color: #6366f1; text-decoration: none; font-weight: 600; }
+
+  .section-label {
+    width: 100%; max-width: 800px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: #6b7280; margin-bottom: -8px;
+  }
+
+  /* POSTCARD WRAPPER — 4x6 ratio = 1.5 */
+  .postcard {
+    width: 100%; max-width: 600px;
+    border-radius: 10px; overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  }
+
+  /* ── FRONT ── */
+  .card-front {
+    background: linear-gradient(160deg, #1e1b4b 0%, #0a0a0a 60%);
+    padding: 0;
+    display: flex; flex-direction: column;
+    min-height: 300px;
+    position: relative;
+  }
+  .card-front-image {
+    background: linear-gradient(135deg, #312e81 0%, #1e1b4b 50%, #0a0a0a 100%);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 40px 36px;
+    text-align: center;
+    gap: 12px;
+  }
+  .front-badge {
+    display: inline-block; background: #f97316; color: #fff;
+    font-weight: 800; font-size: 12px; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 5px 14px; border-radius: 999px;
+  }
+  .card-front h1 {
+    font-size: clamp(24px, 6vw, 42px); font-weight: 900;
+    color: #fff; line-height: 1.1; letter-spacing: -0.03em;
+  }
+  .card-front h1 em {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    color: #f97316; font-weight: 400;
+  }
+  .card-front .tagline { font-size: 14px; color: #9ca3af; }
+  .card-front-footer {
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(8px);
+    padding: 14px 32px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .card-front-footer .org { font-size: 13px; font-weight: 700; color: #fff; }
+  .card-front-footer .url { font-size: 12px; color: #818cf8; }
+
+  /* ── BACK ── */
+  .card-back {
+    background: #fff;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    min-height: 240px;
+    border-top: 4px solid #6366f1;
+  }
+
+  .back-content {
+    padding: 28px 24px;
+    border-right: 1px solid #e5e7eb;
+  }
+  .back-content h2 {
+    font-size: 14px; font-weight: 800; color: #111;
+    line-height: 1.3; margin-bottom: 14px; letter-spacing: -0.01em;
+  }
+  .back-content h2 em {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    color: #f97316; font-weight: 400;
+  }
+
+  .check-list { list-style: none; margin-bottom: 14px; }
+  .check-list li {
+    display: flex; gap: 8px; align-items: flex-start;
+    font-size: 12px; color: #374151; padding: 4px 0;
+  }
+  .check-list li::before {
+    content: '✓'; color: #6366f1; font-weight: 700; flex-shrink: 0;
+  }
+
+  .stats-mini {
+    font-size: 11px; color: #6b7280;
+    border-top: 1px solid #f3f4f6;
+    border-bottom: 1px solid #f3f4f6;
+    padding: 8px 0; margin-bottom: 14px;
+  }
+
+  .session-mini { margin-bottom: 14px; }
+  .session-mini .row { display: flex; gap: 8px; font-size: 11px; margin-bottom: 4px; }
+  .session-mini .row .lbl { color: #9ca3af; font-weight: 600; width: 50px; flex-shrink: 0; }
+  .session-mini .row .val { color: #d1d5db; border-bottom: 1px dashed #e5e7eb; flex: 1; }
+
+  .back-cta { font-size: 11px; color: #374151; margin-bottom: 4px; }
+  .back-cta .url { color: #6366f1; font-weight: 700; font-size: 11px; word-break: break-all; }
+  .back-cta .email { color: #9ca3af; font-size: 10px; }
+
+  .qr-placeholder {
+    width: 52px; height: 52px;
+    background: #f3f4f6; border: 1px solid #e5e7eb;
+    border-radius: 6px; margin-top: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; color: #9ca3af; text-align: center; line-height: 1.3;
+  }
+
+  .back-footer-note {
+    font-size: 9px; color: #9ca3af; margin-top: 10px;
+    border-top: 1px solid #f3f4f6; padding-top: 8px;
+  }
+
+  /* MAILING SIDE */
+  .back-mail {
+    padding: 20px 20px;
+    display: flex; flex-direction: column;
+    gap: 12px;
+  }
+  .postage-box {
+    border: 2px dashed #d1d5db; border-radius: 6px;
+    padding: 10px 14px; text-align: center;
+    font-size: 10px; color: #9ca3af; font-weight: 600;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    align-self: flex-end; width: 80px;
+  }
+  .address-label { font-size: 10px; color: #6b7280; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+  .address-lines { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; flex: 1; }
+  .address-line { border-bottom: 1px solid #d1d5db; height: 14px; }
+
+  /* NOTES */
+  .notes-box {
+    width: 100%; max-width: 600px;
+    background: #fff; border-radius: 8px;
+    padding: 20px 24px; font-size: 13px; color: #374151; line-height: 1.7;
+  }
+  .notes-box h3 { font-size: 13px; font-weight: 700; color: #111; margin-bottom: 10px; }
+  .notes-box ul { padding-left: 16px; }
+  .notes-box ul li { margin-bottom: 5px; }
+
+  @media (max-width: 480px) {
+    .card-back { grid-template-columns: 1fr; }
+    .back-content { border-right: none; border-bottom: 1px solid #e5e7eb; }
+  }
+</style>
+</head>
+<body>
+
+<div class="mockup-banner">DESIGN MOCKUP — Library Postcard (4x6) | Front + Back | 50+TechBridge 2026</div>
+<div class="lang-switch"><a href="es.html">Ver en Español →</a></div>
+
+<!-- FRONT -->
+<div class="section-label">Front Side</div>
+<div class="postcard">
+  <div class="card-front">
+    <div class="card-front-image">
+      <div class="front-badge">100% Free</div>
+      <h1>Free AI Training<br>for <em>Adults 50+</em></h1>
+      <div class="tagline">No coding. No jargon. No cost.</div>
+    </div>
+    <div class="card-front-footer">
+      <div class="org">50+TechBridge</div>
+      <div class="url">learnmoretechnologies.com</div>
+    </div>
+  </div>
+</div>
+
+<!-- BACK -->
+<div class="section-label">Back Side</div>
+<div class="postcard">
+  <div class="card-back">
+    <div class="back-content">
+      <h2>You're Not Bad at Technology.<br><em>You've Just Never Had the Right Teacher.</em></h2>
+      <ul class="check-list">
+        <li>Learn AI tools for everyday life</li>
+        <li>No experience needed — start anywhere</li>
+        <li>100% Free at your local library</li>
+      </ul>
+      <div class="stats-mini">264+ adults trained &nbsp;|&nbsp; 13 locations &nbsp;|&nbsp; Always free</div>
+      <div class="session-mini">
+        <div class="row"><div class="lbl">When</div><div class="val">&nbsp;</div></div>
+        <div class="row"><div class="lbl">Where</div><div class="val">&nbsp;</div></div>
+      </div>
+      <div class="back-cta">
+        <div class="url">learnmoretechnologies.com/start-free-lesson/</div>
+        <div class="email">hello@learnmoretechnologies.com</div>
+      </div>
+      <div class="qr-placeholder">QR<br>Code<br>Here</div>
+      <div class="back-footer-note">50+TechBridge | Learn More Technologies | MBE-Certified | WIOA-Eligible | Austin, TX</div>
+    </div>
+    <div class="back-mail">
+      <div style="display:flex; justify-content:flex-end;"><div class="postage-box">Postage<br>Here</div></div>
+      <div class="address-label">To:</div>
+      <div class="address-lines">
+        <div class="address-line"></div>
+        <div class="address-line"></div>
+        <div class="address-line"></div>
+        <div class="address-line"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NOTES -->
+<div class="notes-box">
+  <h3>Canva Build Notes — 4x6 Postcard</h3>
+  <ul>
+    <li><strong>Size:</strong> 4x6 inches with 0.125" bleed on all sides</li>
+    <li><strong>Front:</strong> Dark gradient background, white headline, orange accent, photo as background layer (use blend mode)</li>
+    <li><strong>Back:</strong> White background — left 60% content, right 40% mailing area</li>
+    <li><strong>QR Code:</strong> Generate at qr.io → learnmoretechnologies.com/start-free-lesson/ — place bottom-left of content area</li>
+    <li><strong>Finish:</strong> Gloss front, matte back (easier to write on)</li>
+    <li><strong>Print vendors:</strong> GotPrint.com or 4over.com — order 500–1,000 per branch</li>
+    <li><strong>Export:</strong> PDF Print, 300 DPI, CMYK color mode</li>
+  </ul>
+</div>
+
+</body>
+</html>

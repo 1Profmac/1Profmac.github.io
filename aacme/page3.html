@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LMT AACME 2026 — Page 3: Program Model & Outcomes</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0a0a0a; --bg-alt: #111113;
+    --card: rgba(255,255,255,0.04); --card-border: rgba(255,255,255,0.08);
+    --cta: linear-gradient(135deg, #6366f1, #818cf8);
+    --orange: #f97316; --text: #ffffff; --muted: #9ca3af;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.7; min-height: 100vh; display: flex; flex-direction: column; }
+  .mockup-banner { background: #facc15; color: #000; text-align: center; padding: 10px; font-weight: 700; font-size: 13px; letter-spacing: 0.05em; }
+  header { background: var(--bg-alt); border-bottom: 1px solid var(--card-border); padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
+  .logo em { color: var(--orange); font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; }
+  .page-indicator { font-size: 12px; color: var(--muted); font-weight: 500; }
+  .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+  main { flex: 1; padding: 64px 0; }
+  .page-tag { display: inline-block; background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); color: #818cf8; border-radius: 999px; padding: 6px 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 24px; }
+  h1 { font-size: clamp(28px, 4vw, 46px); font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 20px; }
+  h1 em { font-family: 'Playfair Display', serif; font-style: italic; color: var(--orange); font-weight: 400; }
+  .lead { font-size: 17px; color: var(--muted); max-width: 700px; margin-bottom: 40px; }
+  .divider { border: none; border-top: 1px solid var(--card-border); margin: 40px 0; }
+  h2 { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px; }
+
+  .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 32px 0; }
+  .principle { background: var(--card); border: 1px solid var(--card-border); border-radius: 12px; padding: 24px; }
+  .principle .num { font-size: 11px; font-weight: 700; color: #6366f1; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
+  .principle h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+  .principle p { font-size: 13px; color: var(--muted); }
+
+  .sites-table { width: 100%; border-collapse: collapse; margin: 24px 0; background: var(--card); border: 1px solid var(--card-border); border-radius: 12px; overflow: hidden; }
+  .sites-table th { text-align: left; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding: 14px 20px; background: rgba(255,255,255,0.02); border-bottom: 1px solid var(--card-border); }
+  .sites-table td { padding: 14px 20px; font-size: 14px; border-bottom: 1px solid rgba(255,255,255,0.04); color: var(--muted); }
+  .sites-table td:last-child { text-align: right; color: var(--text); font-weight: 700; }
+  .sites-table tr:last-child td { border-bottom: none; background: rgba(99,102,241,0.06); color: var(--text); font-weight: 700; }
+
+  .outcomes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 32px 0; }
+  .outcome { background: var(--card); border: 1px solid var(--card-border); border-radius: 10px; padding: 20px; text-align: center; }
+  .outcome .val { font-size: 28px; font-weight: 900; letter-spacing: -0.02em; background: var(--cta); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .outcome .desc { font-size: 12px; color: var(--muted); margin-top: 6px; }
+
+  .showcase-box { background: rgba(249,115,22,0.08); border: 1px solid rgba(249,115,22,0.2); border-radius: 12px; padding: 28px; margin: 32px 0; }
+  .showcase-box h3 { font-size: 16px; font-weight: 700; margin-bottom: 10px; color: var(--orange); }
+  .showcase-box p { font-size: 14px; color: var(--muted); margin: 0; }
+
+  nav.page-nav { background: var(--bg-alt); border-top: 1px solid var(--card-border); padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; }
+  .nav-btn { display: inline-block; padding: 10px 20px; border-radius: 8px; font-weight: 700; font-size: 14px; text-decoration: none; transition: transform 0.15s; }
+  .nav-btn-next { background: var(--cta); color: #fff; }
+  .nav-btn-next:hover { transform: translateY(-1px); }
+  .nav-btn-prev { background: var(--card); border: 1px solid var(--card-border); color: var(--muted); }
+  .nav-dots { display: flex; gap: 8px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--card-border); }
+  .dot.active { background: #6366f1; }
+
+  @media (max-width: 600px) { .principles { grid-template-columns: 1fr; } .outcomes-grid { grid-template-columns: repeat(2, 1fr); } }
+</style>
+</head>
+<body>
+<div class="mockup-banner">DESIGN MOCKUP — AACME Elevate 2026 | Page 3 of 4</div>
+<header>
+  <div class="logo">Learn More <em>Technologies</em></div>
+  <div class="page-indicator">Page 3 of 4 — Program Model & Outcomes</div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="page-tag">Page 3 — Program Model & Grant-Year Outcomes</div>
+    <h1>A Proven Model Built on<br><em>Three Design Principles</em></h1>
+    <p class="lead">50+TechBridge is not a concept. It is a validated, documented program with signed attendance records, session photographs, and prior City of Austin funding.</p>
+
+    <div class="principles">
+      <div class="principle">
+        <div class="num">01</div>
+        <h3>Accessibility</h3>
+        <p>All training is free to participants, delivered at community sites they already use — no transportation, no cost, no barriers.</p>
+      </div>
+      <div class="principle">
+        <div class="num">02</div>
+        <h3>Customization</h3>
+        <p>No two programs are identical. Training content is tailored to the specific workforce, economic, and community needs of each partner site.</p>
+      </div>
+      <div class="principle">
+        <div class="num">03</div>
+        <h3>Creative Output</h3>
+        <p>Participants produce real work using AI tools — writing, design, digital storytelling — culminating in a public Community Showcase.</p>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <h2>Current Footprint (Verified, Central Texas)</h2>
+    <table class="sites-table">
+      <thead><tr><th>Site Type</th><th style="text-align:right;">Active Locations</th></tr></thead>
+      <tbody>
+        <tr><td>Austin Public Library Branches</td><td>5–7</td></tr>
+        <tr><td>Senior Centers</td><td>3</td></tr>
+        <tr><td>Veterans Programs</td><td>1</td></tr>
+        <tr><td>Faith Community Sites (target grant year)</td><td>1–2</td></tr>
+        <tr><td><strong>Total — Grant Year Target</strong></td><td><strong>10–12</strong></td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:13px; color:var(--muted); margin-bottom:8px;">Participants Served to Date: <strong style="color:var(--text);">~100 adults 50+</strong></p>
+    <p style="font-size:13px; color:var(--muted);">Documentation: Signed attendance sheets + session photographs available on request.</p>
+
+    <hr class="divider" />
+
+    <h2>Grant-Year Outcome Targets — $25,500 Ask</h2>
+    <div class="outcomes-grid">
+      <div class="outcome"><div class="val">150</div><div class="desc">Adults 50+ Served</div></div>
+      <div class="outcome"><div class="val">20–24</div><div class="desc">Training Cohorts Completed</div></div>
+      <div class="outcome"><div class="val">100</div><div class="desc">Completing Full Track (65%)</div></div>
+      <div class="outcome"><div class="val">75</div><div class="desc">Producing Creative Output</div></div>
+      <div class="outcome"><div class="val">10</div><div class="desc">Spanish-Language Sessions</div></div>
+      <div class="outcome"><div class="val">85%+</div><div class="desc">Participant Satisfaction Rate</div></div>
+    </div>
+
+    <div class="showcase-box">
+      <h3>Community Showcase — Public Arts Event</h3>
+      <p>The grant year concludes with a public Community Showcase featuring participant-created digital work produced using AI tools during the program. Target: 60+ attendees. The Showcase serves as both a celebration of participant achievement and a demonstration of what becomes possible when older adults are given access to emerging creative technologies.</p>
+    </div>
+  </div>
+</main>
+
+<nav class="page-nav">
+  <a href="page2.html" class="nav-btn nav-btn-prev">&larr; Previous</a>
+  <div class="nav-dots">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot active"></div>
+    <div class="dot"></div>
+  </div>
+  <a href="page4.html" class="nav-btn nav-btn-next">Next: Budget &rarr;</a>
+</nav>
+</body>
+</html>

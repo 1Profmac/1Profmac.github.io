@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Brian McKinney — Speaker One-Sheet</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0a0a0a; --bg-alt: #111113;
+    --card: rgba(255,255,255,0.04); --card-border: rgba(255,255,255,0.08);
+    --cta: linear-gradient(135deg, #6366f1, #818cf8);
+    --orange: #f97316; --text: #ffffff; --muted: #9ca3af;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #d1d5db; font-family: 'Inter', sans-serif; display: flex; flex-direction: column; align-items: center; padding: 32px 16px; gap: 0; }
+
+  .mockup-banner { background: #facc15; color: #000; text-align: center; padding: 10px; font-weight: 700; font-size: 13px; letter-spacing: 0.05em; width: 100%; margin-bottom: 24px; border-radius: 6px; max-width: 860px; }
+
+  /* ONE-SHEET WRAPPER */
+  .sheet {
+    width: 100%; max-width: 860px;
+    background: var(--bg);
+    border-radius: 10px; overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    display: grid;
+    grid-template-columns: 280px 1fr;
+  }
+
+  /* LEFT SIDEBAR */
+  .sidebar {
+    background: linear-gradient(160deg, #1e1b4b 0%, #0a0a0a 100%);
+    padding: 40px 28px;
+    display: flex; flex-direction: column; gap: 28px;
+    border-right: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .photo-block { text-align: center; }
+  .photo-placeholder {
+    width: 140px; height: 160px; margin: 0 auto 16px;
+    background: rgba(255,255,255,0.06);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    font-size: 11px; color: #4b5563; text-align: center;
+    line-height: 1.5;
+  }
+  .photo-block h2 { font-size: 22px; font-weight: 900; color: #fff; letter-spacing: -0.02em; line-height: 1.1; }
+  .photo-block .title { font-size: 12px; color: var(--orange); font-weight: 600; margin-top: 6px; letter-spacing: 0.04em; }
+  .photo-block .org { font-size: 11px; color: var(--muted); margin-top: 3px; }
+
+  .one-liner-sidebar {
+    background: rgba(249,115,22,0.1);
+    border: 1px solid rgba(249,115,22,0.25);
+    border-radius: 10px; padding: 16px;
+  }
+  .one-liner-sidebar p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic; color: #fff;
+    font-size: 14px; line-height: 1.6;
+  }
+  .one-liner-sidebar p em { color: var(--orange); }
+
+  .stats-block { display: flex; flex-direction: column; gap: 12px; }
+  .stat-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .stat-row:last-child { border-bottom: none; }
+  .stat-row .val { font-size: 22px; font-weight: 900; background: var(--cta); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .stat-row .lbl { font-size: 11px; color: var(--muted); text-align: right; max-width: 100px; line-height: 1.3; }
+
+  .creds-block {}
+  .creds-block h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #6366f1; margin-bottom: 10px; }
+  .creds-block ul { list-style: none; }
+  .creds-block ul li { font-size: 12px; color: var(--muted); padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; gap: 8px; }
+  .creds-block ul li:last-child { border-bottom: none; }
+  .creds-block ul li::before { content: '·'; color: #6366f1; font-weight: 900; }
+
+  .contact-block {}
+  .contact-block h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #6366f1; margin-bottom: 10px; }
+  .contact-block p { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .contact-block p strong { color: #818cf8; }
+  .book-btn {
+    display: block; text-align: center;
+    background: var(--cta); color: #fff;
+    padding: 10px 16px; border-radius: 8px;
+    font-weight: 700; font-size: 13px; text-decoration: none;
+    margin-top: 12px;
+  }
+
+  /* RIGHT CONTENT */
+  .content { padding: 40px 36px; display: flex; flex-direction: column; gap: 28px; }
+
+  .bio-block {}
+  .bio-block h3 { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #6366f1; margin-bottom: 10px; }
+  .bio-block p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+  .topics-block {}
+  .topics-block h3 { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #6366f1; margin-bottom: 16px; }
+  .topic {
+    background: var(--card); border: 1px solid var(--card-border);
+    border-radius: 10px; padding: 20px; margin-bottom: 12px;
+  }
+  .topic:last-child { margin-bottom: 0; }
+  .topic .topic-label { font-size: 10px; font-weight: 700; color: #818cf8; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
+  .topic h4 { font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 8px; line-height: 1.3; letter-spacing: -0.01em; }
+  .topic h4 em { font-family: 'Playfair Display', serif; font-style: italic; color: var(--orange); font-weight: 700; }
+  .topic p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 8px; }
+  .topic .best-for { font-size: 11px; color: #6b7280; font-style: italic; }
+  .topic .best-for strong { color: #818cf8; font-style: normal; }
+
+  .testimonials-block {}
+  .testimonials-block h3 { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #6366f1; margin-bottom: 14px; }
+  .testimonials-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .testimonial {
+    background: var(--card); border: 1px solid var(--card-border);
+    border-radius: 10px; padding: 16px;
+  }
+  .testimonial p { font-size: 12px; color: var(--muted); line-height: 1.6; font-style: italic; margin-bottom: 8px; }
+  .testimonial .attr { font-size: 11px; color: #6b7280; }
+
+  .formats-block {}
+  .formats-block h3 { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #6366f1; margin-bottom: 12px; }
+  .formats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .format-pill {
+    background: var(--card); border: 1px solid var(--card-border);
+    border-radius: 8px; padding: 12px; text-align: center;
+    font-size: 12px; color: var(--muted);
+  }
+  .format-pill strong { display: block; color: #fff; font-size: 13px; margin-bottom: 3px; }
+
+  /* FOOTER */
+  .sheet-footer {
+    background: #060608;
+    padding: 14px 36px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 11px; color: #4b5563;
+    grid-column: 1 / -1;
+    flex-wrap: wrap; gap: 8px;
+  }
+  .sheet-footer .tags { color: #6366f1; font-weight: 600; }
+
+  /* NOTES */
+  .canva-notes {
+    width: 100%; max-width: 860px; margin-top: 20px;
+    background: #fff; border-radius: 8px; padding: 20px 24px;
+    font-size: 13px; color: #374151; line-height: 1.7;
+  }
+  .canva-notes h3 { font-size: 13px; font-weight: 700; color: #111; margin-bottom: 10px; }
+  .canva-notes ul { padding-left: 16px; }
+  .canva-notes ul li { margin-bottom: 5px; }
+
+  @media (max-width: 680px) {
+    .sheet { grid-template-columns: 1fr; }
+    .sidebar { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .formats-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<div class="mockup-banner">DESIGN MOCKUP — Brian McKinney Speaker One-Sheet | 8.5x11 | 2026</div>
+
+<div class="sheet">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+
+    <div class="photo-block">
+      <div class="photo-placeholder">📸 Headshot<br>or Action<br>Photo Here<br><br>Teaching /<br>On Stage<br>preferred</div>
+      <h2>Brian<br>McKinney</h2>
+      <div class="title">Keynote Speaker · AI Educator</div>
+      <div class="org">Founder, 50+TechBridge &<br>Learn More Technologies</div>
+    </div>
+
+    <div class="one-liner-sidebar">
+      <p>"I'm 65 and I run my company with AI. Now I teach adults 50+ to do what <em>Silicon Valley says they can't.</em>"</p>
+    </div>
+
+    <div class="stats-block">
+      <div class="stat-row"><div class="val">264+</div><div class="lbl">Adults Trained</div></div>
+      <div class="stat-row"><div class="val">13</div><div class="lbl">Locations Deployed</div></div>
+      <div class="stat-row"><div class="val">30+</div><div class="lbl">AI Workflows (Solo CEO)</div></div>
+      <div class="stat-row"><div class="val">3x</div><div class="lbl">Targeted Completion Rate</div></div>
+    </div>
+
+    <div class="creds-block">
+      <h4>Credentials</h4>
+      <ul>
+        <li>MBE-Certified</li>
+        <li>WIOA-Eligible Provider</li>
+        <li>City of Austin Nexus Grant Recipient</li>
+        <li>Publisher, Agentic50 Weekly</li>
+        <li>501(c)(3) Application in Process</li>
+      </ul>
+    </div>
+
+    <div class="contact-block">
+      <h4>Book Brian</h4>
+      <p><strong>hello@learnmoretechnologies.com</strong></p>
+      <p>learnmoretechnologies.com</p>
+      <p>agentic50.org</p>
+      <a class="book-btn" href="https://calendly.com/brianmckinney/new-meeting">Schedule a Call</a>
+    </div>
+
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <div class="bio-block">
+      <h3>About Brian</h3>
+      <p>Brian McKinney is the founder of 50+TechBridge — the only program in America teaching AI skills specifically to adults 50+. A solo CEO who manages 30+ AI-powered workflows, Brian is living proof that age is no barrier to innovation. His free AI training program is deployed across 13 locations in Central Texas with a targeted 3x completion rate. He publishes Agentic50 Weekly and speaks on ageism, AI adoption, and the $76 trillion opportunity the market is ignoring.</p>
+    </div>
+
+    <div class="topics-block">
+      <h3>Speaking Topics</h3>
+
+      <div class="topic">
+        <div class="topic-label">Keynote 01</div>
+        <h4>"The $76 Trillion Mistake: Why Ignoring Adults 50+ Is Your Biggest <em>Business Risk</em>"</h4>
+        <p>The 50+ market controls $76 trillion in global wealth and represents the fastest-growing workforce segment — yet most organizations treat them as an afterthought. Brian makes the economic case for inclusion and delivers a framework for reversing the trend before the opportunity closes.</p>
+        <div class="best-for"><strong>Best for:</strong> Corporate executives, workforce boards, economic development, chambers of commerce, HR & DEI conferences</div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-label">Keynote 02</div>
+        <h4>"Ageism Is the Last Acceptable Bias — <em>And AI Is Making It Worse</em>"</h4>
+        <p>Ageism costs the U.S. economy $850 billion a year. Now AI is accelerating it — automating away jobs held by experienced workers while creating new ones nobody is training older adults to fill. Brian delivers a clear-eyed look at the crisis and the path forward.</p>
+        <div class="best-for"><strong>Best for:</strong> Policy conferences, aging services, nonprofits, foundations, workforce development, public libraries, government</div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-label">Workshop / Lunch & Learn</div>
+        <h4>"AI in One Hour: What Every Adult 50+ Needs to Know <em>Right Now</em>"</h4>
+        <p>Hands-on. No jargon. No coding. Brian walks any audience through the practical AI tools reshaping everyday life — live demos, real examples, and a clear action plan participants can use the same day. Customized for your audience.</p>
+        <div class="best-for"><strong>Best for:</strong> ERGs, library systems, senior centers, community orgs, faith communities, workforce boards</div>
+      </div>
+    </div>
+
+    <div class="testimonials-block">
+      <h3>What Audiences Say</h3>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <p>"Brian doesn't just talk about the digital divide — he's closing it. His session changed how our organization thinks about serving adults 50+."</p>
+          <div class="attr">— [Name, Title, Organization]</div>
+        </div>
+        <div class="testimonial">
+          <p>"The most practical, energizing, and eye-opening talk we've had all year. Our audience was still talking about it a week later."</p>
+          <div class="attr">— [Name, Title, Organization]</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="formats-block">
+      <h3>Available Formats</h3>
+      <div class="formats-grid">
+        <div class="format-pill"><strong>Keynote</strong>45–60 min</div>
+        <div class="format-pill"><strong>Fireside Chat</strong>30–45 min</div>
+        <div class="format-pill"><strong>Workshop</strong>60–90 min</div>
+        <div class="format-pill"><strong>Half-Day</strong>Training</div>
+        <div class="format-pill"><strong>Virtual</strong>or In-Person</div>
+        <div class="format-pill"><strong>Panel</strong>Participant</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="sheet-footer">
+    <div>Learn More Technologies | Austin, Texas | learnmoretechnologies.com | hello@learnmoretechnologies.com</div>
+    <div class="tags">#agentic50 &nbsp;|&nbsp; #AgeTech &nbsp;|&nbsp; #DigitalInclusion</div>
+  </div>
+
+</div>
+
+<div class="canva-notes">
+  <h3>Canva Build Notes — Speaker One-Sheet (8.5x11)</h3>
+  <ul>
+    <li><strong>Layout:</strong> Two-column — left sidebar 32%, right content 68%</li>
+    <li><strong>Left column:</strong> Dark navy/black gradient, white text, headshot at top, stats, credentials, booking CTA</li>
+    <li><strong>Right column:</strong> Dark background with card sections for bio, 3 topics, testimonials, formats grid</li>
+    <li><strong>Photo:</strong> Replace placeholder with a real action photo — Brian on stage or teaching. Vertical crop preferred for sidebar.</li>
+    <li><strong>Testimonials:</strong> Replace placeholder quotes with 2 real testimonials before printing or submitting to conferences</li>
+    <li><strong>Export:</strong> PDF Print, 300 DPI — submit this file format to all speaking bureaus and event organizers</li>
+    <li><strong>Digital version:</strong> Export as PNG or JPG for email attachments and website upload</li>
+  </ul>
+</div>
+
+</body>
+</html>

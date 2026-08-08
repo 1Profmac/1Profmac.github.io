@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LMT AACME 2026 — Page 1: Organizational Overview</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0a0a0a; --bg-alt: #111113;
+    --card: rgba(255,255,255,0.04); --card-border: rgba(255,255,255,0.08);
+    --cta: linear-gradient(135deg, #6366f1, #818cf8);
+    --orange: #f97316; --text: #ffffff; --muted: #9ca3af;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.7; min-height: 100vh; display: flex; flex-direction: column; }
+  .mockup-banner { background: #facc15; color: #000; text-align: center; padding: 10px; font-weight: 700; font-size: 13px; letter-spacing: 0.05em; }
+  header { background: var(--bg-alt); border-bottom: 1px solid var(--card-border); padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
+  .logo em { color: var(--orange); font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; }
+  .page-indicator { font-size: 12px; color: var(--muted); font-weight: 500; }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+  main { flex: 1; padding: 64px 0; }
+
+  .page-tag { display: inline-block; background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); color: #818cf8; border-radius: 999px; padding: 6px 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 24px; }
+  h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 20px; }
+  h1 em { font-family: 'Playfair Display', serif; font-style: italic; color: var(--orange); font-weight: 400; }
+  .lead { font-size: 18px; color: var(--muted); max-width: 680px; margin-bottom: 48px; }
+
+  .divider { border: none; border-top: 1px solid var(--card-border); margin: 40px 0; }
+
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 32px 0; }
+  .info-block { background: var(--card); border: 1px solid var(--card-border); border-radius: 12px; padding: 28px; }
+  .info-block h3 { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #6366f1; margin-bottom: 16px; }
+  .info-block ul { list-style: none; }
+  .info-block ul li { font-size: 14px; color: var(--muted); padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; gap: 10px; }
+  .info-block ul li:last-child { border-bottom: none; }
+  .info-block ul li::before { content: '—'; color: #6366f1; flex-shrink: 0; }
+
+  .highlight-box { background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.2); border-radius: 12px; padding: 28px; margin: 32px 0; }
+  .highlight-box p { font-size: 16px; color: var(--text); font-weight: 500; margin: 0; }
+  .highlight-box p em { font-family: 'Playfair Display', serif; font-style: italic; color: var(--orange); }
+
+  .contact-block { background: var(--card); border: 1px solid var(--card-border); border-radius: 12px; padding: 28px; margin-top: 32px; }
+  .contact-block h3 { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #6366f1; margin-bottom: 16px; }
+  .contact-block p { font-size: 15px; color: var(--muted); margin-bottom: 6px; }
+  .contact-block strong { color: var(--text); }
+
+  /* NAV */
+  nav.page-nav { background: var(--bg-alt); border-top: 1px solid var(--card-border); padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; max-width: 100%; }
+  .nav-btn { display: inline-block; padding: 10px 20px; border-radius: 8px; font-weight: 700; font-size: 14px; text-decoration: none; transition: transform 0.15s; }
+  .nav-btn-next { background: var(--cta); color: #fff; }
+  .nav-btn-next:hover { transform: translateY(-1px); }
+  .nav-btn-prev { background: var(--card); border: 1px solid var(--card-border); color: var(--muted); }
+  .nav-dots { display: flex; gap: 8px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--card-border); }
+  .dot.active { background: #6366f1; }
+
+  @media (max-width: 600px) { .info-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="mockup-banner">DESIGN MOCKUP — AACME Elevate 2026 | Page 1 of 4</div>
+<header>
+  <div class="logo">Learn More <em>Technologies</em></div>
+  <div class="page-indicator">Page 1 of 4 — Organizational Overview</div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="page-tag">Page 1 — Organizational Overview</div>
+    <h1>Building the Bridge Between<br><em>Older Adults</em> and AI</h1>
+    <p class="lead">Learn More Technologies (LMT), dba 50+TechBridge, is an Austin, Texas-based workforce development and AI education organization dedicated to closing the digital skills gap for adults age 50 and older.</p>
+
+    <div class="highlight-box">
+      <p>LMT operates the <em>only program in Austin</em> delivering structured, AI-focused digital skills training specifically to adults 50+ — using a creative output model that positions technology as a tool for artistic expression, storytelling, and community participation.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="info-grid">
+      <div class="info-block">
+        <h3>Organizational Status</h3>
+        <ul>
+          <li>Business Entity: Learn More Technologies, LLC (dba 50+TechBridge)</li>
+          <li>AACME Tier: Elevate — Arts Group</li>
+          <li>MBE-Certified (Minority Business Enterprise)</li>
+          <li>WIOA-Eligible Training Provider</li>
+          <li>Prior City of Austin Nexus Grant — $5,000 (awarded)</li>
+          <li>501(c)(3) Application in Process — 2026</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h3>How We Operate</h3>
+        <ul>
+          <li>Training delivered free of charge to all participants</li>
+          <li>Embedded inside community sites participants already use</li>
+          <li>Curriculum customized to each partner's population</li>
+          <li>Spanish-language delivery at select sites</li>
+          <li>Creative output model — participants make things</li>
+          <li>Program culminates in public Community Showcase</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="contact-block">
+      <h3>Primary Contact</h3>
+      <p><strong>Brian McKinney</strong> — Founder & CEO</p>
+      <p>hello@learnmoretechnologies.com</p>
+      <p>calendly.com/brianmckinney/new-meeting</p>
+      <p>learnmoretechnologies.com</p>
+    </div>
+  </div>
+</main>
+
+<nav class="page-nav">
+  <span class="nav-btn nav-btn-prev" style="visibility:hidden;">Previous</span>
+  <div class="nav-dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+  <a href="page2.html" class="nav-btn nav-btn-next">Next: The Problem &rarr;</a>
+</nav>
+</body>
+</html>
