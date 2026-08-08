@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Platform Research — 50+TechBridge</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0a0a0a; --bg-alt: #111113;
+    --card: rgba(255,255,255,0.04); --card-border: rgba(255,255,255,0.08);
+    --indigo: #6366f1; --orange: #f97316;
+    --text: #ffffff; --muted: #9ca3af;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; }
+
+  header { background: var(--bg-alt); border-bottom: 1px solid var(--card-border); padding: 20px 32px; display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 17px; font-weight: 800; }
+  .logo em { font-family: 'Playfair Display', serif; font-style: italic; color: var(--orange); font-weight: 400; }
+  .header-tag { font-size: 12px; color: var(--muted); }
+
+  main { max-width: 860px; margin: 0 auto; padding: 48px 24px; }
+
+  .page-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo); margin-bottom: 12px; }
+  h1 { font-size: 36px; font-weight: 900; letter-spacing: -0.03em; margin-bottom: 8px; }
+  h1 em { font-family: 'Playfair Display', serif; font-style: italic; color: var(--orange); font-weight: 400; }
+  .subtitle { font-size: 15px; color: var(--muted); margin-bottom: 40px; line-height: 1.6; }
+
+  .mission-box {
+    background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.2);
+    border-radius: 12px; padding: 20px 24px; margin-bottom: 48px;
+  }
+  .mission-box h3 { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo); margin-bottom: 10px; }
+  .mission-box p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+  .mission-box strong { color: #fff; }
+
+  .section-title { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--card-border); }
+
+  .platform-block { margin-bottom: 48px; }
+  .platform-header {
+    display: flex; align-items: center; gap: 14px; margin-bottom: 16px;
+  }
+  .platform-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .platform-header h2 { font-size: 18px; font-weight: 800; }
+  .platform-header .platform-where { font-size: 13px; color: var(--muted); }
+
+  .quote-rows { display: flex; flex-direction: column; gap: 12px; }
+  .quote-row {
+    background: var(--card); border: 1px solid var(--card-border);
+    border-radius: 10px; padding: 16px 20px;
+    display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: start;
+  }
+  .quote-row .q-num { font-size: 10px; font-weight: 700; color: #4b5563; margin-bottom: 6px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .quote-row .q-text { font-size: 14px; color: #d1d5db; font-style: italic; min-height: 20px; }
+  .quote-row .q-tag { font-size: 10px; font-weight: 600; color: var(--orange); white-space: nowrap; }
+
+  .phrase-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .chip {
+    background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.2);
+    color: #fdba74; border-radius: 999px; padding: 4px 12px; font-size: 12px; font-weight: 600;
+  }
+
+  .synthesis-block {
+    background: var(--bg-alt); border: 1px solid var(--card-border);
+    border-radius: 16px; padding: 32px; margin-top: 16px;
+  }
+  .synthesis-block h2 { font-size: 22px; font-weight: 900; margin-bottom: 24px; }
+  .synthesis-block h2 em { font-family: 'Playfair Display', serif; font-style: italic; color: var(--orange); }
+  .synthesis-section { margin-bottom: 24px; }
+  .synthesis-section h4 { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo); margin-bottom: 10px; }
+  .synthesis-section p { font-size: 14px; color: var(--muted); line-height: 1.7; font-style: italic; }
+
+  .blank-lines { display: flex; flex-direction: column; gap: 10px; }
+  .blank-line { border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; min-height: 24px; }
+
+  .score-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 12px; }
+  .score-card {
+    background: var(--card); border: 1px solid var(--card-border);
+    border-radius: 10px; padding: 16px; text-align: center;
+  }
+  .score-card .score-label { font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 8px; }
+  .score-card .score-value { font-size: 28px; font-weight: 900; color: var(--indigo); }
+  .score-card .score-sub { font-size: 10px; color: #4b5563; margin-top: 4px; }
+
+  footer { background: var(--bg-alt); border-top: 1px solid var(--card-border); padding: 20px 32px; text-align: center; font-size: 12px; color: #4b5563; }
+  footer strong { color: var(--muted); }
+
+  @media print {
+    body { background: #fff; color: #000; }
+    header, footer { background: #f9f9f9; border-color: #ddd; }
+    .logo em, h1 em, .platform-header h2 { color: #c2410c; }
+    .mission-box { background: #fef3c7; border-color: #fde68a; }
+    .mission-box p, .mission-box strong { color: #000; }
+    .quote-row, .synthesis-block, .score-card { background: #f9f9f9; border-color: #ddd; }
+    .quote-row .q-text, .synthesis-section p { color: #374151; }
+    .chip { background: #ffedd5; border-color: #fed7aa; color: #c2410c; }
+    .page-label, .section-title, .synthesis-section h4 { color: #4f46e5; }
+    .score-card .score-value { color: #4f46e5; }
+    .blank-line { border-color: #d1d5db; }
+    a { color: inherit; text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Learn More <em>Technologies</em></div>
+  <div class="header-tag">Platform Research — Internal Use</div>
+</header>
+
+<main>
+  <div class="page-label">50+TechBridge — Market Discovery</div>
+  <h1>Platform <em>Research Doc</em></h1>
+  <p class="subtitle">90 minutes. 6 platforms. 3–5 pain phrases each. Bring these quotes back and the platform direction becomes obvious.</p>
+
+  <div class="mission-box">
+    <h3>What You're Listening For</h3>
+    <p>You're not looking for opinions. You're looking for <strong>pain phrases</strong> — the exact words 50+ adults use when they're frustrated, stuck, or wishing something existed. Phrases like: <strong>"I wish someone would just..."</strong> / <strong>"Nobody explains it like..."</strong> / <strong>"I gave up on..."</strong> / <strong>"I'd pay for..."</strong> / <strong>"I feel stupid when..."</strong></p>
+  </div>
+
+  <!-- FACEBOOK -->
+  <div class="platform-block">
+    <div class="section-title">Platform 1 of 6 — 15 minutes</div>
+    <div class="platform-header">
+      <div class="platform-icon" style="background: rgba(59,130,246,0.15);">f</div>
+      <div>
+        <h2>Facebook Groups</h2>
+        <div class="platform-where">Search: "seniors and technology" / "50+ tech help" / "AARP" / "grandparents and smartphones" — read the posts, not just the group descriptions</div>
+      </div>
+    </div>
+    <div class="quote-rows">
+      <div class="quote-row">
+        <div><div class="q-num">Quote 1</div><div class="q-text"></div></div>
+        <div class="q-tag">Facebook</div>
+      </div>
+      <div class="quote-row">
+        <div><div class="q-num">Quote 2</div><div class="q-text"></div></div>
+        <div class="q-tag">Facebook</div>
+      </div>
+      <div class="quote-row">
+        <div><div class="q-num">Quote 3</div><div class="q-text"></div></div>
+        <div class="q-tag">Facebook</div>
+      </div>
+      <div class="quote-row">
+        <div><div class="q-num">Quote 4</div><div class="q-text"></div></div>
+        <div class="q-tag">Facebook</div>
+      </div>
+      <div class="quote-row">
+        <div><div class="q-num">Quote 5</div><div class="q-text"></div></div>
+        <div class="q-tag">Facebook</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REDDIT -->
+  <div class="platform-block">
+    <div class="section-title">Platform 2 of 6 — 15 minutes</div>
+    <div class="platform-header">
+      <div class="platform-icon" style="background: rgba(239,68,68,0.15);">r/</div>
+      <div>
+        <h2>Reddit</h2>
+        <div class="platform-where">Subreddits: r/Seniors / r/Boomers / r/GenX / r/personalfinance — search "technology" in each, read comment threads</div>
+      </div>
+    </div>
+    <div class="quote-rows">
+      <div class="quote-row">
+        <div><div class="q-num">Quote 1</div><div class="q-text"></div></div>
+        <div class="q-tag">Reddit</div>
+      </div>
+      <div class="quote-row">
+        <div><div class="q-num">Quote 2</div><div class="q-text"></div></div>
+        <div class="q-tag">Reddit</div>
+      </div>
+      <div class="quote-row">
+        <div><div class="q-num">Quote 3</div><div class="q-text"></div></div>
+        <div class="q-tag">Reddit</div>
+      </div>
+      <div class="quote-row">
+        <div><div class="q-num">Quote 4</div><div class="q-text"></div></div>
+        <div class="q-tag">Reddit</div>
+      </div>
+      <div class="quote-row">
+        <div><div class="q-num">Quote 5</div><div class="q-text"></div></div>
+        <div class="q-tag">Reddit</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- YOUTUBE -->
+  <div class="platform-block">
+    <div class="section-title">Platform 3 of 6 — 15 minutes</div>
+    <div class="platform-header">
+      <div class="platform-icon" style="background: rgba(239,68,68,0.15);">YT</div>
+      <div>
+        <h2>YouTube Comments</h2>
+        <div class="platform-where">Find any video: "technology for seniors" with 10K+ views — read the comments, not the video. That's where the pain lives.</div>
+      </div>
+    </div>
+    <div class="quote-rows">
+      <div class="quote-row">
+        <div><div class="q-num">Quote 1</div><div class="q-text"></div></div>
+        <div class="q-tag">YouTube</div>
+      </div>
+      <div class="quote-row">
+        <div><div class="q-num">Quote 2</div><div class="q-text"></div></div>
+        <div class="q-tag">YouTube</div>
+      </div>
+      <div class="quote-row">
+        <div><div class="q-num">Quote 3</div><div class="q-text"></div></div>
+        <div class="q-tag">YouTube</div>
+      </div>
+      <div class="quote-row">
+        <div><div class="q-num">Quote 4</div><div class="q-text"></div></div>
+        <div class="q-tag">YouTube</div>
+      </div>
+      <div class="quote-row">
+        <div><div class="q-num">Quote 5</div><div class="q-text"></div></div>
+        <div class="q-tag">YouTube</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUORA -->
+  <div class="platform-block">
+    <div class="section-title">Platform 4 of 6 — 15 minutes</div>
+    <div class="platform-header">
+      <div class="platform-icon" style="background: rgba(185,28,28,0.15);">Q</div>
+      <div>
+        <h2>Quora</h2>
+        <div class="platform-where">Search: "technology seniors" / "learning technology over 50" / "AI for older adults" — read the QUESTIONS, not the answers. Questions = pain.</div>
+      </div>
+    </div>
+    <div class="quote-rows">
+      <div class="quote-row">
+        <div><div class="q-num">Quote 1</div><div class="q-text"></div></div>
+        <div class="q-tag">Quora</div>
+      </div>
+      <div class="quote-row">
+        <div><div class="q-num">Quote 2</div><div class="q-text"></div></div>
+        <div class="q-tag">Quora</div>
+      </div>
+      <div class="quote-row">
+        <div><div class="q-num">Quote 3</div><div class="q-text"></div></div>
+        <div class="q-tag">Quora</div>
+      </div>
+      <div class="quote-row">
+        <div><div class="q-num">Quote 4</div><div class="q-text"></div></div>
+        <div class="q-tag">Quora</div>
+      </div>
+      <div class="quote-row">
+        <div><div class="q-num">Quote 5</div><div class="q-text"></div></div>
+        <div class="q-tag">Quora</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LINKEDIN -->
+  <div class="platform-block">
+    <div class="section-title">Platform 5 of 6 — 15 minutes</div>
+    <div class="platform-header">
+      <div class="platform-icon" style="background: rgba(37,99,235,0.15);">in</div>
+      <div>
+        <h2>LinkedIn</h2>
+        <div class="platform-where">Search: "digital divide 50+" / "technology seniors workforce" — read the COMMENTS on posts, not the posts themselves. Comments = real reactions.</div>
+      </div>
+    </div>
+    <div class="quote-rows">
+      <div class="quote-row">
+        <div><div class="q-num">Quote 1</div><div class="q-text"></div></div>
+        <div class="q-tag">LinkedIn</div>
+      </div>
+      <div class="quote-row">
+        <div><div class="q-num">Quote 2</div><div class="q-text"></div></div>
+        <div class="q-tag">LinkedIn</div>
+      </div>
+      <div class="quote-row">
+        <div><div class="q-num">Quote 3</div><div class="q-text"></div></div>
+        <div class="q-tag">LinkedIn</div>
+      </div>
+      <div class="quote-row">
+        <div><div class="q-num">Quote 4</div><div class="q-text"></div></div>
+        <div class="q-tag">LinkedIn</div>
+      </div>
+      <div class="quote-row">
+        <div><div class="q-num">Quote 5</div><div class="q-text"></div></div>
+        <div class="q-tag">LinkedIn</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AARP / NICHE FORUMS -->
+  <div class="platform-block">
+    <div class="section-title">Platform 6 of 6 — 15 minutes</div>
+    <div class="platform-header">
+      <div class="platform-icon" style="background: rgba(234,179,8,0.15);">A+</div>
+      <div>
+        <h2>AARP Community + Niche Forums</h2>
+        <div class="platform-where">community.aarp.org — Technology section. Also try SeniorForums.com and AgingCare.com. Same rule: read the questions and complaints.</div>
+      </div>
+    </div>
+    <div class="quote-rows">
+      <div class="quote-row">
+        <div><div class="q-num">Quote 1</div><div class="q-text"></div></div>
+        <div class="q-tag">AARP/Forum</div>
+      </div>
+      <div class="quote-row">
+        <div><div class="q-num">Quote 2</div><div class="q-text"></div></div>
+        <div class="q-tag">AARP/Forum</div>
+      </div>
+      <div class="quote-row">
+        <div><div class="q-num">Quote 3</div><div class="q-text"></div></div>
+        <div class="q-tag">AARP/Forum</div>
+      </div>
+      <div class="quote-row">
+        <div><div class="q-num">Quote 4</div><div class="q-text"></div></div>
+        <div class="q-tag">AARP/Forum</div>
+      </div>
+      <div class="quote-row">
+        <div><div class="q-num">Quote 5</div><div class="q-text"></div></div>
+        <div class="q-tag">AARP/Forum</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SYNTHESIS -->
+  <div class="section-title">Synthesis — After You Finish All 6</div>
+  <div class="synthesis-block">
+    <h2>What Did You <em>Hear?</em></h2>
+
+    <div class="synthesis-section">
+      <h4>Top 3 Pain Phrases (the ones that showed up most)</h4>
+      <div class="blank-lines">
+        <div class="blank-line">1. &nbsp;</div>
+        <div class="blank-line">2. &nbsp;</div>
+        <div class="blank-line">3. &nbsp;</div>
+      </div>
+    </div>
+
+    <div class="synthesis-section">
+      <h4>What are they most afraid of?</h4>
+      <div class="blank-lines">
+        <div class="blank-line">&nbsp;</div>
+        <div class="blank-line">&nbsp;</div>
+      </div>
+    </div>
+
+    <div class="synthesis-section">
+      <h4>What do they wish existed?</h4>
+      <div class="blank-lines">
+        <div class="blank-line">&nbsp;</div>
+        <div class="blank-line">&nbsp;</div>
+      </div>
+    </div>
+
+    <div class="synthesis-section">
+      <h4>What are they already paying for (or trying to pay for)?</h4>
+      <div class="blank-lines">
+        <div class="blank-line">&nbsp;</div>
+        <div class="blank-line">&nbsp;</div>
+      </div>
+    </div>
+
+    <div class="synthesis-section">
+      <h4>What gap does 50+TechBridge fill that nothing else does?</h4>
+      <div class="blank-lines">
+        <div class="blank-line">&nbsp;</div>
+        <div class="blank-line">&nbsp;</div>
+        <div class="blank-line">&nbsp;</div>
+      </div>
+    </div>
+
+    <div class="synthesis-section">
+      <h4>Platform Direction (circle one when done)</h4>
+      <div class="phrase-chips">
+        <span class="chip">Community Platform</span>
+        <span class="chip">Course + Curriculum</span>
+        <span class="chip">AI Tool for 50+</span>
+        <span class="chip">Content + Resource Hub</span>
+        <span class="chip">Instructor Marketplace</span>
+        <span class="chip">Membership Site</span>
+        <span class="chip">Live Coaching Program</span>
+        <span class="chip">Mobile App</span>
+      </div>
+    </div>
+
+    <div class="synthesis-section">
+      <h4>Confidence Score (after research)</h4>
+      <div class="score-grid">
+        <div class="score-card">
+          <div class="score-label">Problem Clarity</div>
+          <div class="score-value">__/10</div>
+          <div class="score-sub">How clear is the pain?</div>
+        </div>
+        <div class="score-card">
+          <div class="score-label">Solution Fit</div>
+          <div class="score-value">__/10</div>
+          <div class="score-sub">Does your platform solve it?</div>
+        </div>
+        <div class="score-card">
+          <div class="score-label">Willingness to Pay</div>
+          <div class="score-value">__/10</div>
+          <div class="score-sub">Would they pay for it?</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+  <strong>Learn More Technologies LLC</strong> dba 50+TechBridge &nbsp;|&nbsp; Austin, Texas &nbsp;|&nbsp; Internal Strategy Document<br>
+  Bring the completed quotes back to Claude for platform direction analysis.
+</footer>
+
+</body>
+</html>
