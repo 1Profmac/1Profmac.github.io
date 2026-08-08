@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>50+TechBridge — Instructor Package (Print Version)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  @media screen {
+    body { background: #e5e7eb; font-family: 'Inter', sans-serif; padding: 24px 16px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .screen-banner { background: #facc15; color: #000; text-align: center; padding: 10px; font-weight: 700; font-size: 13px; width: 100%; max-width: 780px; border-radius: 6px; }
+    .print-btn { background: #6366f1; color: #fff; border: none; padding: 12px 32px; border-radius: 8px; font-weight: 700; font-size: 14px; cursor: pointer; font-family: 'Inter', sans-serif; }
+    .print-btn:hover { background: #4f46e5; }
+    .sheet { width: 100%; max-width: 780px; background: #fff; border-radius: 8px; box-shadow: 0 4px 24px rgba(0,0,0,0.15); }
+  }
+
+  /* ── PRINT BASE ── */
+  .sheet { font-family: 'Inter', sans-serif; color: #111; background: #fff; }
+
+  /* HEADER */
+  .doc-header { border-bottom: 3px solid #1e1b4b; padding: 16px 24px; display: flex; justify-content: space-between; align-items: flex-end; }
+  .doc-header .org { font-size: 15px; font-weight: 900; color: #1e1b4b; letter-spacing: -0.01em; }
+  .doc-header .org-sub { font-size: 10px; color: #6b7280; margin-top: 2px; }
+  .doc-header .doc-title { font-size: 11px; font-weight: 700; color: #fff; background: #f97316; padding: 4px 12px; border-radius: 999px; }
+
+  /* BODY */
+  .doc-body { padding: 20px 24px; display: flex; flex-direction: column; gap: 20px; }
+
+  /* SECTION */
+  .section-head { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #6366f1; border-bottom: 1.5px solid #e2e8f0; padding-bottom: 5px; margin-bottom: 10px; }
+
+  /* CHECKLISTS */
+  .checklist-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .cl-card { border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px 14px; }
+  .cl-card h4 { font-size: 11px; font-weight: 800; color: #1e1b4b; margin-bottom: 8px; }
+  .cl-card ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+  .cl-card ul li { display: flex; gap: 7px; font-size: 11px; color: #374151; line-height: 1.4; align-items: flex-start; }
+  .cb { width: 11px; height: 11px; border: 1.5px solid #9ca3af; border-radius: 2px; flex-shrink: 0; margin-top: 1px; }
+  .cb.important { border-color: #f97316; }
+  .cl-card ul li.important { font-weight: 600; color: #111; }
+
+  /* FORMS TABLE */
+  .forms-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .forms-table thead tr { background: #1e1b4b; }
+  .forms-table th { color: #fff; font-size: 9px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 7px 10px; text-align: left; }
+  .forms-table tbody tr { border-bottom: 1px solid #e2e8f0; }
+  .forms-table tbody tr:nth-child(even) { background: #f8fafc; }
+  .forms-table td { padding: 8px 10px; font-size: 11px; color: #374151; vertical-align: top; }
+  .forms-table td strong { color: #111; font-weight: 700; display: block; margin-bottom: 1px; }
+  .tag { display: inline-block; padding: 1px 6px; border-radius: 999px; font-size: 9px; font-weight: 700; }
+  .tag-req { background: #fee2e2; color: #991b1b; }
+  .tag-grant { background: #ede9fe; color: #5b21b6; }
+  .tag-opt { background: #f3f4f6; color: #6b7280; }
+  .url { font-size: 10px; color: #6366f1; font-family: monospace; }
+
+  /* SESSION REPORT */
+  .report-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 10px; }
+  .rf { display: flex; flex-direction: column; gap: 3px; }
+  .rf.wide { grid-column: span 2; }
+  .rf.full { grid-column: span 3; }
+  .rf label { font-size: 9px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 0.06em; }
+  .rf .line { border-bottom: 1.5px solid #cbd5e1; height: 22px; }
+  .rf .box { border: 1px solid #cbd5e1; border-radius: 4px; height: 44px; }
+
+  /* STANDARDS */
+  .standards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .std-card { border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px 14px; }
+  .std-card h4 { font-size: 11px; font-weight: 800; margin-bottom: 8px; }
+  .std-card.do h4 { color: #166534; }
+  .std-card.dont h4 { color: #991b1b; }
+  .std-card ul { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+  .std-card ul li { font-size: 11px; color: #374151; display: flex; gap: 6px; line-height: 1.4; }
+  .std-card.do ul li::before { content: '✓'; color: #16a34a; font-weight: 700; flex-shrink: 0; }
+  .std-card.dont ul li::before { content: '✗'; color: #dc2626; font-weight: 700; flex-shrink: 0; }
+
+  /* CONTACT */
+  .contact-bar { background: #f0f4ff; border: 1px solid #c7d2fe; border-radius: 6px; padding: 10px 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .contact-bar p { font-size: 11px; color: #3730a3; }
+  .contact-bar .contact-right { font-size: 11px; color: #4f46e5; text-align: right; line-height: 1.6; }
+
+  /* FILING REMINDER */
+  .filing-bar { background: #fefce8; border: 1px solid #fde047; border-radius: 6px; padding: 10px 16px; }
+  .filing-bar p { font-size: 11px; color: #713f12; line-height: 1.6; }
+  .filing-bar code { font-family: monospace; background: #fef9c3; padding: 1px 4px; border-radius: 2px; font-size: 10px; }
+
+  /* FOOTER */
+  .doc-footer { border-top: 1.5px solid #e2e8f0; padding: 10px 24px; display: flex; justify-content: space-between; align-items: center; font-size: 9px; color: #9ca3af; }
+
+  /* ── PRINT RULES ── */
+  @media print {
+    body { background: #fff; padding: 0; }
+    .screen-banner, .print-btn { display: none !important; }
+    .sheet { box-shadow: none; border-radius: 0; max-width: 100%; }
+    .doc-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .doc-header .doc-title { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .forms-table thead tr { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .tag-req, .tag-grant, .tag-opt { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .contact-bar, .filing-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    @page { margin: 0.5in; size: letter; }
+    /* keep sections together */
+    .cl-card, .std-card { break-inside: avoid; }
+    .section-head { break-after: avoid; }
+  }
+
+  @media (max-width: 560px) {
+    .checklist-grid, .standards-grid { grid-template-columns: 1fr; }
+    .report-grid { grid-template-columns: 1fr 1fr; }
+    .rf.full { grid-column: span 2; }
+  }
+</style>
+</head>
+<body>
+
+<div class="screen-banner">PRINT VERSION — Instructor Package | Click "Print This Sheet" — saves ink, prints clean</div>
+<button class="print-btn" onclick="window.print()">Print This Sheet</button>
+
+<div class="sheet">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <div>
+      <div class="org">50+TechBridge | Learn More Technologies</div>
+      <div class="org-sub">Technology Assisted Training Program · MBE-Certified · WIOA-Eligible · Austin, Texas</div>
+    </div>
+    <div class="doc-title">Instructor Package</div>
+  </div>
+
+  <div class="doc-body">
+
+    <!-- CHECKLISTS -->
+    <div>
+      <div class="section-head">Session Checklists</div>
+      <div class="checklist-grid">
+
+        <div class="cl-card">
+          <h4>Before the Session</h4>
+          <ul>
+            <li class="important"><div class="cb important"></div>Print sign-in sheet (1 per 20 participants)</li>
+            <li class="important"><div class="cb important"></div>Print testimonial releases (3–5 per session)</li>
+            <li><div class="cb"></div>Confirm room and tech setup with site contact</li>
+            <li><div class="cb"></div>Test WiFi and projector on arrival</li>
+            <li><div class="cb"></div>Bring printed flyers for participants</li>
+            <li><div class="cb"></div>Charge all devices</li>
+            <li><div class="cb"></div>Phone ready to take 3+ session photos</li>
+          </ul>
+        </div>
+
+        <div class="cl-card">
+          <h4>During the Session</h4>
+          <ul>
+            <li class="important"><div class="cb important"></div>Pass sign-in sheet at START — before people leave</li>
+            <li class="important"><div class="cb important"></div>Take at least 3 photos — participants with devices</li>
+            <li><div class="cb"></div>Note participants with great stories for testimonial</li>
+            <li><div class="cb"></div>Ask willing participants to fill out release form</li>
+            <li><div class="cb"></div>Confirm next session date with attendees</li>
+            <li><div class="cb"></div>Collect all paper materials before leaving</li>
+          </ul>
+        </div>
+
+        <div class="cl-card">
+          <h4>After the Session</h4>
+          <ul>
+            <li class="important"><div class="cb important"></div>Scan sign-in sheet — save as SIGNIN-[Location]-[Date].pdf</li>
+            <li class="important"><div class="cb important"></div>Label photos: PHOTO-[Location]-[Date]-[##].jpg</li>
+            <li class="important"><div class="cb important"></div>File all docs in ELEVATE-2026 folder within 24 hrs</li>
+            <li><div class="cb"></div>Complete session totals on sign-in sheet first</li>
+            <li><div class="cb"></div>Email Brian any testimonials or standout stories</li>
+            <li><div class="cb"></div>Update attendance count in tracking spreadsheet</li>
+          </ul>
+        </div>
+
+        <div class="cl-card">
+          <h4>Photo Requirements</h4>
+          <ul>
+            <li class="important"><div class="cb important"></div>Minimum 3 photos per session — no exceptions</li>
+            <li><div class="cb"></div>Show participants actively using devices — not posed</li>
+            <li><div class="cb"></div>Include the room/location in at least 1 photo</li>
+            <li><div class="cb"></div>Get verbal OK before photographing anyone's face</li>
+            <li><div class="cb"></div>If declined — photograph from behind or angle away</li>
+            <li><div class="cb"></div>Shoot near a window for good natural light</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- FORMS -->
+    <div>
+      <div class="section-head">Forms — What to Print & When</div>
+      <table class="forms-table">
+        <thead>
+          <tr><th>Form</th><th>When to Use</th><th>Grant Use</th><th>Print Link</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Workshop Sign-In Sheet</strong>20-row attendance with totals and certification</td>
+            <td><span class="tag tag-req">Every session</span></td>
+            <td>AACME Exhibit A · WIOA Required</td>
+            <td class="url">1profmac.github.io/forms/signin.html</td>
+          </tr>
+          <tr>
+            <td><strong>Testimonial & Photo Release</strong>Permission to use quotes and photos</td>
+            <td><span class="tag tag-req">3–5 per session</span></td>
+            <td>AACME Exhibit B</td>
+            <td class="url">…/forms/testimonial-release.html</td>
+          </tr>
+          <tr>
+            <td><strong>Session Photo Log</strong>Track and label all session photos</td>
+            <td><span class="tag tag-opt">Monthly</span></td>
+            <td>AACME Exhibit C</td>
+            <td class="url">…/forms/photo-log.html</td>
+          </tr>
+          <tr>
+            <td><strong>Partner Letter Template</strong>Pre-written letter for site managers to sign</td>
+            <td><span class="tag tag-grant">Grant use</span></td>
+            <td>AACME Exhibit D</td>
+            <td class="url">…/forms/partner-letter.html</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- QUICK SESSION REPORT -->
+    <div>
+      <div class="section-head">Quick Session Report — Complete After Every Session</div>
+      <div class="report-grid">
+        <div class="rf"><label>Date</label><div class="line"></div></div>
+        <div class="rf"><label>Location / Site</label><div class="line"></div></div>
+        <div class="rf"><label>Session # in Series</label><div class="line"></div></div>
+        <div class="rf"><label>Total Participants</label><div class="line"></div></div>
+        <div class="rf"><label>Adults Age 50+</label><div class="line"></div></div>
+        <div class="rf"><label>First-Time Attendees</label><div class="line"></div></div>
+        <div class="rf wide"><label>Topic / Module Covered</label><div class="line"></div></div>
+        <div class="rf"><label>Testimonials Collected (#)</label><div class="line"></div></div>
+        <div class="rf"><label>Photos Taken (#)</label><div class="line"></div></div>
+        <div class="rf"><label>Sign-In Sheet Filed? Y / N</label><div class="line"></div></div>
+        <div class="rf full"><label>Standout Moments / Notes for Brian</label><div class="box"></div></div>
+        <div class="rf full"><label>Issues or Follow-Up Needed</label><div class="box"></div></div>
+      </div>
+    </div>
+
+    <!-- PROGRAM STANDARDS -->
+    <div>
+      <div class="section-head">Program Standards</div>
+      <div class="standards-grid">
+        <div class="std-card do">
+          <h4>What We Always Do</h4>
+          <ul>
+            <li>Pass sign-in sheet at the START of every session</li>
+            <li>Take at least 3 photos per session</li>
+            <li>Get signed releases before using quotes or photos</li>
+            <li>File all documentation within 24 hours</li>
+            <li>Treat every participant with dignity and patience</li>
+            <li>Meet participants where they are — no judgment</li>
+          </ul>
+        </div>
+        <div class="std-card dont">
+          <h4>What We Never Do</h4>
+          <ul>
+            <li>Inflate attendance — use only sign-in sheet numbers</li>
+            <li>Photograph participants without verbal permission</li>
+            <li>Use names or quotes without a signed release</li>
+            <li>Promise anything not approved by Brian</li>
+            <li>Leave without collecting the sign-in sheet</li>
+            <li>Use jargon or make participants feel behind</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- FILING REMINDER -->
+    <div class="filing-bar">
+      <p><strong>File all session documents here:</strong> <code>Desktop/LMT-CONTENT/07-CONTRACTS-AND-GRANTS/ELEVATE-2026/</code><br>
+      Sign-in sheets → <code>SIGN-IN-SHEETS/</code> &nbsp;·&nbsp; Photos → <code>SESSION-PHOTOS/</code> &nbsp;·&nbsp; Releases → <code>TESTIMONIALS/</code><br>
+      Naming: <code>SIGNIN-PflugervilleLibrary-2026-08-08.pdf</code> &nbsp;·&nbsp; <code>PHOTO-Carver-2026-08-08-01.jpg</code></p>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="contact-bar">
+      <p><strong>Questions? Contact Brian directly — don't wait until the next session.</strong></p>
+      <div class="contact-right">
+        hello@learnmoretechnologies.com<br>
+        calendly.com/brianmckinney/new-meeting
+      </div>
+    </div>
+
+  </div><!-- end doc-body -->
+
+  <div class="doc-footer">
+    <span>50+TechBridge | Learn More Technologies | Austin, Texas | MBE-Certified | WIOA-Eligible</span>
+    <span>learnmoretechnologies.com | hello@learnmoretechnologies.com</span>
+  </div>
+
+</div>
+
+</body>
+</html>
