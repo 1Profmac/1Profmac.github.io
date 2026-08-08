@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>50+TechBridge — Instructor Onboarding Checklist</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  @media screen {
+    body { background: #e5e7eb; font-family: 'Inter', sans-serif; padding: 24px 16px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .screen-banner { background: #facc15; color: #000; text-align: center; padding: 10px; font-weight: 700; font-size: 13px; width: 100%; max-width: 760px; border-radius: 6px; }
+    .print-btn { background: #6366f1; color: #fff; border: none; padding: 12px 32px; border-radius: 8px; font-weight: 700; font-size: 14px; cursor: pointer; font-family: 'Inter', sans-serif; }
+    .print-btn:hover { background: #4f46e5; }
+    .sheet { width: 100%; max-width: 760px; background: #fff; border-radius: 8px; box-shadow: 0 4px 24px rgba(0,0,0,0.15); }
+  }
+
+  .sheet { font-family: 'Inter', sans-serif; color: #111; background: #fff; }
+
+  /* HEADER */
+  .doc-header { background: #1e1b4b; padding: 18px 28px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 10px; }
+  .doc-header .org { color: #fff; }
+  .doc-header .org-name { font-size: 15px; font-weight: 900; }
+  .doc-header .org-sub { font-size: 10px; color: #a5b4fc; margin-top: 2px; }
+  .doc-header .doc-title { font-size: 12px; font-weight: 700; color: #fff; background: #f97316; padding: 5px 12px; border-radius: 999px; white-space: nowrap; }
+
+  /* INTRO STRIP */
+  .intro-strip { background: #eff6ff; border-bottom: 1px solid #bfdbfe; padding: 12px 28px; font-size: 12px; color: #1e40af; line-height: 1.6; }
+  .intro-strip strong { color: #1d4ed8; }
+
+  /* BODY */
+  .doc-body { padding: 20px 28px; display: flex; flex-direction: column; gap: 20px; }
+
+  /* INSTRUCTOR INFO */
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  .info-field { display: flex; flex-direction: column; gap: 3px; }
+  .info-field.wide { grid-column: span 2; }
+  .info-field label { font-size: 9px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 0.06em; }
+  .info-field .line { border-bottom: 1.5px solid #cbd5e1; height: 26px; }
+
+  /* SECTION */
+  .section-head { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #6366f1; border-bottom: 1.5px solid #e2e8f0; padding-bottom: 5px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+  .section-head .phase { font-size: 9px; font-weight: 600; color: #9ca3af; }
+
+  /* CHECKLIST TABLE */
+  .cl-table { width: 100%; border-collapse: collapse; }
+  .cl-table tbody tr { border-bottom: 1px solid #f3f4f6; }
+  .cl-table tbody tr:last-child { border-bottom: none; }
+  .cl-table td { padding: 6px 8px; vertical-align: top; }
+  .cl-table td.cb-col { width: 20px; padding-top: 8px; }
+  .cl-table td.who-col { width: 56px; }
+  .cl-table td.date-col { width: 72px; }
+  .cb { width: 13px; height: 13px; border: 1.5px solid #9ca3af; border-radius: 2px; display: block; }
+  .cb.key { border-color: #f97316; }
+  .item-title { font-size: 12px; font-weight: 700; color: #111; margin-bottom: 2px; }
+  .item-note { font-size: 11px; color: #6b7280; line-height: 1.4; }
+  .who-tag { display: inline-block; font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 999px; white-space: nowrap; }
+  .who-brian { background: #ede9fe; color: #5b21b6; }
+  .who-inst { background: #dcfce7; color: #166534; }
+  .who-both { background: #fef9c3; color: #854d0e; }
+  .date-line { border-bottom: 1.5px solid #e2e8f0; height: 20px; width: 100%; margin-top: 4px; }
+
+  /* PHASE LABEL ROWS */
+  .phase-row td { background: #f8fafc; padding: 5px 8px; font-size: 10px; font-weight: 700; color: #374151; letter-spacing: 0.04em; border-bottom: 1px solid #e2e8f0; }
+
+  /* SIGN OFF */
+  .signoff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .sig-field { display: flex; flex-direction: column; gap: 3px; }
+  .sig-field label { font-size: 9px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 0.06em; }
+  .sig-field .line { border-bottom: 1.5px solid #cbd5e1; height: 32px; }
+
+  /* LINKS */
+  .links-box { background: #f0f4ff; border: 1px solid #c7d2fe; border-radius: 6px; padding: 12px 16px; }
+  .links-box h4 { font-size: 10px; font-weight: 700; color: #3730a3; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+  .links-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .link-row { font-size: 10px; color: #4338ca; display: flex; gap: 6px; }
+  .link-row .lbl { font-weight: 700; color: #374151; white-space: nowrap; }
+
+  /* FOOTER */
+  .doc-footer { border-top: 1.5px solid #e2e8f0; padding: 10px 28px; display: flex; justify-content: space-between; font-size: 9px; color: #9ca3af; }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .screen-banner, .print-btn { display: none !important; }
+    .sheet { box-shadow: none; border-radius: 0; max-width: 100%; }
+    .doc-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .doc-header .doc-title { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .intro-strip { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .who-brian, .who-inst, .who-both { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .phase-row td { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .links-box { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    @page { margin: 0.45in; size: letter; }
+  }
+
+  @media (max-width: 500px) {
+    .info-grid { grid-template-columns: 1fr 1fr; }
+    .info-field.wide { grid-column: span 2; }
+    .signoff-grid { grid-template-columns: 1fr; }
+    .links-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="screen-banner">Instructor Onboarding Checklist | 50+TechBridge 2026 | Print or use on screen</div>
+<button class="print-btn" onclick="window.print()">Print This Sheet</button>
+
+<div class="sheet">
+
+  <div class="doc-header">
+    <div class="org">
+      <div class="org-name">50+TechBridge | Learn More Technologies</div>
+      <div class="org-sub">Technology Assisted Training Program · MBE-Certified · WIOA-Eligible</div>
+    </div>
+    <div class="doc-title">Instructor Onboarding</div>
+  </div>
+
+  <div class="intro-strip">
+    Complete this checklist before a new instructor delivers their first session. <strong>Brian signs off at the bottom.</strong>
+    Color key: <strong style="color:#5b21b6;">Brian</strong> &nbsp;·&nbsp; <strong style="color:#166534;">Instructor</strong> &nbsp;·&nbsp; <strong style="color:#854d0e;">Both</strong>
+  </div>
+
+  <div class="doc-body">
+
+    <!-- INSTRUCTOR INFO -->
+    <div>
+      <div class="section-head">Instructor Information</div>
+      <div class="info-grid">
+        <div class="info-field wide"><label>Instructor Full Name</label><div class="line"></div></div>
+        <div class="info-field"><label>Onboarding Date</label><div class="line"></div></div>
+        <div class="info-field wide"><label>Email Address</label><div class="line"></div></div>
+        <div class="info-field"><label>Phone</label><div class="line"></div></div>
+        <div class="info-field wide"><label>Assigned Site(s)</label><div class="line"></div></div>
+        <div class="info-field"><label>First Session Date</label><div class="line"></div></div>
+      </div>
+    </div>
+
+    <!-- CHECKLIST -->
+    <div>
+      <div class="section-head">Onboarding Steps <span class="phase">Complete in order</span></div>
+      <table class="cl-table">
+        <tbody>
+
+          <!-- PHASE 1 -->
+          <tr class="phase-row"><td colspan="4">Phase 1 — Admin & Access</td></tr>
+
+          <tr>
+            <td class="cb-col"><div class="cb key"></div></td>
+            <td><div class="item-title">Add to contact list</div><div class="item-note">Name, phone, email saved in Brian's CRM</div></td>
+            <td class="who-col"><span class="who-tag who-brian">Brian</span></td>
+            <td class="date-col"><div class="date-line"></div></td>
+          </tr>
+          <tr>
+            <td class="cb-col"><div class="cb"></div></td>
+            <td><div class="item-title">Share forms library link</div><div class="item-note">1profmac.github.io/forms/ — bookmarked on their device</div></td>
+            <td class="who-col"><span class="who-tag who-brian">Brian</span></td>
+            <td class="date-col"><div class="date-line"></div></td>
+          </tr>
+          <tr>
+            <td class="cb-col"><div class="cb"></div></td>
+            <td><div class="item-title">Share filing folder path</div><div class="item-note">Desktop/LMT-CONTENT/07-CONTRACTS-AND-GRANTS/ELEVATE-2026/</div></td>
+            <td class="who-col"><span class="who-tag who-brian">Brian</span></td>
+            <td class="date-col"><div class="date-line"></div></td>
+          </tr>
+          <tr>
+            <td class="cb-col"><div class="cb"></div></td>
+            <td><div class="item-title">Provide site contact info</div><div class="item-note">Name, phone, and email for their assigned library/site</div></td>
+            <td class="who-col"><span class="who-tag who-brian">Brian</span></td>
+            <td class="date-col"><div class="date-line"></div></td>
+          </tr>
+
+          <!-- PHASE 2 -->
+          <tr class="phase-row"><td colspan="4">Phase 2 — Program Knowledge</td></tr>
+
+          <tr>
+            <td class="cb-col"><div class="cb key"></div></td>
+            <td><div class="item-title">Review instructor package</div><div class="item-note">Read all 4 checklists and program standards at 1profmac.github.io/forms/instructor-package.html</div></td>
+            <td class="who-col"><span class="who-tag who-inst">Instructor</span></td>
+            <td class="date-col"><div class="date-line"></div></td>
+          </tr>
+          <tr>
+            <td class="cb-col"><div class="cb"></div></td>
+            <td><div class="item-title">Understand the mission</div><div class="item-note">50+TechBridge serves adults 50+ — especially Black and Hispanic communities. Free. Hands-on. No jargon.</div></td>
+            <td class="who-col"><span class="who-tag who-both">Both</span></td>
+            <td class="date-col"><div class="date-line"></div></td>
+          </tr>
+          <tr>
+            <td class="cb-col"><div class="cb"></div></td>
+            <td><div class="item-title">Review curriculum / session materials</div><div class="item-note">Walk through the module(s) they will teach — Brian provides materials</div></td>
+            <td class="who-col"><span class="who-tag who-both">Both</span></td>
+            <td class="date-col"><div class="date-line"></div></td>
+          </tr>
+          <tr>
+            <td class="cb-col"><div class="cb"></div></td>
+            <td><div class="item-title">Confirm: no jargon, no coding, no pressure</div><div class="item-note">Instructor understands the teaching philosophy — meet participants where they are</div></td>
+            <td class="who-col"><span class="who-tag who-both">Both</span></td>
+            <td class="date-col"><div class="date-line"></div></td>
+          </tr>
+
+          <!-- PHASE 3 -->
+          <tr class="phase-row"><td colspan="4">Phase 3 — Documentation Training</td></tr>
+
+          <tr>
+            <td class="cb-col"><div class="cb key"></div></td>
+            <td><div class="item-title">Walk through sign-in sheet</div><div class="item-note">How to pass it, when, how to complete totals, how to scan and file</div></td>
+            <td class="who-col"><span class="who-tag who-both">Both</span></td>
+            <td class="date-col"><div class="date-line"></div></td>
+          </tr>
+          <tr>
+            <td class="cb-col"><div class="cb key"></div></td>
+            <td><div class="item-title">Walk through testimonial release</div><div class="item-note">When to ask, how to approach participants, what to do with completed forms</div></td>
+            <td class="who-col"><span class="who-tag who-both">Both</span></td>
+            <td class="date-col"><div class="date-line"></div></td>
+          </tr>
+          <tr>
+            <td class="cb-col"><div class="cb key"></div></td>
+            <td><div class="item-title">Photo protocol confirmed</div><div class="item-note">Minimum 3 per session, verbal permission, naming convention, where to file</div></td>
+            <td class="who-col"><span class="who-tag who-both">Both</span></td>
+            <td class="date-col"><div class="date-line"></div></td>
+          </tr>
+          <tr>
+            <td class="cb-col"><div class="cb"></div></td>
+            <td><div class="item-title">Quick session report explained</div><div class="item-note">Photograph completed report and send to Brian after every session</div></td>
+            <td class="who-col"><span class="who-tag who-brian">Brian</span></td>
+            <td class="date-col"><div class="date-line"></div></td>
+          </tr>
+          <tr>
+            <td class="cb-col"><div class="cb"></div></td>
+            <td><div class="item-title">Confirm data rule</div><div class="item-note">Never inflate numbers. Only record what is on the sign-in sheet.</div></td>
+            <td class="who-col"><span class="who-tag who-both">Both</span></td>
+            <td class="date-col"><div class="date-line"></div></td>
+          </tr>
+
+          <!-- PHASE 4 -->
+          <tr class="phase-row"><td colspan="4">Phase 4 — Site Prep</td></tr>
+
+          <tr>
+            <td class="cb-col"><div class="cb"></div></td>
+            <td><div class="item-title">Site visit or virtual intro with site contact</div><div class="item-note">Instructor meets the library/site contact before first session</div></td>
+            <td class="who-col"><span class="who-tag who-inst">Instructor</span></td>
+            <td class="date-col"><div class="date-line"></div></td>
+          </tr>
+          <tr>
+            <td class="cb-col"><div class="cb"></div></td>
+            <td><div class="item-title">Confirm room, WiFi, equipment</div><div class="item-note">Projector, screen, whiteboard, participant devices or BYOD</div></td>
+            <td class="who-col"><span class="who-tag who-inst">Instructor</span></td>
+            <td class="date-col"><div class="date-line"></div></td>
+          </tr>
+          <tr>
+            <td class="cb-col"><div class="cb"></div></td>
+            <td><div class="item-title">Print first session materials</div><div class="item-note">Sign-in sheets, testimonial releases, participant flyers — all printed and packed</div></td>
+            <td class="who-col"><span class="who-tag who-inst">Instructor</span></td>
+            <td class="date-col"><div class="date-line"></div></td>
+          </tr>
+
+          <!-- PHASE 5 -->
+          <tr class="phase-row"><td colspan="4">Phase 5 — Final Clearance (Brian signs off)</td></tr>
+
+          <tr>
+            <td class="cb-col"><div class="cb key"></div></td>
+            <td><div class="item-title">All above steps confirmed complete</div><div class="item-note">Brian has reviewed instructor's readiness — nothing outstanding</div></td>
+            <td class="who-col"><span class="who-tag who-brian">Brian</span></td>
+            <td class="date-col"><div class="date-line"></div></td>
+          </tr>
+          <tr>
+            <td class="cb-col"><div class="cb key"></div></td>
+            <td><div class="item-title">Instructor cleared to run first session</div><div class="item-note">First session date confirmed and on Brian's calendar</div></td>
+            <td class="who-col"><span class="who-tag who-brian">Brian</span></td>
+            <td class="date-col"><div class="date-line"></div></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div class="links-box">
+      <h4>Key Links for Instructors</h4>
+      <div class="links-grid">
+        <div class="link-row"><span class="lbl">Forms Library:</span>1profmac.github.io/forms/</div>
+        <div class="link-row"><span class="lbl">Instructor Package:</span>…/forms/instructor-package.html</div>
+        <div class="link-row"><span class="lbl">Sign-In Sheet:</span>…/forms/signin.html</div>
+        <div class="link-row"><span class="lbl">Testimonial Release:</span>…/forms/testimonial-release.html</div>
+        <div class="link-row"><span class="lbl">Email Brian:</span>hello@learnmoretechnologies.com</div>
+        <div class="link-row"><span class="lbl">Book a Call:</span>calendly.com/brianmckinney/new-meeting</div>
+      </div>
+    </div>
+
+    <!-- SIGN OFF -->
+    <div>
+      <div class="section-head">Sign-Off</div>
+      <div class="signoff-grid">
+        <div class="sig-field"><label>Instructor Signature</label><div class="line"></div></div>
+        <div class="sig-field"><label>Date Cleared</label><div class="line"></div></div>
+        <div class="sig-field"><label>Brian McKinney — Founder, 50+TechBridge</label><div class="line"></div></div>
+        <div class="sig-field"><label>Notes</label><div class="line"></div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="doc-footer">
+    <span>50+TechBridge | Learn More Technologies | Austin, Texas | MBE-Certified | WIOA-Eligible</span>
+    <span>learnmoretechnologies.com | hello@learnmoretechnologies.com</span>
+  </div>
+
+</div>
+</body>
+</html>
