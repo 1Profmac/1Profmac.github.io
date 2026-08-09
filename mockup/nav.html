@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nav Mockup — LearnMore Technologies</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: #111; }
+
+  /* MOCKUP BANNER */
+  .mockup-banner {
+    background: #facc15; color: #000; text-align: center;
+    padding: 10px 24px; font-weight: 700; font-size: 13px; letter-spacing: 0.05em;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .mockup-banner .change { background: #000; color: #facc15; padding: 3px 10px; border-radius: 4px; font-size: 11px; }
+
+  /* NAV */
+  nav {
+    background: #0d1117;
+    padding: 14px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-logo { font-size: 18px; font-weight: 800; color: #fff; }
+  .nav-logo span { color: #f97316; }
+  .nav-links { display: flex; align-items: center; gap: 10px; }
+
+  .pill {
+    padding: 8px 18px; border-radius: 999px; font-size: 13px; font-weight: 600;
+    text-decoration: none; border: 1px solid rgba(255,255,255,0.2); color: #fff;
+    background: transparent; cursor: pointer; transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .pill:hover { background: rgba(255,255,255,0.08); }
+  .pill-orange { background: #f97316; border-color: #f97316; color: #fff; }
+  .pill-orange:hover { background: #ea6c0a; }
+  .pill-gold { background: #ca8a04; border-color: #ca8a04; color: #fff; }
+  .pill-gold:hover { background: #b57a03; }
+  .pill-green { background: #16a34a; border-color: #16a34a; color: #fff; }
+  .pill-green:hover { background: #138a3f; }
+  .pill-new { background: linear-gradient(135deg, #6366f1, #818cf8); border-color: #6366f1; color: #fff; }
+
+  /* CHANGED BADGE */
+  .changed { position: relative; }
+  .changed::after {
+    content: "RENAMED";
+    position: absolute; top: -8px; right: -4px;
+    background: #ef4444; color: #fff;
+    font-size: 8px; font-weight: 900; letter-spacing: 0.05em;
+    padding: 2px 5px; border-radius: 3px;
+    pointer-events: none;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #0d1117 0%, #111827 100%);
+    padding: 80px 60px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+    min-height: 480px;
+  }
+  .hero-left {}
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(249,115,22,0.15); border: 1px solid rgba(249,115,22,0.3);
+    color: #f97316; font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 6px 14px; border-radius: 999px;
+    margin-bottom: 28px;
+  }
+  .hero-tag::before { content: "●"; font-size: 8px; }
+  .hero h1 { font-size: 52px; font-weight: 900; color: #fff; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 20px; }
+  .hero h1 span { color: #ca8a04; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700; }
+  .hero p { font-size: 16px; color: #9ca3af; line-height: 1.7; max-width: 480px; }
+  .hero-right { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 24px; }
+  .video-placeholder { background: #1a1a2e; border-radius: 10px; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+  .play-btn { width: 56px; height: 56px; background: #ef4444; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .play-btn::after { content: "▶"; color: #fff; font-size: 18px; margin-left: 4px; }
+  .video-meta { font-size: 13px; color: #9ca3af; }
+  .video-meta strong { color: #fff; display: block; font-size: 15px; margin-bottom: 4px; }
+
+  /* COMPARISON TABLE */
+  .comparison {
+    max-width: 800px; margin: 40px auto; padding: 32px;
+    background: #1a1a1a; border-radius: 16px; border: 1px solid rgba(255,255,255,0.08);
+  }
+  .comparison h3 { font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 20px; text-align: center; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; padding: 8px 12px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #6b7280; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); color: #d1d5db; vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  .status-keep { color: #22c55e; font-weight: 700; }
+  .status-rename { color: #f97316; font-weight: 700; }
+  .status-cut { color: #ef4444; font-weight: 700; text-decoration: line-through; opacity: 0.6; }
+  .status-cut td { opacity: 0.4; }
+  .badge-small { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 10px; font-weight: 700; }
+  .badge-new { background: rgba(99,102,241,0.2); color: #818cf8; border: 1px solid rgba(99,102,241,0.3); }
+  .badge-same { background: rgba(255,255,255,0.06); color: #9ca3af; border: 1px solid rgba(255,255,255,0.1); }
+  .badge-reviewer { background: rgba(202,138,4,0.2); color: #fbbf24; border: 1px solid rgba(202,138,4,0.3); }
+</style>
+</head>
+<body>
+
+<div class="mockup-banner">
+  <span>MOCKUP — Nav Redesign &nbsp;|&nbsp; LearnMoreTechnologies.com &nbsp;|&nbsp; Review before applying to WordPress</span>
+  <span class="change">NOT LIVE YET</span>
+</div>
+
+<!-- PROPOSED NAV -->
+<nav>
+  <div class="nav-logo">LearnMore<span>Technologies</span></div>
+  <div class="nav-links">
+    <a href="#" class="pill changed">Work With Us</a>
+    <a href="#" class="pill">Book Brian to Speak</a>
+    <a href="#" class="pill pill-orange">50+TechBridge</a>
+    <a href="#" class="pill pill-gold">Digital Pioneer Gallery</a>
+    <a href="#" class="pill pill-green">Start Free Lesson</a>
+  </div>
+</nav>
+
+<!-- HERO (matches your current site) -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">AgeTech Platform &nbsp;·&nbsp; Mission-Driven</div>
+    <h1>Ageism is the Problem. <span>AgeTech</span> is the Solution. We're the Bridge.</h1>
+    <p>We help adults 50+ and the organizations that serve them navigate AI, fight ageism, and capture the largest economic opportunity in American history.</p>
+  </div>
+  <div class="hero-right">
+    <div class="video-placeholder">
+      <div class="play-btn"></div>
+    </div>
+    <div class="video-meta">
+      <strong>WHAT IF</strong>
+      What if the digital age was built for you? Watch the film.
+    </div>
+  </div>
+</div>
+
+<!-- CHANGE LOG -->
+<div class="comparison">
+  <h3>What Changed — Review Before Approving</h3>
+  <table>
+    <thead>
+      <tr><th>Nav Item</th><th>Before</th><th>After</th><th>Status</th><th>Reason</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Workforce Solutions</strong></td>
+        <td>Workforce Solutions</td>
+        <td><strong>Work With Us</strong> <span class="badge-small badge-new">Renamed</span></td>
+        <td class="status-rename">RENAMED</td>
+        <td>More direct. Invites action. "Solutions" is jargon.</td>
+      </tr>
+      <tr>
+        <td><strong>Book Brian to Speak</strong></td>
+        <td>Book Brian to Speak</td>
+        <td>Book Brian to Speak <span class="badge-small badge-same">No change</span></td>
+        <td class="status-keep">KEEP</td>
+        <td>Direct revenue CTA — exactly right.</td>
+      </tr>
+      <tr>
+        <td><strong>50+TechBridge</strong></td>
+        <td>50+TechBridge</td>
+        <td>50+TechBridge <span class="badge-small badge-reviewer">Reviewer Link</span></td>
+        <td class="status-keep">KEEP</td>
+        <td>Grant reviewers and partners need this link.</td>
+      </tr>
+      <tr>
+        <td><strong>Digital Pioneer Gallery</strong></td>
+        <td>Digital Pioneer Gallery</td>
+        <td>Digital Pioneer Gallery <span class="badge-small badge-reviewer">Reviewer Link</span></td>
+        <td class="status-keep">KEEP</td>
+        <td>Shows program proof to grant reviewers and funders.</td>
+      </tr>
+      <tr>
+        <td><strong>Start Free Lesson</strong></td>
+        <td>Start Free Lesson</td>
+        <td>Start Free Lesson <span class="badge-small badge-same">No change</span></td>
+        <td class="status-keep">KEEP</td>
+        <td>Primary lead gen CTA — keep green and prominent.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="text-align:center; margin-top:20px; font-size:13px; color:#6b7280;">One change only: "Workforce Solutions" → "Work With Us" &nbsp;|&nbsp; All other items unchanged</p>
+</div>
+
+</body>
+</html>
