@@ -96,11 +96,43 @@
   footer { background: var(--bg-alt); border-top: 1px solid var(--card-border); padding: 20px 32px; text-align: center; font-size: 12px; color: #4b5563; margin-top: 64px; }
   footer strong { color: var(--muted); }
 
+  @page { size: letter; margin: 0.55in; }
   @media print {
-    body { background: #fff; color: #000; }
-    header, footer { background: #f9f9f9; border-color: #ddd; }
-    .answer-box, .ask-box, .strategy-box, .toc a { background: #f9f9f9; border-color: #ddd; }
-    .answer-box p, .weak-box p { color: #111; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { background: #fff; color: #111; }
+    header { background: #fff; border-bottom: 1px solid #ccc; }
+    .header-links { display: none; }
+    footer { background: #fff; border-color: #ccc; color: #444; }
+    main { padding: 0; max-width: none; }
+    h1 { font-size: 26px; color: #111; }
+    .page-label { color: #4338ca; }
+    .subtitle, .subtitle a { color: #333; }
+    .strategy-box { background: #eef2ff; border-color: #c7d2fe; }
+    .strategy-box h2 { color: #3730a3; }
+    .strategy-box li { color: #111; }
+    .toc { display: none; }
+    .section-title { color: #4338ca; border-color: #d1d5db; }
+    .q-meta h2 { color: #111; }
+    .q-meta .q-maps { color: #c2410c; }
+    .q-meta .q-prompt { color: #333; }
+    .ask-box { background: #eef2ff; border-color: #c7d2fe; }
+    .ask-box p, .ask-box strong { color: #1e1b4b; }
+    .weak-box { background: #fef2f2; border-color: #fecaca; }
+    .weak-box .label { color: #b91c1c; }
+    .weak-box p, .weak-box strong { color: #111; }
+    .answer-box { background: #f8fafc; border-color: #d1d5db; }
+    .answer-box .label { color: #15803d; }
+    .answer-box p, .answer-box li, .answer-box h3 { color: #111; }
+    .why-box, .pattern-box { background: #f0fdf4; border-color: #bbf7d0; }
+    .why-box .label, .pattern-box h2 { color: #15803d; }
+    .why-box p, .why-box li, .pattern-box li { color: #111; }
+    .dont-box { background: #fef2f2; border-color: #fecaca; }
+    .dont-box h2 { color: #b91c1c; }
+    .dont-box li, .dont-box code { color: #111; }
+    .note { background: #fff7ed; border-color: #fed7aa; color: #9a3412; }
+    .note a { color: #9a3412; }
+    .question-block { page-break-inside: avoid; break-inside: avoid; }
+    a { color: #1d4ed8; }
   }
 </style>
 </head>

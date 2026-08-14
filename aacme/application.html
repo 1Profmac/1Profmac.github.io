@@ -84,12 +84,35 @@
   footer { background: var(--bg-alt); border-top: 1px solid var(--card-border); padding: 20px 32px; text-align: center; font-size: 12px; color: #4b5563; margin-top: 64px; }
   footer strong { color: var(--muted); }
 
+  @page { size: letter; margin: 0.6in; }
   @media print {
-    body { background: #fff; color: #000; }
-    header, footer { background: #f9f9f9; border-color: #ddd; }
-    .answer-box, .meta-card, .subpoints { background: #f9f9f9; border-color: #ddd; }
-    .answer-box p, .budget-table td { color: #111; }
-    .deadline-box { background: #fff3cd; border-color: #ffc107; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { background: #fff; color: #111; }
+    header { background: #fff; border-bottom: 1px solid #ccc; position: static; }
+    .header-links { display: none; }
+    footer { background: #fff; border-color: #ccc; color: #444; }
+    footer a { color: #444; }
+    main { padding: 0; max-width: none; }
+    h1 { font-size: 26px; color: #111; }
+    .page-label { color: #4338ca; }
+    .subtitle, .subtitle a { color: #333; }
+    .deadline-box { background: #fff8e1; border-color: #f59e0b; }
+    .deadline-box .d-label { color: #b45309; }
+    .deadline-box .d-date, .deadline-box .d-note { color: #111; }
+    .meta-card, .subpoints, .answer-box, .todo-box { background: #f7f7f8; border-color: #d1d5db; }
+    .meta-card .m-label { color: #4b5563; }
+    .meta-card .m-value { color: #111; }
+    .section-title { color: #4338ca; border-color: #d1d5db; }
+    .q-meta h2 { color: #111; }
+    .q-meta .q-points { color: #c2410c; }
+    .q-meta .q-prompt, .subpoints p, .answer-box p, .budget-table td, .budget-table th { color: #111; }
+    .subpoints p strong, .answer-box strong { color: #111; }
+    .char-count { color: #4b5563; }
+    .char-count span { color: #15803d; }
+    .todo-box p, .todo-box a { color: #9a3412; }
+    .todo-box strong { color: #c2410c; }
+    .question-block { page-break-inside: avoid; break-inside: avoid; }
+    a { color: #1d4ed8; }
   }
 </style>
 </head>
