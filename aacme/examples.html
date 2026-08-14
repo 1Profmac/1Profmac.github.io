@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AACME Elevate — Foundational Evolution Examples</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0a0a0a; --bg-alt: #111113;
+    --card: rgba(255,255,255,0.04); --card-border: rgba(255,255,255,0.08);
+    --indigo: #6366f1; --orange: #f97316;
+    --text: #ffffff; --muted: #9ca3af;
+    --green: #22c55e; --red: #f87171;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; }
+
+  header { background: var(--bg-alt); border-bottom: 1px solid var(--card-border); padding: 20px 32px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .logo { font-size: 17px; font-weight: 800; }
+  .logo em { font-family: 'Playfair Display', serif; font-style: italic; color: var(--orange); font-weight: 400; }
+  .header-links { display: flex; gap: 10px; flex-wrap: wrap; }
+  .header-links a { font-size: 12px; font-weight: 700; color: #a5b4fc; text-decoration: none; border: 1px solid rgba(99,102,241,0.35); padding: 6px 12px; border-radius: 999px; }
+  .header-links a:hover { border-color: #818cf8; color: #fff; }
+
+  main { max-width: 860px; margin: 0 auto; padding: 48px 24px; }
+
+  .page-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo); margin-bottom: 12px; }
+  h1 { font-size: 36px; font-weight: 900; letter-spacing: -0.03em; margin-bottom: 8px; }
+  h1 em { font-family: 'Playfair Display', serif; font-style: italic; color: var(--orange); font-weight: 400; }
+  .subtitle { font-size: 15px; color: var(--muted); margin-bottom: 32px; line-height: 1.6; }
+
+  .strategy-box {
+    background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.25);
+    border-radius: 12px; padding: 24px 28px; margin-bottom: 40px;
+  }
+  .strategy-box h2 { font-size: 14px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #a5b4fc; margin-bottom: 14px; }
+  .strategy-box ol { padding-left: 20px; }
+  .strategy-box li { font-size: 14px; color: #d1d5db; line-height: 1.7; margin-bottom: 10px; }
+  .strategy-box li:last-child { margin-bottom: 0; }
+  .strategy-box strong { color: #fff; }
+
+  .toc { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; margin-bottom: 48px; }
+  .toc a {
+    background: var(--card); border: 1px solid var(--card-border); border-radius: 10px;
+    padding: 12px 14px; text-decoration: none; color: #d1d5db; font-size: 13px; font-weight: 600;
+  }
+  .toc a:hover { border-color: rgba(99,102,241,0.5); color: #fff; }
+  .toc a span { display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #818cf8; margin-bottom: 4px; }
+
+  .section-title { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo); margin: 8px 0 20px; padding-bottom: 8px; border-bottom: 1px solid var(--card-border); }
+
+  .question-block { margin-bottom: 56px; }
+  .q-header { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 16px; }
+  .q-number { width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(135deg, #6366f1, #818cf8); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 900; flex-shrink: 0; }
+  .q-meta h2 { font-size: 17px; font-weight: 800; margin-bottom: 4px; line-height: 1.3; }
+  .q-meta .q-maps { font-size: 12px; color: var(--orange); font-weight: 700; }
+  .q-meta .q-prompt { font-size: 13px; color: var(--muted); margin-top: 4px; line-height: 1.5; }
+
+  .ask-box, .why-box, .pattern-box, .dont-box, .answer-box, .weak-box {
+    border-radius: 12px; padding: 20px 24px; margin-bottom: 14px;
+  }
+  .ask-box { background: rgba(99,102,241,0.06); border: 1px solid rgba(99,102,241,0.18); }
+  .ask-box p { font-size: 13px; color: #c7d2fe; line-height: 1.6; }
+  .ask-box strong { color: #a5b4fc; }
+
+  .weak-box { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.22); }
+  .weak-box .label, .answer-box .label, .why-box .label { font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
+  .weak-box .label { color: var(--red); }
+  .weak-box p, .answer-box p, .why-box p, .pattern-box p, .dont-box p { font-size: 14px; color: #d1d5db; line-height: 1.8; margin-bottom: 12px; }
+  .weak-box p:last-child, .answer-box p:last-child, .why-box p:last-child { margin-bottom: 0; }
+
+  .answer-box { background: var(--card); border: 1px solid var(--card-border); }
+  .answer-box .label { color: var(--green); }
+  .answer-box ul { margin: 0 0 12px 18px; }
+  .answer-box li { font-size: 14px; color: #d1d5db; line-height: 1.7; margin-bottom: 6px; }
+  .answer-box h3 { font-size: 14px; font-weight: 800; color: #fff; margin: 16px 0 8px; }
+  .answer-box h3:first-child { margin-top: 0; }
+
+  .why-box { background: rgba(34,197,94,0.06); border: 1px solid rgba(34,197,94,0.2); }
+  .why-box .label { color: var(--green); }
+  .why-box ul { margin: 0 0 0 18px; }
+  .why-box li { font-size: 13px; color: #d1d5db; line-height: 1.6; margin-bottom: 4px; }
+
+  .pattern-box { background: rgba(34,197,94,0.06); border: 1px solid rgba(34,197,94,0.2); }
+  .dont-box { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.22); }
+  .pattern-box h2, .dont-box h2 { font-size: 15px; font-weight: 800; margin-bottom: 12px; }
+  .pattern-box h2 { color: var(--green); }
+  .dont-box h2 { color: var(--red); }
+  .pattern-box li, .dont-box li { font-size: 14px; color: #d1d5db; line-height: 1.7; margin-bottom: 10px; margin-left: 18px; }
+  .pattern-box code, .dont-box code { font-family: Inter, sans-serif; color: #fff; font-weight: 600; }
+
+  .note { font-size: 12px; color: #fdba74; background: rgba(249,115,22,0.08); border: 1px solid rgba(249,115,22,0.2); border-radius: 8px; padding: 12px 16px; margin-top: 12px; }
+  .note strong { color: var(--orange); }
+
+  footer { background: var(--bg-alt); border-top: 1px solid var(--card-border); padding: 20px 32px; text-align: center; font-size: 12px; color: #4b5563; margin-top: 64px; }
+  footer strong { color: var(--muted); }
+
+  @page { size: letter; margin: 0.55in; }
+  @media print {
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { background: #fff; color: #111; }
+    header { background: #fff; border-bottom: 1px solid #ccc; }
+    .header-links { display: none; }
+    footer { background: #fff; border-color: #ccc; color: #444; }
+    main { padding: 0; max-width: none; }
+    h1 { font-size: 26px; color: #111; }
+    .page-label { color: #4338ca; }
+    .subtitle, .subtitle a { color: #333; }
+    .strategy-box { background: #eef2ff; border-color: #c7d2fe; }
+    .strategy-box h2 { color: #3730a3; }
+    .strategy-box li { color: #111; }
+    .toc { display: none; }
+    .section-title { color: #4338ca; border-color: #d1d5db; }
+    .q-meta h2 { color: #111; }
+    .q-meta .q-maps { color: #c2410c; }
+    .q-meta .q-prompt { color: #333; }
+    .ask-box { background: #eef2ff; border-color: #c7d2fe; }
+    .ask-box p, .ask-box strong { color: #1e1b4b; }
+    .weak-box { background: #fef2f2; border-color: #fecaca; }
+    .weak-box .label { color: #b91c1c; }
+    .weak-box p, .weak-box strong { color: #111; }
+    .answer-box { background: #f8fafc; border-color: #d1d5db; }
+    .answer-box .label { color: #15803d; }
+    .answer-box p, .answer-box li, .answer-box h3 { color: #111; }
+    .why-box, .pattern-box { background: #f0fdf4; border-color: #bbf7d0; }
+    .why-box .label, .pattern-box h2 { color: #15803d; }
+    .why-box p, .why-box li, .pattern-box li { color: #111; }
+    .dont-box { background: #fef2f2; border-color: #fecaca; }
+    .dont-box h2 { color: #b91c1c; }
+    .dont-box li, .dont-box code { color: #111; }
+    .note { background: #fff7ed; border-color: #fed7aa; color: #9a3412; }
+    .note a { color: #9a3412; }
+    .question-block { page-break-inside: avoid; break-inside: avoid; }
+    a { color: #1d4ed8; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Learn More <em>Technologies</em></div>
+  <div class="header-links">
+    <a href="application.html">Copy-ready answers</a>
+    <a href="index.html">One-pager</a>
+    <a href="page1.html">4-page packet</a>
+  </div>
+</header>
+
+<main>
+  <div class="page-label">AACME Elevate FY27 — Internal Writing Guide</div>
+  <h1>Foundational <em>Evolution</em></h1>
+  <p class="subtitle">Section-by-section examples for the 2027 Elevate application. The story is not “fund something new.” It is: Nexus validated the foundation in 2024, 2024–2026 built the infrastructure, Elevate funds the next required phase of a plan already in motion.</p>
+
+  <div class="strategy-box">
+    <h2>The story every section should tell</h2>
+    <ol>
+      <li><strong>Opening:</strong> We were honored to receive the City of Austin Nexus Grant in 2024. This application continues that partnership at scale.</li>
+      <li><strong>Middle:</strong> Here is what we learned in 2024. Here is what we built in 2024–2026. Here is what we are ready to accomplish in the Elevate window (October 2026–March 2027).</li>
+      <li><strong>Closing:</strong> The City’s initial investment proved the vision works. This Elevate investment fulfills the promise we started together.</li>
+    </ol>
+  </div>
+
+  <div class="toc">
+    <a href="#s1"><span>Section 1</span>Executive summary / cover</a>
+    <a href="#s2"><span>Section 2 → Q1</span>Artistic vision / mission</a>
+    <a href="#s3"><span>Section 3 → Q2</span>Community impact</a>
+    <a href="#s4"><span>Section 4 → Q3</span>Leadership &amp; team</a>
+    <a href="#s5"><span>Section 5 → Q2</span>Program description</a>
+    <a href="#s6"><span>Section 6 → Q4</span>Budget &amp; sustainability</a>
+    <a href="#s7"><span>Section 7</span>Evaluation &amp; outcomes</a>
+    <a href="#s8"><span>Section 8</span>Closing statement</a>
+    <a href="#s9"><span>Official Q5</span>Marketing plan</a>
+    <a href="#patterns"><span>Toolkit</span>Language to use / avoid</a>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="question-block" id="s1">
+    <div class="section-title">Writing Guide</div>
+    <div class="q-header">
+      <div class="q-number">1</div>
+      <div class="q-meta">
+        <h2>Executive Summary / Cover Letter</h2>
+        <div class="q-maps">Not an official Elevate field — use this tone in every answer</div>
+        <div class="q-prompt">If a reviewer reads only the first paragraph of Q1, they should already know this is a continuation, not a first ask.</div>
+      </div>
+    </div>
+
+    <div class="weak-box">
+      <div class="label">Weak version (typical)</div>
+      <p>“Learn More Technologies is seeking $25,500 in AACME 2027 Elevate funding to expand our technology training program for underserved adults. Our program has been successful and we believe Elevate funding will help us serve more people.”</p>
+      <p><strong>Problem:</strong> Generic, no credibility markers, sounds like every other applicant.</p>
+    </div>
+
+    <div class="answer-box">
+      <div class="label">Strong version (Foundational Evolution)</div>
+      <p>Learn More Technologies was honored to receive the City of Austin Nexus Grant in 2024, enabling us to lay critical foundational work. We tested our model, validated our approach, and proved the concept works. We have now spent 2024–2026 building the infrastructure to scale responsibly. This AACME 2027 Elevate application requests $25,500 for the essential next phase of a strategic plan we started in 2024: taking our proven 50+TechBridge model from current capacity to a public 6-session series (October 2026–March 2027) culminating in a Community Showcase.</p>
+      <p>We are not asking AACME to fund something new. We are asking them to invest in the next required phase of something the City has already validated and we have already proven successful.</p>
+    </div>
+
+    <div class="why-box">
+      <div class="label">Why this works</div>
+      <ul>
+        <li>Opens with credibility (the City already funded you)</li>
+        <li>Shows intentional strategy (not reactive growth)</li>
+        <li>Demonstrates learning (foundation → infrastructure → scale)</li>
+        <li>Positions Elevate as logical progression</li>
+        <li>Respectful but confident tone</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="question-block" id="s2">
+    <div class="q-header">
+      <div class="q-number">2</div>
+      <div class="q-meta">
+        <h2>Artistic Vision / Mission Alignment</h2>
+        <div class="q-maps">Maps to official Q1 — Mission and Artistic Vision · 50 pts · 3,000 characters</div>
+        <div class="q-prompt">“What is your mission or artistic vision, and what do you do to support it?”</div>
+      </div>
+    </div>
+    <div class="ask-box">
+      <p><strong>Must cover:</strong> Mission + the creative work supporting it &nbsp;|&nbsp; Who the work impacts and how they participate &nbsp;|&nbsp; Artistic values, traditions, or focus guiding the mission</p>
+    </div>
+    <div class="answer-box">
+      <div class="label">Answer using Foundational Evolution</div>
+      <p>Our vision — to create pathways for overlooked talent to access technology as a creative tool, with dignity and economic security — was validated by the City of Austin Nexus Grant in 2024.</p>
+      <h3>Foundation (2024)</h3>
+      <p>The Nexus Award enabled us to test whether this vision was achievable. We served our first Digital Pioneer cohorts in Austin libraries and cultural centers, refined the model from real feedback, and proved that adults 50+, career-changers, and overlooked talent respond powerfully to genuine access. Documentation: signed attendance and session photographs.</p>
+      <h3>Infrastructure (2024–2026)</h3>
+      <p>Armed with 2024 validation, we invested in what scale requires: formalized community partnerships (9 library branches, 3 senior centers, 13 locations), bilingual English/Spanish curriculum, a creative-output model, and free delivery at neighborhood sites. We grew to 264+ participants trained.</p>
+      <h3>Scale (Elevate: Oct 2026–Mar 2027)</h3>
+      <p>This Elevate investment is the essential next phase: a 6-session public series reaching ~150 adults 50+, 10 Spanish-language sessions, 75 participants producing creative output, and a Community Showcase for 60+ attendees.</p>
+      <p>What makes this culturally important: Austin’s economic and cultural future depends on including all workers and all storytellers. We are building a model proving that age and background are not barriers — they are assets. Our approach challenges systemic bias while meeting real creative and economic need. That is what the City already recognized in 2024. This is what Elevate can help us scale.</p>
+    </div>
+    <p class="note"><strong>Copy-ready Q1</strong> (trimmed to the 3,000-character limit, with required subpoints) lives on the <a href="application.html" style="color:#fdba74;">application narratives page</a>.</p>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="question-block" id="s3">
+    <div class="q-header">
+      <div class="q-number">3</div>
+      <div class="q-meta">
+        <h2>Community Impact &amp; Cultural Relevance</h2>
+        <div class="q-maps">Maps to official Q2 — Proposed Public Event · 50 pts · 3,000 characters</div>
+        <div class="q-prompt">Describe the community you serve, how the project reflects their values and experiences, and how they will benefit.</div>
+      </div>
+    </div>
+    <div class="answer-box">
+      <div class="label">Answer using Foundational Evolution</div>
+      <p>Our community: adults 50+ in Austin, career-changers, workers displaced by automation, and underserved populations — especially Black and Latino adults — locked out of tech and creative-technology opportunity.</p>
+      <h3>Foundation year revealed their true needs (2024)</h3>
+      <p>Through Nexus-funded programming, we discovered that this community does not just want job training — they want dignity, visibility, and proof that their decades of experience matter in a tech-first world. They want instructors who respect their intelligence. They want small, patient groups, not factory models. They want community, not isolation.</p>
+      <p>One 2024 participant told us: <em>[Add a real quote about transformation before submitting.]</em></p>
+      <h3>Infrastructure built with community input (2024–2026)</h3>
+      <p>We did not scale blindly. We embedded feedback loops. We formalized partnerships with Austin Public Library branches, senior centers, and cultural sites including outreach to the Mexican American Cultural Center. We created free programming reflecting economic reality. We adjusted scheduling to weekday mornings and Saturday afternoons. We built bilingual materials.</p>
+      <p>The result: 264+ community members served across 13 locations, with sign-in documentation on file.</p>
+      <h3>Community benefits from Elevate (Oct 2026–Mar 2027)</h3>
+      <ul>
+        <li>Reach ~150 adults 50+ through a concentrated 6-session public series</li>
+        <li>Deepen partnerships with Austin Public Library and the Mexican American Cultural Center</li>
+        <li>Deliver 10 Spanish-language sessions and fully bilingual take-home guides</li>
+        <li>Support 75 participants in producing creative output</li>
+        <li>Host a public Community Showcase (60+ attendees) as both celebration and cultural event</li>
+      </ul>
+      <h3>Cultural relevance</h3>
+      <p>We directly counter narratives that say adults 50+ are obsolete. We prove that overlooked talent, when genuinely supported, becomes valuable, stable, and grateful creative-technology participants. That is culturally important for Austin’s identity and economy.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="question-block" id="s4">
+    <div class="q-header">
+      <div class="q-number">4</div>
+      <div class="q-meta">
+        <h2>Leadership &amp; Team Experience</h2>
+        <div class="q-maps">Maps to official Q3 — Experience Producing Events · 30 pts · 3,000 characters</div>
+        <div class="q-prompt">“Describe your experience producing creative public events in Austin.”</div>
+      </div>
+    </div>
+    <div class="ask-box">
+      <p><strong>Must cover:</strong> Key team members, skills, and roles &nbsp;|&nbsp; Team’s connection to communities served &nbsp;|&nbsp; 1–2 similar successful projects completed in Austin</p>
+    </div>
+    <div class="answer-box">
+      <div class="label">Answer using Foundational Evolution</div>
+      <p>Our leadership has direct experience executing City of Austin-funded programs with demonstrated accountability and cultural competency.</p>
+      <h3>Founder / Leader — Brian McKinney</h3>
+      <ul>
+        <li>Austin-based educator at the intersection of technology and community empowerment; 10+ years in technology education, program design, and workforce development</li>
+        <li>Managed the 2024 City of Austin Nexus Grant ($5,000) to completion — all deliverables and reporting fulfilled</li>
+        <li>Demonstrated fiscal responsibility and accountability to City standards</li>
+        <li>Direct relationships with Austin Public Library, senior centers, and cultural partners across 13 locations</li>
+        <li>MBE-certified operator and WIOA-eligible provider</li>
+      </ul>
+      <h3>Key insight from 2024 foundation work</h3>
+      <p>Our team learned that serving this community requires more than expertise — it requires respect. Curriculum decisions were shaped by participant feedback. Partnerships were built on listening, not presumption. Instructors use a participant-centered methodology: small groups, patient pacing, dignity as a non-negotiable.</p>
+      <h3>Infrastructure built (2024–2026)</h3>
+      <ul>
+        <li>Guest instructors recruited from Austin’s workforce and cultural ecosystem and trained in 50+TechBridge methods</li>
+        <li>Bilingual delivery and translated materials</li>
+        <li>Documentation system: sign-in sheets, testimonials, session photographs</li>
+      </ul>
+      <h3>What Elevate enables</h3>
+      <p>Additional instructor capacity for the 6-session series, bilingual materials production, dedicated partner coordination, and a public Community Showcase. Our 2024 work proved we understand this community. Our 2024–2026 infrastructure proved we can be trusted with City resources. This team is ready to scale responsibly.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="question-block" id="s5">
+    <div class="q-header">
+      <div class="q-number">5</div>
+      <div class="q-meta">
+        <h2>Program Description</h2>
+        <div class="q-maps">Maps to official Q2 — Proposed Public Event (When / Where / What / How)</div>
+        <div class="q-prompt">Describe in detail the proposed project. Explain what you will do, when it will happen, and how it will work.</div>
+      </div>
+    </div>
+    <div class="answer-box">
+      <div class="label">Project: Scaled implementation of a proven model (Oct 2026–Mar 2027)</div>
+      <h3>Foundation (what we started in 2024)</h3>
+      <p>Core model, validated through the Nexus Grant:</p>
+      <ul>
+        <li>Live, facilitated AI literacy workshops in public libraries and cultural centers</li>
+        <li>Small groups for personalized attention</li>
+        <li>Current practitioners as instructors</li>
+        <li>Flexible scheduling accommodating real life</li>
+        <li>Community partnerships ensuring culturally aware support</li>
+        <li>Creative output — participants make things, not just take notes</li>
+      </ul>
+      <h3>Infrastructure (what we built in 2024–2026)</h3>
+      <ul>
+        <li>Curriculum aligned with participant need and creative-technology practice</li>
+        <li>Partnerships across 9 library branches, 3 senior centers, 13 locations</li>
+        <li>Free programming (100% of learners — no tuition barrier)</li>
+        <li>Bilingual English/Spanish materials</li>
+        <li>Data collection: sign-in sheets, photos, testimonials</li>
+      </ul>
+      <h3>Results to date</h3>
+      <ul>
+        <li>264+ participants trained (2024–2026)</li>
+        <li>13 locations active</li>
+        <li>Nexus Grant ($5,000) delivered on time and within budget</li>
+      </ul>
+      <h3>Proposed Elevate implementation</h3>
+      <p><strong>WHEN:</strong> October 2026–March 2027, weekday mornings and Saturday afternoons.</p>
+      <p><strong>WHERE:</strong> Austin Public Library branches serving culturally diverse neighborhoods, plus the Mexican American Cultural Center.</p>
+      <p><strong>WHAT:</strong> 6-session, 90-minute AI Literacy Workshop Series — conversational AI, AI-powered writing and creativity, scam protection, everyday creative tasks — culminating in a public Community Showcase.</p>
+      <p><strong>HOW:</strong> Groups of 15–20, trained instructors, printed take-home guides in English and Spanish, practice on participant-owned devices.</p>
+      <h3>Why this specific scale</h3>
+      <p>Not arbitrary. 2024–2026 infrastructure work showed that the current team can run a 6-session public series; library and cultural partners can absorb this growth; bilingual materials are required; and a Showcase is the right public-facing close. We are scaling deliberately, not recklessly.</p>
+    </div>
+    <p class="note"><strong>Activity window reminder:</strong> Official Elevate activities are October 2026–March 2027. Do not describe the proposed project as a 2027–2029 multi-year scale-up in the official answers. Keep longer-term 2027–2029 vision in sustainability language only.</p>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="question-block" id="s6">
+    <div class="q-header">
+      <div class="q-number">6</div>
+      <div class="q-meta">
+        <h2>Budget &amp; Sustainability</h2>
+        <div class="q-maps">Maps to official Q4 — Budget · 30 pts</div>
+        <div class="q-prompt">“What is your proposed project budget?” Complete the table and explain how it supports the project.</div>
+      </div>
+    </div>
+    <div class="answer-box">
+      <div class="label">Budget alignment</div>
+      <p><strong>2024 Nexus Grant ($5,000):</strong> Used to test the model and build the foundation. First library-based cohorts, curriculum prototypes, documentation systems.</p>
+      <p><strong>2024–2026 infrastructure development:</strong> Refined the model from 2024 learning. Served 264+ participants. Cost per session decreased as partnerships and curriculum amortized. Built sustainability infrastructure (library venue in-kind, bilingual materials, instructor methodology).</p>
+      <p><strong>2026–2027 Elevate budget ($25,500):</strong> Scaled implementation at proven cost — 6 public sessions, bilingual materials, marketing through channels already tested, Community Showcase, administration at Nexus reporting standard. Total project value ~$42,500 with leverage.</p>
+      <p>Every budget line item is justified by 2024–2026 learning. We are not guessing at costs. We are budgeting based on what we have actually spent at each phase of development.</p>
+      <h3>Sustainability beyond Elevate</h3>
+      <ul>
+        <li><strong>Diversified revenue (not AACME-dependent):</strong> employer / cohort training contracts via Work With Us; sliding-scale or sponsored B2B delivery; foundation grants outside AACME; 501(c)(3) in process for a future Elevate Nonprofit-tier path.</li>
+        <li><strong>Infrastructure already built:</strong> library venue in-kind; founder uncompensated time (~$8,000 in the grant period); documented curriculum that is repeatable.</li>
+        <li><strong>Scalable model design:</strong> curriculum is repeatable; partnership infrastructure is replicable; Showcase format is reusable.</li>
+      </ul>
+      <p>We are using this Elevate investment to build toward independence — not to create permanent dependence on a single City source.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 7 -->
+  <div class="question-block" id="s7">
+    <div class="q-header">
+      <div class="q-number">7</div>
+      <div class="q-meta">
+        <h2>Evaluation &amp; Outcomes</h2>
+        <div class="q-maps">Not an official Elevate field — use these numbers inside Q1–Q3 and internal reporting</div>
+        <div class="q-prompt">How will you measure success? What metrics will you track?</div>
+      </div>
+    </div>
+    <div class="answer-box">
+      <div class="label">Evaluation framework built on 2024–2026 learning</div>
+      <h3>2024 (foundation) — what we measured</h3>
+      <ul>
+        <li>Participants served and documented (sign-in sheets + photos)</li>
+        <li>Sites activated (libraries, senior centers)</li>
+        <li>Nexus deliverables completed on time</li>
+      </ul>
+      <h3>2024–2026 (infrastructure) outcomes</h3>
+      <ul>
+        <li>264+ participants trained</li>
+        <li>9 library branches, 3 senior centers, 13 locations</li>
+        <li>Bilingual materials in use</li>
+      </ul>
+      <p>These are not aspirational. These are proven.</p>
+      <h3>Elevate (Oct 2026–Mar 2027) targets</h3>
+      <ul>
+        <li>150 adults 50+ served</li>
+        <li>10–12 active delivery sites</li>
+        <li>20–24 training cohorts / 6 featured public sessions in the series</li>
+        <li>100 completing a full track (~65%)</li>
+        <li>75 producing creative output</li>
+        <li>10 Spanish-language sessions</li>
+        <li>85%+ participant satisfaction</li>
+        <li>60+ Community Showcase attendees</li>
+      </ul>
+      <h3>Qualitative metrics</h3>
+      <ul>
+        <li>Community feedback on cultural relevance (session surveys)</li>
+        <li>Partner feedback from library and cultural-center staff</li>
+        <li>Graduate follow-up where contact info is provided</li>
+      </ul>
+      <p>We are not just counting bodies. We are tracking transformation. Elevate funding enables us to prove the model works at public-series scale.</p>
+    </div>
+    <p class="note"><strong>Do not invent</strong> placement rates, salary increases, or satisfaction scores of “X/5” unless you have the source data in hand. Use documented counts (264+, 13 locations, Nexus $5,000) and named Elevate targets (150 served, 85%+ satisfaction) instead.</p>
+  </div>
+
+  <!-- SECTION 8 -->
+  <div class="question-block" id="s8">
+    <div class="q-header">
+      <div class="q-number">8</div>
+      <div class="q-meta">
+        <h2>Closing Statement</h2>
+        <div class="q-maps">Not an official field — last paragraph of Q1 or Q3, and any cover email</div>
+      </div>
+    </div>
+    <div class="weak-box">
+      <div class="label">Weak version</div>
+      <p>“We hope you’ll consider funding our proposal. We believe in our work and think it’s important.”</p>
+    </div>
+    <div class="answer-box">
+      <div class="label">Strong version (Foundational Evolution)</div>
+      <p>In 2024, the City of Austin took a chance on Learn More Technologies through the Nexus Grant. That was not just a grant — it was a partnership vote of confidence in our vision.</p>
+      <p>We have honored that confidence by delivering results. We tested our model. We refined it. We proved it works. We built infrastructure to scale it responsibly.</p>
+      <p>Now we ask AACME to deepen that partnership through the 2027 Elevate program. This is not a new idea. This is the next planned phase of work we started together in 2024.</p>
+      <p>Our foundation is proven. Our infrastructure is built. Our community is ready. Our library and cultural partners are ready. We are ready.</p>
+      <p>The City’s 2024 investment in our foundation established what is possible. This 2027 investment in our scale will fulfill the promise we started together.</p>
+      <p>We are grateful for the City’s initial belief in us. We are eager to show what sustained partnership can accomplish.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 9 MARKETING -->
+  <div class="question-block" id="s9">
+    <div class="q-header">
+      <div class="q-number">5</div>
+      <div class="q-meta">
+        <h2>Marketing Plan</h2>
+        <div class="q-maps">Official Q5 — Public Connection · 20 pts · 3,000 characters</div>
+        <div class="q-prompt">“How will you market your proposed event?”</div>
+      </div>
+    </div>
+    <div class="ask-box">
+      <p><strong>Must cover:</strong> Methods to reach residents, visitors, and tourists &nbsp;|&nbsp; How you promote Austin as a cultural destination &nbsp;|&nbsp; How people will feel connected and encouraged to attend</p>
+    </div>
+    <div class="answer-box">
+      <div class="label">Answer using Foundational Evolution</div>
+      <p>Our marketing plan is built on channels we already use — not a speculative outreach strategy.</p>
+      <h3>Foundation (2024)</h3>
+      <p>Nexus-funded sessions taught us that adults 50+ do not find programs primarily on Instagram. They find them through trusted neighborhood institutions, printed materials in their language, and a personal invitation from someone they already know.</p>
+      <h3>Infrastructure (2024–2026)</h3>
+      <p>We formalized those channels: Austin Public Library posters and staff referrals; bilingual 4×6 postcards at senior centers, faith communities, and healthcare waiting rooms; the Agentic50 newsletter; AARP Austin chapter listings; and organic LinkedIn and Facebook content. These methods filled 264+ seats across 13 locations.</p>
+      <h3>Elevate implementation</h3>
+      <ul>
+        <li>Austin Public Library network — posters, table tents, and staff referrals</li>
+        <li>Mexican American Cultural Center — bilingual flyers and postcards</li>
+        <li>Agentic50 email newsletter</li>
+        <li>LinkedIn and Facebook, organic and boosted</li>
+        <li>Printed bilingual postcards at senior centers, community centers, faith communities, and healthcare waiting rooms</li>
+        <li>AARP Austin chapter calendar and member communications</li>
+      </ul>
+      <p><strong>Austin as a cultural destination:</strong> Workshops sit inside Austin’s culturally significant community anchors — the spaces that define Austin as a city that honors diverse creative traditions. Programming there reinforces Austin’s reputation as a place where technology and cultural legacy coexist, and where older adults are participants in the city’s future, not bystanders to it.</p>
+      <p><strong>Why people will attend:</strong> Marketing speaks in participants’ own language: “You belong here. You’re not too old. This is for you.” Authenticity, trusted neighborhood locations, and zero cost — the draw we already proved works.</p>
+    </div>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="question-block" id="patterns">
+    <div class="section-title">Toolkit</div>
+    <div class="pattern-box">
+      <h2>Language patterns to use throughout</h2>
+      <ul>
+        <li>“Built on the foundation established in 2024 through the City of Austin Nexus Grant…”</li>
+        <li>“Our 2024–2026 infrastructure development taught us that…”</li>
+        <li>“This Elevate investment funds the essential next phase of strategic work we started in 2024…”</li>
+        <li>“We proved the model works in 2024. We built the infrastructure in 2024–2026. Elevate enables scale in October 2026–March 2027…”</li>
+        <li>“Every budget decision is informed by 2024–2026 learning…”</li>
+        <li>“Our team has direct experience managing City of Austin funds with demonstrated accountability…”</li>
+        <li>“This was always the plan: foundation, infrastructure, scale…”</li>
+      </ul>
+    </div>
+    <div class="dont-box">
+      <h2>What not to say</h2>
+      <ul>
+        <li><code>“We’re a new organization seeking first funding.”</code> You received Nexus in 2024 — you are established.</li>
+        <li><code>“We want to expand into new areas.”</code> You are scaling proven work, not experimenting.</li>
+        <li><code>“We need help figuring out our model.”</code> You figured it out in 2024 — now you are executing.</li>
+        <li><code>“Please take a chance on us.”</code> The City already took that chance in 2024 — you are asking for continued partnership.</li>
+        <li><code>“Lexus Nexus Award.”</code> Official name in our files and City records: <strong>City of Austin Nexus Grant</strong> ($5,000). Use that name in the submitted application.</li>
+        <li><code>Invented placement %, salary lift, or “X/5 satisfaction”</code> unless the source data is on file. Reviewers can ask for it.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="strategy-box">
+    <h2>Throughout: one test for every paragraph</h2>
+    <ol>
+      <li>Does this reflect the foundation the City validated in 2024?</li>
+      <li>Does it show what we built in 2024–2026, not just what we hope to build?</li>
+      <li>Does Elevate read as the next required phase — not a first experiment?</li>
+    </ol>
+  </div>
+
+  <p class="subtitle" style="margin-bottom:0;">Copy the official 5 answers from <a href="application.html" style="color:#a5b4fc;">application.html</a> into austintexas.gov/arts-culture/elevate before August 18, 2026.</p>
+</main>
+
+<footer>
+  <strong>Learn More Technologies LLC</strong> dba 50+TechBridge &nbsp;|&nbsp; Austin, Texas &nbsp;|&nbsp; MBE-Certified &nbsp;|&nbsp; WIOA-Eligible<br>
+  Foundational Evolution writing guide — updated August 14, 2026 &nbsp;|&nbsp; For AACME 2027 Elevate
+</footer>
+
+</body>
+</html>

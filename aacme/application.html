@@ -16,10 +16,13 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; }
 
-  header { background: var(--bg-alt); border-bottom: 1px solid var(--card-border); padding: 20px 32px; display: flex; justify-content: space-between; align-items: center; }
+  header { background: var(--bg-alt); border-bottom: 1px solid var(--card-border); padding: 20px 32px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
   .logo { font-size: 17px; font-weight: 800; }
   .logo em { font-family: 'Playfair Display', serif; font-style: italic; color: var(--orange); font-weight: 400; }
   .header-tag { font-size: 12px; color: var(--muted); }
+  .header-links { display: flex; gap: 10px; flex-wrap: wrap; }
+  .header-links a { font-size: 12px; font-weight: 700; color: #a5b4fc; text-decoration: none; border: 1px solid rgba(99,102,241,0.35); padding: 6px 12px; border-radius: 999px; }
+  .header-links a:hover { border-color: #818cf8; color: #fff; }
 
   main { max-width: 860px; margin: 0 auto; padding: 48px 24px; }
 
@@ -76,16 +79,40 @@
   .todo-box p { font-size: 12px; color: #fdba74; margin-bottom: 4px; }
   .todo-box p:last-child { margin-bottom: 0; }
   .todo-box strong { color: #f97316; }
+  .todo-box a { color: #fdba74; }
 
   footer { background: var(--bg-alt); border-top: 1px solid var(--card-border); padding: 20px 32px; text-align: center; font-size: 12px; color: #4b5563; margin-top: 64px; }
   footer strong { color: var(--muted); }
 
+  @page { size: letter; margin: 0.6in; }
   @media print {
-    body { background: #fff; color: #000; }
-    header, footer { background: #f9f9f9; border-color: #ddd; }
-    .answer-box, .meta-card, .subpoints { background: #f9f9f9; border-color: #ddd; }
-    .answer-box p, .budget-table td { color: #111; }
-    .deadline-box { background: #fff3cd; border-color: #ffc107; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { background: #fff; color: #111; }
+    header { background: #fff; border-bottom: 1px solid #ccc; position: static; }
+    .header-links { display: none; }
+    footer { background: #fff; border-color: #ccc; color: #444; }
+    footer a { color: #444; }
+    main { padding: 0; max-width: none; }
+    h1 { font-size: 26px; color: #111; }
+    .page-label { color: #4338ca; }
+    .subtitle, .subtitle a { color: #333; }
+    .deadline-box { background: #fff8e1; border-color: #f59e0b; }
+    .deadline-box .d-label { color: #b45309; }
+    .deadline-box .d-date, .deadline-box .d-note { color: #111; }
+    .meta-card, .subpoints, .answer-box, .todo-box { background: #f7f7f8; border-color: #d1d5db; }
+    .meta-card .m-label { color: #4b5563; }
+    .meta-card .m-value { color: #111; }
+    .section-title { color: #4338ca; border-color: #d1d5db; }
+    .q-meta h2 { color: #111; }
+    .q-meta .q-points { color: #c2410c; }
+    .q-meta .q-prompt, .subpoints p, .answer-box p, .budget-table td, .budget-table th { color: #111; }
+    .subpoints p strong, .answer-box strong { color: #111; }
+    .char-count { color: #4b5563; }
+    .char-count span { color: #15803d; }
+    .todo-box p, .todo-box a { color: #9a3412; }
+    .todo-box strong { color: #c2410c; }
+    .question-block { page-break-inside: avoid; break-inside: avoid; }
+    a { color: #1d4ed8; }
   }
 </style>
 </head>
@@ -93,20 +120,24 @@
 
 <header>
   <div class="logo">Learn More <em>Technologies</em></div>
-  <div class="header-tag">AACME Elevate Application — Draft Reference</div>
+  <div class="header-links">
+    <a href="examples.html">Foundational Evolution guide</a>
+    <a href="index.html">One-pager</a>
+    <a href="page1.html">4-page packet</a>
+  </div>
 </header>
 
 <main>
   <div class="page-label">AACME Elevate FY27 — Arts Group Tier</div>
   <h1>Grant Application <em>Narratives</em></h1>
-  <p class="subtitle">Draft responses to all 5 application questions. Copy each answer into the official application at austintexas.gov/arts-culture/elevate. Review, personalize, and submit before the deadline.</p>
+  <p class="subtitle">Copy-ready responses to all 5 official questions, rewritten with the Foundational Evolution strategy: Nexus validated the foundation in 2024, 2024–2026 built the infrastructure, Elevate funds the next required phase. Copy each answer into austintexas.gov/arts-culture/elevate. See the <a href="examples.html" style="color:#a5b4fc;">writing guide</a> for weak vs. strong examples, language patterns, and what not to say.</p>
 
   <div class="deadline-box">
     <div>
       <div class="d-label">Application Deadline</div>
       <div class="d-date">August 18, 2026</div>
     </div>
-    <div class="d-note">10 days remaining &nbsp;|&nbsp; Submit at austintexas.gov/arts-culture/elevate &nbsp;|&nbsp; Questions: applicationhelp@thelongcenter.org / 512-457-5161</div>
+      <div class="d-note">4 days remaining &nbsp;|&nbsp; Submit at austintexas.gov/arts-culture/elevate &nbsp;|&nbsp; Questions: applicationhelp@thelongcenter.org / 512-457-5161</div>
   </div>
 
   <div class="app-meta">
@@ -134,14 +165,17 @@
       <p><strong>Must cover:</strong> Your mission + the creative work supporting it &nbsp;|&nbsp; Who your work impacts and how they participate &nbsp;|&nbsp; Artistic values, traditions, or focus guiding your mission</p>
     </div>
     <div class="answer-box">
-      <p>Learn More Technologies LLC, operating as 50+TechBridge, exists to close the digital divide for adults 50+ in Austin through hands-on AI literacy education. Our mission is to ensure that every adult in our community — regardless of age, income, or prior tech experience — can confidently use AI tools to improve their quality of life, stay connected to family, and participate fully in Austin's evolving creative and cultural economy.</p>
-      <p>Our creative work takes the form of live, facilitated workshops held in Austin's public libraries and cultural centers. Each session transforms technology from something intimidating into something empowering. Participants — we call them Digital Pioneers — leave with real skills: how to use AI tools to write, research, create, manage finances, and protect themselves from digital fraud. We have served 264+ adults across 9 libraries, 3 senior centers, and 13 locations throughout Austin.</p>
-      <p>The people we impact are Austin's 50+ adult population, with emphasis on communities most affected by the digital divide: Black and Latino adults, seniors living on fixed incomes, and workers facing displacement from AI automation. Our participants don't just attend — they engage, ask questions, share their stories, and build relationships with peers navigating the same challenges. Technology education becomes a creative act of community-building.</p>
-      <p>Our work is guided by three core values: dignity (no participant should feel embarrassed for not knowing something), accessibility (free programming offered in English and Spanish at neighborhood locations), and community (technology education is most powerful when it happens together, not in isolation). We believe that the 50+ generation's lived experience, resilience, and creativity are assets — and that AI can amplify those assets rather than replace them.</p>
-      <div class="char-count">Approx. <span>~1,650 characters</span> — well within the 3,000 limit. You can add a personal story from a participant to strengthen this section.</div>
+      <p>Learn More Technologies LLC, operating as 50+TechBridge, was honored to receive the City of Austin Nexus Grant in 2024. That award validated our artistic vision: creating pathways for adults 50+ to use AI as a creative tool — for storytelling, writing, design, and full participation in Austin's cultural economy.</p>
+      <p>Foundation (2024): The Nexus Grant enabled us to test whether this vision was achievable. We brought live, facilitated workshops into Austin's public libraries and cultural centers. Participants — we call them Digital Pioneers — responded powerfully. We proved that adults 50+, including Black and Latino seniors living on fixed incomes and workers facing AI displacement, engage deeply when technology education is treated as a creative act of community-building. We refined the model from real feedback and documented results with signed attendance and session photographs.</p>
+      <p>Infrastructure (2024–2026): Armed with that validation, we built what scale requires: partnerships across 9 library branches, 3 senior centers, and 13 locations citywide; bilingual English/Spanish curriculum; a creative-output model where participants produce real work; and a methodology grounded in dignity, accessibility, and community. We have now trained 264+ Austin adults.</p>
+      <p>Scale (Elevate, October 2026–March 2027): This Elevate request funds the essential next phase of work the City already validated: a 6-session AI Literacy Workshop Series culminating in a public Community Showcase of participant-created digital art. We are not asking AACME to fund something new. We are asking AACME to invest in the next required phase of a proven, documented model.</p>
+      <p>The people we impact are Austin's 50+ adult population, with emphasis on communities most affected by the digital divide. They do not just attend — they write, design, share stories, and build relationships with peers navigating the same challenges.</p>
+      <p>Our work is guided by three artistic values: dignity (no participant should feel embarrassed for not knowing), accessibility (free programming in English and Spanish at neighborhood locations), and community (creative technology is most powerful when it happens together). The 50+ generation's lived experience is an asset. AI can amplify it rather than replace it. That is what Nexus recognized in 2024. That is what Elevate can help us scale.</p>
+      <div class="char-count">Approx. <span>~2,350 characters</span> — within the 3,000 limit. Room for a personal origin sentence or a participant quote.</div>
     </div>
     <div class="todo-box">
       <p><strong>Personalize this:</strong> Add one sentence about WHY you started 50+TechBridge — your personal connection to this community.</p>
+      <p><strong>Strategy:</strong> See <a href="examples.html#s2">Section 2 of the Foundational Evolution guide</a> for the longer working draft and language patterns.</p>
     </div>
   </div>
 
@@ -159,17 +193,18 @@
       <p><strong>Must cover:</strong> When, Where, What, How &nbsp;|&nbsp; How it reflects Austin's people, places, and/or cultures &nbsp;|&nbsp; "Authentic perspective and meaningful cultural expression"</p>
     </div>
     <div class="answer-box">
-      <p>50+TechBridge proposes a 6-session AI Literacy Workshop Series hosted at Austin Public Library branches and cultural centers across the city, running October 2026 through March 2027. Each session is free, open to the public, and designed for adults 50+ with no prior tech experience required.</p>
-      <p><strong>WHEN:</strong> Monthly workshops, October 2026 – March 2027, held on weekday mornings and Saturday afternoons to maximize accessibility for working and retired participants.</p>
-      <p><strong>WHERE:</strong> Austin Public Library branches serving Austin's most culturally diverse neighborhoods, and the Mexican American Cultural Center — anchor institutions that are already trusted gathering places for the communities we serve.</p>
-      <p><strong>WHAT:</strong> 90-minute hands-on workshops teaching practical AI tools — conversational AI assistants, AI-powered writing and creativity tools, scam protection, and AI for everyday life tasks: writing letters, managing health information, staying connected with family, and building small businesses.</p>
-      <p><strong>HOW:</strong> Small groups of 15–20 participants, facilitated by trained instructors, with printed take-home guides in English and Spanish. Every session includes time for questions, peer sharing, and practice on participant-owned devices.</p>
-      <p>This program reflects Austin authentically. We meet people in their own neighborhoods — in libraries that have served Austin communities for generations. Our curriculum centers Austin's own stories: a grandmother learning to video call her grandchildren, a retired educator writing her memoir with AI assistance, a 62-year-old worker preparing for a job market that has changed around him. These are Austin stories. This is Austin culture — resilient, community-rooted, and forward-looking.</p>
-      <div class="char-count">Approx. <span>~1,800 characters</span> — within limit. Add specific library names once locations are confirmed.</div>
+      <p>50+TechBridge proposes a 6-session AI Literacy Workshop Series hosted at Austin Public Library branches and cultural centers, running October 2026 through March 2027. This is not a new experiment. It is the scaled implementation of a model the City of Austin validated through the 2024 Nexus Grant, then strengthened through two years of infrastructure work.</p>
+      <p><strong>WHEN:</strong> Monthly workshops, October 2026 – March 2027, held on weekday mornings and Saturday afternoons to serve both working and retired participants.</p>
+      <p><strong>WHERE:</strong> Austin Public Library branches serving Austin's most culturally diverse neighborhoods, and the Mexican American Cultural Center — trusted gathering places that have served these communities for generations.</p>
+      <p><strong>WHAT:</strong> 90-minute hands-on workshops teaching practical AI as a creative tool — conversational assistants, AI-powered writing and design, digital storytelling, scam protection, and everyday creative tasks: letters, memoirs, health information, family connection, and small-business expression.</p>
+      <p><strong>HOW:</strong> Groups of 15–20, facilitated by trained instructors, with printed take-home guides in English and Spanish. Every session includes practice on participant-owned devices, peer sharing, and time for questions. The series culminates in a public Community Showcase of participant-created digital work.</p>
+      <p>Foundation to scale: In 2024 we tested this format. From 2024–2026 we expanded it to 9 libraries, 3 senior centers, and 13 locations, training 264+ Digital Pioneers. Elevate funds the next planned phase: a concentrated public series with bilingual materials, deeper East Austin and Latino community reach, and a culminating arts event.</p>
+      <p>This program reflects Austin authentically. We meet people in their own neighborhoods — in libraries that have served Austin communities for generations. Our curriculum centers Austin's own stories: a grandmother learning to video call her grandchildren, a retired educator writing her memoir with AI assistance, a 62-year-old worker preparing for a job market that has changed around him. These are Austin stories. This is Austin culture — resilient, community-rooted, and forward-looking. Elevate lets us fulfill the promise Nexus started.</p>
+      <div class="char-count">Approx. <span>~2,200 characters</span> — within limit. Add specific library names once locations are confirmed.</div>
     </div>
     <div class="todo-box">
       <p><strong>Action needed:</strong> Confirm specific library branch locations with Austin Public Library before submitting. Call 512-974-7400 to schedule.</p>
-      <p><strong>Strengthen with:</strong> One real participant story from a past session to demonstrate authentic connection.</p>
+      <p><strong>Strengthen with:</strong> One real participant story from a past session. See <a href="examples.html#s3">community-impact examples</a> and <a href="examples.html#s5">program-description examples</a>.</p>
     </div>
   </div>
 
@@ -187,14 +222,17 @@
       <p><strong>Must cover:</strong> Key team members, skills, and roles &nbsp;|&nbsp; Team's connection to communities served &nbsp;|&nbsp; 1–2 similar successful projects completed in Austin</p>
     </div>
     <div class="answer-box">
-      <p>Brian McKinney, founder and lead instructor of 50+TechBridge, brings 10+ years of experience in technology education, community program design, and workforce development. He is a Minority Business Enterprise (MBE)-certified operator, WIOA-eligible provider, and recipient of the City of Austin Nexus Grant — demonstrating a verifiable track record of delivering funded community programs on time and within budget.</p>
-      <p><strong>Key team members:</strong> Brian McKinney serves as Program Director, Lead Instructor, and primary point of contact. He designs curriculum, facilitates workshops, manages partner relationships, and oversees all documentation and reporting. Guest instructors are recruited from Austin's workforce development ecosystem and trained in 50+TechBridge's participant-centered methodology.</p>
-      <p><strong>Community connection:</strong> Brian McKinney is an Austin-based educator who has spent his career at the intersection of technology and community empowerment. His work is grounded in direct relationships with Austin's 50+ population — he teaches his own community, not an abstraction of it.</p>
-      <p><strong>Past accomplishments:</strong> (1) 264+ Austin adults trained across 9 libraries, 3 senior centers, and 13 locations through 50+TechBridge — with sign-in documentation, participant testimonials, and session photos on file. (2) City of Austin Nexus Grant recipient — all deliverables and reporting requirements fulfilled successfully. (3) WIOA-eligible provider, meeting federal workforce development standards for program quality, documentation, and outcomes measurement.</p>
-      <div class="char-count">Approx. <span>~1,550 characters</span> — within limit. Room to add another past event or partner endorsement.</div>
+      <p>Our leadership has direct experience executing City of Austin-funded programs with demonstrated accountability and cultural competency.</p>
+      <p>Brian McKinney, founder and lead instructor of 50+TechBridge, brings 10+ years of experience in technology education, community program design, and workforce development. He is a Minority Business Enterprise (MBE)-certified operator, a WIOA-eligible provider, and recipient of the City of Austin Nexus Grant. He managed that 2024 award ($5,000) to completion — all deliverables and reporting requirements fulfilled — proving fiscal responsibility and accountability to City standards.</p>
+      <p><strong>Key team members:</strong> Brian McKinney serves as Program Director, Lead Instructor, and primary point of contact. He designs curriculum, facilitates workshops, manages partner relationships, and oversees documentation and reporting. Guest instructors are recruited from Austin's workforce and cultural ecosystem and trained in 50+TechBridge's participant-centered methodology.</p>
+      <p><strong>Key insight from 2024 foundation work:</strong> Serving adults 50+ requires more than technical expertise. It requires respect. Every curriculum decision was shaped by participant feedback. Every partnership was built on listening, not presumption. Instructors use small groups, patient pacing, and dignity as a non-negotiable.</p>
+      <p><strong>Community connection:</strong> Brian McKinney is an Austin-based educator who teaches his own community, not an abstraction of it. Direct relationships with Austin Public Library, senior centers, and cultural partners now span 13 locations.</p>
+      <p><strong>Past accomplishments:</strong> (1) 264+ Austin adults trained across 9 libraries, 3 senior centers, and 13 locations — with sign-in documentation, participant testimonials, and session photos on file. (2) City of Austin Nexus Grant recipient — all deliverables fulfilled successfully. (3) WIOA-eligible provider, meeting federal standards for program quality, documentation, and outcomes measurement.</p>
+      <p>Our 2024 work proved we understand this community. Our 2024–2026 infrastructure proved we can be trusted with City resources. This team is ready to scale responsibly through Elevate.</p>
+      <div class="char-count">Approx. <span>~2,120 characters</span> — within limit. Room to add a dated past event or partner endorsement.</div>
     </div>
     <div class="todo-box">
-      <p><strong>Strengthen with:</strong> Name one specific past event (date, location, attendance number) to make this concrete.</p>
+      <p><strong>Strengthen with:</strong> Name one specific past event (date, location, attendance number) to make this concrete. See <a href="examples.html#s4">leadership examples</a>.</p>
     </div>
   </div>
 
@@ -228,12 +266,16 @@
           <tr><td><strong>Total Request</strong></td><td></td><td class="amount"><strong>$25,500</strong></td></tr>
         </tbody>
       </table>
-      <p>The largest investment is in instructors ($9,000), reflecting our commitment to patient, qualified instruction as the foundation of our model. Bilingual materials ($2,500 + $1,500 translation) ensure accessibility across Austin's diverse communities. All 6 sessions are free to participants — the grant fully subsidizes the cost of delivery.</p>
-      <p><strong>Additional resources:</strong> 50+TechBridge contributes in-kind support through Brian McKinney's ongoing curriculum development and partner relationship management (valued at ~$8,000 over the grant period). Austin Public Library provides venue space at no cost through our existing partnership. These leveraged resources extend the impact of every grant dollar invested.</p>
-      <div class="char-count">Budget table + narrative. <span>Confirm exact line items</span> match what you actually plan to spend before submitting.</div>
+      <p>Every line item is justified by 2024–2026 learning. We are not guessing at costs. We are budgeting based on what we have actually spent at each phase of development.</p>
+      <p><strong>2024 Nexus Grant ($5,000):</strong> Used to test the model and build the foundation — first library-based cohorts, curriculum prototypes, and documentation systems.</p>
+      <p><strong>2024–2026 infrastructure:</strong> Refined the model from that learning. Served 264+ participants across 13 locations. Library venue space and founder time amortized the cost of delivery. We now know what a session actually costs.</p>
+      <p>The largest Elevate investment is in instructors ($9,000), reflecting what 2024 proved: patient, qualified instruction is where quality lives or dies. Bilingual materials ($2,500 + $1,500 translation) ensure accessibility across Austin's diverse communities — English-only delivery leaves people out. Marketing ($2,000) funds channels we already tested. Technology ($2,000) covers the AI tools and accessibility supports participants actually used. Administration ($4,500) covers coordination, reporting, and partner management at the standard we met for Nexus. Contingency (10%) is disciplined, not padded. All 6 sessions are free to participants — the grant fully subsidizes delivery.</p>
+      <p><strong>Additional resources / sustainability:</strong> 50+TechBridge contributes in-kind support through Brian McKinney's ongoing curriculum development and partner relationship management (valued at ~$8,000 over the grant period). Austin Public Library provides venue space at no cost through our existing partnership. Combined leverage is approximately $17,000 — a 1.67:1 ratio. Curriculum is repeatable; partnership infrastructure is replicable; the Showcase format is reusable. We are using this Elevate investment to deepen a model already in motion and to build toward independence — not to invent a program or create permanent dependence on a single City source.</p>
+      <div class="char-count">Budget table + narrative (~1,880 characters). <span>Confirm exact line items</span> match planned spend before submitting.</div>
     </div>
     <div class="todo-box">
       <p><strong>Action needed:</strong> Review budget line items. Adjust any amounts that don't match your actual planned costs before copying into the application.</p>
+      <p><strong>Strategy:</strong> See <a href="examples.html#s6">budget examples</a> — every line should read as learned cost, not guessed cost.</p>
     </div>
   </div>
 
@@ -251,14 +293,38 @@
       <p><strong>Must cover:</strong> Methods to reach residents, visitors, and tourists &nbsp;|&nbsp; How you promote Austin as a cultural destination &nbsp;|&nbsp; How people will feel connected and encouraged to attend</p>
     </div>
     <div class="answer-box">
-      <p>50+TechBridge will market the AI Literacy Workshop Series through a multi-channel strategy reaching Austin residents across every zip code — with targeted emphasis on the neighborhoods served by our library partners.</p>
-      <p><strong>Channels:</strong> (1) Austin Public Library network — posters, table tents, and staff referrals at all 20 Austin branches. (2) Mexican American Cultural Center — flyers and bilingual postcards distributed through their existing community networks. (3) Agentic50 email newsletter — weekly AI programming updates reaching 50+ adults and allied organizations throughout Austin. (4) LinkedIn and Facebook — organic and boosted content targeting Austin's 50+ professional and community audiences. (5) Printed 4x6 bilingual postcards — distributed at senior centers, community centers, faith communities, and healthcare waiting rooms across Austin. (6) AARP Austin chapter — program listing in their community calendar and member communications.</p>
+      <p>Our marketing plan is built on channels we already use — not a speculative outreach strategy. Nexus-funded sessions in 2024 taught us that adults 50+ do not find programs primarily on Instagram. They find them through trusted neighborhood institutions, printed materials in their language, and a personal invitation from someone they already know.</p>
+      <p>From 2024–2026 we formalized those channels. They filled 264+ seats across 13 locations. Elevate lets us run the same proven mix at series scale.</p>
+      <p><strong>Channels:</strong> (1) Austin Public Library network — posters, table tents, and staff referrals at branches citywide. (2) Mexican American Cultural Center — flyers and bilingual postcards distributed through their existing community networks. (3) Agentic50 email newsletter — weekly AI programming updates reaching 50+ adults and allied organizations throughout Austin. (4) LinkedIn and Facebook — organic and boosted content targeting Austin's 50+ professional and community audiences. (5) Printed 4x6 bilingual postcards — distributed at senior centers, community centers, faith communities, and healthcare waiting rooms across Austin. (6) AARP Austin chapter — program listing in their community calendar and member communications.</p>
       <p><strong>Promoting Austin as a cultural destination:</strong> Our workshops are hosted at Austin's most culturally significant community anchors — the very spaces that define Austin's identity as a city that honors its diverse creative traditions. Programming at these locations reinforces Austin's reputation as a place where technology and cultural legacy coexist, and where older adults are active participants in the city's future — not bystanders to it.</p>
-      <p><strong>Why people will attend:</strong> Our marketing speaks directly, in participants' own language: "You belong here. You're not too old. This is for you." Every piece of outreach uses real language from real Austin adults. That authenticity, combined with trusted neighborhood locations and zero cost to attend, is our most powerful draw.</p>
-      <div class="char-count">Approx. <span>~1,700 characters</span> — within limit.</div>
+      <p><strong>Why people will attend:</strong> Our marketing speaks directly, in participants' own language: "You belong here. You're not too old. This is for you." Every piece of outreach uses real language from real Austin adults. That authenticity, combined with trusted neighborhood locations and zero cost to attend, is the draw we already proved works.</p>
+      <div class="char-count">Approx. <span>~2,000 characters</span> — within limit.</div>
     </div>
     <div class="todo-box">
-      <p><strong>Strengthen with:</strong> Add your email list size and any past attendance numbers to demonstrate proven reach.</p>
+      <p><strong>Strengthen with:</strong> Add your email list size and any past attendance numbers to demonstrate proven reach. See <a href="examples.html#s9">marketing examples</a>.</p>
+    </div>
+  </div>
+
+  <!-- Optional closing / cover email -->
+  <div class="question-block">
+    <div class="section-title">Cover Email / Closing (not an official field)</div>
+    <div class="q-header">
+      <div class="q-number">✓</div>
+      <div class="q-meta">
+        <h2>Closing Statement</h2>
+        <div class="q-points">Use in a cover email or as the last paragraph of Q1 or Q3</div>
+        <div class="q-prompt">Foundational Evolution close — partnership, not a first ask.</div>
+      </div>
+    </div>
+    <div class="answer-box">
+      <p>In 2024, the City of Austin took a chance on Learn More Technologies through the Nexus Grant. That was not just a grant — it was a partnership vote of confidence in our vision.</p>
+      <p>We have honored that confidence by delivering results. We tested our model. We refined it. We proved it works. We built infrastructure to scale it responsibly.</p>
+      <p>Now we ask AACME to deepen that partnership through the 2027 Elevate program. This is not a new idea. This is the next planned phase of work we started together in 2024.</p>
+      <p>Our foundation is proven. Our infrastructure is built. Our community is ready. Our library and cultural partners are ready. We are ready.</p>
+      <p>The City's 2024 investment in our foundation established what is possible. This 2027 investment in our scale will fulfill the promise we started together. We are grateful for the City's initial belief in us. We are eager to show what sustained partnership can accomplish.</p>
+    </div>
+    <div class="todo-box">
+      <p><strong>Full writing guide:</strong> <a href="examples.html">Foundational Evolution — section-by-section examples</a>, including language to use, language to avoid, and the 8-section working drafts.</p>
     </div>
   </div>
 
@@ -266,7 +332,7 @@
 
 <footer>
   <strong>Learn More Technologies LLC</strong> dba 50+TechBridge &nbsp;|&nbsp; Austin, Texas &nbsp;|&nbsp; MBE-Certified &nbsp;|&nbsp; WIOA-Eligible<br>
-  AACME Elevate FY27 Application Draft — Internal Reference &nbsp;|&nbsp; Deadline: August 18, 2026
+  AACME Elevate FY27 Application Draft — Foundational Evolution revision &nbsp;|&nbsp; Deadline: August 18, 2026 &nbsp;|&nbsp; <a href="examples.html" style="color:#9ca3af;">Writing guide</a>
 </footer>
 
 </body>

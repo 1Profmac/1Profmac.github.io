@@ -57,6 +57,12 @@
     color: var(--muted);
     font-weight: 500;
   }
+  .header-links { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .header-links a {
+    font-size: 12px; font-weight: 700; color: #a5b4fc; text-decoration: none;
+    border: 1px solid rgba(99,102,241,0.35); padding: 6px 12px; border-radius: 999px;
+  }
+  .header-links a:hover { border-color: #818cf8; color: #fff; }
 
   /* HERO */
   .hero {
@@ -262,7 +268,11 @@
 <header>
   <div class="header-inner">
     <div class="logo">Learn More <span>Technologies</span></div>
-    <div class="badge">AACME Elevate Arts Group | $25,500</div>
+    <div class="header-links">
+      <a href="application.html">Application answers</a>
+      <a href="examples.html">Writing guide</a>
+      <div class="badge">Arts Group | $25,500</div>
+    </div>
   </div>
 </header>
 
