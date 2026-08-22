@@ -15,6 +15,12 @@
 .PARAMETER Filter
     Optional wildcard filter, for example *.txt or report*.pdf.
 
+.PARAMETER Print
+    Send the file list to a printer.
+
+.PARAMETER PrinterName
+    Printer to use with -Print. Defaults to the Windows default printer.
+
 .EXAMPLE
     .\List-Files.ps1
 
@@ -23,6 +29,9 @@
 
 .EXAMPLE
     .\List-Files.ps1 -Path C:\Logs -Filter *.log -Recurse
+
+.EXAMPLE
+    .\List-Files.ps1 -Recurse -Print
 #>
 [CmdletBinding()]
 param(
@@ -31,7 +40,11 @@ param(
 
     [switch]$Recurse,
 
-    [string]$Filter = '*'
+    [string]$Filter = '*',
+
+    [switch]$Print,
+
+    [string]$PrinterName
 )
 
 if (-not (Test-Path -LiteralPath $Path -PathType Container)) {
@@ -58,7 +71,7 @@ if (-not $files) {
     exit 0
 }
 
-$files |
+$table = $files |
     Sort-Object FullName |
     Select-Object @{
         Name       = 'Name'
@@ -67,6 +80,19 @@ $files |
         Name       = 'SizeKB'
         Expression = { [math]::Round($_.Length / 1KB, 2) }
     }, LastWriteTime, FullName |
-    Format-Table -AutoSize
+    Format-Table -AutoSize |
+    Out-String
 
-Write-Host ("`nTotal files: {0}" -f @($files).Count)
+$summary = "Total files: {0}" -f @($files).Count
+$output = $table + $summary
+
+Write-Host $output
+
+if ($Print) {
+    $printerParams = @{}
+    if ($PrinterName) {
+        $printerParams['Name'] = $PrinterName
+    }
+    $output | Out-Printer @printerParams
+    Write-Host "Sent list to printer."
+}
