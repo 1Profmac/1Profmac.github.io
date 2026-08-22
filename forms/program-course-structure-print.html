@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>50+TechBridge — Program & Course Structure (Print)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  @media screen {
+    body { background: #e5e7eb; font-family: 'Inter', sans-serif; padding: 24px 16px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .screen-banner { background: #facc15; color: #000; text-align: center; padding: 10px; font-weight: 700; font-size: 13px; width: 100%; max-width: 780px; border-radius: 6px; }
+    .print-btn { background: #6366f1; color: #fff; border: none; padding: 12px 32px; border-radius: 8px; font-weight: 700; font-size: 14px; cursor: pointer; font-family: 'Inter', sans-serif; }
+    .print-btn:hover { background: #4f46e5; }
+    .sheet { width: 100%; max-width: 780px; background: #fff; border-radius: 8px; box-shadow: 0 4px 24px rgba(0,0,0,0.15); }
+  }
+
+  .sheet { font-family: 'Inter', sans-serif; color: #111; background: #fff; }
+
+  .doc-header { border-bottom: 3px solid #1e1b4b; padding: 16px 24px; display: flex; justify-content: space-between; align-items: flex-end; }
+  .doc-header .org { font-size: 15px; font-weight: 900; color: #1e1b4b; letter-spacing: -0.01em; }
+  .doc-header .org-sub { font-size: 10px; color: #6b7280; margin-top: 2px; }
+  .doc-header .doc-title { font-size: 11px; font-weight: 700; color: #fff; background: #f97316; padding: 4px 12px; border-radius: 999px; }
+
+  .doc-body { padding: 20px 24px; display: flex; flex-direction: column; gap: 20px; }
+
+  .lede { font-size: 12px; color: #374151; line-height: 1.6; }
+  .lede strong { color: #111; }
+
+  .section-head { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #6366f1; border-bottom: 1.5px solid #e2e8f0; padding-bottom: 5px; margin-bottom: 10px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 11px; }
+  thead tr { background: #1e1b4b; }
+  th { color: #fff; font-size: 9px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 7px 8px; text-align: left; }
+  tbody tr { border-bottom: 1px solid #e2e8f0; }
+  tbody tr:nth-child(even) { background: #f8fafc; }
+  td { padding: 7px 8px; color: #374151; vertical-align: top; line-height: 1.45; }
+  td strong { color: #111; }
+
+  .week-grid { display: grid; grid-template-columns: 54px 1fr 1fr; gap: 0; border: 1px solid #e2e8f0; border-radius: 6px; overflow: hidden; }
+  .week-grid .h { background: #1e1b4b; color: #fff; font-size: 9px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 7px 8px; }
+  .week-grid .c { font-size: 11px; color: #374151; padding: 7px 8px; border-top: 1px solid #e2e8f0; line-height: 1.4; }
+  .week-grid .c:nth-child(6n+4), .week-grid .c:nth-child(6n+5), .week-grid .c:nth-child(6n+6) { background: #f8fafc; }
+  .week-grid .c.wk { font-weight: 800; color: #1e1b4b; }
+
+  .session { border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px 14px; }
+  .session ol { margin-left: 18px; display: flex; flex-direction: column; gap: 4px; }
+  .session li { font-size: 11px; color: #374151; line-height: 1.45; }
+  .session li strong { color: #111; }
+
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .card { border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px 14px; }
+  .card h4 { font-size: 11px; font-weight: 800; color: #1e1b4b; margin-bottom: 8px; }
+  .card ul { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+  .card ul li { font-size: 11px; color: #374151; display: flex; gap: 6px; line-height: 1.4; }
+  .card.do h4 { color: #166534; }
+  .card.dont h4 { color: #991b1b; }
+  .card.do ul li::before { content: '✓'; color: #16a34a; font-weight: 700; flex-shrink: 0; }
+  .card.dont ul li::before { content: '✗'; color: #dc2626; font-weight: 700; flex-shrink: 0; }
+
+  .steps { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
+  .step { border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px; }
+  .step .n { font-size: 14px; font-weight: 900; color: #6366f1; }
+  .step p { font-size: 10px; color: #374151; line-height: 1.35; margin-top: 4px; }
+
+  .note { background: #f0f4ff; border: 1px solid #c7d2fe; border-radius: 6px; padding: 10px 14px; font-size: 11px; color: #3730a3; line-height: 1.55; }
+
+  .doc-footer { border-top: 1.5px solid #e2e8f0; padding: 10px 24px; display: flex; justify-content: space-between; align-items: center; font-size: 9px; color: #9ca3af; }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .screen-banner, .print-btn { display: none !important; }
+    .sheet { box-shadow: none; border-radius: 0; max-width: 100%; }
+    .doc-header, thead tr, .week-grid .h, .doc-header .doc-title, .note { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    @page { margin: 0.5in; size: letter; }
+    table, .week-grid, .card, .session, .step { break-inside: avoid; }
+    .section-head { break-after: avoid; }
+  }
+
+  @media (max-width: 640px) {
+    .two, .steps { grid-template-columns: 1fr 1fr; }
+    .week-grid { grid-template-columns: 44px 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="screen-banner">PRINT VERSION — Program &amp; Course Structure | Click “Print This Sheet”</div>
+<button class="print-btn" onclick="window.print()">Print This Sheet</button>
+
+<div class="sheet">
+
+  <div class="doc-header">
+    <div>
+      <div class="org">50+TechBridge | Learn More Technologies</div>
+      <div class="org-sub">Digital Pioneer Core · One curriculum · Three delivery modes · MBE-Certified · WIOA-Eligible · Austin, Texas</div>
+    </div>
+    <div class="doc-title">Program &amp; Course Structure</div>
+  </div>
+
+  <div class="doc-body">
+
+    <p class="lede"><strong>One curriculum, three delivery modes</strong> — not two different products. Adults 50+ finish when every session produces one win on their own device. The <strong>program</strong> is the cohort wrapper boards and HR buy. The <strong>course</strong> is the six modules the learner does.</p>
+
+    <div>
+      <div class="section-head">Program vs Course</div>
+      <table>
+        <thead><tr><th>Layer</th><th>What it is</th><th>Why it exists</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Program</strong></td><td>Cohort, facilitator, attendance, pre/post survey, certificate, Pioneer profile</td><td>What libraries, employers, and WIOA boards buy</td></tr>
+          <tr><td><strong>Course</strong></td><td>6 modules + capstone</td><td>What the learner actually does</td></tr>
+          <tr><td><strong>Pathway add-ons</strong></td><td>Job search, workplace AI, health, small business</td><td>What you customize after the core</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <div class="section-head">Delivery Modes — Same Content</div>
+      <table>
+        <thead><tr><th>Mode</th><th>Format</th><th>Who it is for</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Self-paced</strong></td><td>20–30 min lessons. Start in 20 minutes. Certificate on completion.</td><td>Free funnel / online learners</td></tr>
+          <tr><td><strong>Community cohort</strong></td><td>6 weeks × 2 hours = 12 hours. 10–15 people. Peer facilitator.</td><td>Libraries and senior centers</td></tr>
+          <tr><td><strong>Workforce cohort</strong></td><td>4–6 weeks. Up to 20 people. Same core, workplace labs swapped in.</td><td>Employers and WIOA boards</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <div class="section-head">Course Map — Digital Pioneer Core</div>
+      <p class="lede" style="margin-bottom:8px;">Theme: use AI and everyday tech to stay independent, safe, and useful. Not “how computers work.” Not prompt engineering.</p>
+      <table>
+        <thead><tr><th>#</th><th>Module</th><th>Learner job</th><th>They leave able to…</th></tr></thead>
+        <tbody>
+          <tr><td><strong>0</strong></td><td>Welcome (30 min)</td><td>This is for me</td><td>Sign in, set one goal, complete the pre-survey</td></tr>
+          <tr><td><strong>1</strong></td><td>Talk to AI</td><td>Get help without feeling stupid</td><td>Use one AI tool to answer a real question</td></tr>
+          <tr><td><strong>2</strong></td><td>Don’t get scammed</td><td>Stay safe in an AI world</td><td>Spot phishing and fake media; lock down passwords and 2FA</td></tr>
+          <tr><td><strong>3</strong></td><td>Stay connected</td><td>Use tech for people, not apps</td><td>Send a clear message, make a video call, draft a note with AI</td></tr>
+          <tr><td><strong>4</strong></td><td>Health &amp; independence</td><td>Run your life online</td><td>Open a portal, refill a prescription, prepare for telehealth; verify AI answers</td></tr>
+          <tr><td><strong>5</strong></td><td>Money &amp; work (fork)</td><td>Don’t get left behind</td><td>Safer banking <em>or</em> job search <em>or</em> workplace email/docs with AI</td></tr>
+          <tr><td><strong>6</strong></td><td>Your next chapter</td><td>Prove it</td><td>15-minute capstone + certificate + Pioneer story</td></tr>
+        </tbody>
+      </table>
+      <p class="lede" style="margin-top:8px;"><strong>Week 5 fork:</strong> Community → bills and banking safety. Job seekers / WIOA → resume and interview practice. Employer → their real tools (Outlook, Teams, Excel, CRM).</p>
+    </div>
+
+    <div>
+      <div class="section-head">Live Session Script — 110 Minutes</div>
+      <div class="session">
+        <ol>
+          <li><strong>Arrive and settle (10)</strong> — names, what worked last week, devices on</li>
+          <li><strong>One story, one rule (10)</strong> — why this matters at 50+; no theory dump</li>
+          <li><strong>I do (15)</strong> — facilitator demos slowly on a big screen</li>
+          <li><strong>We do (25)</strong> — class does the same steps together</li>
+          <li><strong>You do (30)</strong> — they complete it on their phone or laptop</li>
+          <li><strong>Save the win (10)</strong> — write the steps on a one-page take-home card</li>
+          <li><strong>Confidence check (10)</strong> — 3-question exit slip + next week preview</li>
+        </ol>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-head">6-Week Community Cohort</div>
+      <div class="week-grid">
+        <div class="h">Week</div><div class="h">In the room</div><div class="h">Take-home</div>
+        <div class="c wk">1</div><div class="c">Welcome + Talk to AI</div><div class="c">Use AI once for a real question</div>
+        <div class="c wk">2</div><div class="c">Scams &amp; accounts</div><div class="c">Turn on 2FA; review one suspicious email</div>
+        <div class="c wk">3</div><div class="c">Messages &amp; video call</div><div class="c">Call one person; send one AI-drafted note</div>
+        <div class="c wk">4</div><div class="c">Health / independence</div><div class="c">Open a portal or prepare 3 visit questions</div>
+        <div class="c wk">5</div><div class="c">Money or work (fork)</div><div class="c">One job/life task with AI + a human check</div>
+        <div class="c wk">6</div><div class="c">Capstone + certificate</div><div class="c">Pioneer story (optional photo/quote release)</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-head">Program Wrapper — What Boards and HR Buy</div>
+      <div class="steps">
+        <div class="step"><div class="n">1</div><p>Intake: device, language, goal</p></div>
+        <div class="step"><div class="n">2</div><p>Pre-survey: confidence + one “I cannot do this yet”</p></div>
+        <div class="step"><div class="n">3</div><p>6 sessions + makeup path</p></div>
+        <div class="step"><div class="n">4</div><p>Post-survey + certificate</p></div>
+        <div class="step"><div class="n">5</div><p>Outcomes one-pager for the host</p></div>
+        <div class="step"><div class="n">6</div><p>Pioneer next step: gallery, membership, or job hours</p></div>
+      </div>
+    </div>
+
+    <div class="two">
+      <div class="card do">
+        <h4>Build this</h4>
+        <ul>
+          <li>One tool per module</li>
+          <li>Their device, not a lab PC</li>
+          <li>Same 5 steps, three times</li>
+          <li>Printed one-pager, EN/ES, large type</li>
+          <li>Attendance + completion checkbox</li>
+          <li>Peer facilitator script</li>
+          <li>~18 lessons total, not 40</li>
+        </ul>
+      </div>
+      <div class="card dont">
+        <h4>Leave out of the core</h4>
+        <ul>
+          <li>How the internet or LLMs work</li>
+          <li>Coding or “become an AI engineer”</li>
+          <li>Ten apps in one day</li>
+          <li>Crypto, gold, or side-hustle schemes</li>
+          <li>Medical or legal advice from the AI</li>
+          <li>Shame language (“even grandma…”)</li>
+          <li>A fourth curriculum per buyer</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="note"><strong>Monetization fit:</strong> Free self-paced unlocks Modules 0–2. Certificate + Modules 3–6 run in a cohort or membership. Employer SKU = Core + Workplace AI fork + outcomes report. WIOA SKU = Core + Job Search fork + attendance/ITA packet. If you only build one thing next: six identical module templates, one week-5 fork, and this session script.</p>
+
+  </div>
+
+  <div class="doc-footer">
+    <span>Learn More Technologies LLC dba 50+TechBridge · hello@learnmoretechnologies.com</span>
+    <span>Print date: August 2026 · Internal planning sheet</span>
+  </div>
+
+</div>
+
+</body>
+</html>
