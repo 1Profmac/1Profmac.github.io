@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Learn More Technologies — Strategy Conversations (Print)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  @media screen {
+    body { background: #e5e7eb; font-family: 'Inter', sans-serif; padding: 24px 16px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .screen-banner { background: #facc15; color: #000; text-align: center; padding: 10px; font-weight: 700; font-size: 13px; width: 100%; max-width: 800px; border-radius: 6px; }
+    .print-btn { background: #6366f1; color: #fff; border: none; padding: 12px 32px; border-radius: 8px; font-weight: 700; font-size: 14px; cursor: pointer; font-family: 'Inter', sans-serif; }
+    .sheet { width: 100%; max-width: 800px; background: #fff; border-radius: 8px; box-shadow: 0 4px 24px rgba(0,0,0,0.15); }
+  }
+
+  .sheet { font-family: 'Inter', sans-serif; color: #111; background: #fff; }
+  .doc-header { border-bottom: 3px solid #1e1b4b; padding: 16px 24px; display: flex; justify-content: space-between; align-items: flex-end; }
+  .org { font-size: 15px; font-weight: 900; color: #1e1b4b; }
+  .org-sub { font-size: 10px; color: #6b7280; margin-top: 2px; }
+  .doc-title { font-size: 11px; font-weight: 700; color: #fff; background: #f97316; padding: 4px 12px; border-radius: 999px; }
+  .doc-body { padding: 20px 24px 28px; display: flex; flex-direction: column; gap: 18px; }
+  .cover { background: #1e1b4b; color: #fff; padding: 20px 24px; }
+  .cover h1 { font-size: 22px; font-weight: 900; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 8px; }
+  .cover p { font-size: 12px; color: #c7d2fe; line-height: 1.55; }
+  .chapter { font-size: 13px; font-weight: 900; color: #1e1b4b; letter-spacing: -0.02em; margin-top: 4px; }
+  .section-head { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #6366f1; border-bottom: 1.5px solid #e2e8f0; padding-bottom: 5px; margin-bottom: 8px; }
+  p, li { font-size: 11.5px; color: #374151; line-height: 1.55; }
+  p + p { margin-top: 6px; }
+  strong { color: #111; }
+  table { width: 100%; border-collapse: collapse; }
+  thead tr { background: #1e1b4b; }
+  th { color: #fff; font-size: 8.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 6px 7px; text-align: left; }
+  tbody tr { border-bottom: 1px solid #e2e8f0; }
+  tbody tr:nth-child(even) { background: #f8fafc; }
+  td { padding: 6px 7px; font-size: 10.5px; color: #374151; vertical-align: top; line-height: 1.4; }
+  td strong { color: #111; }
+  ul { margin: 4px 0 0 16px; }
+  li { margin-bottom: 3px; }
+  .note { background: #f0f4ff; border: 1px solid #c7d2fe; border-radius: 6px; padding: 10px 12px; font-size: 11px; color: #3730a3; line-height: 1.5; }
+  .warn { background: #fefce8; border: 1px solid #fde047; border-radius: 6px; padding: 10px 12px; font-size: 11px; color: #713f12; line-height: 1.5; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .card { border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px; }
+  .card h4 { font-size: 11px; font-weight: 800; margin-bottom: 6px; }
+  .card.do h4 { color: #166534; }
+  .card.dont h4 { color: #991b1b; }
+  .card ul { list-style: none; margin-left: 0; }
+  .card ul li { display: flex; gap: 6px; font-size: 10.5px; }
+  .card.do ul li::before { content: '✓'; color: #16a34a; font-weight: 700; }
+  .card.dont ul li::before { content: '✗'; color: #dc2626; font-weight: 700; }
+  .session ol { margin-left: 18px; }
+  .session li { font-size: 11px; margin-bottom: 3px; }
+  .week-grid { display: grid; grid-template-columns: 48px 1.1fr 1.2fr; border: 1px solid #e2e8f0; border-radius: 6px; overflow: hidden; }
+  .week-grid .h { background: #1e1b4b; color: #fff; font-size: 8.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 6px 7px; }
+  .week-grid .c { font-size: 10.5px; color: #374151; padding: 6px 7px; border-top: 1px solid #e2e8f0; line-height: 1.35; }
+  .week-grid .c.wk { font-weight: 800; color: #1e1b4b; }
+  .footer { border-top: 1.5px solid #e2e8f0; padding: 10px 24px; display: flex; justify-content: space-between; font-size: 9px; color: #9ca3af; }
+  .keep { break-inside: avoid; page-break-inside: avoid; }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .screen-banner, .print-btn { display: none !important; }
+    .sheet { box-shadow: none; border-radius: 0; max-width: 100%; }
+    .cover, thead tr, .week-grid .h, .doc-title, .note, .warn { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    @page { margin: 0.5in; size: letter; }
+    .chapter, .section-head { break-after: avoid; }
+    table, .card, .week-grid, .note, .warn, .keep { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="screen-banner">PRINT VERSION — Strategy conversations compiled as a printable briefing</div>
+<button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+
+<div class="sheet">
+  <div class="doc-header">
+    <div>
+      <div class="org">50+TechBridge | Learn More Technologies</div>
+      <div class="org-sub">Internal briefing compiled from strategy conversations · August 22, 2026 · learnmoretechnologies.com</div>
+    </div>
+    <div class="doc-title">Conversations PDF</div>
+  </div>
+
+  <div class="cover">
+    <h1>Monetization, program design, and the gap between the current course and the new spine</h1>
+    <p>This packet is the printed record of the Learn More Technologies strategy conversations: who should pay, what the Digital Pioneer Core should contain, and what to change in the existing 6-week course. It is a planning document, not a learner workbook.</p>
+  </div>
+
+  <div class="doc-body">
+
+    <div class="keep">
+      <div class="chapter">1. Monetization — who pays, and for what</div>
+      <p>The money is not in selling courses to adults 50+. It is in selling <strong>access, proof, and delivery</strong> to organizations that need that audience: employers, workforce boards, libraries, and brands.</p>
+      <p>Learn More Technologies already has the hard parts: Austin delivery footprint, a free WIOA-aligned curriculum, MBE certification, a founder story, and a clear market claim ($76T wealth, almost no ad spend). What is missing is a paid product ladder that matches that positioning. Public prices ($500 keynotes, $1,500 cohorts, “from $5,000” brand work) sit below the value of the problem described on the site.</p>
+    </div>
+
+    <div class="keep">
+      <div class="section-head">Who should pay</div>
+      <table>
+        <thead><tr><th>Buyer</th><th>Why they pay</th><th>What they buy</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Workforce boards / AJCs</strong></td><td>WIOA Title I, ITAs, digital literacy mandates</td><td>Eligible training + documentation</td></tr>
+          <tr><td><strong>Employers / HR / DEI</strong></td><td>Retention, ageism risk, AI upskilling</td><td>On-site cohorts + outcomes reports</td></tr>
+          <tr><td><strong>Libraries, senior centers, CBOs</strong></td><td>Mission + grant reporting</td><td>Site license or facilitated program</td></tr>
+          <tr><td><strong>Brands / agencies</strong></td><td>Reach the 50+ affluent market</td><td>Insight, audits, community access</td></tr>
+          <tr><td><strong>Conference / association buyers</strong></td><td>Fill a stage with a distinct talk</td><td>Keynote that becomes a training deal</td></tr>
+          <tr><td><strong>Adults 50+ (secondary)</strong></td><td>Confidence, community, coaching</td><td>Low-price membership — not the core P&amp;L</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:8px;">Keep the flagship course <strong>free to learners</strong>. Charge the institutions that need completions, certificates, and a community they cannot fake.</p>
+    </div>
+
+    <div class="keep">
+      <div class="section-head">Strategies that fit this business</div>
+      <ol class="session">
+        <li><strong>Make WIOA / ETPL the revenue engine.</strong> Finish ETPL or equivalent board contracting. Sell a packaged ITA offer: workshop, multi-session cohort, and documentation bundle. Compete on completion rate, 50+ design, and bilingual delivery — not on cheap.</li>
+        <li><strong>Stop selling $1,500 “cohorts.” Sell an annual workforce program.</strong> Example SKUs: 90-minute pilot; standard cohort $7,500–$15,000; multi-site / quarterly retainers $25,000–$60,000 / year; branded portal as an add-on.</li>
+        <li><strong>White-label / site-license the curriculum.</strong> Facilitator kit, slides, workbooks, completion tracking, train-the-trainer. Site fee + per-learner or annual license. This is how a one-person delivery model becomes a company.</li>
+        <li><strong>Brand advisory as a retainer, not a one-off audit.</strong> “From $5,000” is an entry audit. The real product is ongoing 50+ fluency plus paid, consented Pioneer research access. Use MBE in RFPs, not only on the homepage.</li>
+        <li><strong>Sponsored community programs, not ads on the free course.</strong> Banks, hospitals, insurers, retailers pay to be the named sponsor of a library series. Sponsor the program, not the lesson. One bad affiliate would wreck trust.</li>
+        <li><strong>Launch Digital Pioneer Membership as a sidecar.</strong> $27/month is the right consumer price and the wrong center of gravity. Cap founder time. The free course remains the funnel.</li>
+        <li><strong>Raise speaking fees; treat the stage as pipeline.</strong> Floor around $5,000–$10,000 plus travel. Every keynote has a next step: diagnostic, cohort, or brand briefing.</li>
+        <li><strong>Grants as fuel, not identity.</strong> Use philanthropy to cover free community seats. Contracts pay the company.</li>
+        <li><strong>Productize proof.</strong> Annual 50+ AI Readiness / Brand Ageism report, a short paid agency briefing, and a standard outcomes one-pager for procurement.</li>
+      </ol>
+    </div>
+
+    <div class="two keep">
+      <div class="card dont">
+        <h4>Do not</h4>
+        <ul>
+          <li>Put the P&amp;L on course sales to individual 50+ learners</li>
+          <li>Affiliate-sell gold, crypto, or “AI side hustles”</li>
+          <li>Keep three public price lists ($500 vs $1,500 vs $2,500 / $5,000)</li>
+          <li>Scale by cloning Brian — scale by licensing + facilitators</li>
+          <li>Pitch “we run your ads”</li>
+        </ul>
+      </div>
+      <div class="card do">
+        <h4>Do next</h4>
+        <ul>
+          <li>One public offer sheet with three paid SKUs and one free funnel</li>
+          <li>ETPL / workforce-board contracting in Texas</li>
+          <li>Sell the annual program, not the $1,500 pilot as the end state</li>
+          <li>Train-the-trainer so library partners can run without Brian in the room</li>
+          <li>Open membership only after the B2B calendar is booked</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="note"><strong>Positioning:</strong> Institutions pay for outcomes. Sponsors pay for trusted access. Learners get a free start and an optional membership. The $76 trillion argument only works if the invoice matches it.</p>
+
+    <div class="keep">
+      <div class="chapter">2. Program and course structure — Digital Pioneer Core</div>
+      <p>The program and the course should be <strong>one curriculum, three delivery modes</strong>. Adults 50+ finish courses when every session produces one win on their own device.</p>
+      <table>
+        <thead><tr><th>Layer</th><th>What it is</th><th>Why it exists</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Program</strong></td><td>Cohort, facilitator, attendance, pre/post survey, certificate, Pioneer profile</td><td>What libraries, employers, and WIOA boards buy</td></tr>
+          <tr><td><strong>Course</strong></td><td>6 modules + capstone</td><td>What the learner actually does</td></tr>
+          <tr><td><strong>Pathway add-ons</strong></td><td>Job search, workplace AI, health, small business</td><td>What you customize after the core</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="keep">
+      <div class="section-head">Three delivery modes — same content</div>
+      <table>
+        <thead><tr><th>Mode</th><th>Format</th><th>Who it is for</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Self-paced</strong></td><td>20–30 min lessons. Start in 20 minutes. Certificate on completion.</td><td>Free funnel / online learners</td></tr>
+          <tr><td><strong>Community cohort</strong></td><td>6 weeks × 2 hours = 12 hours. 10–15 people. Peer facilitator.</td><td>Libraries and senior centers</td></tr>
+          <tr><td><strong>Workforce cohort</strong></td><td>4–6 weeks. Up to 20 people. Same core, workplace labs swapped in.</td><td>Employers and WIOA boards</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="keep">
+      <div class="section-head">Course map</div>
+      <p style="margin-bottom:8px;">Theme: use AI and everyday tech to stay independent, safe, and useful. Not “how computers work.” Not prompt engineering.</p>
+      <table>
+        <thead><tr><th>#</th><th>Module</th><th>Learner job</th><th>They leave able to…</th></tr></thead>
+        <tbody>
+          <tr><td><strong>0</strong></td><td>Welcome (30 min)</td><td>This is for me</td><td>Sign in, set one goal, complete the pre-survey</td></tr>
+          <tr><td><strong>1</strong></td><td>Talk to AI</td><td>Get help without feeling stupid</td><td>Use one AI tool to answer a real question</td></tr>
+          <tr><td><strong>2</strong></td><td>Don’t get scammed</td><td>Stay safe in an AI world</td><td>Spot phishing and fake media; lock down passwords and 2FA</td></tr>
+          <tr><td><strong>3</strong></td><td>Stay connected</td><td>Use tech for people, not apps</td><td>Send a clear message, make a video call, draft a note with AI</td></tr>
+          <tr><td><strong>4</strong></td><td>Health &amp; independence</td><td>Run your life online</td><td>Open a portal, refill a prescription, prepare for telehealth; verify AI answers</td></tr>
+          <tr><td><strong>5</strong></td><td>Money &amp; work (fork)</td><td>Don’t get left behind</td><td>Safer banking <em>or</em> job search <em>or</em> workplace email/docs with AI</td></tr>
+          <tr><td><strong>6</strong></td><td>Your next chapter</td><td>Prove it</td><td>15-minute capstone + certificate + Pioneer story</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:8px;"><strong>Week 5 fork:</strong> Community → bills and banking safety. Job seekers / WIOA → resume and interview practice. Employer → Outlook, Teams, Excel, CRM.</p>
+    </div>
+
+    <div class="keep">
+      <div class="section-head">Live session script — 110 minutes</div>
+      <div class="session card">
+        <ol>
+          <li><strong>Arrive and settle (10)</strong> — names, what worked last week, devices on</li>
+          <li><strong>One story, one rule (10)</strong> — why this matters at 50+; no theory dump</li>
+          <li><strong>I do (15)</strong> — facilitator demos slowly on a big screen</li>
+          <li><strong>We do (25)</strong> — class does the same steps together</li>
+          <li><strong>You do (30)</strong> — they complete it on their phone or laptop</li>
+          <li><strong>Save the win (10)</strong> — write the steps on a one-page take-home card</li>
+          <li><strong>Confidence check (10)</strong> — 3-question exit slip + next week preview</li>
+        </ol>
+      </div>
+      <p style="margin-top:8px;">Self-paced version of the same module: 6–8 minute captioned video (EN/ES), click-along checklist, one practice task, “did it work?” checkbox, optional office-hours replay. Always include a printed one-pager, an 8-word glossary, a “stop if this happens” box, and a WIOA attendance checkbox.</p>
+    </div>
+
+    <div class="keep">
+      <div class="section-head">6-week community cohort</div>
+      <div class="week-grid">
+        <div class="h">Week</div><div class="h">In the room</div><div class="h">Take-home</div>
+        <div class="c wk">1</div><div class="c">Welcome + Talk to AI</div><div class="c">Use AI once for a real question</div>
+        <div class="c wk">2</div><div class="c">Scams &amp; accounts</div><div class="c">Turn on 2FA; review one suspicious email</div>
+        <div class="c wk">3</div><div class="c">Messages &amp; video call</div><div class="c">Call one person; send one AI-drafted note</div>
+        <div class="c wk">4</div><div class="c">Health / independence</div><div class="c">Open a portal or prepare 3 visit questions</div>
+        <div class="c wk">5</div><div class="c">Money or work (fork)</div><div class="c">One job/life task with AI + a human check</div>
+        <div class="c wk">6</div><div class="c">Capstone + certificate</div><div class="c">Pioneer story (optional photo/quote release)</div>
+      </div>
+    </div>
+
+    <div class="keep">
+      <div class="section-head">Program wrapper — what boards and HR buy</div>
+      <ol class="session">
+        <li>Intake: device type, language (EN/ES), goal (family / health / job / work)</li>
+        <li>Pre-survey: confidence, scam awareness, one “I cannot do this yet” item</li>
+        <li>6 sessions + makeup path (missed class = self-paced lesson + 15-minute check-in)</li>
+        <li>Post-survey + certificate (name, hours, modules, date)</li>
+        <li>Outcomes one-pager for the host (attendance, confidence change, 3 quotes)</li>
+        <li>Pioneer next step: gallery nomination, membership, or job-search office hours</li>
+      </ol>
+    </div>
+
+    <div class="two keep">
+      <div class="card do">
+        <h4>Pedagogy rules</h4>
+        <ul>
+          <li>One tool per module</li>
+          <li>Their device, not a lab PC</li>
+          <li>Same 5 steps, three times</li>
+          <li>Shame-free language — never “even grandma”</li>
+          <li>Verify, don’t worship the model</li>
+          <li>Bilingual by design</li>
+          <li>Peer facilitator script so Brian is not the only teacher</li>
+          <li>~18 lessons total, not 40</li>
+        </ul>
+      </div>
+      <div class="card dont">
+        <h4>Leave out of the core</h4>
+        <ul>
+          <li>How the internet or LLMs work</li>
+          <li>Coding or “become an AI engineer”</li>
+          <li>Ten apps in one day</li>
+          <li>Crypto, gold, or side-hustle schemes</li>
+          <li>Medical or legal advice from the AI</li>
+          <li>A fourth curriculum per buyer</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="note"><strong>Monetization fit of the course:</strong> Free self-paced unlocks Modules 0–2. Certificate + Modules 3–6 run in a cohort or membership. Employer SKU = Core + Workplace AI fork + outcomes report. WIOA SKU = Core + Job Search fork + attendance/ITA packet. If you only build one thing next: six identical module templates, one week-5 fork, and the session script.</p>
+
+    <div class="keep">
+      <div class="chapter">3. Gap analysis — current course vs new spine</div>
+      <p>You already have the <strong>container</strong> right (6 weeks, 12 hours, peer facilitator, libraries). What does not match is the <strong>inside of the weeks</strong> — and two different courses are being described in public.</p>
+      <p>Partner / GitHub pages still sell: smartphones, internet safety, telehealth, video calling, online services. learnmoretechnologies.com sells: AI Fundamentals, Career &amp; Job Search, Finance &amp; Safety, Health / Independence / Business. The new structure is how you make them one.</p>
+    </div>
+
+    <div class="keep">
+      <div class="section-head">Side-by-side</div>
+      <table>
+        <thead><tr><th></th><th>What you have now</th><th>Suggested Digital Pioneer Core</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Length</strong></td><td>6 weeks × 2 hours = 12 hours</td><td>Keep this</td></tr>
+          <tr><td><strong>Group</strong></td><td>10–15 people, peer facilitator</td><td>Keep this</td></tr>
+          <tr><td><strong>Start point</strong></td><td>“Never touched a smartphone”</td><td>One goal + 20-minute AI win; device help inside the lesson</td></tr>
+          <tr><td><strong>Week 1</strong></td><td>Smartphones &amp; tablets</td><td>Welcome + Talk to AI</td></tr>
+          <tr><td><strong>Week 2</strong></td><td>Online safety / scams</td><td>Don’t get scammed (add AI fakes, voice clones)</td></tr>
+          <tr><td><strong>Week 3</strong></td><td>Video calling</td><td>Stay connected (call + AI-drafted message)</td></tr>
+          <tr><td><strong>Week 4</strong></td><td>Telehealth &amp; portals</td><td>Health &amp; independence (same labs + verify the AI)</td></tr>
+          <tr><td><strong>Week 5</strong></td><td>Online banking / finances</td><td>Money or work or workplace tools (one fork)</td></tr>
+          <tr><td><strong>Week 6</strong></td><td>Social media / leftover topics</td><td>Capstone + certificate + Pioneer story</td></tr>
+          <tr><td><strong>AI</strong></td><td>Promised on LMT.com; not the weekly spine in the repo</td><td>Module 1, then used in every later week</td></tr>
+          <tr><td><strong>Session shape</strong></td><td>Ops checklists (sign-in, photos, grants)</td><td>I do / We do / You do + take-home + confidence check</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="keep">
+      <div class="section-head">Keep — do not rebuild</div>
+      <p>6-week 12-hour cohort; small group + peer facilitator; library / senior-center delivery; shame-free slow practical tone; life jobs (family, health, money, safety); sign-in / photo release / instructor package; certificate + community after; English / Spanish intent; printed take-homes. The suggestion is a rewrite of week titles and labs, not a new organization.</p>
+    </div>
+
+    <div class="keep">
+      <div class="section-head">What to change</div>
+      <ol class="session">
+        <li><strong>Pick one public outline.</strong> Publish the six Pioneer modules everywhere.</li>
+        <li><strong>Move “how to use a phone” out of Week 1.</strong> Keep 10–15 minutes of device setup inside every session. A whole week on the phone keeps employers and advanced 50+ learners out.</li>
+        <li><strong>Make Week 1 an AI win.</strong> End state: they asked one real question and got a useful answer.</li>
+        <li><strong>Upgrade Week 2 to AI-era scams.</strong> Keep passwords and 2FA. Add fake grandchild voice, fake photos, fake invoices.</li>
+        <li><strong>Give Week 5 a fork.</strong> Three labs, one per cohort type: banking; resume/interview; workplace tools.</li>
+        <li><strong>Turn Week 6 into a finish line.</strong> One personal project, certificate, optional Pioneer story. AACME already wants a showcase — this is that, every cohort.</li>
+        <li><strong>Write one session script and use it every week.</strong> Instructor package is strong on ops, thin on teaching.</li>
+        <li><strong>Add a 10-minute Welcome / pre-survey.</strong> Lock a goal and a confidence score. WIOA and employer buyers need pre/post.</li>
+        <li><strong>Decide what stays free.</strong> Community cohort can stay free. Use the same modules for paid employer / WIOA / membership. Stop implying there is only one offer.</li>
+      </ol>
+    </div>
+
+    <div class="keep">
+      <div class="section-head">Still need to build</div>
+      <table>
+        <thead><tr><th>Need</th><th>You have now</th><th>Change</th></tr></thead>
+        <tbody>
+          <tr><td>One official module list</td><td>Two conflicting lists</td><td>Publish the 6 Pioneer modules</td></tr>
+          <tr><td>Week-by-week facilitator script</td><td>Topic line on the sign-in sheet</td><td>One script + 6 one-pagers</td></tr>
+          <tr><td>Standard lesson template</td><td>Slides/workbooks claimed, not standardized</td><td>Video + checklist + practice + “stop if…” box</td></tr>
+          <tr><td>Week 5 forks</td><td>One banking week</td><td>3 lab versions</td></tr>
+          <tr><td>Capstone</td><td>Informal stories / AACME showcase</td><td>Every cohort ends with a 15-minute win</td></tr>
+          <tr><td>Pre/post survey</td><td>Attendance + testimonials</td><td>Confidence + “I can do X now”</td></tr>
+          <tr><td>Outcomes one-pager</td><td>Quarterly partner reports</td><td>Same one-pager after every paid cohort</td></tr>
+          <tr><td>Self-paced = live</td><td>Described separately</td><td>Same 18 lessons, two clocks</td></tr>
+          <tr><td>Tool rule</td><td>Multiple apps implied</td><td>One AI tool per cohort</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="warn"><strong>Short version:</strong> You have a good 6-week community program built as digital literacy. The suggestion is the same 6 weeks, rebuilt as AI-assisted independence. Change the spine from <em>Phone → Safety → Zoom → Doctor → Bank → Social</em> to <em>AI win → AI-era safety → People → Health → Money/Work (fork) → Prove it</em>. Keep the room, the 12 hours, the peer facilitator, and the forms. Rewrite the week titles, put one AI action in every session, add the teaching script and the Week 5 fork. That is the whole gap.</p>
+
+    <div class="keep">
+      <div class="chapter">4. How to print / save this packet</div>
+      <p>Open this HTML in a browser and click <strong>Print / Save as PDF</strong>, or use the generated PDF in this folder: <strong>forms/lmt-strategy-conversations.pdf</strong>.</p>
+      <p>On Windows, to drop the PDF on your Desktop:</p>
+      <p style="font-family: ui-monospace, monospace; font-size: 10px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:8px 10px; margin-top:6px;">Invoke-WebRequest -Uri "https://github.com/1Profmac/1Profmac.github.io/raw/cursor/powershell-list-files-c07c/forms/lmt-strategy-conversations.pdf" -OutFile "$env:USERPROFILE\Desktop\lmt-strategy-conversations.pdf"</p>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <span>Learn More Technologies LLC dba 50+TechBridge · hello@learnmoretechnologies.com</span>
+    <span>Internal planning packet · August 2026 · Not a learner workbook</span>
+  </div>
+</div>
+</body>
+</html>
