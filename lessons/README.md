@@ -34,6 +34,7 @@ lessons/
   lesson-03-dont-get-scammed/
     long-script.md
     short-script.md
+  labs/eleven-labs-script.md        ← 11 You-do labs for the 6-week core
 ```
 
 Each lesson has a **short script** (about 3–4 minutes) and a **long script** (about 12–16 minutes).
@@ -41,7 +42,7 @@ Each lesson has a **short script** (about 3–4 minutes) and a **long script** (
 - Use the **short** script for social clips, email drips, QR-code landing videos, and the opening of a live session.
 - Use the **long** script for the LMS video, YouTube, and the core of an in-person class.
 
-Do not invent extra modules before these three are filmed and taught. These three are the free product.
+Do not invent extra modules before these three are filmed and taught. These three are the free product. The eleven labs in `labs/eleven-labs-script.md` are the You-do wins for the full six-week core after the free funnel.
 
 ---
 
