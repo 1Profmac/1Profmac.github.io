@@ -11,17 +11,17 @@ from pptx.oxml.ns import nsmap
 from pptx.oxml.ns import qn
 from pptx.util import Emu, Inches, Pt
 
-# Brand — matches site navy + LMT orange
-NAVY = RGBColor(0x08, 0x36, 0x55)
-NAVY_DEEP = RGBColor(0x05, 0x24, 0x3A)
-INDIGO = RGBColor(0x2B, 0x31, 0x5F)
-ORANGE = RGBColor(0xE2, 0x75, 0x2E)
-CYAN = RGBColor(0x00, 0xA3, 0xDC)
-GREEN = RGBColor(0x65, 0xBD, 0x53)
+# Official 50+ TechBridge palette from index.html / courses.html
+# Hero: linear-gradient(135deg, #2b315f 0%, #083655 55%, #00a3dc 100%)
+NAVY = RGBColor(0x08, 0x36, 0x55)      # #083655 wordmark, dark fills
+INDIGO = RGBColor(0x2B, 0x31, 0x5F)    # #2b315f hero start
+ORANGE = RGBColor(0xE2, 0x75, 0x2E)    # #e2752e CTAs, nav underline
+CYAN = RGBColor(0x00, 0xA3, 0xDC)      # #00a3dc secondary, hero end
+GREEN = RGBColor(0x65, 0xBD, 0x53)     # #65bd53 eyebrows, "100% free"
 WHITE = RGBColor(0xFF, 0xFF, 0xFF)
-CREAM = RGBColor(0xF7, 0xF4, 0xEF)
-SLATE = RGBColor(0x3D, 0x4A, 0x5C)
-MUTED = RGBColor(0x5B, 0x6B, 0x7C)
+ICE = RGBColor(0xF0, 0xF8, 0xFF)       # #f0f8ff card wash
+MIST = RGBColor(0xC8, 0xDF, 0xF0)      # #c8dff0 text on navy
+SLATE = RGBColor(0x4A, 0x55, 0x68)     # #4a5568 body text
 
 W = Inches(13.333)
 H = Inches(7.5)
@@ -81,15 +81,30 @@ def bar(slide, fill=ORANGE):
     rect(slide, Inches(0), Inches(0), W, Inches(0.12), fill)
 
 
+def logo_mark(slide, l, t, size=Inches(0.55)):
+    """50+ badge — site uses navy-to-orange gradient on a rounded square."""
+    rect(slide, l, t, size, size, NAVY)
+    rect(slide, l + size * 0.45, t, size * 0.55, size, ORANGE)
+    textbox(
+        slide,
+        l,
+        t + size * 0.12,
+        size,
+        size * 0.8,
+        [("50+", 14, True, WHITE)],
+        align=PP_ALIGN.CENTER,
+    )
+
+
 def footer(slide, page, total, light=False):
-    color = RGBColor(0x9A, 0xB0, 0xC0) if not light else MUTED
+    color = MIST if not light else SLATE
     textbox(
         slide,
         Inches(0.5),
         Inches(7.12),
         Inches(9.5),
         Inches(0.3),
-        [("50+TechBridge  ·  Free Lessons  ·  Always free", 12, False, color)],
+        [("50+ TechBridge  ·  Free Lessons  ·  Always free", 12, False, color)],
     )
     textbox(
         slide,
@@ -107,22 +122,26 @@ def notes(slide, text):
 
 
 def new_dark(prs):
+    """Hero wash: indigo → navy, cyan rail — same stops as the website."""
     s = prs.slides.add_slide(prs.slide_layouts[6])
     rect(s, 0, 0, W, H, NAVY)
+    rect(s, 0, 0, Inches(4.6), H, INDIGO)
+    rect(s, 0, Inches(7.42), W, Inches(0.08), CYAN)
     return s
 
 
 def new_light(prs):
     s = prs.slides.add_slide(prs.slide_layouts[6])
-    rect(s, 0, 0, W, H, CREAM)
-    bar(s)
+    rect(s, 0, 0, W, H, WHITE)
+    bar(s, ORANGE)
+    rect(s, 0, Inches(7.42), W, Inches(0.08), CYAN)
     return s
 
 
 def card(slide, l, t, w, h, fill, title, body, title_color=WHITE, body_color=None):
     rect(slide, l, t, w, h, fill)
     if body_color is None:
-        body_color = RGBColor(0xD6, 0xE6, 0xF0) if fill != CREAM else SLATE
+        body_color = MIST if fill != ICE else SLATE
     textbox(slide, l + Inches(0.22), t + Inches(0.18), w - Inches(0.4), Inches(0.45), [(title, 18, True, title_color)])
     textbox(slide, l + Inches(0.22), t + Inches(0.62), w - Inches(0.4), h - Inches(0.8), [(body, 16, False, body_color)])
 
@@ -136,14 +155,16 @@ def build():
     # 1 Title
     s = new_dark(prs)
     rect(s, 0, 0, Inches(0.22), H, ORANGE)
-    textbox(s, Inches(0.7), Inches(1.5), Inches(12), Inches(0.4), [("FREE LESSONS  ·  1 OF 3 SERIES", 16, True, ORANGE)])
+    logo_mark(s, Inches(0.7), Inches(0.45), Inches(0.62))
+    textbox(s, Inches(1.5), Inches(0.52), Inches(6), Inches(0.5), [("TechBridge", 22, True, WHITE)])
+    textbox(s, Inches(0.7), Inches(1.5), Inches(12), Inches(0.4), [("FREE ONLINE LEARNING", 16, True, GREEN)])
     textbox(s, Inches(0.7), Inches(2.0), Inches(12), Inches(2.2), [
         ("You're not bad at technology.", 40, True, WHITE),
-        ("You've just never had the right teacher.", 32, False, RGBColor(0xC8, 0xDF, 0xF0)),
+        ("You've just never had the right teacher.", 32, False, MIST),
     ])
     textbox(s, Inches(0.7), Inches(5.4), Inches(12), Inches(1.2), [
         ("Welcome  →  Talk to AI  →  Don't get scammed", 22, True, CYAN),
-        ("50+TechBridge  ·  Learn More Technologies  ·  Always free", 16, False, RGBColor(0x9A, 0xB0, 0xC0)),
+        ("50+ TechBridge  ·  Learn More Technologies  ·  Always free", 16, False, GREEN),
     ])
     notes(s, "Open with the house line. Pause. Do not rush. You are talking to a capable adult.")
 
@@ -185,7 +206,7 @@ def build():
     bar(s)
     textbox(s, Inches(0.6), Inches(0.4), Inches(12), Inches(1.0), [
         ("You are not starting from zero", 34, True, WHITE),
-        ("AARP research, adults 50+  ·  Say the source on screen", 16, False, RGBColor(0x9A, 0xB0, 0xC0)),
+        ("AARP research, adults 50+  ·  Say the source on screen", 16, False, MIST),
     ])
     stats = [
         ("90%", "own a smartphone"),
@@ -206,7 +227,7 @@ def build():
     textbox(s, Inches(0.7), Inches(2.3), Inches(12), Inches(2.4), [
         ("LESSON 1", 18, True, ORANGE),
         ("Welcome", 54, True, WHITE),
-        ("You belong here. You are not too late.", 24, False, RGBColor(0xC8, 0xDF, 0xF0)),
+        ("You belong here. You are not too late.", 24, False, MIST),
     ])
     footer(s, 5, total)
     notes(s, "Read the long Welcome script. This slide is the chapter card.")
@@ -244,7 +265,7 @@ def build():
     textbox(s, Inches(0.7), Inches(2.3), Inches(12), Inches(2.6), [
         ("LESSON 2", 18, True, CYAN),
         ("Talk to AI", 54, True, WHITE),
-        ("One tool. One real question. One useful answer.", 24, False, RGBColor(0xC8, 0xDF, 0xF0)),
+        ("One tool. One real question. One useful answer.", 24, False, MIST),
     ])
     footer(s, 8, total)
     notes(s, "Show the real screen after this card. ChatGPT Free or Copilot if it is already on the PC.")
@@ -263,7 +284,7 @@ def build():
     ]
     for i, (t, tag) in enumerate(bans):
         y = Inches(1.5) + i * Inches(1.15)
-        rect(s, Inches(0.6), y, Inches(12.1), Inches(1.05), WHITE)
+        rect(s, Inches(0.6), y, Inches(12.1), Inches(1.05), ICE)
         rect(s, Inches(0.6), y, Inches(0.16), Inches(1.05), ORANGE)
         textbox(s, Inches(1.0), y + Inches(0.22), Inches(9.5), Inches(0.6), [(t, 24, True, NAVY)])
         textbox(s, Inches(10.6), y + Inches(0.28), Inches(1.8), Inches(0.5), [(tag, 18, True, ORANGE)])
@@ -281,7 +302,7 @@ def build():
         ('"I am 68. I cook for two. I have leftover roast chicken, rice, and spinach. Give me three easy dinners. No spicy food. For each dinner, list extra ingredients and the steps in short sentences."', 22, False, WHITE),
     ])
     textbox(s, Inches(0.7), Inches(5.8), Inches(12), Inches(0.8), [
-        ("Weak:  \"dinners\"        Strong:  who you are, what you have, what you want back.", 18, False, RGBColor(0xC8, 0xDF, 0xF0)),
+        ("Weak:  \"dinners\"        Strong:  who you are, what you have, what you want back.", 18, False, MIST),
     ])
     footer(s, 10, total)
     notes(s, "Type this live at 150% zoom. Then follow up: Make the second dinner even simpler. One pan.")
@@ -295,7 +316,7 @@ def build():
         ("I understand it.", 22, False, WHITE),
         ("I could do the next step.", 22, False, WHITE),
         ("Nothing private was required.", 22, False, WHITE),
-        ("If it sounds too sure, check the number or the 'always.'", 18, False, RGBColor(0xC8, 0xDF, 0xF0)),
+        ("If it sounds too sure, check the number or the 'always.'", 18, False, MIST),
     ])
     rect(s, Inches(6.85), Inches(1.3), Inches(5.85), Inches(5.0), INDIGO)
     textbox(s, Inches(7.1), Inches(1.55), Inches(5.4), Inches(4.5), [
@@ -314,7 +335,7 @@ def build():
     textbox(s, Inches(0.7), Inches(2.3), Inches(12), Inches(2.6), [
         ("LESSON 3", 18, True, ORANGE),
         ("Don't get scammed", 50, True, WHITE),
-        ("Spot a fake. Name the pressure. Lock the door.", 22, False, RGBColor(0xC8, 0xDF, 0xF0)),
+        ("Spot a fake. Name the pressure. Lock the door.", 22, False, MIST),
     ])
     footer(s, 12, total)
     notes(s, "Do not scare them for sport. Frightened people send money. Clear people hang up.")
@@ -329,14 +350,14 @@ def build():
     textbox(s, Inches(0.85), Inches(1.75), Inches(5.5), Inches(4.3), [
         ("FTC  ·  adults 60+", 16, True, ORANGE),
         ("$2.4 billion reported lost in 2024", 22, True, WHITE),
-        ("About 4× the 2020 figure", 18, False, RGBColor(0xC8, 0xDF, 0xF0)),
+        ("About 4× the 2020 figure", 18, False, MIST),
         ("About 3 in 4 who reported a scam lost no money. They spotted it.", 20, True, GREEN),
     ])
     rect(s, Inches(6.85), Inches(1.55), Inches(5.85), Inches(4.7), INDIGO)
     textbox(s, Inches(7.1), Inches(1.75), Inches(5.4), Inches(4.3), [
         ("FBI IC3  ·  over 60", 16, True, CYAN),
         ("Nearly $5 billion in 2024", 22, True, WHITE),
-        ("Most complaints of any age group", 18, False, RGBColor(0xC8, 0xDF, 0xF0)),
+        ("Most complaints of any age group", 18, False, MIST),
         ("Investment schemes took the most money. Fake tech support took almost a billion.", 18, False, WHITE),
     ])
     footer(s, 13, total, light=True)
@@ -354,7 +375,7 @@ def build():
     for i, (t, b) in enumerate(checks):
         x = Inches(0.6) + (i % 2) * Inches(6.3)
         y = Inches(1.35) + (i // 2) * Inches(2.5)
-        rect(s, x, y, Inches(6.05), Inches(2.3), WHITE)
+        rect(s, x, y, Inches(6.05), Inches(2.3), ICE)
         rect(s, x, y, Inches(0.16), Inches(2.3), ORANGE)
         textbox(s, x + Inches(0.4), y + Inches(0.3), Inches(5.4), Inches(1.7), [(t, 22, True, NAVY), (b, 18, False, SLATE)])
     footer(s, 14, total, light=True)
@@ -397,7 +418,7 @@ def build():
     bar(s, ORANGE)
     textbox(s, Inches(0.6), Inches(0.4), Inches(12), Inches(1.3), [
         ("A familiar voice is no longer proof", 32, True, WHITE),
-        ("AARP: most adults 50+ already worry about cloned voices. Pick a family code word this week.", 18, False, RGBColor(0xC8, 0xDF, 0xF0)),
+        ("AARP: most adults 50+ already worry about cloned voices. Pick a family code word this week.", 18, False, MIST),
     ])
     rect(s, Inches(0.6), Inches(2.1), Inches(12.1), Inches(4.2), INDIGO)
     textbox(s, Inches(0.95), Inches(2.4), Inches(11.4), Inches(3.6), [
@@ -469,7 +490,7 @@ def build():
     ]
     for i, (k, v) in enumerate(todos):
         y = Inches(1.25) + i * Inches(1.25)
-        rect(s, Inches(0.6), y, Inches(12.1), Inches(1.12), WHITE)
+        rect(s, Inches(0.6), y, Inches(12.1), Inches(1.12), ICE)
         rect(s, Inches(0.6), y, Inches(0.16), Inches(1.12), CYAN if i % 2 else ORANGE)
         textbox(s, Inches(1.0), y + Inches(0.12), Inches(2.4), Inches(0.85), [(k, 18, True, ORANGE)])
         textbox(s, Inches(3.5), y + Inches(0.28), Inches(8.8), Inches(0.65), [(v, 22, False, NAVY)])
@@ -479,13 +500,13 @@ def build():
     s = new_dark(prs)
     rect(s, 0, 0, Inches(0.22), H, ORANGE)
     textbox(s, Inches(0.7), Inches(1.6), Inches(12), Inches(3.6), [
-        ("Digital independence is not a privilege.", 28, False, RGBColor(0xC8, 0xDF, 0xF0)),
+        ("Digital independence is not a privilege.", 28, False, MIST),
         ("It is your right.", 40, True, WHITE),
         ("You're not too late.", 28, True, ORANGE),
     ])
     textbox(s, Inches(0.7), Inches(5.5), Inches(12), Inches(1.2), [
         ("learnmoretechnologies.com/start-free-lesson/", 20, True, CYAN),
-        ("hello@learnmoretechnologies.com  ·  reportfraud.ftc.gov  ·  ic3.gov", 16, False, RGBColor(0x9A, 0xB0, 0xC0)),
+        ("hello@learnmoretechnologies.com  ·  reportfraud.ftc.gov  ·  ic3.gov", 16, False, MIST),
     ])
     footer(s, 22, total)
     notes(s, "No invented urgency. We do not sell like the people we just taught them to refuse.")

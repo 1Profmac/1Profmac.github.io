@@ -3,7 +3,7 @@
 **File:** `50plus-techbridge-free-lessons.pptx`  
 **Size:** widescreen 16:9 (13.333 × 7.5 in)  
 **Slides:** 22  
-**Brand:** 50+TechBridge navy `#083655`, orange `#e2752e`, cyan `#00a3dc`
+**Brand (from the public site):** navy `#083655`, indigo `#2b315f`, orange `#e2752e`, cyan `#00a3dc`, green `#65bd53`, ice `#f0f8ff`, mist `#c8dff0`, slate `#4a5568`. No cream, no generic purple.
 
 Open in PowerPoint, Google Slides, or Keynote. Speaker notes are on each slide — turn on **Notes** when you teach or film.
 
