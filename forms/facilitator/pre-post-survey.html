@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pre / Post Survey</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="print.css" />
+<style>
+  .scale { display: flex; gap: 14px; font-size: 14px; font-weight: 700; margin: 6px 0 12px; }
+  .q { margin-bottom: 14px; }
+</style>
+</head>
+<body>
+<div class="screen-banner">Same form twice. Mark PRE at Week 1. Mark POST at Week 6.</div>
+<button class="print-btn" onclick="window.print()">Print This Sheet</button>
+<div class="sheet">
+  <div class="doc-header">
+    <div>
+      <div class="org">50+TechBridge | Facilitator Folder</div>
+      <div class="org-sub">WIOA / employer outcomes · First name only if they prefer</div>
+    </div>
+    <div class="doc-title">Pre / Post Survey</div>
+  </div>
+  <div class="doc-body">
+    <div class="grid-3">
+      <div class="field"><label>Name or initials</label><div class="line"></div></div>
+      <div class="field"><label>Date</label><div class="line"></div></div>
+      <div class="field"><label>Site</label><div class="line"></div></div>
+    </div>
+    <p><strong>This is a:</strong> &nbsp; <span class="cb"></span> PRE (Week 1) &nbsp;&nbsp; <span class="cb"></span> POST (Week 6)</p>
+    <p>Circle 1 = not at all &nbsp; 5 = very much</p>
+    <div class="q">
+      <p><strong>1.</strong> I feel confident asking an AI tool a real question.</p>
+      <div class="scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+    </div>
+    <div class="q">
+      <p><strong>2.</strong> I can spot a scam or fake message (including fake voices or photos).</p>
+      <div class="scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+    </div>
+    <div class="q">
+      <p><strong>3.</strong> I can use tech for a life task (family, health, money, or work) without someone doing it for me.</p>
+      <div class="scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+    </div>
+    <div class="q">
+      <p><strong>4.</strong> One thing I cannot do yet (PRE) or can do now (POST):</p>
+      <div class="box"></div>
+    </div>
+    <div class="q">
+      <p><strong>5.</strong> My main goal: &nbsp; <span class="cb"></span> Family &nbsp; <span class="cb"></span> Health &nbsp; <span class="cb"></span> Job &nbsp; <span class="cb"></span> Work / workplace</p>
+    </div>
+    <p class="note">Facilitator: store with the sign-in sheet. Average questions 1–3 for the outcomes one-pager. No medical or financial data on this form.</p>
+  </div>
+  <div class="doc-footer"><span>forms/facilitator/pre-post-survey.html</span><span>Print 1 per person × 2 (pre and post)</span></div>
+</div>
+</body>
+</html>
