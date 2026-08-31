@@ -259,3 +259,10 @@ minutes = round(word_count / 130)
 print(f"wrote {out}")
 print(f"wrote {html_out}")
 print(f"done - {word_count} words - approx {minutes} minutes at 130 wpm")
+
+for dest_dir in (Path.home() / "Desktop", Path.home() / "OneDrive" / "Desktop", Path(r"C:\Users\Jordyn\Desktop")):
+    if dest_dir.is_dir():
+        import shutil
+        shutil.copy2(out, dest_dir / out.name)
+        print(f"copied script to Desktop: {dest_dir / out.name}")
+        break

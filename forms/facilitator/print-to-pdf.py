@@ -15,6 +15,18 @@ PDF_DIR = HERE / "pdf"
 PORT = 8765
 BASE = f"http://127.0.0.1:{PORT}"
 
+
+def desktop_dir() -> Path | None:
+    """Copy printouts to the user's Desktop when this script runs on their PC."""
+    for p in (
+        Path.home() / "Desktop",
+        Path.home() / "OneDrive" / "Desktop",
+        Path(r"C:\Users\Jordyn\Desktop"),
+    ):
+        if p.is_dir():
+            return p
+    return None
+
 SHEETS = [
     "week-01-talk-to-ai.html",
     "week-01-take-home.html",
@@ -92,10 +104,15 @@ def main() -> None:
     PDF_DIR.mkdir(exist_ok=True)
     chrome = chrome_bin()
     names = sys.argv[1:] or SHEETS
+    desk = desktop_dir()
     for name in names:
         path = print_one(chrome, name)
         kb = path.stat().st_size // 1024
         print(f"wrote {path.name} ({kb} KB)")
+        if desk:
+            dest = desk / path.name
+            shutil.copy2(path, dest)
+            print(f"copied to Desktop: {dest}")
 
 
 if __name__ == "__main__":
