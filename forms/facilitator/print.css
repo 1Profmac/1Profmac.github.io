@@ -152,6 +152,8 @@ td { padding: 7px 8px; font-size: 11px; color: #374151; vertical-align: top; lin
     print-color-adjust: exact;
   }
   @page { margin: 0.5in; size: letter; }
-  table, .note, .warn { break-inside: avoid; }
+  table { break-inside: auto; }
+  tr { break-inside: avoid; page-break-inside: avoid; }
+  .note, .warn { break-inside: avoid; }
   .section-head { break-after: avoid; }
 }

@@ -69,6 +69,8 @@ Drag old lessons under those names later. Phone help stays a short block inside 
 | `week-01-talk-to-ai.html` | How to teach Lesson 2 |
 | `week-01-take-home.html` | Learner handout for Lesson 2 |
 | `SCRIPT-lesson-02-talk-to-ai.txt` | HeyGen / Barb spoken script (2a / 2b / 2c) |
+| `SCRIPT-lesson-02-talk-to-ai.html` | Printable script (Chrome → Print → Save as PDF) |
+| `pdf/week-01-*.pdf` | Ready-to-print PDFs of Week 1 + research + script |
 | `week-01-talk-to-ai-research.html` | Socials, comparisons, Pew/AARP references |
 | `week-02-scams.html` | How to teach Lesson 3 |
 | `pre-post-survey.html` | Welcome + Week 6 |

@@ -180,11 +180,82 @@ lines = [
 "I will see you in Lesson 3.",
 ]
 
-out = Path(__file__).with_name("SCRIPT-lesson-02-talk-to-ai.txt")
+HERE = Path(__file__).resolve().parent
+out = HERE / "SCRIPT-lesson-02-talk-to-ai.txt"
 text = "\n".join(lines)
 out.write_text(text, encoding="utf-8")
+
+# Printable HTML — one sheet per video part (Chrome → Print to PDF)
+sections = []
+current = None
+for line in lines:
+    if line.startswith("LESSON 2") and "VIDEO" not in line:
+        current = {"title": line.replace("LESSON ", ""), "runtime": "", "body": []}
+        sections.append(current)
+    elif current is not None:
+        if line.startswith("Runtime:"):
+            current["runtime"] = line.replace("Runtime: ", "")
+        elif line.startswith("====") or line.startswith("LESSON 2"):
+            continue
+        else:
+            current["body"].append(line)
+
+sheet_html = []
+for i, sec in enumerate(sections, 1):
+    paras = []
+    buf = []
+    for line in sec["body"]:
+        if line.strip() == "":
+            if buf:
+                paras.append("<p>" + " ".join(buf) + "</p>")
+                buf = []
+        else:
+            buf.append(line)
+    if buf:
+        paras.append("<p>" + " ".join(buf) + "</p>")
+    sheet_html.append(f"""<div class="sheet">
+  <div class="doc-header">
+    <div>
+      <div class="org">50+TechBridge | HeyGen · Barb Avatar</div>
+      <div class="org-sub">Lesson 2 · Talk to AI · Plain spoken words · No stage directions</div>
+    </div>
+    <div class="doc-title">{sec['title'].split(' - ')[0]}</div>
+  </div>
+  <div class="doc-body spoken">
+    <div class="section-head">{sec['title']}</div>
+    <p class="note">{sec['runtime']} · Read this into HeyGen. Do not add stage directions.</p>
+    {''.join(paras)}
+  </div>
+  <div class="doc-footer">
+    <span>forms/facilitator/SCRIPT-lesson-02-talk-to-ai.html · part {i} of {len(sections)}</span>
+    <span>Pair with week-01-talk-to-ai-research.html</span>
+  </div>
+</div>""")
+
+html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lesson 2 Video Script — Talk to AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="print.css" />
+<style>
+  .spoken p {{ font-size: 13px; line-height: 1.5; margin: 0 0 10px; color: #111; }}
+</style>
+</head>
+<body>
+<div class="screen-banner">HeyGen / Barb. Print to PDF, then record. Plain spoken words only.</div>
+<button class="print-btn" onclick="window.print()">Print This Script</button>
+{''.join(sheet_html)}
+</body>
+</html>
+"""
+html_out = HERE / "SCRIPT-lesson-02-talk-to-ai.html"
+html_out.write_text(html, encoding="utf-8")
 
 word_count = sum(len(line.split()) for line in lines)
 minutes = round(word_count / 130)
 print(f"wrote {out}")
+print(f"wrote {html_out}")
 print(f"done - {word_count} words - approx {minutes} minutes at 130 wpm")
