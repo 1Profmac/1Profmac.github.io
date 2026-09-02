@@ -32,9 +32,12 @@ That is Modules 0–2. That is the public free funnel.
 1. Open the existing 50+TechBridge course (the one at `/courses/50techbridge`).
 2. Rename only the first three lessons. Do not delete the old content yet.
 3. Rebuild **only Lesson 2 (Talk to AI)** this week:
+   - Spoken video: `SCRIPT-lesson-02-talk-to-ai.txt` (generate with `write-script-lesson-02.py`)
+   - Why those lines: `week-01-talk-to-ai-research.html`
    - Starter prompt from `week-01-talk-to-ai.html`
    - Five steps from `week-01-take-home.html`
-   - One tool only
+   - One tool only (ChatGPT default)
+   - “Stay logged out” + voice/mic + no SSN/bank/passwords
    - “Stop if it’s medical or legal”
    - Take-home as a PDF handout (open the HTML in Chrome → Ctrl+P → Microsoft Print to PDF)
 4. Add the five pre-survey questions to Welcome (`pre-post-survey.html`).
@@ -65,6 +68,10 @@ Drag old lessons under those names later. Phone help stays a short block inside 
 | `00-module-spine.html` | Official titles |
 | `week-01-talk-to-ai.html` | How to teach Lesson 2 |
 | `week-01-take-home.html` | Learner handout for Lesson 2 |
+| `SCRIPT-lesson-02-talk-to-ai.txt` | HeyGen / Barb spoken script (2a / 2b / 2c) |
+| `SCRIPT-lesson-02-talk-to-ai.html` | Printable script (Chrome → Print → Save as PDF) |
+| `pdf/week-01-*.pdf` | Ready-to-print PDFs of Week 1 + research + script |
+| `week-01-talk-to-ai-research.html` | Socials, comparisons, Pew/AARP references |
 | `week-02-scams.html` | How to teach Lesson 3 |
 | `pre-post-survey.html` | Welcome + Week 6 |
 

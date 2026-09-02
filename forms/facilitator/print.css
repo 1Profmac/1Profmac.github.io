@@ -143,14 +143,17 @@ td { padding: 7px 8px; font-size: 11px; color: #374151; vertical-align: top; lin
 }
 
 @media print {
-  body { background: #fff; padding: 0; }
+  body { background: #fff; padding: 0; display: block; }
   .screen-banner, .print-btn { display: none !important; }
-  .sheet { box-shadow: none; border-radius: 0; max-width: 100%; }
+  .sheet { box-shadow: none; border-radius: 0; max-width: 100%; page-break-after: always; }
+  .sheet:last-of-type { page-break-after: auto; }
   .doc-header, thead tr, .doc-title, .note, .warn {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
   @page { margin: 0.5in; size: letter; }
-  table, .note, .warn { break-inside: avoid; }
+  table { break-inside: auto; }
+  tr { break-inside: avoid; page-break-inside: avoid; }
+  .note, .warn { break-inside: avoid; }
   .section-head { break-after: avoid; }
 }
