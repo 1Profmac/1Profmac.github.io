@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>App setup — Talk to AI (Lesson 2)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="print.css" />
+</head>
+<body>
+<div class="screen-banner">Internal. How to set up Ask Barb / agentic50+.ai so it runs Lesson 2. Print to PDF.</div>
+<button class="print-btn" onclick="window.print()">Print This Sheet</button>
+
+<div class="sheet">
+  <div class="doc-header">
+    <div>
+      <div class="org">50+TechBridge | Ask Barb / agentic50+.ai</div>
+      <div class="org-sub">App supports Lesson 2 · Talk to AI · No ChatGPT API · No download</div>
+    </div>
+    <div class="doc-title">App setup</div>
+  </div>
+  <div class="doc-body">
+    <p><strong>Decision:</strong> The app does not replace Lesson 2. Barb is the coach. ChatGPT is the tool. The win is one useful answer. Do not connect the ChatGPT API for this. Learners already do not need to download the ChatGPT app — they open a browser to chatgpt.com.</p>
+    <p class="keep"><strong>Flow:</strong> App (Barb) → button “Open ChatGPT” → chatgpt.com in a new tab → Stay logged out → type in ChatGPT’s box. Leave Barb’s tab open so she can still help.</p>
+
+    <div>
+      <div class="section-head">Screens (in order)</div>
+      <table>
+        <thead><tr><th>#</th><th>Name</th><th>They leave able to…</th></tr></thead>
+        <tbody>
+          <tr><td><strong>0</strong></td><td>Welcome</td><td>This is for me. Pick one goal: family / health / job / work.</td></tr>
+          <tr><td><strong>1</strong></td><td>Open the tool</td><td>ChatGPT is open. Stay logged out is fine.</td></tr>
+          <tr><td><strong>2</strong></td><td>Ask the question</td><td>They sent one real prompt.</td></tr>
+          <tr><td><strong>3</strong></td><td>Read + follow-up</td><td>Make that shorter / What should I check with a real person?</td></tr>
+          <tr><td><strong>4</strong></td><td>Save the win</td><td>Take-home filled. Next: Don’t get scammed.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <div class="section-head">Step 1 — Open the tool (first real screen)</div>
+      <p>Barb photo. One sentence: “Today you will ask one real question and get an answer. That is the whole lesson.” One primary button. No WIOA, no $18K, no Book a Call on this screen.</p>
+      <p><strong>Barb says:</strong> You are not late. Most people your age have never done this. We are going to open ChatGPT. You do not need an account. If a box asks you to log in, look for Stay logged out.</p>
+      <ol>
+        <li>Tap <strong>Open ChatGPT</strong>. Link: <strong>https://chatgpt.com</strong> · open in a <strong>new tab</strong>.</li>
+        <li>If a login wall appears, point at Stay logged out / Continue without an account.</li>
+        <li>Point at the message box: “That bar is where you type. If typing is hard, tap the microphone.”</li>
+        <li>Always visible: Do not type your Social Security number, bank numbers, or passwords.</li>
+        <li>When the box is ready: <strong>I’m in — ask my first question →</strong> (that is Step 2).</li>
+      </ol>
+      <p><strong>Done when</strong> they can see the ChatGPT message box. They have not asked a question yet.</p>
+    </div>
+  </div>
+  <div class="doc-footer">
+    <span>forms/facilitator/app-lesson-02-setup.html · page 1 of 2</span>
+    <span>No API · New tab · chatgpt.com</span>
+  </div>
+</div>
+
+<div class="sheet">
+  <div class="doc-header">
+    <div>
+      <div class="org">50+TechBridge | Ask Barb / agentic50+.ai</div>
+      <div class="org-sub">How to build it · WordPress or any site builder</div>
+    </div>
+    <div class="doc-title">App setup</div>
+  </div>
+  <div class="doc-body">
+    <div>
+      <div class="section-head">How to set this up (no API)</div>
+      <ol>
+        <li>Create a page: Talk to AI / Lesson 2 · Step 1. Example URL: /talk-to-ai/ or /ask-barb/lesson-2/.</li>
+        <li>Change the Ask Barb landing button “Talk to Barb Now” so it goes to that page — not a separate chatbot.</li>
+        <li>On the page: Barb photo, the Step 1 copy, safety line, <strong>Open ChatGPT</strong> button.</li>
+        <li>Button link = https://chatgpt.com · Open in new tab = On.</li>
+        <li>Do <strong>not</strong> iframe or embed chatgpt.com. ChatGPT blocks that. New tab only.</li>
+        <li>Do <strong>not</strong> add an OpenAI API key. No billing. No “Barb chat” widget for Lesson 2.</li>
+      </ol>
+    </div>
+
+    <div>
+      <div class="section-head">Button settings</div>
+      <table>
+        <thead><tr><th>Builder</th><th>What to set</th></tr></thead>
+        <tbody>
+          <tr><td>WordPress / Elementor</td><td>Link https://chatgpt.com · Open in new tab: On</td></tr>
+          <tr><td>Webflow / Bubble / Glide</td><td>Button → external URL https://chatgpt.com</td></tr>
+          <tr><td>Custom HTML</td><td>See snippet below</td></tr>
+          <tr><td>Later phone app</td><td>Open URL https://chatgpt.com — still no API</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <div class="section-head">HTML for the button</div>
+      <p class="note">Paste into a Custom HTML block. Large type. New tab.</p>
+      <p style="font-family:ui-monospace,monospace;font-size:10px;line-height:1.45;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:10px 12px;color:#111;">
+        &lt;a href="https://chatgpt.com" target="_blank" rel="noopener noreferrer"&gt;Open ChatGPT →&lt;/a&gt;<br>
+        Tell them: A new tab will open. Leave this tab open so Barb can still help you.
+      </p>
+    </div>
+
+    <div>
+      <div class="section-head">Step 2 (same page, same day)</div>
+      <p>Starter prompt to copy and paste into ChatGPT:</p>
+      <p class="note">I am over 50 and new to AI. I want to use it for something practical in my life. Explain the most useful thing I can do with it today, in five short steps, in plain language.</p>
+      <p>Add a Copy button if you can. They paste into ChatGPT’s box. Still no API.</p>
+    </div>
+
+    <div>
+      <div class="section-head">Test on a phone</div>
+      <ul>
+        <li>iPhone Safari and Android Chrome: tap Open ChatGPT → chatgpt.com opens.</li>
+        <li>Stay logged out is findable. No app download. No API key asked.</li>
+        <li>Barb’s page is still there when they switch back.</li>
+        <li>If your region requires login: “Free account with email is OK. You still do not need the ChatGPT app.”</li>
+      </ul>
+    </div>
+
+    <p class="warn"><strong>Do not:</strong> Make Barb the only chat box. Lead with Health &amp; Medications. Put $18K / WIOA / Book a Call on Step 1. Iframe ChatGPT. Connect the API “so they don’t have to download” — they never needed a download.</p>
+    <p class="note"><strong>Done:</strong> Pioneer taps Talk to Barb Now → Step 1 → Open ChatGPT → chatgpt.com → types the starter prompt. That is the app supporting Lesson 2.</p>
+  </div>
+  <div class="doc-footer">
+    <span>forms/facilitator/app-lesson-02-setup.html · page 2 of 2</span>
+    <span>Print: Chrome → Print This Sheet → Save as PDF</span>
+  </div>
+</div>
+</body>
+</html>
