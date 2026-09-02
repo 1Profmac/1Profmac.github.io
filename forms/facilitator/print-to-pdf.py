@@ -33,6 +33,8 @@ SHEETS = [
     "week-01-talk-to-ai-research.html",
     "SCRIPT-lesson-02-talk-to-ai.html",
     "app-lesson-02-setup.html",
+    "app-for-boards.html",
+    "lesson-02-completion-slip.html",
     "00-module-spine.html",
     "00-session-script.html",
     "week-02-scams.html",

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lesson 2 App — Briefing for Reviewers and WIOA Boards</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="print.css" />
+<style>
+  .sheet .doc-body { gap: 12px; padding: 14px 22px 16px; }
+  .sheet td { font-size: 10px; padding: 5px 6px; }
+  .cover { background: #1e1b4b; color: #fff; padding: 14px 16px; border-radius: 6px; display: grid; grid-template-columns: 80px 1fr; gap: 14px; align-items: center; }
+  .cover img { width: 80px; height: 80px; object-fit: contain; background: #000; border-radius: 50%; }
+  .cover h1 { font-size: 18px; font-weight: 900; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 5px; color: #fff; }
+  .cover p { font-size: 11px; color: #c7d2fe; line-height: 1.45; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .card { border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px; }
+  .card h4 { font-size: 11px; font-weight: 800; margin-bottom: 6px; }
+  .card.do h4 { color: #166534; }
+  .card.dont h4 { color: #991b1b; }
+  .card ul { list-style: none; margin-left: 0; }
+  .card ul li { display: flex; gap: 6px; font-size: 10.5px; }
+  .card.do ul li::before { content: "✓"; color: #16a34a; font-weight: 700; }
+  .card.dont ul li::before { content: "✗"; color: #dc2626; font-weight: 700; }
+  .copy { background: #f8fafc; border: 1px dashed #94a3b8; border-radius: 6px; padding: 10px 12px; font-size: 11px; color: #111; line-height: 1.5; }
+  .copy strong { color: #1e1b4b; }
+  .num { font-weight: 900; color: #1e1b4b; }
+  .keep { break-inside: avoid; page-break-inside: avoid; }
+  .seal-row { display: flex; align-items: center; gap: 12px; }
+  .seal-row img { width: 64px; height: 64px; object-fit: contain; }
+  @media print {
+    .cover, thead tr, .doc-title, .note, .warn { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .cover, .card, .copy, table, .keep { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="screen-banner">Hand this to reviewers and WIOA boards. Print letter. Not a learner workbook.</div>
+<button class="print-btn" onclick="window.print()">Print This Packet</button>
+
+<!-- PAGE 1 — What the app is -->
+<div class="sheet">
+  <div class="doc-header">
+    <div>
+      <div class="org">50+TechBridge | Learn More Technologies</div>
+      <div class="org-sub">MBE-Certified · WIOA-aligned AI literacy · Austin, Texas · 50plustechbridge.com</div>
+    </div>
+    <div class="doc-title">Board packet</div>
+  </div>
+  <div class="doc-body">
+    <div class="cover keep">
+      <img src="assets/agentic50-seal.png" alt="#AGENTIC50 seal — The Pioneers Podcast, 50+TechBridge" />
+      <div>
+        <h1>The Lesson 2 App — what boards can include and refer</h1>
+        <p>A documented instructional coach for Digital Pioneer Module 1 (Talk to AI). Barb teaches. ChatGPT is the public tool. #AGENTIC50 is the earned mark after the first win. Boards buy the program and the proof — not a senior chatbot.</p>
+      </div>
+    </div>
+
+    <div class="keep">
+      <div class="section-head">What this is (one sentence)</div>
+      <p>The app’s job is to make the first AI practice <strong>the same at every site</strong> and leave a <strong>named, dated completion record</strong> a workforce board can file with an IEP/ISS, ETPL description, or partner referral. It started as “Talk to Barb” — a destination chatbot — because that is what a first app looks like. That is the wrong product for monetization and for reviewers. Organizations pay for <strong>access, proof, and delivery</strong>. Learners get a free start. The app is how Lesson 2 is delivered and documented. It is not the invoice.</p>
+    </div>
+
+    <div class="keep">
+      <div class="section-head">Name the stack — do not collapse it</div>
+      <table>
+        <thead><tr><th>Layer</th><th>Name</th><th>Who sees it first</th><th>Job</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Program</strong></td><td>50+TechBridge Digital Pioneer</td><td>Boards, ETPL, contracts</td><td>The WIOA-eligible training they buy</td></tr>
+          <tr><td><strong>Coach</strong></td><td>Barb (HeyGen + Lesson 2 screens)</td><td>Learners in Week 1</td><td>Same voice as the video. Walks one win.</td></tr>
+          <tr><td><strong>Tool</strong></td><td>ChatGPT at chatgpt.com</td><td>Learners, then their workplace</td><td>The transferable skill. Stay logged out is fine.</td></tr>
+          <tr><td><strong>Mark</strong></td><td>#AGENTIC50 seal</td><td>After the win; boards; podcast</td><td>Earned identity. The Pioneers Podcast. Referral brand.</td></tr>
+        </tbody>
+      </table>
+      <p class="note" style="margin-top:6px;"><strong>Logo rule:</strong> The serrated seal is a <em>badge</em>, not the Week 1 product name. Do not ask a new learner to “talk to #AGENTIC50.” Show it on this packet, the completion slip, the app after Step 4, and later-week / podcast surfaces.</p>
+    </div>
+
+    <div class="keep">
+      <div class="section-head">What the app must accomplish</div>
+      <table>
+        <thead><tr><th>#</th><th>Outcome</th><th>Why a board cares</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1</td><td>Every participant asks one real question in a public AI tool and can read the answer back.</td><td>Measurable skill, not “attended a talk about AI.”</td></tr>
+          <tr><td class="num">2</td><td>They send one follow-up: “What should I check with a real person?”</td><td>Critical evaluation of AI output — DOL AI-literacy content, not chatbot worship.</td></tr>
+          <tr><td class="num">3</td><td>A completion slip is filled (name, date, site, goal, “I did this”).</td><td>Something the board can include in the file and refer to another AJC.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  <div class="doc-footer">
+    <span>forms/facilitator/app-for-boards.html · page 1 of 4</span>
+    <span>Keep 50+TechBridge free for individuals. Charge organizations.</span>
+  </div>
+</div>
+
+<!-- PAGE 2 — Current vs ordered changes -->
+<div class="sheet">
+  <div class="doc-header">
+    <div>
+      <div class="org">50+TechBridge | Lesson 2 App</div>
+      <div class="org-sub">Ordered changes vs the current Ask Barb / agentic50+.ai landing</div>
+    </div>
+    <div class="doc-title">Current → proposed</div>
+  </div>
+  <div class="doc-body">
+    <p>The current app was built before the monetization model was clear. It looks like a consumer AI product. Reviewers judge efficacy by whether a 50+ participant can <strong>do the skill on a tool they will meet at work</strong>, and whether the board can <strong>file proof</strong>. Change in this order. Do not skip to a new chatbot feature.</p>
+
+    <div class="two keep">
+      <div class="card do">
+        <h4>Best application</h4>
+        <ul>
+          <li>Standardize Lesson 2 at AJCs, libraries, employers</li>
+          <li>License the coach + forms with the curriculum</li>
+          <li>Attach the slip to IEP/ISS / outcomes one-pager</li>
+          <li>Let facilitators run it without Brian in the room</li>
+        </ul>
+      </div>
+      <div class="card dont">
+        <h4>Not the application</h4>
+        <ul>
+          <li>A senior-only chatbot that replaces ChatGPT</li>
+          <li>Health, money, or legal advice from Barb</li>
+          <li>Selling courses to individuals through the app</li>
+          <li>Putting $18K / WIOA / Book a Call on Barb’s face</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="keep">
+      <div class="section-head">Ordered list — change these, in this order</div>
+      <table>
+        <thead><tr><th>#</th><th>Current Ask Barb</th><th>Change to</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="num">1</td>
+            <td>One landing mixes learners and buyers. $18K / MBE / WIOA sit next to “Meet Barb.”</td>
+            <td><strong>Two doors.</strong> Learner: Practice Lesson 2. Board: this packet + outcomes sheet. Hide procurement copy from Step 1.</td>
+            <td>Boards need a professional packet. Learners need a calm first screen. Mixing them makes both audiences bounce.</td>
+          </tr>
+          <tr>
+            <td class="num">2</td>
+            <td>Primary CTA: “Talk to Barb Now.” Barb is the destination chatbot.</td>
+            <td><strong>Barb is the coach.</strong> Primary button: Open ChatGPT (chatgpt.com, new tab). Leave Barb’s tab open.</td>
+            <td>The skill must transfer. A wrapper chatbot trains them on LMT, not on the tool employers use.</td>
+          </tr>
+          <tr>
+            <td class="num">3</td>
+            <td>First topics: Health &amp; Medications, Money, Safety.</td>
+            <td><strong>First win = one practical task</strong> (letter, trip, recipe, or job task). Health stays in Week 4, after “verify the AI.”</td>
+            <td>Week 1 medical advice is a liability and a trust killer. Boards will not refer a health bot.</td>
+          </tr>
+          <tr>
+            <td class="num">4</td>
+            <td>No lesson sequence. Open-ended chat.</td>
+            <td><strong>Five screens, in order:</strong> 0 Welcome → 1 Open the tool → 2 Ask → 3 Follow-up → 4 Save the win.</td>
+            <td>Same as the 110-minute session. Any facilitator can run it. Reviewers can walk the path.</td>
+          </tr>
+          <tr>
+            <td class="num">5</td>
+            <td>No human-check step. The AI’s answer is the end.</td>
+            <td><strong>Required follow-up:</strong> “What should I check with a real person?” or “Make that shorter.”</td>
+            <td>Matches DOL AI-literacy: evaluate output. This is the line boards quote.</td>
+          </tr>
+          <tr>
+            <td class="num">6</td>
+            <td>No completion artifact. No name, date, or site on a slip.</td>
+            <td><strong>Print / save Lesson 2 completion slip</strong> (next sheet in this folder).</td>
+            <td>This is what gets included. Without it the app is a demo, not a system.</td>
+          </tr>
+          <tr>
+            <td class="num">7</td>
+            <td>#AGENTIC50 / agentic50+.ai used as the product name on the first click.</td>
+            <td><strong>Seal after Step 4:</strong> “You completed Talk to AI. Welcome to #AGENTIC50.” Seal on slip, packet, podcast, later weeks.</td>
+            <td>The seal is a movement and trust mark. Using it as the chatbot name confuses learners and looks like a podcast, not training.</td>
+          </tr>
+          <tr>
+            <td class="num">8</td>
+            <td>No board language. Nothing an AJC can paste into a file.</td>
+            <td><strong>Publish the include / refer blocks</strong> on page 3 of this packet.</td>
+            <td>“This or something better” only works if you define the standard.</td>
+          </tr>
+          <tr>
+            <td class="num">9</td>
+            <td>No ChatGPT API — good — but the landing still implies Barb answers.</td>
+            <td><strong>Keep no API.</strong> Do not iframe chatgpt.com. New tab only. Documented in app-lesson-02-setup.</td>
+            <td>No vendor lock-in, no surprise AI bill, no download. Boards can inspect the tool.</td>
+          </tr>
+          <tr>
+            <td class="num">10</td>
+            <td>App is a side project next to the 6-week course.</td>
+            <td><strong>License the coach with the curriculum.</strong> Train / License engines: same screens at every site; outcomes data from slips + pre/post.</td>
+            <td>This is how the app pays for itself without selling courses to 50+ individuals.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="doc-footer">
+    <span>forms/facilitator/app-for-boards.html · page 2 of 4</span>
+    <span>Change order is the product plan. Do not start at #10.</span>
+  </div>
+</div>
+
+<!-- PAGE 3 — TEGL + include/refer -->
+<div class="sheet">
+  <div class="doc-header">
+    <div>
+      <div class="org">50+TechBridge | For reviewers and WIOA boards</div>
+      <div class="org-sub">Language you can include in ETPL, IEP/ISS, and partner referrals</div>
+    </div>
+    <div class="doc-title">Include &amp; refer</div>
+  </div>
+  <div class="doc-body">
+    <div class="keep">
+      <div class="section-head">How this maps to DOL AI-literacy content (TEGL 03-25 authorization)</div>
+      <p>Federal guidance authorized WIOA funds for AI literacy (foundational use, workplace context, critical evaluation, privacy, ethics). Lesson 2 is the <strong>first measured practice</strong> in the Digital Pioneer Core — not a substitute for the 6-week program.</p>
+      <table>
+        <thead><tr><th>DOL content area</th><th>What happens in the app</th><th>Proof in the file</th></tr></thead>
+        <tbody>
+          <tr><td>Foundational AI concepts</td><td>Barb: you are not late; Siri/Maps is a little AI; this is a conversation.</td><td>Attendance + Week 1 guide</td></tr>
+          <tr><td>Using AI tools in workplace / life context</td><td>They open chatgpt.com and send one real prompt (letter, trip, recipe, or job task).</td><td>Completion slip, item 1</td></tr>
+          <tr><td>Critical evaluation of AI outputs</td><td>Follow-up: “What should I check with a real person?”</td><td>Completion slip, item 2</td></tr>
+          <tr><td>Data privacy and security</td><td>Always-on line: no SSN, bank numbers, passwords. Stay logged out is fine.</td><td>Screen 1 + take-home card</td></tr>
+          <tr><td>Ethical use</td><td>AI is extra help, not a replacement for people. No medical or legal advice in Week 1.</td><td>Week 1 rule + Week 2 scams</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="keep">
+      <div class="section-head">Copy this into an IEP / ISS or case note</div>
+      <p class="copy">Participant completed <strong>50+TechBridge Digital Pioneer, Module 1 — Talk to AI (Lesson 2 coach)</strong> on ____ / ____ / ______ at ________________________. They opened a public AI tool (ChatGPT), submitted one practical prompt related to their goal (family / health / job / work), and asked a follow-up to check the answer with a real person. Completion slip attached. Next module: Don’t Get Scammed.</p>
+    </div>
+
+    <div class="keep">
+      <div class="section-head">Copy this into an ETPL / program description</div>
+      <p class="copy">Introductory AI literacy is practiced in a <strong>facilitated Lesson 2 coach</strong> (Barb) that opens a public workplace tool rather than a proprietary chatbot. Adults 50+ complete one documented prompt and one human-check follow-up. The program issues a named completion record and a pre/post confidence survey. Full Digital Pioneer Core is 6 weeks / 12 hours with a Week 5 fork for job search or workplace tools.</p>
+    </div>
+
+    <div class="keep">
+      <div class="section-head">“This or something better” — the standard you can refer</div>
+      <p>Boards may adopt the 50+TechBridge Lesson 2 coach, <strong>or an equivalent</strong> that meets all four tests. If a vendor cannot meet them, it is not a substitute.</p>
+      <ol>
+        <li>Teaches a <strong>public AI tool</strong> the participant can reopen at work or at home — not only a branded wrapper.</li>
+        <li>Requires a <strong>human-check follow-up</strong> (critical evaluation), not a single generated answer.</li>
+        <li>Produces a <strong>named, dated completion record</strong> the board can file.</li>
+        <li>Is designed for <strong>adults 50+</strong> (large type, stay-logged-out path, no account required to start, no health-bot first screen).</li>
+      </ol>
+      <p class="note"><strong>Referral sentence:</strong> “Use the 50+TechBridge Lesson 2 coach, or another tool that meets the four-test AI-literacy practice standard in the 50+TechBridge board packet.” Other boards can include that sentence. LMT is the reference implementation.</p>
+    </div>
+  </div>
+  <div class="doc-footer">
+    <span>forms/facilitator/app-for-boards.html · page 3 of 4</span>
+    <span>Reference implementation · four-test standard</span>
+  </div>
+</div>
+
+<!-- PAGE 4 — How + engines + screens -->
+<div class="sheet">
+  <div class="doc-header">
+    <div>
+      <div class="org">50+TechBridge | How to run it</div>
+      <div class="org-sub">Screens, #AGENTIC50 placement, and how the app serves the five engines</div>
+    </div>
+    <div class="doc-title">How</div>
+  </div>
+  <div class="doc-body">
+    <div class="keep">
+      <div class="section-head">Learner screens (in order)</div>
+      <table>
+        <thead><tr><th>#</th><th>Screen</th><th>They leave able to…</th><th>Seal?</th></tr></thead>
+        <tbody>
+          <tr><td class="num">0</td><td>Welcome — “This is for me.” Pick family / health / job / work.</td><td>Name one goal. No WIOA copy.</td><td>Tiny footer only, if at all</td></tr>
+          <tr><td class="num">1</td><td>Open the tool — Barb photo. Button: Open ChatGPT.</td><td>See the ChatGPT box. Stay logged out. Safety line visible.</td><td>No</td></tr>
+          <tr><td class="num">2</td><td>Ask — starter prompt to copy. Their real question next.</td><td>One prompt sent.</td><td>No</td></tr>
+          <tr><td class="num">3</td><td>Follow-up — shorter, or check with a real person.</td><td>They judged the answer.</td><td>No</td></tr>
+          <tr><td class="num">4</td><td>Save the win — take-home + completion slip.</td><td>Paper in the bag. Next: Don’t get scammed.</td><td><strong>Yes — earned</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="seal-row keep">
+      <img src="assets/agentic50-seal.png" alt="#AGENTIC50 seal" />
+      <p><strong>Step 4 line (say this):</strong> “You asked a real question and you checked the answer. That is the skill. You are a Digital Pioneer. This mark is #AGENTIC50 — the community and The Pioneers Podcast. Keep the slip. Your board or library can file a copy.”</p>
+    </div>
+
+    <div class="keep">
+      <div class="section-head">How the app serves monetization (five engines)</div>
+      <table>
+        <thead><tr><th>Engine</th><th>App’s job</th><th>What you sell</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Speak</strong></td><td>Live demo of screens 1–4 in under 8 minutes. Hand this packet.</td><td>Keynote that ends in a pilot or license, not applause.</td></tr>
+          <tr><td><strong>License</strong></td><td>The missing SKU: annual site access to the coach, slips, and outcomes fields.</td><td>Curriculum + app + reporting — not a one-off workshop.</td></tr>
+          <tr><td><strong>Train</strong></td><td>Any facilitator runs the same Lesson 2. WIOA is a funding path, not a discount.</td><td>Cohort / ITA package with documented completions.</td></tr>
+          <tr><td><strong>Advise</strong></td><td>Do not put brand-advisory CTAs on the learner app.</td><td>Brand Fluency stays a separate retainer.</td></tr>
+          <tr><td><strong>Certify</strong></td><td>Paid facilitators teach from these screens. Seal on their certificate.</td><td>Delivery outside Central Texas without cloning Brian.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="warn"><strong>How to finish this (founder):</strong> You do not need a new AI product. You need the current landing to stop being a chatbot and start being Lesson 2 plus a slip. Build changes 1–7 on the live Ask Barb / agentic50+.ai site. Print this packet and the completion slip for every board meeting. That is the app, gotten right.</p>
+
+    <p class="note"><strong>Setup (no API, no download):</strong> forms/facilitator/app-lesson-02-setup.html · Button = https://chatgpt.com · new tab · do not iframe · do not add an OpenAI key. Learners already use a browser.</p>
+    <div class="keep">
+      <div class="section-head">What to attach in a review folder</div>
+      <p><span class="cb"></span> This 4-page packet &nbsp; <span class="cb"></span> Lesson 2 completion slip (sample + one filled) &nbsp; <span class="cb"></span> Week 1 take-home card &nbsp; <span class="cb"></span> Pre/post survey &nbsp; <span class="cb"></span> Outcomes one-pager &nbsp; <span class="cb"></span> Sign-in totals</p>
+    </div>
+  </div>
+  <div class="doc-footer">
+    <span>forms/facilitator/app-for-boards.html · page 4 of 4</span>
+    <span>hello@learnmoretechnologies.com · learnmoretechnologies.com</span>
+  </div>
+</div>
+</body>
+</html>
