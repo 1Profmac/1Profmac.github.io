@@ -74,6 +74,8 @@
   margin-bottom: 8px;
 }
 p, li { font-size: 12px; color: #374151; line-height: 1.5; }
+a { color: #4338ca; }
+code { font-size: 10px; background: #f1f5f9; padding: 1px 4px; border-radius: 3px; }
 strong { color: #111; }
 ul, ol { margin-left: 18px; }
 li { margin-bottom: 4px; }

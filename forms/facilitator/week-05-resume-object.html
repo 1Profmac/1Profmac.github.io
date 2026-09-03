@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Week 5 — Resume object (job-seeker fork)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="print.css" />
+</head>
+<body>
+<div class="screen-banner">Fork B only. Facts first. AI drafts. They edit. They do not paste a lie.</div>
+<button class="print-btn" onclick="window.print()">Print This Sheet</button>
+
+<div class="sheet">
+  <div class="doc-header">
+    <div>
+      <div class="org">50+TechBridge | Facilitator Folder</div>
+      <div class="org-sub">Week 5 of 6 · Money &amp; work · Fork B · Job search</div>
+    </div>
+    <div class="doc-title">Resume object</div>
+  </div>
+  <div class="doc-body">
+    <p><strong>What this is:</strong> a small JSON file of facts the learner owns, plus optional AI wording they edited. It is the ground truth for resume / interview practice. It is not a chatbot and not a seventh week.</p>
+    <p class="warn"><strong>Lab rule:</strong> AI drafts a resume bullet or interview answer. They edit it. They do not paste a lie. Nothing in the file is treated as true until <em>attestedTrue</em> is checked by the learner.</p>
+    <div>
+      <div class="section-head">The model (four layers)</div>
+      <table>
+        <thead><tr><th>Layer</th><th>What goes in</th><th>Who writes it</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Identity &amp; target</strong></td><td>Name, optional contact, city/state, the job they want. No SSN, bank, passwords, street address.</td><td>Learner</td></tr>
+          <tr><td><strong>Facts</strong></td><td>Work history (employer, title, dates, duty facts), education/credentials, skills they attest.</td><td>Learner</td></tr>
+          <tr><td><strong>Derived text</strong></td><td>Resume bullets and optional interview answers: <em>aiDraft</em> vs <em>learnerEdited</em>, plus a truth flag.</td><td>Public AI tool drafts; learner must edit</td></tr>
+          <tr><td><strong>Metadata</strong></td><td>Site, date, room type. Board field <em>programTrack</em> (including WIOA / job seeker) lives here — not on the learner screen.</td><td>Facilitator / file</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <div class="section-head">Room plan (You do)</div>
+      <ol>
+        <li>Open <strong>resume-object/index.html</strong>. Load blank, or the Pat Rivera sample to show the shape.</li>
+        <li>Facts first. If they have no duty lines, stop. Do not let the tool invent a career.</li>
+        <li>Copy the generated ask. Open ChatGPT (or the cohort’s one tool) in a <em>new tab</em>. No API. No iframe.</li>
+        <li>Paste the draft back. They rewrite it. They may check “I edited this. It is true.” only after the wording changed.</li>
+        <li>Download JSON. Optional: attach filename to a later completion slip / IEP note. Do not staple a ChatGPT printout.</li>
+      </ol>
+    </div>
+    <p class="note"><strong>Files:</strong> <code>resume-object/schema.json</code> · <code>resume-object/examples/pat-rivera-job-seeker.json</code> · learner form <code>resume-object/index.html</code>. Pair with <a href="week-05-fork.html">week-05-fork.html</a>.</p>
+  </div>
+  <div class="doc-footer">
+    <span>forms/facilitator/week-05-resume-object.html</span>
+    <span>Fork B · Edit, don’t paste a lie</span>
+  </div>
+</div>
+
+<div class="sheet">
+  <div class="doc-header">
+    <div>
+      <div class="org">50+TechBridge | Facilitator Folder</div>
+      <div class="org-sub">Week 5 · Fork B · Field map and do-not list</div>
+    </div>
+    <div class="doc-title">How to file it</div>
+  </div>
+  <div class="doc-body">
+    <div>
+      <div class="section-head">Status flags (do not skip)</div>
+      <table>
+        <thead><tr><th>status</th><th>Meaning</th><th>OK to put on a resume?</th></tr></thead>
+        <tbody>
+          <tr><td><strong>ai_draft</strong></td><td>Tool wording only. <em>attestedTrue</em> is false.</td><td>No</td></tr>
+          <tr><td><strong>learner_edited</strong></td><td>They changed it. Still not attested.</td><td>Not yet</td></tr>
+          <tr><td><strong>attested</strong></td><td>They checked the truth box. Dates stamp in <em>attestedAt</em>.</td><td>Yes, if it still matches the facts</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <div class="section-head">Board / case note (facilitator copy only)</div>
+      <p>Suggested line: “Completed Digital Pioneer Week 5 job-search lab (resume object). Facts entered by participant. One AI draft edited and attested. JSON on file. Not a ChatGPT transcript.” Map learner room <strong>Job search</strong> → <em>cohortType: job_seeker</em> and <em>programTrack: wioa_job_seeker</em> when the cohort is a WIOA / AJC job-seeker group.</p>
+    </div>
+    <div>
+      <div class="section-head">Do not</div>
+      <ul>
+        <li>Do not paste WIOA, ETPL, $18K, or IEP jargon onto the learner screens.</li>
+        <li>Do not add an OpenAI key, a chat widget, or an iframe of ChatGPT.</li>
+        <li>Do not treat an AI bullet as evidence of employment.</li>
+        <li>Do not invent a seventh curriculum week. This sits inside Week 5 fork B.</li>
+        <li>Do not collect SSN, bank routing, passwords, or medical diagnoses in this file.</li>
+      </ul>
+    </div>
+    <div class="grid-3">
+      <div class="field"><label>Site</label><div class="line"></div></div>
+      <div class="field"><label>Date</label><div class="line"></div></div>
+      <div class="field"><label>Facilitator</label><div class="line"></div></div>
+    </div>
+    <p class="warn">If the tool writes “increased sales 40%” and they never counted sales — that is a lie. Delete it. The win is an honest sentence they can say in an interview.</p>
+  </div>
+  <div class="doc-footer">
+    <span>Page 2 · week-05-resume-object.html</span>
+    <span>Attach to fork sheet if needed</span>
+  </div>
+</div>
+</body>
+</html>

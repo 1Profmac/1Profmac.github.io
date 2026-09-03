@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Your job file — facts first</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="app.css" />
+</head>
+<body>
+<div class="page">
+  <div class="card">
+    <p class="kicker">Week 5 · Job search lab</p>
+    <div class="steps" aria-hidden="true">
+      <span class="on"></span><span></span><span></span><span></span>
+    </div>
+    <h1>Your facts. Then a draft. Then you edit.</h1>
+    <p class="lead">This is not a chatbot. You write what is true. A public AI tool may suggest wording. Nothing counts as true until you say so.</p>
+    <p class="safety">Do not type a Social Security number, bank numbers, passwords, or a street address.</p>
+    <div class="nav" role="navigation" aria-label="Steps">
+      <button type="button" data-go="0" aria-current="step">1. Facts</button>
+      <button type="button" data-go="1">2. Ask</button>
+      <button type="button" data-go="2">3. Edit</button>
+      <button type="button" data-go="3">4. File</button>
+    </div>
+
+    <section class="panel" data-step="0">
+      <h2 class="kicker">Step 1 of 4 · Facts you own</h2>
+      <p class="lead">Fill this first. Skip anything you do not want on a resume.</p>
+      <div class="grid-2">
+        <div>
+          <label for="fullName">Full name</label>
+          <input id="fullName" type="text" autocomplete="name" />
+        </div>
+        <div>
+          <label for="preferredName">Name you use</label>
+          <input id="preferredName" type="text" />
+        </div>
+      </div>
+      <div class="grid-2">
+        <div>
+          <label for="email">Email (optional)</label>
+          <input id="email" type="email" autocomplete="email" />
+        </div>
+        <div>
+          <label for="phone">Phone (optional)</label>
+          <input id="phone" type="tel" autocomplete="tel" />
+        </div>
+      </div>
+      <div class="grid-2">
+        <div>
+          <label for="city">City</label>
+          <input id="city" type="text" />
+        </div>
+        <div>
+          <label for="region">State</label>
+          <input id="region" type="text" />
+        </div>
+      </div>
+      <div>
+        <label for="roleTitle">The job I want</label>
+        <input id="roleTitle" type="text" placeholder="Inventory coordinator" />
+      </div>
+      <div>
+        <label for="goalStatement">In one sentence, what I want next</label>
+        <textarea id="goalStatement" placeholder="Daytime work counting stock and helping people."></textarea>
+      </div>
+      <div>
+        <label for="industry">Kind of workplace (optional)</label>
+        <input id="industry" type="text" placeholder="Grocery, clinic, office…" />
+      </div>
+      <div class="grid-2">
+        <div>
+          <label for="site">Site / library / office</label>
+          <input id="site" type="text" />
+        </div>
+        <div>
+          <label for="sessionDate">Date</label>
+          <input id="sessionDate" type="date" />
+        </div>
+      </div>
+      <div>
+        <label for="cohortType">This room is for</label>
+        <select id="cohortType">
+          <option value="job_seeker">Job search</option>
+          <option value="community">Everyday money / community</option>
+          <option value="employer">Workplace tools</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <p class="label">Work I have done</p>
+      <div id="workList" class="list"></div>
+      <button type="button" class="btn ghost" id="addWork">Add another job</button>
+
+      <p class="label">School or credentials</p>
+      <div id="eduList" class="list"></div>
+      <button type="button" class="btn ghost" id="addEdu">Add another school</button>
+
+      <div>
+        <label for="skills">Skills I can do (one per line)</label>
+        <textarea id="skills" placeholder="Customer service&#10;Inventory counts"></textarea>
+      </div>
+      <button type="button" class="btn" data-go="1">Facts are in — build the ask →</button>
+    </section>
+
+    <section class="panel" data-step="1" hidden>
+      <h2 class="kicker">Step 2 of 4 · Ask from facts only</h2>
+      <p class="lead">Copy this. Open ChatGPT in a new tab. Paste it there — not on this page.</p>
+      <div>
+        <label for="draftKind">I want help with</label>
+        <select id="draftKind">
+          <option value="resume_bullet">One resume bullet</option>
+          <option value="interview_answer">One interview answer</option>
+        </select>
+      </div>
+      <div id="interviewWrap" hidden>
+        <label for="interviewQ">Interview question</label>
+        <input id="interviewQ" type="text" value="Tell me about a time you trained someone new." />
+      </div>
+      <div class="prompt" id="promptBox"></div>
+      <div class="row">
+        <button type="button" class="btn" id="copyPrompt">Copy the ask</button>
+        <a class="btn secondary" href="https://chatgpt.com" target="_blank" rel="noopener noreferrer">Open ChatGPT →</a>
+      </div>
+      <p class="lead" id="copied" hidden>Copied. Switch to the ChatGPT tab and paste.</p>
+      <p class="note">Stay logged out if you can. Do not paste your whole life story — only the facts already on this page.</p>
+      <button type="button" class="btn secondary" data-go="2">I have a draft — edit it →</button>
+    </section>
+
+    <section class="panel" data-step="2" hidden>
+      <h2 class="kicker">Step 3 of 4 · Edit. Do not paste a lie.</h2>
+      <p class="lead">Paste what the tool wrote. Then change it so it matches your facts. If it added a percent, an award, or software you did not name — cut it.</p>
+      <p class="err" id="draftErr" hidden></p>
+      <div>
+        <label for="aiDraft">What the AI wrote (draft)</label>
+        <textarea id="aiDraft" placeholder="Paste the draft here"></textarea>
+      </div>
+      <div>
+        <label for="learnerEdited">What I will actually use (your words)</label>
+        <textarea id="learnerEdited" placeholder="Rewrite it so it is true"></textarea>
+      </div>
+      <label class="check">
+        <input type="checkbox" id="attest" />
+        I edited this. It is true. I did not paste a lie.
+      </label>
+      <button type="button" class="btn" id="saveDraft">Save this line to my file</button>
+      <p class="note" id="savedNote" hidden>Saved. You can do another line, or go to the file.</p>
+      <p class="label">Saved lines</p>
+      <div id="savedList" class="list"></div>
+      <button type="button" class="btn secondary" data-go="3">See my file →</button>
+    </section>
+
+    <section class="panel" data-step="3" hidden>
+      <h2 class="kicker">Step 4 of 4 · The file</h2>
+      <p class="lead">This JSON is the record. A later completion slip can point at it. It is not a chat log.</p>
+      <div class="row">
+        <button type="button" class="btn" id="download">Download my JSON file</button>
+        <button type="button" class="btn ghost" id="loadExample">Load sample (Pat Rivera)</button>
+        <button type="button" class="btn secondary" id="reset">Start blank</button>
+      </div>
+      <p class="err" id="exampleErr" hidden>Could not load the sample. Open this page from the website, not as a lone file.</p>
+      <p class="label">Current object</p>
+      <pre class="json" id="jsonView"></pre>
+      <p class="foot">50+TechBridge · Digital Pioneer · Schema 1.0.0</p>
+    </section>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

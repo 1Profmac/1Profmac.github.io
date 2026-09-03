@@ -1,0 +1,108 @@
+{
+  "schemaVersion": "1.0.0",
+  "metadata": {
+    "site": "Austin Public Library — Carver Branch",
+    "sessionDate": "2026-09-03",
+    "cohortType": "job_seeker",
+    "programTrack": "wioa_job_seeker",
+    "facilitatorName": "Jordan Hale",
+    "notes": "Week 5 fork B. One bullet attested in the room."
+  },
+  "identity": {
+    "fullName": "Pat Rivera",
+    "preferredName": "Pat",
+    "email": "pat.rivera.example@email.com",
+    "phone": "512-555-0148",
+    "location": {
+      "city": "Austin",
+      "region": "TX"
+    }
+  },
+  "target": {
+    "roleTitle": "Inventory coordinator",
+    "goalStatement": "I want a daytime job counting stock and helping customers, not night warehouse work.",
+    "industry": "Grocery or hospital supply"
+  },
+  "workHistory": [
+    {
+      "id": "work-heb",
+      "employer": "H-E-B",
+      "title": "Grocery department lead",
+      "startDate": "2012-03",
+      "endDate": "2024-06",
+      "current": false,
+      "dutiesFacts": [
+        "Opened the store four mornings a week and counted dairy and produce before customers arrived.",
+        "Trained six new hires on how to rotate stock and write down what we threw away.",
+        "Called the warehouse when we ran short on milk or bread so the next truck could fix it."
+      ]
+    },
+    {
+      "id": "work-school",
+      "employer": "Austin Independent School District",
+      "title": "Cafeteria assistant",
+      "startDate": "2005",
+      "endDate": "2012",
+      "current": false,
+      "dutiesFacts": [
+        "Served lunch to about 400 students a day and kept the line moving.",
+        "Followed food-safety rules and signed the temperature log."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "id": "edu-acc",
+      "institution": "Austin Community College",
+      "credential": "Certificate in Logistics and Supply Chain",
+      "year": "2018",
+      "notes": "Night class after work. Finished."
+    },
+    {
+      "id": "edu-hs",
+      "institution": "Lanier High School",
+      "credential": "High school diploma",
+      "year": "1986",
+      "notes": ""
+    }
+  ],
+  "skills": [
+    { "name": "Inventory counts", "learnerAttested": true },
+    { "name": "Customer service", "learnerAttested": true },
+    { "name": "Excel basics (lists and simple totals)", "learnerAttested": true },
+    { "name": "Spanish — conversational", "learnerAttested": true }
+  ],
+  "resumeBullets": [
+    {
+      "id": "bullet-waste",
+      "kind": "resume_bullet",
+      "prompt": "Write one resume bullet from these facts only.",
+      "sourceWorkIds": ["work-heb"],
+      "sourceFacts": [
+        "Opened the store four mornings a week and counted dairy and produce before customers arrived.",
+        "Trained six new hires on how to rotate stock and write down what we threw away."
+      ],
+      "aiDraft": "Spearheaded a 15% waste-reduction initiative while onboarding a high-performing team of six associates.",
+      "learnerEdited": "Counted dairy and produce each morning and wrote down what we threw away so we ordered less waste. Trained six new hires to do the same.",
+      "status": "attested",
+      "attestedTrue": true,
+      "attestedAt": "2026-09-03T16:10:00-05:00"
+    }
+  ],
+  "interviewAnswers": [
+    {
+      "id": "interview-train",
+      "kind": "interview_answer",
+      "prompt": "Tell me about a time you trained someone new.",
+      "sourceWorkIds": ["work-heb"],
+      "sourceFacts": [
+        "Trained six new hires on how to rotate stock and write down what we threw away."
+      ],
+      "aiDraft": "I am a natural leader who mentored six associates to exceed KPIs in waste reduction.",
+      "learnerEdited": "I trained six new people. I showed them how to rotate milk and write down what we tossed at night. I stayed until they could do it without me.",
+      "status": "learner_edited",
+      "attestedTrue": false,
+      "attestedAt": null
+    }
+  ]
+}
