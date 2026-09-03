@@ -8,20 +8,48 @@
 <link rel="stylesheet" href="app.css" />
 </head>
 <body>
-<div class="wrap">
-  <div class="steps" aria-hidden="true"><span class="on"></span><span class="on"></span><span></span><span></span><span></span></div>
-  <p class="kicker">Step 1 of 4 · Open the tool</p>
-  <h1>Open ChatGPT.</h1>
-  <p class="barb">A new tab will open. Leave this tab open so I can still help you. You do not need an account. If a box asks you to log in, look for <strong>Stay logged out</strong>.</p>
-  <a class="btn" href="https://chatgpt.com" target="_blank" rel="noopener noreferrer">Open ChatGPT →</a>
-  <ol class="ol">
-    <li>If a login wall appears, tap Stay logged out.</li>
-    <li>Find the message box at the bottom. That is where you type.</li>
-    <li>If typing is hard, tap the microphone.</li>
-  </ol>
-  <p class="safety">Do not type your Social Security number, bank numbers, or passwords.</p>
-  <a class="btn secondary" href="ask.html">I’m in — ask my first question →</a>
-  <p class="foot">ChatGPT is the tool. Barb is the coach.</p>
+<div class="stage">
+  <div class="device">
+    <div class="device-bar" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="coach">
+        <img src="barb.png" width="72" height="72" alt="Barb, your coach" />
+        <div>
+          <strong>Barb</strong>
+          <span>Leave this tab open</span>
+        </div>
+      </div>
+      <div class="steps" aria-hidden="true"><span class="on"></span><span class="on"></span><span></span><span></span><span></span></div>
+      <p class="kicker">Step 1 of 4 · Open the tool</p>
+      <h1>Open ChatGPT.</h1>
+      <p class="barb">A new tab will open. Leave this tab open so I can still help you. You do not need an account. If a box asks you to log in, look for <strong>Stay logged out</strong>.</p>
+      <a class="btn" href="https://chatgpt.com" target="_blank" rel="noopener noreferrer">Open ChatGPT →</a>
+      <ol class="ol">
+        <li>If a login wall appears, tap Stay logged out.</li>
+        <li>Find the message box at the bottom.</li>
+        <li>If typing is hard, tap the microphone.</li>
+      </ol>
+      <p class="safety">Do not type your Social Security number, bank numbers, or passwords.</p>
+      <a class="btn secondary" href="ask.html">I’m in — ask my first question →</a>
+      <p class="foot">ChatGPT is the tool. Barb is the coach.</p>
+    </div>
+  </div>
+  <aside class="howto">
+    <h2>How to · the other tab</h2>
+    <p class="cap">Two tabs. Barb stays on the left. ChatGPT is the new one. If it asks you to log in, tap the orange box.</p>
+    <div class="mini" aria-hidden="true">
+      <div class="mini-screen">
+        <div class="tabs">
+          <span>Barb</span>
+          <span class="on">ChatGPT</span>
+        </div>
+        <h3>chatgpt.com</h3>
+        <p style="font-size:13px;color:#64748b;margin:8px 0;">Log in? You do not have to.</p>
+        <div class="stay">Stay logged out</div>
+        <span class="arrow">Tap this if you see a login</span>
+      </div>
+    </div>
+  </aside>
 </div>
 </body>
 </html>
