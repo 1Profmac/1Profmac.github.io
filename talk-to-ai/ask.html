@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Talk to AI — Ask</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="app.css" />
+</head>
+<body>
+<div class="wrap">
+  <div class="steps" aria-hidden="true"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></div>
+  <p class="kicker">Step 2 of 4 · Ask</p>
+  <h1>Ask one real question.</h1>
+  <p class="barb">Copy this into ChatGPT’s box. Then you can change it to <em>your</em> letter, trip, recipe, or job task.</p>
+  <p class="prompt" id="starter">I am over 50 and new to AI. I want to use it for something practical in my life. Explain the most useful thing I can do with it today, in five short steps, in plain language. Do not give medical or legal advice.</p>
+  <button class="btn" type="button" id="copy">Copy the starter prompt</button>
+  <p class="barb" id="copied" hidden>Copied. Switch to the ChatGPT tab and paste (Ctrl+V, or tap and hold → Paste on a phone).</p>
+  <p class="safety">Still no Social Security number, bank numbers, or passwords.</p>
+  <a class="btn secondary" href="follow-up.html">I sent it — next →</a>
+  <p class="foot">Paste into ChatGPT. Do not type here.</p>
+</div>
+<script>
+  document.getElementById("copy").addEventListener("click", function () {
+    var t = document.getElementById("starter").innerText;
+    function ok() {
+      document.getElementById("copied").hidden = false;
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(t).then(ok).catch(ok);
+    } else {
+      ok();
+    }
+  });
+</script>
+</body>
+</html>

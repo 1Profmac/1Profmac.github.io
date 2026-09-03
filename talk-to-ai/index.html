@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Talk to AI — Welcome</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="app.css" />
+</head>
+<body>
+<div class="wrap">
+  <div class="steps" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span><span></span></div>
+  <p class="kicker">Step 0 of 4 · Digital Pioneer</p>
+  <h1>This is for you.</h1>
+  <p class="barb">I am Barb. Today you will ask one real question and get an answer. That is the whole lesson. You are not late.</p>
+  <p class="barb"><strong>Pick one goal.</strong> We will use it in a few minutes.</p>
+  <div class="goals">
+    <a href="open.html" data-goal="family">Family</a>
+    <a href="open.html" data-goal="health">Health</a>
+    <a href="open.html" data-goal="job">Job</a>
+    <a href="open.html" data-goal="work">Work</a>
+  </div>
+  <p class="foot">50+TechBridge · Talk to AI · No account needed</p>
+</div>
+<script>
+  document.querySelectorAll("[data-goal]").forEach(function (el) {
+    el.addEventListener("click", function () {
+      try { sessionStorage.setItem("pioneerGoal", el.getAttribute("data-goal")); } catch (e) {}
+    });
+  });
+</script>
+</body>
+</html>
