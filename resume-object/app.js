@@ -436,5 +436,11 @@
   fillFacts(data);
   renderDerived(data);
   if (qs("#jsonView")) qs("#jsonView").textContent = JSON.stringify(data, null, 2);
-  showStep(0);
+  var hashStep = { facts: 0, ask: 1, edit: 2, file: 3 }[(location.hash || "").replace(/^#/, "").toLowerCase()];
+  showStep(typeof hashStep === "number" ? hashStep : 0);
+  if (hashStep === 1) refreshPrompt();
+  if (hashStep === 2 || hashStep === 3) {
+    renderDerived(load());
+    if (qs("#jsonView")) qs("#jsonView").textContent = JSON.stringify(load(), null, 2);
+  }
 })();
