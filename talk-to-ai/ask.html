@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Talk to AI — Ask</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="app.css" />
+</head>
+<body>
+<div class="stage">
+  <div class="device">
+    <div class="device-bar" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="coach">
+        <img src="barb.png" width="72" height="72" alt="Barb, your coach" />
+        <div>
+          <strong>Barb</strong>
+          <span>Paste into ChatGPT — not here</span>
+        </div>
+      </div>
+      <div class="steps" aria-hidden="true"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></div>
+      <p class="kicker">Step 2 of 4 · Ask</p>
+      <h1>Ask one real question.</h1>
+      <p class="barb">Copy this. Switch to the ChatGPT tab. Paste it in the box at the bottom. Then you can change it to <em>your</em> letter, trip, recipe, or job task.</p>
+      <p class="prompt" id="starter">I am over 50 and new to AI. I want to use it for something practical in my life. Explain the most useful thing I can do with it today, in five short steps, in plain language. Do not give medical or legal advice.</p>
+      <button class="btn" type="button" id="copy">Copy the starter prompt</button>
+      <p class="barb" id="copied" hidden>Copied. Switch to ChatGPT and paste (tap and hold → Paste on a phone).</p>
+      <p class="safety">Still no Social Security number, bank numbers, or passwords.</p>
+      <a class="btn secondary" href="follow-up.html">I sent it — next →</a>
+      <p class="foot">Do not type your question on Barb’s page.</p>
+    </div>
+  </div>
+  <aside class="howto">
+    <h2>How to · paste and send</h2>
+    <p class="cap">On the ChatGPT tab, tap the box at the bottom. Paste. Then tap the send arrow.</p>
+    <div class="mini" aria-hidden="true">
+      <div class="mini-screen">
+        <span class="tag">ChatGPT tab</span>
+        <p class="bubble">ChatGPT</p>
+        <p class="bubble me">I am over 50 and new to AI…</p>
+        <div class="chat-box">Message ChatGPT… &nbsp; ➤</div>
+        <span class="arrow" style="position:absolute;bottom:52px;right:16px;">Paste here</span>
+      </div>
+    </div>
+  </aside>
+</div>
+<script>
+  document.getElementById("copy").addEventListener("click", function () {
+    var t = document.getElementById("starter").innerText;
+    function ok() { document.getElementById("copied").hidden = false; }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(t).then(ok).catch(ok);
+    } else { ok(); }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How to build the Lesson 2 app</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="print.css" />
+</head>
+<body>
+<div class="screen-banner">Construction recipe. You are not building a chatbot or an App Store app. Five web pages.</div>
+<button class="print-btn" onclick="window.print()">Print This Sheet</button>
+
+<div class="sheet">
+  <div class="doc-header">
+    <div>
+      <div class="org">50+TechBridge | How to build it</div>
+      <div class="org-sub">Turns “How to run it” into pages you can click · No API · No download</div>
+    </div>
+    <div class="doc-title">Build recipe</div>
+  </div>
+  <div class="doc-body">
+    <p><strong>What you are building:</strong> five website pages that walk a Pioneer through Lesson 2. Barb’s page stays open. ChatGPT opens in a <em>new tab</em>. You do not connect OpenAI. You do not embed ChatGPT. You do not put the app in the Apple/Google store for Week 1.</p>
+    <p class="note">A working copy already lives in this repo: <strong>talk-to-ai/</strong> (open <strong>talk-to-ai/index.html</strong> in Chrome). Use that as the app, or copy each screen into WordPress. Point “Talk to Barb Now” to that Welcome page — not to a chat widget.</p>
+
+    <div>
+      <div class="section-head">The only technical rule</div>
+      <p>The Open ChatGPT button must be a normal link: <strong>https://chatgpt.com</strong>, set to <strong>open in a new tab</strong>. ChatGPT blocks iframes. An API key would turn Barb into a different chatbot and fight the lesson.</p>
+    </div>
+
+    <div>
+      <div class="section-head">Build these five pages (in order)</div>
+      <table>
+        <thead><tr><th>#</th><th>Page name / URL</th><th>On the page</th><th>The one button</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>0</strong></td>
+            <td>Welcome<br>/talk-to-ai/</td>
+            <td>Barb photo (talk-to-ai/barb.png). “This is for you.” Four choices. No $18K / WIOA. Phone how-to beside the screen: “Tap one goal.” Tiny footer — no #AGENTIC50 seal as the title.</td>
+            <td>Each goal goes to page 1.</td>
+          </tr>
+          <tr>
+            <td><strong>1</strong></td>
+            <td>Open the tool<br>/talk-to-ai/open/</td>
+            <td>Barb photo or name. “A new tab will open. Leave this tab open.” Stay logged out. Safety line: no SSN, bank numbers, passwords.</td>
+            <td><strong>Open ChatGPT →</strong> links to https://chatgpt.com (new tab). Second button: I’m in → page 2.</td>
+          </tr>
+          <tr>
+            <td><strong>2</strong></td>
+            <td>Ask<br>/talk-to-ai/ask/</td>
+            <td>Starter prompt in a box. “Copy this into ChatGPT. Then change it to your letter, trip, recipe, or job task.” They type in ChatGPT, not on Barb’s page.</td>
+            <td>Copy the starter prompt. Then: I sent it → page 3.</td>
+          </tr>
+          <tr>
+            <td><strong>3</strong></td>
+            <td>Follow-up<br>/talk-to-ai/follow-up/</td>
+            <td>Tell them to send, in ChatGPT: “What should I check with a real person?” (or “Make that shorter.”)</td>
+            <td>I checked it → page 4.</td>
+          </tr>
+          <tr>
+            <td><strong>4</strong></td>
+            <td>Save the win<br>/talk-to-ai/win/</td>
+            <td><strong>Now</strong> show the #AGENTIC50 seal. “You are a Digital Pioneer.” Link the completion slip PDF and the take-home card.</td>
+            <td>Open the completion slip (PDF).</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="doc-footer">
+    <span>forms/facilitator/app-how-to-build.html · page 1 of 2</span>
+    <span>Same five screens as “How to run it”</span>
+  </div>
+</div>
+
+<div class="sheet">
+  <div class="doc-header">
+    <div>
+      <div class="org">50+TechBridge | How to build it</div>
+      <div class="org-sub">WordPress on learnmoretechnologies.com / agentic50+.ai · or GitHub Pages</div>
+    </div>
+    <div class="doc-title">Build recipe</div>
+  </div>
+  <div class="doc-body">
+    <div>
+      <div class="section-head">If you use WordPress / Elementor (live Ask Barb site)</div>
+      <ol>
+        <li>In Pages → Add New, create five pages with the titles above. Publish them.</li>
+        <li>On each page: <strong>Barb photo</strong> (file: talk-to-ai/barb.png — same portrait as learnmoretechnologies.com/images/barb.png), large type, one main button, and a <strong>how-to phone</strong> next to the screen showing what to tap. Nothing about WIOA.</li>
+        <li>On page 1, add a Button widget. Link = <strong>https://chatgpt.com</strong>. In the link options, turn on <strong>Open in new tab</strong>.</li>
+        <li>On page 4, upload the seal (<strong>forms/facilitator/assets/agentic50-seal.png</strong>) and the two PDFs (completion slip + take-home).</li>
+        <li>Edit the current “Talk to Barb Now” button. Change its link from the chatbot to <strong>/talk-to-ai/</strong> (page 0). Hide Health / Money / Safety as the first topics. Hide $18K / Book a Call from that landing.</li>
+        <li>Do not add an OpenAI API key, a chat plugin, or an HTML embed of chatgpt.com.</li>
+      </ol>
+    </div>
+
+    <div>
+      <div class="section-head">If you use this GitHub site instead</div>
+      <p>The five pages are already written in <strong>talk-to-ai/</strong>. After this branch is on the web, open <strong>/talk-to-ai/</strong> on the GitHub Pages site. Until then, on your PC: download the folder, double-click <strong>index.html</strong>, and walk the five screens in Chrome.</p>
+    </div>
+
+    <div>
+      <div class="section-head">HTML for the only special button</div>
+      <p class="note">Paste into a Custom HTML block on page 1 if the Button widget will not open a new tab:</p>
+      <p style="font-family:ui-monospace,monospace;font-size:11px;line-height:1.45;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:10px 12px;">&lt;a href="https://chatgpt.com" target="_blank" rel="noopener noreferrer"&gt;Open ChatGPT →&lt;/a&gt;</p>
+    </div>
+
+    <div>
+      <div class="section-head">Done when you can do this on a phone</div>
+      <ol>
+        <li>Tap Talk to Barb Now (or open /talk-to-ai/) → pick a goal.</li>
+        <li>Tap Open ChatGPT → chatgpt.com opens in a new tab. Stay logged out is findable.</li>
+        <li>Switch back to Barb. Copy the starter. Paste it in ChatGPT. Send a follow-up.</li>
+        <li>On Save the win, the #AGENTIC50 seal is on screen. The completion slip PDF opens.</li>
+      </ol>
+    </div>
+
+    <p class="warn"><strong>Do not build:</strong> a Barb chat box that answers questions; a Health &amp; Medications home screen; WIOA / $18K on Step 1; an iframe of ChatGPT; an OpenAI key “so they don’t have to download” (they never needed a download); renaming the first screen “#AGENTIC50.”</p>
+    <p class="note"><strong>Boards:</strong> the app is these five pages plus the printed slip. That is enough to demo in 8 minutes. License later. Do not wait for an App Store listing.</p>
+  </div>
+  <div class="doc-footer">
+    <span>forms/facilitator/app-how-to-build.html · page 2 of 2</span>
+    <span>See also app-lesson-02-setup.html</span>
+  </div>
+</div>
+</body>
+</html>

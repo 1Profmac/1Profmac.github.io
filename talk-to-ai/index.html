@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Talk to AI — Welcome</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="app.css" />
+</head>
+<body>
+<div class="stage">
+  <div class="device">
+    <div class="device-bar" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="coach">
+        <img src="barb.png" width="72" height="72" alt="Barb, your coach" />
+        <div>
+          <strong>Barb</strong>
+          <span>Your coach for Talk to AI</span>
+        </div>
+      </div>
+      <div class="steps" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span><span></span></div>
+      <p class="kicker">Step 0 of 4 · Digital Pioneer</p>
+      <h1>This is for you.</h1>
+      <p class="barb">Today you will ask one real question and get an answer. That is the whole lesson. You are not late.</p>
+      <p class="barb"><strong>Pick one goal.</strong></p>
+      <div class="goals">
+        <a href="open.html" data-goal="family">Family</a>
+        <a href="open.html" data-goal="health">Health</a>
+        <a href="open.html" data-goal="job">Job</a>
+        <a href="open.html" data-goal="work">Work</a>
+      </div>
+      <p class="foot">50+TechBridge · No account needed</p>
+    </div>
+  </div>
+  <aside class="howto">
+    <h2>How to · this screen</h2>
+    <p class="cap">Tap one box. That is your goal for today.</p>
+    <div class="mini" aria-hidden="true">
+      <div class="mini-screen">
+        <span class="tag">You are here</span>
+        <h3>Pick one</h3>
+        <div class="fake-btn">Family</div>
+        <div class="fake-btn on">Job ← tap</div>
+        <div class="fake-btn">Health</div>
+        <div class="fake-btn">Work</div>
+        <span class="arrow">Tap one goal</span>
+      </div>
+    </div>
+  </aside>
+</div>
+<script>
+  document.querySelectorAll("[data-goal]").forEach(function (el) {
+    el.addEventListener("click", function () {
+      try { sessionStorage.setItem("pioneerGoal", el.getAttribute("data-goal")); } catch (e) {}
+    });
+  });
+</script>
+</body>
+</html>
