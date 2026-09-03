@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://1profmac.github.io/resume-object/schema.json",
+  "title": "50+TechBridge Resume Object",
+  "description": "A structured file of facts the learner owns, plus optional AI drafts of resume bullets and interview answers. Drafts are never treated as true until the learner attests. Do not store Social Security numbers, bank numbers, passwords, or government ID numbers.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "metadata", "identity", "target", "workHistory", "education", "skills", "resumeBullets", "interviewAnswers"],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0.0",
+      "description": "Object-model version. Bump when required fields change."
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["site", "sessionDate", "cohortType"],
+      "properties": {
+        "site": {
+          "type": "string",
+          "description": "Library, AJC, employer, or other site name."
+        },
+        "sessionDate": {
+          "type": "string",
+          "format": "date",
+          "description": "ISO date of the lab (YYYY-MM-DD)."
+        },
+        "cohortType": {
+          "type": "string",
+          "enum": ["job_seeker", "community", "employer", "other"],
+          "description": "Learner-facing room type. job_seeker is Week 5 fork B."
+        },
+        "programTrack": {
+          "type": "string",
+          "enum": ["wioa_job_seeker", "library_community", "employer", "unspecified"],
+          "description": "Facilitator / board field only. Do not show this label on learner screens."
+        },
+        "facilitatorName": { "type": "string" },
+        "notes": {
+          "type": "string",
+          "description": "Optional room notes. Not a case file narrative."
+        }
+      }
+    },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fullName"],
+      "properties": {
+        "fullName": { "type": "string", "minLength": 1 },
+        "preferredName": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "location": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "city": { "type": "string" },
+            "region": { "type": "string", "description": "State or region, not a street address." }
+          }
+        }
+      }
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["roleTitle"],
+      "properties": {
+        "roleTitle": {
+          "type": "string",
+          "description": "The job they want, in their words."
+        },
+        "goalStatement": { "type": "string" },
+        "industry": { "type": "string" }
+      }
+    },
+    "workHistory": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/workEntry" }
+    },
+    "education": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/educationEntry" }
+    },
+    "skills": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/skillEntry" }
+    },
+    "resumeBullets": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/derivedText" },
+      "description": "Bullets drafted from attested facts. attestedTrue stays false until the learner says the edited line is true."
+    },
+    "interviewAnswers": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/derivedText" }
+    }
+  },
+  "$defs": {
+    "workEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "employer", "title", "dutiesFacts"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "employer": { "type": "string" },
+        "title": { "type": "string" },
+        "startDate": { "type": "string", "description": "Month/year or year is enough." },
+        "endDate": { "type": "string" },
+        "current": { "type": "boolean" },
+        "dutiesFacts": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Plain facts the learner wrote. Not AI wording."
+        }
+      }
+    },
+    "educationEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "institution"],
+      "properties": {
+        "id": { "type": "string" },
+        "institution": { "type": "string" },
+        "credential": { "type": "string" },
+        "year": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    },
+    "skillEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" },
+        "learnerAttested": {
+          "type": "boolean",
+          "default": true,
+          "description": "True only if the learner says they can do this."
+        }
+      }
+    },
+    "derivedText": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "sourceWorkIds", "sourceFacts", "aiDraft", "learnerEdited", "attestedTrue"],
+      "properties": {
+        "id": { "type": "string" },
+        "kind": {
+          "type": "string",
+          "enum": ["resume_bullet", "interview_answer"]
+        },
+        "prompt": {
+          "type": "string",
+          "description": "Optional interview question, or the prompt sent to the public AI tool."
+        },
+        "sourceWorkIds": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Work history ids this draft is allowed to use."
+        },
+        "sourceFacts": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Copied facts at draft time so the file still makes sense later."
+        },
+        "aiDraft": {
+          "type": "string",
+          "description": "Wording from the public AI tool. Not a fact."
+        },
+        "learnerEdited": {
+          "type": "string",
+          "description": "What the learner actually wants on the resume or to say out loud."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["ai_draft", "learner_edited", "attested"],
+          "description": "Derived convenience field. attested requires attestedTrue."
+        },
+        "attestedTrue": {
+          "type": "boolean",
+          "description": "Must stay false until the learner checks: this is true; I did not paste a lie."
+        },
+        "attestedAt": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}

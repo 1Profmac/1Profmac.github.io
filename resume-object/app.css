@@ -1,0 +1,182 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { min-height: 100%; }
+body {
+  font-family: Inter, system-ui, sans-serif;
+  background: #0f172a;
+  color: #0f172a;
+  padding: 16px;
+}
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 22px 20px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 18px 50px rgba(0,0,0,.35);
+}
+.kicker {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6366f1;
+}
+h1 { font-size: 28px; font-weight: 900; letter-spacing: -0.03em; line-height: 1.2; }
+h2.kicker { font-size: 13px; }
+.lead { font-size: 18px; line-height: 1.5; color: #334155; }
+.steps { display: flex; gap: 6px; }
+.steps span {
+  flex: 1;
+  height: 8px;
+  border-radius: 99px;
+  background: #e2e8f0;
+}
+.steps span.on { background: #6366f1; }
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.nav button, .btn, a.btn {
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 800;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+.nav button {
+  background: #eef2ff;
+  color: #1e1b4b;
+  border: 2px solid #c7d2fe;
+}
+.nav button[aria-current="step"] {
+  background: #4f46e5;
+  color: #fff;
+  border-color: #4f46e5;
+}
+.btn { background: #4f46e5; color: #fff; }
+.btn.secondary {
+  background: #fff;
+  color: #1e1b4b;
+  border: 2px solid #cbd5e1;
+}
+.btn.ghost {
+  background: #eef2ff;
+  color: #1e1b4b;
+}
+.row { display: flex; flex-wrap: wrap; gap: 10px; }
+label, .label {
+  display: block;
+  font-size: 15px;
+  font-weight: 800;
+  color: #1e1b4b;
+  margin-bottom: 6px;
+}
+input[type="text"], input[type="email"], input[type="tel"], input[type="date"],
+input[type="month"], select, textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: 18px;
+  padding: 12px 14px;
+  border: 2px solid #cbd5e1;
+  border-radius: 10px;
+  background: #fff;
+}
+textarea { min-height: 96px; line-height: 1.45; }
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.block {
+  border: 2px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #f8fafc;
+}
+.safety {
+  background: #fefce8;
+  border: 1px solid #fde047;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 16px;
+  line-height: 1.45;
+  color: #713f12;
+}
+.note {
+  background: #eef2ff;
+  border: 1px solid #c7d2fe;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 16px;
+  line-height: 1.45;
+  color: #1e1b4b;
+}
+.prompt {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 16px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+.badge {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #e2e8f0;
+}
+.badge.draft { background: #fee2e2; color: #991b1b; }
+.badge.edited { background: #fef3c7; color: #92400e; }
+.badge.attested { background: #dcfce7; color: #166534; }
+.check {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 17px;
+  line-height: 1.4;
+}
+.check input { width: 22px; height: 22px; margin-top: 2px; flex-shrink: 0; }
+.json {
+  font-family: ui-monospace, monospace;
+  font-size: 13px;
+  line-height: 1.4;
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 14px;
+  border-radius: 12px;
+  overflow: auto;
+  max-height: 360px;
+  white-space: pre-wrap;
+}
+.list { display: flex; flex-direction: column; gap: 10px; }
+.item {
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 12px;
+  background: #fff;
+}
+.item p { font-size: 16px; line-height: 1.45; color: #334155; margin-top: 6px; }
+.foot { font-size: 13px; color: #64748b; text-align: center; }
+.panel[hidden] { display: none !important; }
+.err { color: #b91c1c; font-size: 16px; font-weight: 700; }
+@media (max-width: 640px) {
+  .grid-2 { grid-template-columns: 1fr; }
+  h1 { font-size: 24px; }
+}
