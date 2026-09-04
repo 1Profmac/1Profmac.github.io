@@ -8,10 +8,21 @@
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   @media screen {
-    body { background: #e5e7eb; font-family: 'Inter', sans-serif; padding: 24px 16px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
-    .screen-banner { background: #facc15; color: #000; text-align: center; padding: 10px; font-weight: 700; font-size: 13px; width: 100%; max-width: 1100px; border-radius: 6px; }
+    body { background: #e5e7eb; font-family: 'Inter', sans-serif; padding: 24px 16px 40px; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    .screen-only { width: 100%; max-width: 11in; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .screen-banner { background: #facc15; color: #000; text-align: center; padding: 10px 14px; font-weight: 700; font-size: 13px; width: 100%; border-radius: 6px; }
+    .desktop-bar { width: 100%; background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px; }
+    .desktop-bar p { font-size: 11px; color: #374151; line-height: 1.45; margin: 0 0 6px; }
+    .desktop-bar code { display: block; font-family: ui-monospace, Consolas, monospace; font-size: 10px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 5px; padding: 8px 10px; color: #1e1b4b; white-space: pre-wrap; word-break: break-all; }
     .print-btn { background: #1e1b4b; color: #fff; border: none; padding: 12px 32px; border-radius: 8px; font-weight: 700; font-size: 14px; cursor: pointer; font-family: 'Inter', sans-serif; }
-    .sheet { width: 100%; max-width: 1100px; background: #fff; border-radius: 8px; box-shadow: 0 4px 24px rgba(0,0,0,0.15); }
+    .sheet {
+      width: 11in;
+      max-width: 100%;
+      min-height: 8.5in;
+      background: #fff;
+      border-radius: 4px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    }
   }
 
   .sheet {
@@ -257,7 +268,7 @@
 
   @media print {
     body { background: #fff; padding: 0; }
-    .screen-banner, .print-btn { display: none !important; }
+    .screen-only, .screen-banner, .print-btn, .desktop-bar { display: none !important; }
     .sheet { box-shadow: none; border-radius: 0; max-width: 100%; }
     .header-band, .tagline-bar, .bottom-band, .l1, .l2, .l3, .l4, .l5, .l6, .l7, .closer {
       -webkit-print-color-adjust: exact;
@@ -268,8 +279,14 @@
 </style>
 </head>
 <body>
-<div class="screen-banner">THE PIONEER MODEL — One-pager for decision makers · Print landscape · Specs from Full Asset Map</div>
-<button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+<div class="screen-only">
+  <div class="screen-banner">THE PIONEER MODEL — Desktop preview · Print landscape · Specs from Full Asset Map</div>
+  <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+  <div class="desktop-bar">
+    <p><strong>Save the latest copy to your Windows Desktop</strong> (overwrites the old 347 version). Paste this in PowerShell:</p>
+    <code>Invoke-WebRequest -Uri "https://raw.githubusercontent.com/1Profmac/1Profmac.github.io/cursor/powershell-list-files-c07c/forms/pioneer-model-one-pager.pdf" -OutFile "$env:USERPROFILE\Desktop\pioneer-model-one-pager.pdf"</code>
+  </div>
+</div>
 
 <div class="sheet">
 
