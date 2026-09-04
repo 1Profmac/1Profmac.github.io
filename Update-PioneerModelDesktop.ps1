@@ -3,7 +3,8 @@
     Downloads the latest Pioneer Model print files to the Windows Desktop.
 
 .DESCRIPTION
-    Pulls the decision-maker one-pager and full asset map (PDF + HTML)
+    Pulls the decision-maker one-pager, full asset map, brochure, funding
+    brief, and WIOA nonprofit credentials checklist (PDF + HTML)
     from GitHub onto the current user's Desktop, overwriting older copies.
 
 .PARAMETER Branch
@@ -32,7 +33,9 @@ $files = @(
     'lmt-brochure.pdf',
     'lmt-brochure.html',
     'funding-probability-analysis.pdf',
-    'funding-probability-analysis.html'
+    'funding-probability-analysis.html',
+    'wioa-nonprofit-credentials.pdf',
+    'wioa-nonprofit-credentials.html'
 )
 
 Write-Host "Saving Pioneer Model files to: $desktop"
@@ -49,4 +52,4 @@ foreach ($name in $files) {
 }
 
 Write-Host ""
-Write-Host "Desktop copy updated. Open lmt-brochure.pdf (front + back) or pioneer-model-one-pager.pdf to print."
+Write-Host "Desktop copy updated. Open lmt-brochure.pdf (front + back), pioneer-model-one-pager.pdf, or wioa-nonprofit-credentials.pdf to print."
