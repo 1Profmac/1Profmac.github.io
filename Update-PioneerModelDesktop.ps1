@@ -53,7 +53,6 @@ $files = @(
     'lmt-brochure.pdf'
     'pioneer-model-one-pager.pdf'
     'pioneer-model-full-map.pdf'
-    'LMT-Print-Pack.zip'
 )
 
 $written = @()
