@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LMT — Business Concept Probability Analysis (FY27–FY29)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  @media screen {
+    body { background: #e5e7eb; font-family: 'Inter', sans-serif; padding: 24px 16px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .screen-banner { background: #facc15; color: #000; text-align: center; padding: 10px; font-weight: 700; font-size: 13px; width: 100%; max-width: 800px; border-radius: 6px; }
+    .print-btn { background: #1e1b4b; color: #fff; border: none; padding: 12px 32px; border-radius: 8px; font-weight: 700; font-size: 14px; cursor: pointer; font-family: 'Inter', sans-serif; }
+    .sheet { width: 100%; max-width: 800px; background: #fff; border-radius: 8px; box-shadow: 0 4px 24px rgba(0,0,0,0.15); }
+    .desktop-bar { width: 100%; max-width: 800px; background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px; }
+    .desktop-bar p { font-size: 11px; color: #374151; margin-bottom: 6px; }
+    .desktop-bar code { display: block; font-family: ui-monospace, Consolas, monospace; font-size: 10px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 5px; padding: 8px 10px; color: #1e1b4b; white-space: pre-wrap; word-break: break-all; }
+  }
+  .sheet { font-family: 'Inter', sans-serif; color: #111; background: #fff; }
+  .doc-header { border-bottom: 3px solid #1e1b4b; padding: 16px 24px; display: flex; justify-content: space-between; align-items: flex-end; }
+  .org { font-size: 15px; font-weight: 900; color: #1e1b4b; }
+  .org-sub { font-size: 10px; color: #6b7280; margin-top: 2px; }
+  .doc-title { font-size: 11px; font-weight: 700; color: #fff; background: #f97316; padding: 4px 12px; border-radius: 999px; white-space: nowrap; }
+  .cover { background: #1e1b4b; color: #fff; padding: 20px 24px; }
+  .cover h1 { font-size: 19px; font-weight: 900; letter-spacing: -0.03em; line-height: 1.25; margin-bottom: 8px; }
+  .cover h1 em { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; color: #fdba74; }
+  .cover p { font-size: 11.5px; color: #c7d2fe; line-height: 1.55; }
+  .verdict { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 14px; }
+  .verdict div { background: rgba(255,255,255,0.08); border-radius: 6px; padding: 10px; }
+  .verdict .k { font-size: 8px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #fdba74; margin-bottom: 4px; }
+  .verdict .v { font-size: 13px; font-weight: 800; }
+  .verdict .s { font-size: 9.5px; color: #c7d2fe; margin-top: 3px; line-height: 1.35; }
+  .doc-body { padding: 18px 24px 24px; display: flex; flex-direction: column; gap: 14px; }
+  .chapter { font-size: 13px; font-weight: 900; color: #1e1b4b; }
+  .section-head { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #6366f1; border-bottom: 1.5px solid #e2e8f0; padding-bottom: 4px; margin-bottom: 7px; }
+  p, li { font-size: 11px; color: #374151; line-height: 1.5; }
+  p + p { margin-top: 5px; }
+  strong { color: #111; }
+  em.src { font-style: normal; color: #6b7280; font-size: 10px; }
+  ul, ol { margin-left: 16px; }
+  li { margin-bottom: 3px; }
+  table { width: 100%; border-collapse: collapse; }
+  thead tr { background: #1e1b4b; }
+  th { color: #fff; font-size: 8px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 6px; text-align: left; }
+  tbody tr { border-bottom: 1px solid #e2e8f0; }
+  tbody tr:nth-child(even) { background: #f8fafc; }
+  td { padding: 5px 6px; font-size: 10px; color: #374151; vertical-align: top; line-height: 1.4; }
+  td strong { color: #111; }
+  .note { background: #f0f4ff; border: 1px solid #c7d2fe; border-radius: 5px; padding: 9px 11px; font-size: 10.5px; color: #3730a3; line-height: 1.5; }
+  .warn { background: #fefce8; border: 1px solid #fde047; border-radius: 5px; padding: 9px 11px; font-size: 10.5px; color: #713f12; line-height: 1.5; }
+  .green { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 5px; padding: 9px 11px; font-size: 10.5px; color: #166534; line-height: 1.5; }
+  .red { background: #fef2f2; border: 1px solid #fecaca; border-radius: 5px; padding: 9px 11px; font-size: 10.5px; color: #991b1b; line-height: 1.5; }
+  .keep { break-inside: avoid; page-break-inside: avoid; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .footer { border-top: 1.5px solid #e2e8f0; padding: 9px 24px; display: flex; justify-content: space-between; font-size: 9px; color: #9ca3af; }
+  .hi { background: #fff7ed; }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .screen-banner, .print-btn, .desktop-bar { display: none !important; }
+    .sheet { box-shadow: none; border-radius: 0; max-width: 100%; }
+    .cover, thead tr, .doc-title, .note, .warn, .green, .red { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    @page { margin: 0.45in; size: letter; }
+    .chapter, .section-head { break-after: avoid; }
+    table, .note, .warn, .green, .red, .keep { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="screen-banner">FUNDING PITCH BRIEF — 3-year probability analysis · Confidential · Print / Save as PDF</div>
+<button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+<div class="desktop-bar">
+  <p><strong>Save to Desktop.</strong> Paste in PowerShell:</p>
+  <code>Invoke-WebRequest -Uri "https://raw.githubusercontent.com/1Profmac/1Profmac.github.io/cursor/powershell-list-files-c07c/forms/funding-probability-analysis.pdf" -OutFile "$env:USERPROFILE\Desktop\funding-probability-analysis.pdf"</code>
+</div>
+
+<div class="sheet">
+  <div class="doc-header">
+    <div>
+      <div class="org">Learn More Technologies — Concept Probability Analysis</div>
+      <div class="org-sub">FY27–FY29 funding brief · 50+ adult services · Compared with three alternative concepts · September 2026</div>
+    </div>
+    <div class="doc-title">Confidential</div>
+  </div>
+
+  <div class="cover">
+    <h1>Is a 50+ AI-services company <em>the right bet</em> for the next three years?</h1>
+    <p>This brief scores the Pioneer Model (LMT / 50+TechBridge) against three other ways to serve adults 50+, estimates profit potential through FY29, and names the dates at which Brian should stay the course or make a hard pivot. It is written for a funding conversation, not as a learner or grant narrative. Locked public language only: 9 in-person locations in central Texas; 6 Austin Public Library branches; AARP-affiliated senior centers; Foundation Communities veterans program; WIOA-eligible; MBE-certified. Market facts: $18K/worker (LSE &amp; Protiviti); $850B ageism cost (AARP &amp; Oxford Economics).</p>
+    <div class="verdict">
+      <div>
+        <div class="k">Need alignment</div>
+        <div class="v">Yes — stay in 50+</div>
+        <div class="s">Demand for 50+ AI fluency is rising. Do not pivot off the demographic.</div>
+      </div>
+      <div>
+        <div class="k">3-year profit (base)</div>
+        <div class="v">$155–275k base</div>
+        <div class="s">FY27–FY29 contribution after delivery cost, before founder market salary. Probability ~40%.</div>
+      </div>
+      <div>
+        <div class="k">Hard-pivot clock</div>
+        <div class="v">Month 12 / 18</div>
+        <div class="s">No paid institutional contract by month 12, or still 100% Brian-delivered by month 18.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-body">
+
+    <div class="keep">
+      <div class="chapter">1. Is this in line with projected future needs?</div>
+      <p><strong>Yes.</strong> The demographic, the labor market, and the AgeTech category all move toward LMT’s customer — with one important caveat: most AgeTech <em>capital</em> is chasing clinical care, not workforce training. That is a funding-mix problem, not a demand problem.</p>
+      <div class="section-head">What the next three years actually require</div>
+      <ul>
+        <li><strong>More 50–74 year-olds will still be working.</strong> BLS projects U.S. labor-force participation for ages 55–64 to rise from 65.9% (2024) to 68.6% (2034), and for 65–74 from 27.1% to 29.6%. The workforce is getting older, not younger. <em class="src">BLS Employment Projections Table 3.3</em></li>
+        <li><strong>AI is already pushing 55+ workers out of exposed jobs.</strong> Post-ChatGPT, workers 55+ in AI-exposed occupations leave work more often (unemployment and “voluntary” exits). Upskilling is no longer a nice-to-have; it is how this cohort stays employed. <em class="src">Center for Retirement Research / Sanzenbacher 2026; CNBC Jul 2026</em></li>
+        <li><strong>Ageism is a priced cost, not a slogan.</strong> $850B/year (AARP &amp; Oxford Economics). $18K per worker (LSE &amp; Protiviti). Employers and boards can put a number on inaction.</li>
+        <li><strong>AgeTech is a $286B global market in 2026, growing ~10.4% real CAGR through 2031.</strong> Lifelong learning is a large established segment; fraud-protection and cognitive tools are the faster growers (15–17%). LMT sits at learning + fraud (Week 2 scams) + workforce — not in wearables. <em class="src">SilverEconomy AgeTech Market Report 2026</em></li>
+        <li><strong>Where the money is concentrating:</strong> AI-in-aging-and-elderly-care is forecast ~$68B (2026) → ~$158B (2030), ~24% CAGR. That is clinical/care tech. LMT should <strong>not</strong> try to become that company. It should sell training, documentation, and trusted access to the institutions that already buy those outcomes (boards, employers, libraries, insurers). <em class="src">The Business Research Company / Research and Markets 2026</em></li>
+      </ul>
+      <p class="green"><strong>Funder one-liner:</strong> The 50+ adult is not a niche. It is the labor-force story of 2027–2029. Almost nobody is selling WIOA-eligible, in-person AI training designed for that adult. That gap is the company.</p>
+    </div>
+
+    <div class="keep">
+      <div class="chapter">2. Four concepts — score the bet</div>
+      <p>Compare LMT’s Pioneer Model with the three other ways capital usually “does 50+.” Scores are for <strong>this founder, this footprint, a 36-month profit clock</strong> — not for who wins the decade.</p>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th class="hi">A. Pioneer Model (LMT)</th>
+            <th>B. Live-class platform (GetSetUp-class)</th>
+            <th>C. Philanthropy literacy (Senior Planet / OATS-class)</th>
+            <th>D. Clinical AgeTech (AI eldercare)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>What it is</strong></td>
+            <td class="hi">B2B/gov AI fluency. Free learner funnel. Paid institutions. In-person + gallery + podcast + stage.</td>
+            <td>Peer-to-peer live classes for 65+. Payers: states and health plans. Consumer fees weak.</td>
+            <td>Nonprofit digital literacy, AARP-adjacent, grant/philanthropy P&amp;L.</td>
+            <td>Wearables, remote monitoring, care robots. Where AgeTech VC goes.</td>
+          </tr>
+          <tr>
+            <td><strong>Who pays</strong></td>
+            <td class="hi">Workforce boards, employers, libraries, conferences, later Barb licenses.</td>
+            <td>~80% government / ~20% healthcare in the Stanford case. Not the 65+ user.</td>
+            <td>Foundations, AARP, municipal digital-equity grants.</td>
+            <td>Health systems, CMS-adjacent, insurers, families.</td>
+          </tr>
+          <tr>
+            <td><strong>Demand 2027–29</strong></td>
+            <td class="hi">High and rising (AI displacement + older LFPR).</td>
+            <td>High, but wellness/prevention is first cut in budget crunches.</td>
+            <td>Stable mission demand. Not a profit story.</td>
+            <td>Highest dollar demand in AgeTech.</td>
+          </tr>
+          <tr>
+            <td><strong>Unit economics</strong></td>
+            <td class="hi">Good <em>if</em> priced as cohort/retainer ($7.5–60k), not $1.5k “workshops.” Gross margin 45–60% once a facilitator exists.</td>
+            <td>Hard. GetSetUp reached millions of users and stayed near breakeven. Institutional sales cycles vs 8–10 year value.</td>
+            <td>Not designed to produce owner profit.</td>
+            <td>Can be venture-scale. Requires product, FDA/HIPAA, and a different team.</td>
+          </tr>
+          <tr>
+            <td><strong>Capital need</strong></td>
+            <td class="hi">Low–moderate. Fuel is contracts + one facilitator + ETPL. Not a Series A hardware build.</td>
+            <td>High (platform, instructors, 32-state sales).</td>
+            <td>Continuous fundraising.</td>
+            <td>Very high.</td>
+          </tr>
+          <tr>
+            <td><strong>Fit to Brian / LMT assets</strong></td>
+            <td class="hi"><strong>Best.</strong> 9 locations, 6 APL, MBE, WIOA, AARP background, AGENTIC50, Gallery.</td>
+            <td>Partial (community + classes) but you become a content platform, not a contract shop.</td>
+            <td>Tempting via 501(c)(3). Turns the company into a grant shop.</td>
+            <td>Poor. Different science, buyers, and risk.</td>
+          </tr>
+          <tr>
+            <td><strong>3-yr profit odds</strong></td>
+            <td class="hi"><strong>Highest of the four for this founder.</strong> Base ~40% of a modest positive contribution; upside 15%.</td>
+            <td>Low without a new payer model. Stanford case: stay / new model / Asia / sell.</td>
+            <td>Near zero as a for-profit. Fine as a program inside a nonprofit.</td>
+            <td>Near zero <em>for LMT</em>. High for a different company.</td>
+          </tr>
+          <tr>
+            <td><strong>Verdict</strong></td>
+            <td class="hi"><strong>Stay. This is the concept.</strong></td>
+            <td>Do not copy. Steal one lesson: institutions pay, users don’t.</td>
+            <td>Use 501(c)(3) as a seat-subsidy sidecar — never as the operating company.</td>
+            <td>Do not pivot here. Partner later (Barb in a health plan) instead of rebuilding.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note"><strong>Why A beats B even though B is bigger:</strong> GetSetUp proved demand and proved that <em>scale without priced institutional SKUs still does not print profit</em>. LMT is smaller and should stay smaller-on-purpose until ETPL + retainers exist. The Pioneer Model is GetSetUp’s lesson applied early: do not put the P&amp;L on the 50+ learner.</p>
+    </div>
+
+    <div class="keep">
+      <div class="chapter">3. Three-year profit potential — Pioneer Model only</div>
+      <p>Assumptions from LMT’s own offer architecture (not consumer course sales): 90-minute pilot as the door; community/employer cohort $7,500–$15,000; annual program $25,000–$60,000; keynote floor $5,000; site license after a facilitator exists; Barb as a year-2/3 add-on. Grants (Elevate, Nexus-class) are <strong>restricted fuel</strong>, not operating profit. Figures are <strong>contribution after delivery cost</strong> (facilitator, materials, travel, software) and <strong>before</strong> paying Brian a market CEO salary. Texas ITA caps are set by local boards (commonly roughly $7k–$9k per participant in many regions; confirm per board) — cohort pricing must sit inside that envelope once ETPL is live.</p>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Conservative (35%)</th>
+            <th>Base (40%)</th>
+            <th>Upside (15%)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>FY27 (next 12 mo)</strong></td>
+            <td>Revenue $45–70k. 4–6 pilots, 1–2 paid cohorts, 1–2 keynotes. ETPL submitted, not yet producing. Contribution ~$0 to $15k. Founder is the delivery.</td>
+            <td>Revenue $90–130k. 6 pilots, 4 cohorts, 3 keynotes, Elevate if awarded (restricted). Contribution ~$15–35k. One named facilitator in hiring.</td>
+            <td>Revenue $160–220k. First board or employer retainer signed. 6+ cohorts. Contribution ~$40–70k.</td>
+          </tr>
+          <tr>
+            <td><strong>FY28</strong></td>
+            <td>Revenue $90–140k. Still founder-heavy. 1 site license. Contribution ~$15–30k.</td>
+            <td>Revenue $220–320k. ETPL live at 1–2 boards. 1 facilitator. 2 annual programs + licenses. Barb one pilot. Contribution ~$50–90k.</td>
+            <td>Revenue $450–650k. 3+ boards or multi-site employer. 2 facilitators. Barb licenses. Contribution ~$120–200k.</td>
+          </tr>
+          <tr>
+            <td><strong>FY29</strong></td>
+            <td>Revenue $140–200k. Livable but not a fundable scale story. Contribution ~$30–50k.</td>
+            <td>Revenue $400–550k. Repeat retainers, train-the-trainer, 6–8 keynotes as pipeline. Contribution ~$90–150k.</td>
+            <td>Revenue $800k–$1.2M. Multi-state licenses + speaking that converts. Contribution ~$200–350k.</td>
+          </tr>
+          <tr>
+            <td><strong>3-yr cumulative contribution</strong></td>
+            <td>~$45–95k</td>
+            <td>~$155–275k &nbsp;·&nbsp; midpoint used on cover: <strong>~$90k if FY27 is slow, ~$220k if base hits</strong></td>
+            <td>~$360–620k</td>
+          </tr>
+          <tr>
+            <td><strong>What has to be true</strong></td>
+            <td>Brian remains the product. No ETPL, or ETPL unused. Libraries as in-kind venues only.</td>
+            <td>ETPL or equivalent board contract. One facilitator. Unified ITA-range price list. 2 proposal conversations / week held.</td>
+            <td>Base, plus 1 employer or health-adjacent Barb license, plus $5k+ keynotes actually booked.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>A remaining ~10% is the <strong>miss</strong>: no institutional buyer by month 18, prices still at hobbyist levels, or the calendar is all unpaid community sessions. That path is a lifestyle teaching practice, not a fundable company.</p>
+      <p class="warn"><strong>Read this the way a funder will:</strong> This is not a $10M venture path in 36 months. It is a contract shop that can become a licensing company. Ask for operating capital that buys a facilitator, SAM/ETPL, and 90 days of unpaid sales time — not a platform rebuild. If a funder needs 10× venture returns, they are the wrong funder for Concept A. They should be looking at Concept D, with a different founder.</p>
+    </div>
+
+    <div class="keep">
+      <div class="chapter">4. Strategy — 36 months if we stay the course</div>
+      <div class="section-head">FY27 — Unlock the buyer (months 1–12)</div>
+      <ol>
+        <li>Unify public prices to ITA-range SKUs: Pilot / Cohort / Annual. Kill $500 and $1,500 as public headline prices.</li>
+        <li>Submit / confirm ETPL. SAM.gov + UEI. One-page capability statement. Named facilitator (even part-time).</li>
+        <li>Sell the 90-minute pilot weekly. Convert 1 in 3 pilots to a 6-week cohort.</li>
+        <li>Two proposal conversations per week with boards, SHRM/HR, library systems, and one healthcare or insurer for a future Barb conversation — not a build.</li>
+        <li>AGENTIC50 guest pattern: Pioneer → Buyer → Peer. Book 3 buyer guests who chair rooms you need.</li>
+        <li>Gallery Oct–Dec 2026 as proof, not as the P&amp;L. File one outcomes one-pager.</li>
+      </ol>
+      <div class="section-head">FY28 — Stop being a solo delivery business (months 13–24)</div>
+      <ol>
+        <li>Facilitator runs community cohorts. Brian runs employer/WIOA and keynotes only.</li>
+        <li>Site-license the kit to 2–3 additional locations (train-the-trainer).</li>
+        <li>One Barb white-label pilot (library or healthcare) — no new product, a contract on what already exists.</li>
+        <li>501(c)(3), if approved, funds <em>free seats</em>. The LLC still invoices institutions.</li>
+      </ol>
+      <div class="section-head">FY29 — License + stage (months 25–36)</div>
+      <ol>
+        <li>Repeat retainers. Out-of-region licenses. Keynote floor held at $5k+.</li>
+        <li>Do not launch a consumer membership as the center of gravity. $27/mo is a sidecar after B2B is booked.</li>
+      </ol>
+    </div>
+
+    <div class="keep">
+      <div class="chapter">5. Hard pivot vs stay the course — the clock</div>
+      <p>Do <strong>not</strong> pivot off adults 50+. Pivot the <em>offer and the payer</em> if the clock below trips. Dates are from September 2026.</p>
+      <div class="two">
+        <div class="green">
+          <strong>Stay the course when all of these are true</strong>
+          <ul>
+            <li>At least one paid institutional invoice (employer, board, library system, or sponsor) by <strong>month 9</strong>.</li>
+            <li>ETPL submitted by <strong>month 6</strong>; in conversation with a board by <strong>month 12</strong>.</li>
+            <li>A named facilitator exists (even contract) by <strong>month 6</strong>.</li>
+            <li>Public prices no longer conflict; ITA-range SKUs are the only list.</li>
+            <li>Pilot → cohort conversion is happening (even 1 of 4).</li>
+            <li>Speaking inquiries include a next-step cohort, not only a $500 talk.</li>
+          </ul>
+        </div>
+        <div class="red">
+          <strong>Hard-pivot triggers — do not wait for “one more grant”</strong>
+          <ul>
+            <li><strong>Month 12:</strong> Zero paid institutional contracts AND ETPL not submitted. The concept is untested, not “early.”</li>
+            <li><strong>Month 18:</strong> ETPL rejected twice <em>and</em> no employer/library paid program. Boards will not be the engine. Pivot payer to employer retainers + site licenses only, or to sponsored library series — not to consumer courses.</li>
+            <li><strong>Month 18:</strong> Brian is still 100% of delivery. The company cannot be funded; it is a practice. Hire, license, or stop claiming scale.</li>
+            <li><strong>Any time:</strong> Consumer membership or affiliate “AI side hustle” exceeds ~25% of revenue. That is a different, worse company. Kill it.</li>
+            <li><strong>Do not:</strong> Pivot into clinical AgeTech, adtech, or “we run your ads.” Wrong assets.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note" style="margin-top:10px;"><strong>Allowed “soft pivots” (not concept changes):</strong> (1) If WIOA is slow, overweight employer/HR and library-system contracts. (2) If in-person stalls, overweight site license + Barb. (3) If Texas boards stall, take the same SKU to another state’s board that already lists digital-literacy ITAs. The customer is still 50+. The invoice is still an institution.</p>
+    </div>
+
+    <div class="keep">
+      <div class="chapter">6. What to tell a funder in 90 seconds</div>
+      <ol>
+        <li><strong>The need is not speculative.</strong> Older participation is rising, AI is ejecting 55+ workers from exposed jobs, and ageism is a $850B / $18K-per-worker cost.</li>
+        <li><strong>Most AgeTech money is in care tech. We are not that.</strong> We sell WIOA-eligible, MBE-certified AI training and proof, delivered at 9 in-person central Texas locations (6 APL branches, AARP-affiliated senior centers, Foundation Communities veterans program).</li>
+        <li><strong>Compared with GetSetUp-class platforms, philanthropy literacy, and clinical AgeTech,</strong> this is the only concept that matches this founder’s assets and can produce profit in 36 months without a hardware stack.</li>
+        <li><strong>Base case:</strong> low-six-figures revenue by FY29, contribution in the $90–150k year if ETPL + one facilitator land. Upside is licensing. Downside is a teaching practice.</li>
+        <li><strong>Use of funds:</strong> facilitator, ETPL/SAM, capability statement, 90 days of sales. Not a new app.</li>
+        <li><strong>Kill criteria are dated.</strong> Month 12 without an institutional invoice, or month 18 still solo-delivered, we change the payer mix or we stop calling it a company.</li>
+      </ol>
+      <p class="green"><strong>Recommendation:</strong> Stay the course on the 50+ demographic and the Pioneer Model. Raise against FY27 unlocks (ETPL, facilitator, first paid cohort). Re-forecast at month 12 with invoices in hand. Do not raise against a clinical AgeTech story or a consumer-app story.</p>
+    </div>
+
+  </div>
+  <div class="footer">
+    <span>Learn More Technologies LLC dba 50+TechBridge · hello@learnmoretechnologies.com · Confidential</span>
+    <span>Concept probability analysis · FY27–FY29 · September 2026</span>
+  </div>
+</div>
+</body>
+</html>

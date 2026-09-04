@@ -30,7 +30,9 @@ $files = @(
     'pioneer-model-full-map.pdf',
     'pioneer-model-full-map.html',
     'lmt-brochure.pdf',
-    'lmt-brochure.html'
+    'lmt-brochure.html',
+    'funding-probability-analysis.pdf',
+    'funding-probability-analysis.html'
 )
 
 Write-Host "Saving Pioneer Model files to: $desktop"
