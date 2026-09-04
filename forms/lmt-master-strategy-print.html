@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LMT Master Strategy — September 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  @media screen {
+    body { background: #e5e7eb; font-family: 'Inter', sans-serif; padding: 24px 16px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .screen-banner { background: #facc15; color: #000; text-align: center; padding: 10px; font-weight: 700; font-size: 13px; width: 100%; max-width: 800px; border-radius: 6px; }
+    .print-btn { background: #6366f1; color: #fff; border: none; padding: 12px 32px; border-radius: 8px; font-weight: 700; font-size: 14px; cursor: pointer; font-family: 'Inter', sans-serif; }
+    .sheet { width: 100%; max-width: 800px; background: #fff; border-radius: 8px; box-shadow: 0 4px 24px rgba(0,0,0,0.15); }
+  }
+  .sheet { font-family: 'Inter', sans-serif; color: #111; background: #fff; }
+  .doc-header { border-bottom: 3px solid #1e1b4b; padding: 16px 24px; display: flex; justify-content: space-between; align-items: flex-end; }
+  .org { font-size: 15px; font-weight: 900; color: #1e1b4b; }
+  .org-sub { font-size: 10px; color: #6b7280; margin-top: 2px; }
+  .doc-title { font-size: 11px; font-weight: 700; color: #fff; background: #f97316; padding: 4px 12px; border-radius: 999px; white-space: nowrap; }
+  .cover { background: #1e1b4b; color: #fff; padding: 20px 24px; }
+  .cover h1 { font-size: 19px; font-weight: 900; letter-spacing: -0.03em; line-height: 1.25; margin-bottom: 8px; }
+  .cover p { font-size: 11.5px; color: #c7d2fe; line-height: 1.55; }
+  .doc-body { padding: 18px 24px 24px; display: flex; flex-direction: column; gap: 14px; }
+  .chapter { font-size: 13px; font-weight: 900; color: #1e1b4b; margin-bottom: 2px; }
+  .section-head { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #6366f1; border-bottom: 1.5px solid #e2e8f0; padding-bottom: 4px; margin-bottom: 7px; }
+  p, li { font-size: 11px; color: #374151; line-height: 1.5; }
+  p + p { margin-top: 5px; }
+  strong { color: #111; }
+  em { color: #6366f1; font-style: normal; font-weight: 700; }
+  ol, ul { margin-left: 16px; }
+  li { margin-bottom: 3px; }
+  table { width: 100%; border-collapse: collapse; font-size: 10.5px; }
+  thead tr { background: #1e1b4b; }
+  th { color: #fff; font-size: 8.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 7px; text-align: left; }
+  tbody tr { border-bottom: 1px solid #e2e8f0; }
+  tbody tr:nth-child(even) { background: #f8fafc; }
+  td { padding: 5px 7px; font-size: 10.5px; color: #374151; vertical-align: top; line-height: 1.4; }
+  td strong { color: #111; }
+  .note { background: #f0f4ff; border: 1px solid #c7d2fe; border-radius: 5px; padding: 9px 11px; font-size: 10.5px; color: #3730a3; line-height: 1.5; }
+  .warn { background: #fefce8; border: 1px solid #fde047; border-radius: 5px; padding: 9px 11px; font-size: 10.5px; color: #713f12; line-height: 1.5; }
+  .green { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 5px; padding: 9px 11px; font-size: 10.5px; color: #166534; line-height: 1.5; }
+  .keep { break-inside: avoid; page-break-inside: avoid; }
+  .footer { border-top: 1.5px solid #e2e8f0; padding: 9px 24px; display: flex; justify-content: space-between; font-size: 9px; color: #9ca3af; }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .screen-banner, .print-btn { display: none !important; }
+    .sheet { box-shadow: none; border-radius: 0; max-width: 100%; }
+    .cover, thead tr, .doc-title, .note, .warn, .green { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    @page { margin: 0.45in; size: letter; }
+    .chapter, .section-head { break-after: avoid; }
+    table, .note, .warn, .green, .keep { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="screen-banner">LMT Master Strategy — Print / Save as PDF</div>
+<button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+<div class="sheet">
+
+  <div class="doc-header">
+    <div>
+      <div class="org">Learn More Technologies — Master Strategy</div>
+      <div class="org-sub">LMT · 50+TechBridge · AGENTIC50 · Digital Pioneer Gallery · Barb · brianmckinney.com · September 2026</div>
+    </div>
+    <div class="doc-title">Confidential</div>
+  </div>
+
+  <div class="cover">
+    <h1>Establish Brian McKinney as the global speaker on AgeTech and 50+ AI — funded by government contracts, amplified by AGENTIC50, proven by the ecosystem.</h1>
+    <p>This is a comparison of what exists today against what each platform needs to satisfy grant reviewers, contract procurement officers, conference bookers, and learners — and the sequence to close every gap.</p>
+  </div>
+
+  <div class="doc-body">
+
+    <!-- SECTION 1: ECOSYSTEM SNAPSHOT -->
+    <div class="keep">
+      <div class="chapter">1. Ecosystem — what you have and what it is missing</div>
+      <table>
+        <thead><tr><th>Platform</th><th>What exists now</th><th>Critical gap</th><th>Priority</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>learnmoretechnologies.com</strong></td>
+            <td>Advise / Train / Speak three-service home. $76T positioning. MBE, WIOA, 347 Pioneers. Barb widget.</td>
+            <td>Three conflicting price points. Two module lists. No unified offer sheet. No outcomes data on the page.</td>
+            <td><em>Fix first</em></td>
+          </tr>
+          <tr>
+            <td><strong>50plustechbridge.com</strong></td>
+            <td>Free course. Community. Certificate. 6-week cohort. 9 Austin library locations. EN/ES.</td>
+            <td>Module titles still read phones/Zoom/banking. Not yet "Talk to AI" spine. No fork visible. No paid SKU visible.</td>
+            <td><em>Fix Week 1 now</em></td>
+          </tr>
+          <tr>
+            <td><strong>brianmckinney.com</strong></td>
+            <td>Speaker one-sheet site. Three keynote tracks. 347 Pioneers. "The book" mentioned. Clean design.</td>
+            <td>Photo placeholder visible. Floor price not set. No booking link to a real calendar. Testimonials have [brackets].</td>
+            <td><em>Fill gaps</em></td>
+          </tr>
+          <tr>
+            <td><strong>AGENTIC50 podcast</strong></td>
+            <td>Apple + Spotify. Live. Framed for 50+ learners who want AI without jargon.</td>
+            <td>No buyer/booker guest pattern yet. No LinkedIn clip cadence. Not visible on speaker or LMT pages. Episode count not public.</td>
+            <td><em>Restructure pattern</em></td>
+          </tr>
+          <tr>
+            <td><strong>digitalpioneer.ai</strong></td>
+            <td>Gallery cohort program. Oct–Dec 2026 cohorts at APL. AI-assisted digital art. Connects to hotels/venues/tourism. Grant-documented.</td>
+            <td>Not linked from main LMT or 50+TechBridge. Pioneer stories not piped to the Gallery. No outcomes packet visible for reviewers.</td>
+            <td><em>Connect &amp; document</em></td>
+          </tr>
+          <tr>
+            <td><strong>Barb (ask-barb)</strong></td>
+            <td>Free AI assistant for 50+. No login. Plain language. Six help categories. Live on LMT.</td>
+            <td>Not positioned as a product. No B2B SKU (white-label for libraries, insurers, healthcare). No data/usage proof for grant reviewers.</td>
+            <td><em>Productize</em></td>
+          </tr>
+          <tr>
+            <td><strong>Government / contracts</strong></td>
+            <td>WIOA-eligible stated. MBE certified TX. 23 orgs. APL anchor. AACME Nexus grant. SAM/UEI status unclear.</td>
+            <td>No public capability statement. No ETPL listing confirmed. No past-performance packet. Prices conflict with ITA ranges.</td>
+            <td><em>Fix before next proposal</em></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SECTION 2: THE MODEL -->
+    <div class="keep">
+      <div class="chapter">2. The model in one sentence per layer</div>
+      <table>
+        <thead><tr><th>Layer</th><th>One sentence</th><th>Revenue / outcome</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Contracts (fuel)</strong></td><td>Workforce boards, libraries, and aging agencies pay LMT to deliver, document, and report 50+ AI training.</td><td>Pays facilitators; grows Pioneer count; generates the proof bookers check.</td></tr>
+          <tr><td><strong>AGENTIC50 (amplifier)</strong></td><td>The podcast interviews buyers and Pioneers so bookers hear Brian weekly without a cold call.</td><td>No direct revenue now; creates the shortlist entry for national/global stages.</td></tr>
+          <tr><td><strong>Stage (goal)</strong></td><td>Brian keynotes workforce, AgeTech, HR, and policy rooms; every keynote scopes a cohort contract as the next step.</td><td>$5k–$15k+ fee; pipeline for contracts; global identity.</td></tr>
+          <tr><td><strong>50+TechBridge (product)</strong></td><td>Free self-paced course is the funnel; paid cohort is the contract deliverable; employer/WIOA fork is the SKU.</td><td>Contract revenue + completion certificates + WIOA reimbursements.</td></tr>
+          <tr><td><strong>Digital Pioneer Gallery (proof)</strong></td><td>Every cohort ends in a public exhibition; the gallery documents that 50+ adults create, not just consume.</td><td>Grant eligible; arts + workforce angle; tourism/venue sponsor potential.</td></tr>
+          <tr><td><strong>Barb (scale)</strong></td><td>The AI assistant that comes with the program — white-label for libraries, healthcare, and insurers who cannot run cohorts.</td><td>SaaS/license revenue; reach without Brian's hours.</td></tr>
+        </tbody>
+      </table>
+      <p class="note" style="margin-top:8px;"><strong>Run the company by this:</strong> Contracts prove it. The podcast tells it. The stage sells it. Everything else is infrastructure.</p>
+    </div>
+
+    <!-- SECTION 3: GRANT / CONTRACT REVIEW CRITERIA -->
+    <div class="keep">
+      <div class="chapter">3. What reviewers check — and your current score</div>
+      <p>WIOA boards, city grant panels, and corporate procurement officers use the same five lenses. Every gap in Section 1 maps to one of these.</p>
+      <table>
+        <thead><tr><th>Criterion</th><th>What they want to see</th><th>You have now</th><th>What to add</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Past performance</strong></td><td>Completed engagements, completion rates, org names</td><td>347 Pioneers, 23 orgs, 3x completion, APL, AACME grant</td><td>One-page past-performance sheet with dates, scope, outcomes</td></tr>
+          <tr><td><strong>Capacity</strong></td><td>Staff, facilitators, bilingual delivery, makeup path</td><td>Brian + volunteer facilitators + EN/ES claimed</td><td>Named facilitator bench; hiring/cert plan on paper</td></tr>
+          <tr><td><strong>Curriculum quality</strong></td><td>Aligned to WIOA / DOL AI literacy; measurable outcomes</td><td>6-module spine; certificates; pre/post survey (new)</td><td>Update module titles to spine; submit pre/post data after 1 cohort</td></tr>
+          <tr><td><strong>Financial controls</strong></td><td>Budget, match, MBE cert, SAM registration, ITA-range pricing</td><td>MBE TX; AACME grant budget on file; pricing inconsistent</td><td>SAM.gov + UEI active; one price list in ITA range; 10% admin cap visible</td></tr>
+          <tr><td><strong>Community impact</strong></td><td>BIPOC, underserved, documented need, partner letters</td><td>East Austin, BIPOC-majority, APL, MACC; partner letters drafted</td><td>Signed partner letters on file; Gallery Oct–Dec as documented impact</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SECTION 4: PLATFORM FIXES -->
+    <div class="keep">
+      <div class="chapter">4. Platform-by-platform fixes in order</div>
+      <div class="section-head">learnmoretechnologies.com — fix the invoice</div>
+      <ul>
+        <li>Remove three conflicting price lists. One public offer table: Pilot / Cohort / Retainer.</li>
+        <li>Add outcomes data: confidence lift %, completion %, org names.</li>
+        <li>Replace "from $5,000" and "from $1,500" with "Schedule a call — pricing matched to WIOA ITA ranges."</li>
+        <li>Link AGENTIC50 and Gallery from the nav or footer.</li>
+      </ul>
+      <div class="section-head">50plustechbridge.com — fix the spine</div>
+      <ul>
+        <li>Rename modules to: Talk to AI / Don't get scammed / Stay connected / Health &amp; independence / Money &amp; work / Your next chapter.</li>
+        <li>Week 1 lesson = starter prompt + 5 steps + take-home card PDF.</li>
+        <li>After Lesson 3 gate: "Join a cohort or workforce program for Weeks 4–6."</li>
+        <li>Add WIOA / ITA funding note on the partner page.</li>
+      </ul>
+      <div class="section-head">brianmckinney.com — fill the brackets</div>
+      <ul>
+        <li>Replace photo placeholder with real on-stage or teaching photo.</li>
+        <li>Replace [Name, Title, Organization] testimonials with signed releases from real buyers.</li>
+        <li>Add a real Cal.com booking link and floor price ($5,000 keynote).</li>
+        <li>Add AGENTIC50 embed or link. Add Gallery as evidence.</li>
+      </ul>
+      <div class="section-head">AGENTIC50 — run the booking pattern</div>
+      <ul>
+        <li>Episode cadence: Pioneer → Buyer (board / library / HR / conference chair) → Peer (AgeTech leader).</li>
+        <li>End every episode: "If you run a conference or workforce program, here is how you bring this into the room — [booking link]."</li>
+        <li>5 LinkedIn clips per episode. 30–45 seconds. Captions. Post Tuesday and Thursday.</li>
+        <li>After each contract cohort: record 2 Pioneer episodes from that site.</li>
+      </ul>
+      <div class="section-head">digitalpioneer.ai — connect and document</div>
+      <ul>
+        <li>Link from LMT.com and 50plustechbridge.com navs.</li>
+        <li>After every Gallery Walk: publish 3 Pioneer profiles with photo/quote releases.</li>
+        <li>File an outcomes one-pager per cohort (attendance, art pieces created, venue name, dates).</li>
+        <li>Pitch hotel / venue sponsorship using the tourism-connection angle already on the site.</li>
+      </ul>
+      <div class="section-head">Barb — productize one B2B SKU</div>
+      <ul>
+        <li>Name the offer: "Barb for Organizations — branded AI guide for your 50+ members or patients."</li>
+        <li>Target: Medicare Advantage plans, hospital systems, library networks, insurers.</li>
+        <li>Deliverable: custom-branded Barb instance + usage reporting + quarterly check-in.</li>
+        <li>Do not build new tech first. Scope one pilot; deliver it; price the next one.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION 5: GOVERNMENT CONTRACTS -->
+    <div class="keep">
+      <div class="chapter">5. Government and minority contract path</div>
+      <div class="section-head">Housekeeping (unlock everything else)</div>
+      <ol>
+        <li>SAM.gov registration + UEI active and renewed.</li>
+        <li>One-page capability statement: NAICS 611420 / 611430 / 624310, MBE TX, past performance, key personnel, price range.</li>
+        <li>ETPL listing with your local workforce board (or letter of intent from board).</li>
+        <li>One unified price list that falls inside standard ITA ranges.</li>
+        <li>Named facilitator (even one certified person) so you can say yes without being the instructor.</li>
+      </ol>
+      <div class="section-head">First contracts to chase (Texas, you can win)</div>
+      <ul>
+        <li>Workforce Solutions boards — WIOA Title I Adult / Dislocated Worker; ITA or cohort contract; scope includes one leadership briefing.</li>
+        <li>City of Austin / Travis County — aging, digital equity, HUB set-aside procurement.</li>
+        <li>Austin Public Library system contract (not just a room-use agreement).</li>
+        <li>Community college adult ed WIOA Title II — enter as subcontractor first.</li>
+      </ul>
+      <div class="section-head">Write these into every SOW</div>
+      <ul>
+        <li>One staff / board briefing (or keynote) — this is Brian on stage, paid by the contract.</li>
+        <li>Outcomes report and pre/post survey data — this builds past performance.</li>
+        <li>Optional AGENTIC50 episode with consented participants — this is the podcast story.</li>
+        <li>Digital Pioneer Gallery Walk if cohort is 6-week community track — this is the arts/inclusion evidence.</li>
+      </ul>
+      <div class="section-head">Second wave (funds the speaker strategy)</div>
+      <ul>
+        <li>State digital-equity / broadband digital skills (NTIA-funded state plans) — partner; do not prime a large grant alone yet.</li>
+        <li>ACL / area agencies on aging — AI + independence / scam prevention (your Week 2).</li>
+        <li>DOL TEGL 03-25 lane — AI literacy explicitly authorized; cite the article already on LMT.com.</li>
+        <li>Corporate DEI / workforce foundation grants (AARP Foundation, JPMorgan WorkForce, Google.org).</li>
+      </ul>
+      <p class="warn"><strong>Do not chase:</strong> Giant federal primes with no past-performance packet. GSA Schedule before two clean local contracts. Grants that require Brian to teach every session. Anything that funds "podcasting" as the deliverable — fund training, treat the show as dissemination.</p>
+    </div>
+
+    <!-- SECTION 6: SPEAKER STRATEGY -->
+    <div class="keep">
+      <div class="chapter">6. Speaker strategy — from Austin to global</div>
+      <table>
+        <thead><tr><th>Stage</th><th>Room type</th><th>What gets you there</th><th>Fee range</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Now</strong></td><td>Texas workforce boards, library systems, local HR</td><td>APL relationship, AACME grant, pilot offer, AGENTIC50 clips</td><td>$1,500–$3,000 + travel</td></tr>
+          <tr><td><strong>Next</strong></td><td>State SHRM, national aging / workforce conferences, AgeTech summits</td><td>3 buyer podcast guests who chair those rooms; brianmckinney.com with real photo and testimonials</td><td>$5,000–$10,000 + travel</td></tr>
+          <tr><td><strong>Global</strong></td><td>Davos aging track, London AgeTech, WHO / UN aging sessions, AARP International</td><td>Published article / book; 1 international podcast guest; feature in aging/workforce press</td><td>$10,000–$25,000+</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Three named talks only.</strong> Do not dilute with a fourth track until the first three are booked repeatedly.</p>
+      <ol>
+        <li>"The $76 Trillion Mistake" — economic case; best for corporate, HR, chambers.</li>
+        <li>"Ageism Is the Last Acceptable Bias — And AI Is Making It Worse" — policy, advocacy, aging, nonprofits.</li>
+        <li>"AI in One Hour" — hands-on workshop; best for library, workforce, senior center, ERG.</li>
+      </ol>
+      <p>After every keynote, the next step is a <strong>scoped cohort or brand briefing</strong>. Never "I'll come back for free exposure."</p>
+    </div>
+
+    <!-- SECTION 7: 90-DAY ACTIONS -->
+    <div class="keep">
+      <div class="chapter">7. 90-day action sequence</div>
+      <table>
+        <thead><tr><th>Week</th><th>Action</th><th>Owner</th></tr></thead>
+        <tbody>
+          <tr><td><strong>1</strong></td><td>SAM.gov + UEI active. Capability statement drafted.</td><td>Brian / admin</td></tr>
+          <tr><td><strong>1</strong></td><td>One unified price list. Remove $500 keynote from public pages.</td><td>Brian</td></tr>
+          <tr><td><strong>1–2</strong></td><td>Rename 50+TechBridge modules to the six-word spine.</td><td>Brian / LMS</td></tr>
+          <tr><td><strong>2</strong></td><td>Rebuild Week 1 "Talk to AI" in the LMS (one tool, 5 steps, take-home PDF).</td><td>Brian</td></tr>
+          <tr><td><strong>2</strong></td><td>Replace photo placeholder and bracket testimonials on brianmckinney.com.</td><td>Brian</td></tr>
+          <tr><td><strong>3</strong></td><td>Book 3 buyer podcast guests (workforce board, library director, conference chair).</td><td>Brian</td></tr>
+          <tr><td><strong>3</strong></td><td>Teach one 90-minute "Talk to AI" pilot. File pre/post survey and outcomes one-pager.</td><td>Brian / facilitator</td></tr>
+          <tr><td><strong>4</strong></td><td>Submit or confirm ETPL listing with local workforce board.</td><td>Brian / admin</td></tr>
+          <tr><td><strong>4–6</strong></td><td>Two contract proposal conversations a week (board, library, city aging). Scope includes one briefing.</td><td>Brian</td></tr>
+          <tr><td><strong>6</strong></td><td>Link Gallery from LMT and 50+TechBridge navs. Publish first 3 Pioneer profiles from Oct cohort.</td><td>Brian / web</td></tr>
+          <tr><td><strong>6–8</strong></td><td>Certify or hire one facilitator. Write their name into the next proposal as Key Personnel.</td><td>Brian</td></tr>
+          <tr><td><strong>8–12</strong></td><td>First signed contract delivered with outcomes report. Use as past performance in next proposal.</td><td>Brian / facilitator</td></tr>
+          <tr><td><strong>12</strong></td><td>Scope Barb B2B pilot (one library or healthcare org). Do not build new tech; scope the existing tool.</td><td>Brian</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SECTION 8: DO NOT -->
+    <div class="keep">
+      <div class="chapter">8. Do not (this is the constraint list)</div>
+      <ul>
+        <li>Keep three different public price lists. One list. One booking link.</li>
+        <li>Take a training contract that requires Brian in the room every session.</li>
+        <li>Rebuild the LMS before the module titles are renamed.</li>
+        <li>Open the $27 membership before the B2B calendar is booked.</li>
+        <li>Call Brian a global speaker while the public floor price is $500.</li>
+        <li>Let the Gallery remain disconnected from LMT and 50+TechBridge.</li>
+        <li>Fund podcasting as a deliverable. Fund training; treat the show as dissemination.</li>
+        <li>Prime a large federal grant alone before two clean local contracts are on paper.</li>
+        <li>Use contract hours for keynote prep. Stage time pays itself; contract time pays facilitators.</li>
+      </ul>
+    </div>
+
+    <p class="green"><strong>One sentence for every conversation:</strong> "Brian McKinney is the AgeTech speaker on 50+ AI — host of AGENTIC50, founder of the only WIOA-eligible program workforce boards can actually buy, and the person who turned 347 Pioneers into proof." Government pays LMT to prove it. The podcast tells it. The stage sells it.</p>
+
+  </div>
+  <div class="footer">
+    <span>Learn More Technologies LLC dba 50+TechBridge · hello@learnmoretechnologies.com · learnmoretechnologies.com</span>
+    <span>Master strategy · September 2026 · Confidential</span>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Pioneer Model — Learn More Technologies</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  @media screen {
+    body { background: #e5e7eb; font-family: 'Inter', sans-serif; padding: 24px 16px 40px; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    .screen-only { width: 100%; max-width: 11in; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .screen-banner { background: #facc15; color: #000; text-align: center; padding: 10px 14px; font-weight: 700; font-size: 13px; width: 100%; border-radius: 6px; }
+    .desktop-bar { width: 100%; background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px; }
+    .desktop-bar p { font-size: 11px; color: #374151; line-height: 1.45; margin: 0 0 6px; }
+    .desktop-bar code { display: block; font-family: ui-monospace, Consolas, monospace; font-size: 10px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 5px; padding: 8px 10px; color: #1e1b4b; white-space: pre-wrap; word-break: break-all; }
+    .print-btn { background: #1e1b4b; color: #fff; border: none; padding: 12px 32px; border-radius: 8px; font-weight: 700; font-size: 14px; cursor: pointer; font-family: 'Inter', sans-serif; }
+    .sheet {
+      width: 11in;
+      max-width: 100%;
+      min-height: 8.5in;
+      background: #fff;
+      border-radius: 4px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    }
+  }
+
+  .sheet {
+    font-family: 'Inter', sans-serif;
+    background: #fff;
+    color: #111;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header-band {
+    background: #1e1b4b;
+    padding: 16px 28px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+  }
+  .header-left h1 {
+    font-size: 24px;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+  }
+  .header-left h1 span { color: #f97316; }
+  .header-left p {
+    font-size: 10.5px;
+    color: #a5b4fc;
+    margin-top: 5px;
+    line-height: 1.45;
+    max-width: 460px;
+  }
+  .header-right { text-align: right; }
+  .header-right .stat {
+    font-size: 20px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.05;
+  }
+  .header-right .stat-label {
+    font-size: 8px;
+    color: #a5b4fc;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .header-right .stats-row {
+    display: flex;
+    gap: 16px;
+    justify-content: flex-end;
+  }
+
+  .tagline-bar {
+    background: #f97316;
+    padding: 7px 28px;
+    font-size: 10.5px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+  }
+
+  .body { padding: 12px 28px 12px; display: flex; flex-direction: column; gap: 10px; }
+
+  .proof-line {
+    font-size: 11.5px;
+    color: #374151;
+    line-height: 1.5;
+    border-left: 3px solid #f97316;
+    padding-left: 11px;
+  }
+  .proof-line strong { color: #111; }
+
+  .sec-label {
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .legend { display: flex; gap: 10px; font-size: 8.5px; font-weight: 600; letter-spacing: 0; text-transform: none; color: #6b7280; }
+  .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 3px; vertical-align: 0; }
+  .dot-live { background: #22c55e; }
+  .dot-next { background: #f59e0b; }
+
+  .layers-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+  }
+  .layer {
+    border-radius: 6px;
+    padding: 8px 7px 9px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-height: 148px;
+  }
+  .layer .l-num {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+  .layer .l-name {
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 1.15;
+  }
+  .layer .l-role {
+    font-size: 8.5px;
+    line-height: 1.3;
+    opacity: 0.88;
+    margin-bottom: 2px;
+  }
+  .layer .l-status {
+    font-size: 7.5px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: rgba(255,255,255,0.55);
+    border-radius: 999px;
+    padding: 2px 6px;
+    width: fit-content;
+    margin: 1px 0 2px;
+  }
+  .layer .l-live, .layer .l-next {
+    font-size: 8px;
+    line-height: 1.3;
+  }
+  .layer .l-live strong, .layer .l-next strong {
+    font-weight: 800;
+  }
+  .l1 { background: #eff6ff; color: #1e3a8a; }
+  .l2 { background: #f0fdf4; color: #14532d; }
+  .l3 { background: #fdf4ff; color: #581c87; }
+  .l4 { background: #fff7ed; color: #7c2d12; }
+  .l5 { background: #fefce8; color: #713f12; }
+  .l6 { background: #fff1f2; color: #881337; }
+  .l7 { background: #eef2ff; color: #1e1b4b; }
+
+  .flow {
+    display: grid;
+    grid-template-columns: 1fr 14px 1fr 14px 1fr 14px 1fr;
+    align-items: center;
+  }
+  .flow-step {
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 7px 9px;
+    text-align: center;
+  }
+  .flow-step .f-label {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 2px;
+  }
+  .flow-step .f-text {
+    font-size: 10px;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.3;
+  }
+  .flow-arrow {
+    text-align: center;
+    font-size: 13px;
+    color: #9ca3af;
+    font-weight: 900;
+  }
+
+  .buyers {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+  }
+  .buyer {
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 7px 9px;
+  }
+  .buyer .b-type {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 2px;
+  }
+  .buyer .b-what {
+    font-size: 10.5px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 2px;
+  }
+  .buyer .b-pays {
+    font-size: 9px;
+    color: #6b7280;
+    line-height: 1.35;
+  }
+
+  .closer {
+    background: #f0f4ff;
+    border: 1px solid #c7d2fe;
+    border-radius: 5px;
+    padding: 7px 11px;
+    font-size: 10.5px;
+    color: #3730a3;
+    line-height: 1.45;
+  }
+  .closer strong { color: #1e1b4b; }
+
+  .bottom-band {
+    background: #1e1b4b;
+    padding: 8px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .bottom-band .b-line {
+    font-size: 9.5px;
+    color: #a5b4fc;
+    line-height: 1.45;
+  }
+  .bottom-band .b-line strong { color: #fff; }
+  .bottom-band .b-cta {
+    font-size: 9.5px;
+    font-weight: 700;
+    color: #f97316;
+    text-align: right;
+  }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .screen-only, .screen-banner, .print-btn, .desktop-bar { display: none !important; }
+    .sheet { box-shadow: none; border-radius: 0; max-width: 100%; }
+    .header-band, .tagline-bar, .bottom-band, .l1, .l2, .l3, .l4, .l5, .l6, .l7, .closer {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    @page { margin: 0.32in; size: letter landscape; }
+  }
+</style>
+</head>
+<body>
+<div class="screen-only">
+  <div class="screen-banner">THE PIONEER MODEL — Desktop preview · Print landscape · Specs from Full Asset Map</div>
+  <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+  <div class="desktop-bar">
+    <p><strong>Save the latest copy to your Windows Desktop</strong> (overwrites older one-pagers). Paste this in PowerShell:</p>
+    <code>Invoke-WebRequest -Uri "https://raw.githubusercontent.com/1Profmac/1Profmac.github.io/cursor/powershell-list-files-c07c/forms/pioneer-model-one-pager.pdf" -OutFile "$env:USERPROFILE\Desktop\pioneer-model-one-pager.pdf"</code>
+  </div>
+</div>
+
+<div class="sheet">
+
+  <div class="header-band">
+    <div class="header-left">
+      <h1>The <span>Pioneer</span> Model</h1>
+      <p>Learn More Technologies · 50+TechBridge · AGENTIC50 · Digital Pioneer Gallery · Barb<br>
+      Government contracts fund delivery. The podcast builds the reputation. Brian gets the stages.</p>
+    </div>
+    <div class="header-right">
+      <div class="stats-row">
+        <div>
+          <div class="stat">9</div>
+          <div class="stat-label">In-Person<br>Locations</div>
+        </div>
+        <div>
+          <div class="stat">6</div>
+          <div class="stat-label">APL<br>Branches</div>
+        </div>
+        <div>
+          <div class="stat">$18K</div>
+          <div class="stat-label">Per Worker<br>LSE &amp; Protiviti</div>
+        </div>
+        <div>
+          <div class="stat">$850B</div>
+          <div class="stat-label">Ageism Cost<br>AARP &amp; Oxford</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tagline-bar">WIOA-Eligible · MBE-Certified TX · 9 in-person locations · Central Texas · Available nationwide · learnmoretechnologies.com</div>
+
+  <div class="body">
+
+    <p class="proof-line">
+      <strong>The problem:</strong> Ageism costs the U.S. economy <strong>$850 billion</strong> a year (AARP &amp; Oxford Economics). The cost sits at <strong>$18K per worker</strong> (LSE &amp; Protiviti). Adults 50+ are being left behind in the AI economy. <strong>Approved footprint:</strong> 9 in-person locations in central Texas — 6 Austin Public Library branches, AARP-affiliated senior centers, and the Foundation Communities veterans program. WIOA-eligible. MBE-certified. <strong>The Pioneer Model turns that footprint into a business.</strong>
+    </p>
+
+    <div>
+      <div class="sec-label">
+        <span>The Seven Layers — live vs. next (from Full Asset Map)</span>
+        <span class="legend"><span><span class="dot dot-live"></span>Live / done</span><span><span class="dot dot-next"></span>Do next</span></span>
+      </div>
+      <div class="layers-grid">
+        <div class="layer l1">
+          <div class="l-num">01 · Curriculum</div>
+          <div class="l-name">Digital Pioneer Core</div>
+          <div class="l-status">In Progress</div>
+          <div class="l-role">6-module spine. One tool per week. WIOA-aligned.</div>
+          <div class="l-live"><strong>Live:</strong> Spine, 110-min script, Weeks 1–6 guides, Week 5 fork, surveys</div>
+          <div class="l-next"><strong>Next:</strong> LMS Week 1 live + rename 3 free lessons to spine</div>
+        </div>
+        <div class="layer l2">
+          <div class="l-num">02 · Product</div>
+          <div class="l-name">50+TechBridge</div>
+          <div class="l-status">Needs Alignment</div>
+          <div class="l-role">Free funnel → cohort → employer / WIOA fork. Certificate + outcomes.</div>
+          <div class="l-live"><strong>Live:</strong> Free course, partners page, enrollment, pilot offer, outcomes sheet</div>
+          <div class="l-next"><strong>Next:</strong> Unify prices · submit / confirm ETPL</div>
+        </div>
+        <div class="layer l3">
+          <div class="l-num">03 · Proof</div>
+          <div class="l-name">Digital Pioneer Gallery</div>
+          <div class="l-status">Launch Oct 2026</div>
+          <div class="l-role">Public exhibitions by 50+ adults. Grant documentation. Tourism hook.</div>
+          <div class="l-live"><strong>Live:</strong> digitalpioneer.ai · Oct–Dec cohorts posted · Elevate in review · Nexus 2024 awarded</div>
+          <div class="l-next"><strong>Next:</strong> 3 Pioneer profiles · APL confirmation letter</div>
+        </div>
+        <div class="layer l4">
+          <div class="l-num">04 · Scale</div>
+          <div class="l-name">Barb</div>
+          <div class="l-status">Productize</div>
+          <div class="l-role">Free AI assistant for adults 50+. White-label for libraries, healthcare, insurers.</div>
+          <div class="l-live"><strong>Live:</strong> ask-barb — no login, plain language</div>
+          <div class="l-next"><strong>Next:</strong> Name B2B offer · one library / healthcare pilot</div>
+        </div>
+        <div class="layer l5">
+          <div class="l-num">05 · Show</div>
+          <div class="l-name">AGENTIC50</div>
+          <div class="l-status">Restructure Guests</div>
+          <div class="l-role">Apple + Spotify. Interviews Pioneers and buyers. Bookers hear Brian weekly.</div>
+          <div class="l-live"><strong>Live:</strong> Podcast on Apple + Spotify · agentic50.org</div>
+          <div class="l-next"><strong>Next:</strong> Pioneer → Buyer → Peer cadence · 3 buyer guests this month</div>
+        </div>
+        <div class="layer l6">
+          <div class="l-num">06 · Stage</div>
+          <div class="l-name">Brian McKinney</div>
+          <div class="l-status">Fill the Gaps</div>
+          <div class="l-role">3 keynote tracks. Floor $5k. Every stage is pipeline for a contract or briefing.</div>
+          <div class="l-live"><strong>Live:</strong> Speaker site + 3 tracks + print one-sheet</div>
+          <div class="l-next"><strong>Next:</strong> Real photo + testimonials · $5k floor public · first $5k+ booking</div>
+        </div>
+        <div class="layer l7">
+          <div class="l-num">07 · Fuel</div>
+          <div class="l-name">Gov't + MBE</div>
+          <div class="l-status">Unlock Now</div>
+          <div class="l-role">WIOA Title I, MBE set-asides, city / library / aging contracts. Pays facilitators.</div>
+          <div class="l-live"><strong>Live:</strong> WIOA-eligible · MBE-certified · 9 in-person locations · 6 APL branches</div>
+          <div class="l-next"><strong>Next:</strong> SAM/UEI · capability statement · ETPL · named facilitator · first WIOA contract</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="sec-label"><span>How it works</span></div>
+      <div class="flow">
+        <div class="flow-step">
+          <div class="f-label">Contracts</div>
+          <div class="f-text">Fund delivery + generate Pioneer data</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="f-label">Course + Gallery</div>
+          <div class="f-text">Prove adults 50+ can learn and create with AI</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="f-label">AGENTIC50</div>
+          <div class="f-text">Tell that story to people who own stages</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="f-label">Brian on Stage</div>
+          <div class="f-text">Keynote converts to next contract or brand briefing</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="sec-label"><span>Who pays — and for what</span></div>
+      <div class="buyers">
+        <div class="buyer">
+          <div class="b-type">Workforce / WIOA</div>
+          <div class="b-what">Training contracts</div>
+          <div class="b-pays">Cohort delivery, outcomes report, ITA-range pricing, ETPL listing in process</div>
+        </div>
+        <div class="buyer">
+          <div class="b-type">Employers / HR / DEI</div>
+          <div class="b-what">Workforce cohort</div>
+          <div class="b-pays">On-site AI training, Week 5 employer fork, branded outcomes report. $18K/worker cost of inaction (LSE &amp; Protiviti).</div>
+        </div>
+        <div class="buyer">
+          <div class="b-type">Conferences / Associations</div>
+          <div class="b-what">Keynote → contract</div>
+          <div class="b-pays">Floor $5k. Target: state SHRM or AgeTech. Every stage scopes a follow-on cohort or briefing.</div>
+        </div>
+        <div class="buyer">
+          <div class="b-type">Libraries / CBOs / Brands</div>
+          <div class="b-what">Site license · Barb · Advisory</div>
+          <div class="b-pays">Curriculum license, Barb white-label (library or healthcare pilot next), 50+ audience retainer</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="closer"><strong>The one sentence:</strong> Brian McKinney is the AgeTech speaker on 50+ AI — host of AGENTIC50, founder of the WIOA-eligible, MBE-certified program delivered at 9 in-person locations in central Texas. Government pays LMT to prove it. The podcast tells it. The stage sells it.</p>
+
+  </div>
+
+  <div class="bottom-band">
+    <div class="b-line">
+      <strong>Brian McKinney</strong> · CEO &amp; Founder · Former AARP Community Development Manager<br>
+      MBE Certified TX · WIOA-Eligible · NAICS 611420 / 611430 / 624310 · 501(c)(3) In Process
+    </div>
+    <div class="b-cta">
+      hello@learnmoretechnologies.com<br>
+      learnmoretechnologies.com · agentic50.org · digitalpioneer.ai
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

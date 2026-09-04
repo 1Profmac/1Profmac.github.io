@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Pioneer Model — Full Asset Map</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  @media screen {
+    body { background: #e5e7eb; font-family: 'Inter', sans-serif; padding: 24px 16px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .screen-banner { background: #facc15; color: #000; text-align: center; padding: 10px; font-weight: 700; font-size: 13px; width: 100%; max-width: 800px; border-radius: 6px; }
+    .print-btn { background: #1e1b4b; color: #fff; border: none; padding: 12px 32px; border-radius: 8px; font-weight: 700; font-size: 14px; cursor: pointer; font-family: 'Inter', sans-serif; }
+    .sheet { width: 100%; max-width: 800px; background: #fff; border-radius: 8px; box-shadow: 0 4px 24px rgba(0,0,0,0.15); }
+  }
+  .sheet { font-family: 'Inter', sans-serif; color: #111; background: #fff; }
+  .doc-header { border-bottom: 3px solid #1e1b4b; padding: 16px 24px; display: flex; justify-content: space-between; align-items: flex-end; }
+  .org { font-size: 15px; font-weight: 900; color: #1e1b4b; }
+  .org-sub { font-size: 10px; color: #6b7280; margin-top: 2px; }
+  .doc-title { font-size: 11px; font-weight: 700; color: #fff; background: #f97316; padding: 4px 12px; border-radius: 999px; white-space: nowrap; }
+  .doc-body { padding: 18px 24px 24px; display: flex; flex-direction: column; gap: 14px; }
+  .layer-block { border: 1.5px solid #e2e8f0; border-radius: 8px; overflow: hidden; }
+  .layer-header { padding: 9px 14px; display: flex; justify-content: space-between; align-items: center; }
+  .layer-num { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.8; }
+  .layer-title { font-size: 13px; font-weight: 900; }
+  .layer-role { font-size: 10px; opacity: 0.85; margin-top: 2px; }
+  .layer-status { font-size: 9px; font-weight: 700; padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
+  .status-done { background: #dcfce7; color: #166534; }
+  .status-next { background: #fef9c3; color: #713f12; }
+  .status-build { background: #fee2e2; color: #991b1b; }
+  table { width: 100%; border-collapse: collapse; }
+  thead tr { background: rgba(0,0,0,0.06); }
+  th { font-size: 8.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 10px; text-align: left; }
+  tbody tr { border-top: 1px solid #e2e8f0; }
+  td { padding: 5px 10px; font-size: 10.5px; color: #374151; vertical-align: top; line-height: 1.4; }
+  td strong { color: #111; }
+  td.asset { font-weight: 600; color: #111; }
+  td.loc { font-size: 9.5px; color: #6366f1; font-family: ui-monospace, monospace; }
+  .done-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #22c55e; margin-right: 4px; vertical-align: 1px; }
+  .next-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #f59e0b; margin-right: 4px; vertical-align: 1px; }
+  .build-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #ef4444; margin-right: 4px; vertical-align: 1px; }
+  /* layer colors */
+  .lh1 { background: #eff6ff; color: #1e3a8a; }
+  .lh2 { background: #f0fdf4; color: #14532d; }
+  .lh3 { background: #fdf4ff; color: #581c87; }
+  .lh4 { background: #fff7ed; color: #7c2d12; }
+  .lh5 { background: #fefce8; color: #713f12; }
+  .lh6 { background: #fff1f2; color: #881337; }
+  .lh7 { background: #f0f4ff; color: #1e1b4b; }
+  .note { background: #f0f4ff; border: 1px solid #c7d2fe; border-radius: 5px; padding: 9px 12px; font-size: 10.5px; color: #3730a3; line-height: 1.5; }
+  .footer { border-top: 1.5px solid #e2e8f0; padding: 9px 24px; display: flex; justify-content: space-between; font-size: 9px; color: #9ca3af; }
+  .legend { display: flex; gap: 14px; font-size: 10px; color: #6b7280; }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .screen-banner, .print-btn { display: none !important; }
+    .sheet { box-shadow: none; border-radius: 0; max-width: 100%; }
+    .lh1,.lh2,.lh3,.lh4,.lh5,.lh6,.lh7,.doc-title {-webkit-print-color-adjust:exact; print-color-adjust:exact;}
+    @page { margin: 0.45in; size: letter; }
+    .layer-block { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="screen-banner">THE PIONEER MODEL — Full Asset Map · Print / Save as PDF</div>
+<button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+<div class="sheet">
+  <div class="doc-header">
+    <div>
+      <div class="org">The Pioneer Model — Full Asset Map</div>
+      <div class="org-sub">Learn More Technologies · All seven layers · Every asset · Status · What to build next · September 2026</div>
+    </div>
+    <div class="doc-title">Internal Reference</div>
+  </div>
+  <div class="doc-body">
+
+    <div class="legend">
+      <span><span class="done-dot"></span>Done</span>
+      <span><span class="next-dot"></span>Do next (this week / month)</span>
+      <span><span class="build-dot"></span>Build (not started)</span>
+    </div>
+
+    <!-- L1: CURRICULUM -->
+    <div class="layer-block">
+      <div class="layer-header lh1">
+        <div>
+          <div class="layer-num">Layer 01 · Curriculum</div>
+          <div class="layer-title">Digital Pioneer Core</div>
+          <div class="layer-role">The 6-module spine every delivery mode runs on. One tool per week. WIOA-aligned.</div>
+        </div>
+        <span class="layer-status status-next">In Progress</span>
+      </div>
+      <table>
+        <thead><tr><th>Asset</th><th>Location</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="asset">Official module spine (6 names)</td><td class="loc">forms/facilitator/00-module-spine.html</td><td><span class="done-dot"></span>Done — print and use</td></tr>
+          <tr><td class="asset">110-minute session script</td><td class="loc">forms/facilitator/00-session-script.html</td><td><span class="done-dot"></span>Done</td></tr>
+          <tr><td class="asset">Week 1 — Talk to AI (facilitator guide)</td><td class="loc">forms/facilitator/week-01-talk-to-ai.html</td><td><span class="done-dot"></span>Done</td></tr>
+          <tr><td class="asset">Week 1 take-home card (learner)</td><td class="loc">forms/facilitator/week-01-take-home.html</td><td><span class="done-dot"></span>Done</td></tr>
+          <tr><td class="asset">Weeks 2–6 facilitator guides</td><td class="loc">forms/facilitator/week-02 through week-06</td><td><span class="done-dot"></span>Done — outlines ready</td></tr>
+          <tr><td class="asset">Week 5 fork (banking / job search / workplace)</td><td class="loc">forms/facilitator/week-05-fork.html</td><td><span class="done-dot"></span>Done</td></tr>
+          <tr><td class="asset">Pre / post survey</td><td class="loc">forms/facilitator/pre-post-survey.html</td><td><span class="done-dot"></span>Done</td></tr>
+          <tr><td class="asset">Restructure 3 free LMS lessons (instructions)</td><td class="loc">forms/facilitator/RESTRUCTURE-THREE-FREE-LESSONS.md</td><td><span class="done-dot"></span>Done</td></tr>
+          <tr><td class="asset">Week 1 lesson built in LMS (50+TechBridge)</td><td class="loc">learnmoretechnologies.com/courses/50techbridge</td><td><span class="next-dot"></span>Do this week</td></tr>
+          <tr><td class="asset">Module titles renamed in LMS to spine</td><td class="loc">LMS admin</td><td><span class="next-dot"></span>Do this week</td></tr>
+          <tr><td class="asset">Weeks 2–6 full lesson content in LMS</td><td class="loc">LMS admin</td><td><span class="build-dot"></span>Build after Week 1 is live</td></tr>
+          <tr><td class="asset">Take-home cards as downloadable PDFs (all 6)</td><td class="loc">LMS + facilitator folder</td><td><span class="build-dot"></span>Build</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- L2: PRODUCT -->
+    <div class="layer-block">
+      <div class="layer-header lh2">
+        <div>
+          <div class="layer-num">Layer 02 · Product</div>
+          <div class="layer-title">50+TechBridge</div>
+          <div class="layer-role">Free funnel → community cohort → employer / WIOA fork. Certificate. Outcomes report.</div>
+        </div>
+        <span class="layer-status status-next">Needs alignment</span>
+      </div>
+      <table>
+        <thead><tr><th>Asset</th><th>Location</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="asset">Free self-paced course (3 free lessons)</td><td class="loc">50plustechbridge.com / LMS</td><td><span class="done-dot"></span>Live — needs renamed</td></tr>
+          <tr><td class="asset">Partner page (libraries, orgs)</td><td class="loc">50plustechbridge.com/partners</td><td><span class="done-dot"></span>Live</td></tr>
+          <tr><td class="asset">Get started / cohort enrollment</td><td class="loc">50plustechbridge.com/get-started</td><td><span class="done-dot"></span>Live</td></tr>
+          <tr><td class="asset">Outcomes one-pager (per cohort)</td><td class="loc">forms/facilitator/outcomes-report.html</td><td><span class="done-dot"></span>Done — use after each cohort</td></tr>
+          <tr><td class="asset">90-minute pilot offer sheet</td><td class="loc">forms/facilitator/pilot-offer.html</td><td><span class="done-dot"></span>Done — sell now</td></tr>
+          <tr><td class="asset">Module titles updated to spine on site</td><td class="loc">50plustechbridge.com</td><td><span class="next-dot"></span>Do this week</td></tr>
+          <tr><td class="asset">One unified public price list</td><td class="loc">learnmoretechnologies.com + work-with-us</td><td><span class="next-dot"></span>Remove conflicting prices</td></tr>
+          <tr><td class="asset">ETPL listing with local workforce board</td><td class="loc">Texas Workforce Commission</td><td><span class="build-dot"></span>Submit / confirm</td></tr>
+          <tr><td class="asset">Digital Pioneer Membership ($27/mo)</td><td class="loc">LMS</td><td><span class="build-dot"></span>After B2B calendar booked</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- L3: PROOF -->
+    <div class="layer-block">
+      <div class="layer-header lh3">
+        <div>
+          <div class="layer-num">Layer 03 · Proof</div>
+          <div class="layer-title">Digital Pioneer Gallery</div>
+          <div class="layer-role">Public exhibitions by 50+ adults. Grant documentation. Tourism and cultural arts anchor.</div>
+        </div>
+        <span class="layer-status status-next">Launch Oct 2026</span>
+      </div>
+      <table>
+        <thead><tr><th>Asset</th><th>Location</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="asset">Gallery site + cohort listing</td><td class="loc">digitalpioneer.ai</td><td><span class="done-dot"></span>Live — Oct–Dec 2026 cohorts posted</td></tr>
+          <tr><td class="asset">AACME Elevate application</td><td class="loc">aacme/ (repo) · Submitted 8/13/26</td><td><span class="done-dot"></span>Submitted — in review</td></tr>
+          <tr><td class="asset">AACME Nexus 2024 award (prior)</td><td class="loc">File / SAM past performance</td><td><span class="done-dot"></span>Awarded — document outcomes</td></tr>
+          <tr><td class="asset">Gallery linked from LMT + 50+TechBridge nav</td><td class="loc">Both sites</td><td><span class="next-dot"></span>Do this week</td></tr>
+          <tr><td class="asset">3 Pioneer profiles published (photo + quote release)</td><td class="loc">digitalpioneer.ai</td><td><span class="next-dot"></span>Before Elevate panel meets</td></tr>
+          <tr><td class="asset">APL confirmation letter (Oct cohort venues)</td><td class="loc">File</td><td><span class="next-dot"></span>Call APL 512-974-7400</td></tr>
+          <tr><td class="asset">Cohort 1 outcomes one-pager (after Dec 2026)</td><td class="loc">forms/facilitator/outcomes-report.html</td><td><span class="build-dot"></span>File after cohort ends</td></tr>
+          <tr><td class="asset">Nexus next application (Gallery Walk as standalone)</td><td class="loc">AACME portal · Opens Sept 2026</td><td><span class="build-dot"></span>Call AACME first re: double-dip rule</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- L4: SCALE -->
+    <div class="layer-block">
+      <div class="layer-header lh4">
+        <div>
+          <div class="layer-num">Layer 04 · Scale</div>
+          <div class="layer-title">Barb</div>
+          <div class="layer-role">Free AI assistant for adults 50+. White-label B2B for libraries, healthcare, insurers.</div>
+        </div>
+        <span class="layer-status status-next">Productize</span>
+      </div>
+      <table>
+        <thead><tr><th>Asset</th><th>Location</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="asset">Barb free assistant (consumer)</td><td class="loc">learnmoretechnologies.com/ask-barb/</td><td><span class="done-dot"></span>Live — no login, plain language</td></tr>
+          <tr><td class="asset">Barb for Organizations (B2B offer)</td><td class="loc">learnmoretechnologies.com</td><td><span class="next-dot"></span>Name the offer, add to site</td></tr>
+          <tr><td class="asset">Usage data / monthly active users</td><td class="loc">Analytics</td><td><span class="next-dot"></span>Pull for grant reporting</td></tr>
+          <tr><td class="asset">Barb pilot contract (library or healthcare)</td><td class="loc">—</td><td><span class="build-dot"></span>Scope one pilot — no new build needed</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- L5: SHOW -->
+    <div class="layer-block">
+      <div class="layer-header lh5">
+        <div>
+          <div class="layer-num">Layer 05 · Show</div>
+          <div class="layer-title">AGENTIC50 — The Pioneers Podcast</div>
+          <div class="layer-role">Apple + Spotify. Interviews Pioneers and buyers. Makes bookers hear Brian weekly.</div>
+        </div>
+        <span class="layer-status status-next">Restructure guest pattern</span>
+      </div>
+      <table>
+        <thead><tr><th>Asset</th><th>Location</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="asset">Podcast live on Apple + Spotify</td><td class="loc">agentic50.org · Apple · Spotify</td><td><span class="done-dot"></span>Live</td></tr>
+          <tr><td class="asset">Episode cadence: Pioneer → Buyer → Peer</td><td class="loc">Production calendar</td><td><span class="next-dot"></span>Book 3 buyer guests this month</td></tr>
+          <tr><td class="asset">LinkedIn clip cadence (5 clips per episode)</td><td class="loc">LinkedIn</td><td><span class="next-dot"></span>Start with next episode</td></tr>
+          <tr><td class="asset">Podcast linked from brianmckinney.com + LMT</td><td class="loc">Both sites</td><td><span class="next-dot"></span>Add embed / link</td></tr>
+          <tr><td class="asset">Episode booking link at end of every show</td><td class="loc">Podcast outro script</td><td><span class="next-dot"></span>Add cal.com link to outro</td></tr>
+          <tr><td class="asset">Pioneer episodes from each contract cohort</td><td class="loc">Recording at cohort site</td><td><span class="build-dot"></span>After next contract cohort</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- L6: STAGE -->
+    <div class="layer-block">
+      <div class="layer-header lh6">
+        <div>
+          <div class="layer-num">Layer 06 · Stage</div>
+          <div class="layer-title">Brian McKinney — Speaker</div>
+          <div class="layer-role">3 keynote tracks. Floor $5k. Every stage is pipeline for a contract or brand briefing.</div>
+        </div>
+        <span class="layer-status status-next">Fill the gaps</span>
+      </div>
+      <table>
+        <thead><tr><th>Asset</th><th>Location</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="asset">Speaker site + 3 keynote tracks</td><td class="loc">brianmckinney.com · speaker/index.html</td><td><span class="done-dot"></span>Live — needs photo + real testimonials</td></tr>
+          <tr><td class="asset">Speaker one-sheet (print)</td><td class="loc">speaker/index.html (print version)</td><td><span class="done-dot"></span>Done</td></tr>
+          <tr><td class="asset">Real on-stage photo</td><td class="loc">brianmckinney.com</td><td><span class="next-dot"></span>Replace placeholder this week</td></tr>
+          <tr><td class="asset">Signed testimonials (3 real buyers)</td><td class="loc">brianmckinney.com</td><td><span class="next-dot"></span>Replace [brackets] with real quotes</td></tr>
+          <tr><td class="asset">Public speaking floor price ($5k keynote)</td><td class="loc">brianmckinney.com + LMT</td><td><span class="next-dot"></span>Remove $500 from public pages</td></tr>
+          <tr><td class="asset">Cal.com booking link (real)</td><td class="loc">brianmckinney.com</td><td><span class="next-dot"></span>Confirm link is live</td></tr>
+          <tr><td class="asset">AGENTIC50 + Gallery linked on speaker site</td><td class="loc">brianmckinney.com</td><td><span class="next-dot"></span>Add</td></tr>
+          <tr><td class="asset">First $5k+ keynote booked</td><td class="loc">—</td><td><span class="build-dot"></span>Target: state SHRM or AgeTech conference</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- L7: FUEL -->
+    <div class="layer-block">
+      <div class="layer-header lh7">
+        <div>
+          <div class="layer-num">Layer 07 · Fuel</div>
+          <div class="layer-title">Government + MBE Contracts</div>
+          <div class="layer-role">WIOA Title I, MBE set-asides, city / library / aging contracts. Pays facilitators. Builds proof.</div>
+        </div>
+        <span class="layer-status status-next">Unlock now</span>
+      </div>
+      <table>
+        <thead><tr><th>Asset</th><th>Location</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="asset">MBE Certification (Texas)</td><td class="loc">File</td><td><span class="done-dot"></span>Active</td></tr>
+          <tr><td class="asset">WIOA-eligible stated on all materials</td><td class="loc">LMT + 50+TechBridge</td><td><span class="done-dot"></span>Done</td></tr>
+          <tr><td class="asset">Austin Nexus grant (2024)</td><td class="loc">File</td><td><span class="done-dot"></span>Awarded + delivered</td></tr>
+          <tr><td class="asset">AACME Elevate application (FY27)</td><td class="loc">Submitted 8/13/26</td><td><span class="done-dot"></span>In review</td></tr>
+          <tr><td class="asset">Approved footprint (locked language)</td><td class="loc">Decision-maker one-pager</td><td><span class="done-dot"></span>9 in-person locations in central Texas; 6 Austin Public Library branches; AARP-affiliated senior centers (location only); Foundation Communities veterans program; WIOA-eligible; MBE-certified</td></tr>
+          <tr><td class="asset">SAM.gov registration + UEI active</td><td class="loc">sam.gov</td><td><span class="next-dot"></span>Confirm / renew</td></tr>
+          <tr><td class="asset">One-page capability statement</td><td class="loc">—</td><td><span class="next-dot"></span>Draft this week</td></tr>
+          <tr><td class="asset">ETPL listing with local workforce board</td><td class="loc">TWC / Workforce Solutions</td><td><span class="next-dot"></span>Submit / confirm</td></tr>
+          <tr><td class="asset">Unified price list (ITA-range aligned)</td><td class="loc">LMT + 50+TechBridge</td><td><span class="next-dot"></span>Remove conflicting prices</td></tr>
+          <tr><td class="asset">Named facilitator (key personnel)</td><td class="loc">Hire or certify</td><td><span class="next-dot"></span>Name one person for proposals</td></tr>
+          <tr><td class="asset">Past performance one-pager</td><td class="loc">—</td><td><span class="next-dot"></span>Use locked language only: 9 locations, 6 APL branches, AARP-affiliated senior centers, Foundation Communities veterans, WIOA, MBE</td></tr>
+          <tr><td class="asset">First signed WIOA / board contract</td><td class="loc">—</td><td><span class="build-dot"></span>2 proposal conversations / week</td></tr>
+          <tr><td class="asset">Barb pilot contract (library or healthcare)</td><td class="loc">—</td><td><span class="build-dot"></span>After SAM + facilitator in place</td></tr>
+          <tr><td class="asset">Nexus next application (Gallery Walk)</td><td class="loc">AACME portal</td><td><span class="build-dot"></span>Call AACME first re: double-dip rule</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="note"><strong>The one sentence:</strong> "Brian McKinney is the AgeTech speaker on 50+ AI — host of AGENTIC50, founder of the WIOA-eligible, MBE-certified program delivered at 9 in-person locations in central Texas." Government pays LMT to prove it. The podcast tells it. The stage sells it. Market facts only: $18K/worker (LSE &amp; Protiviti); $850B ageism cost (AARP &amp; Oxford Economics). Do not use 347, 264+, or ~100 on public sheets.</p>
+
+  </div>
+  <div class="footer">
+    <span>Learn More Technologies LLC dba 50+TechBridge · hello@learnmoretechnologies.com</span>
+    <span>The Pioneer Model · Full Asset Map · September 2026</span>
+  </div>
+</div>
+</body>
+</html>
