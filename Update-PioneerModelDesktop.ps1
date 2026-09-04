@@ -28,7 +28,9 @@ $files = @(
     'pioneer-model-one-pager.pdf',
     'pioneer-model-one-pager.html',
     'pioneer-model-full-map.pdf',
-    'pioneer-model-full-map.html'
+    'pioneer-model-full-map.html',
+    'lmt-brochure.pdf',
+    'lmt-brochure.html'
 )
 
 Write-Host "Saving Pioneer Model files to: $desktop"
@@ -45,4 +47,4 @@ foreach ($name in $files) {
 }
 
 Write-Host ""
-Write-Host "Desktop copy updated. Open pioneer-model-one-pager.pdf to print."
+Write-Host "Desktop copy updated. Open lmt-brochure.pdf (front + back) or pioneer-model-one-pager.pdf to print."

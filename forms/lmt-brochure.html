@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Learn More Technologies — Brochure</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,400;1,700&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  @media screen {
+    body {
+      background: #c5c9d2;
+      font-family: 'Inter', sans-serif;
+      padding: 28px 16px 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+    .screen-only { width: 100%; max-width: 8.5in; display: flex; flex-direction: column; gap: 10px; }
+    .screen-banner { background: #facc15; color: #000; text-align: center; padding: 10px 14px; font-weight: 700; font-size: 13px; border-radius: 6px; }
+    .print-btn { background: #1e1b4b; color: #fff; border: none; padding: 12px 28px; border-radius: 8px; font-weight: 700; font-size: 14px; cursor: pointer; font-family: 'Inter', sans-serif; align-self: center; }
+    .desktop-bar { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px; }
+    .desktop-bar p { font-size: 11px; color: #374151; margin-bottom: 6px; }
+    .desktop-bar code { display: block; font-family: ui-monospace, Consolas, monospace; font-size: 10px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 5px; padding: 8px 10px; color: #1e1b4b; white-space: pre-wrap; word-break: break-all; }
+    .page-tag { width: 8.5in; max-width: 100%; font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #4b5563; }
+    .page {
+      width: 8.5in;
+      height: 11in;
+      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.28);
+    }
+  }
+
+  .page {
+    width: 8.5in;
+    height: 11in;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    color: #111;
+    position: relative;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ========== FRONT ========== */
+  .front {
+    background: #1e1b4b;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+  .front-top {
+    padding: 0.42in 0.48in 0.18in;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .brand-kicker {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #f97316;
+  }
+  .brand-name {
+    font-size: 15px;
+    font-weight: 800;
+    margin-top: 4px;
+  }
+  .brand-name em {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: #fdba74;
+  }
+  .pills { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+  .pill {
+    font-size: 8.5px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.28);
+    color: #c7d2fe;
+    padding: 5px 9px;
+    border-radius: 999px;
+  }
+
+  .hero {
+    padding: 0.18in 0.48in 0.28in;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .hero h1 {
+    font-size: 42px;
+    font-weight: 900;
+    letter-spacing: -0.045em;
+    line-height: 1.05;
+    max-width: 7.3in;
+  }
+  .hero h1 em {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: #f97316;
+  }
+  .hero .lede {
+    margin-top: 16px;
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: #c7d2fe;
+    max-width: 6.6in;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    padding: 0 0.48in 0.28in;
+  }
+  .stat {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 14px 12px 13px;
+  }
+  .stat .n {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: #fff;
+  }
+  .stat .l {
+    margin-top: 6px;
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #a5b4fc;
+    line-height: 1.3;
+  }
+
+  .problem {
+    margin: 0 0.48in 0.28in;
+    background: #f97316;
+    color: #1e1b4b;
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .problem .k {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .problem p {
+    font-size: 13.5px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #1c1917;
+  }
+
+  .eco {
+    padding: 0 0.48in 0.28in;
+  }
+  .eco .k {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #a5b4fc;
+    margin-bottom: 8px;
+  }
+  .eco-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 7px;
+  }
+  .eco-item {
+    background: rgba(255,255,255,0.06);
+    border-radius: 8px;
+    padding: 10px 8px;
+  }
+  .eco-item strong {
+    display: block;
+    font-size: 10.5px;
+    font-weight: 800;
+    margin-bottom: 3px;
+  }
+  .eco-item span {
+    font-size: 8.5px;
+    color: #c7d2fe;
+    line-height: 1.3;
+  }
+
+  .front-foot {
+    background: #f97316;
+    padding: 0.22in 0.48in;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .front-foot p {
+    font-size: 12.5px;
+    font-weight: 800;
+    color: #1e1b4b;
+    line-height: 1.35;
+  }
+  .front-foot .url {
+    font-size: 11px;
+    font-weight: 800;
+    color: #fff;
+    white-space: nowrap;
+  }
+
+  /* ========== BACK ========== */
+  .back {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+  .back-head {
+    background: #1e1b4b;
+    color: #fff;
+    padding: 0.28in 0.48in 0.24in;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .back-head h2 {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+  }
+  .back-head h2 em {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: #f97316;
+  }
+  .back-head .sub {
+    font-size: 10.5px;
+    color: #c7d2fe;
+    text-align: right;
+    line-height: 1.4;
+    max-width: 2.8in;
+  }
+
+  .back-body {
+    padding: 0.28in 0.48in 0.2in;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.18in;
+  }
+
+  .two {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 14px;
+  }
+  .sec-k {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #6366f1;
+    margin-bottom: 8px;
+  }
+
+  .offer {
+    border-bottom: 1px solid #e5e7eb;
+    padding: 8px 0;
+  }
+  .offer:first-of-type { padding-top: 0; }
+  .offer:last-child { border-bottom: none; }
+  .offer strong { display: block; font-size: 12.5px; font-weight: 800; color: #1e1b4b; }
+  .offer span { font-size: 10.5px; color: #4b5563; line-height: 1.4; }
+
+  .buyers { display: flex; flex-direction: column; gap: 8px; }
+  .buyer {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 10px 11px;
+  }
+  .buyer .t {
+    font-size: 8.5px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6b7280;
+  }
+  .buyer strong { display: block; font-size: 12px; color: #111; margin: 2px 0 3px; }
+  .buyer p { font-size: 10px; color: #4b5563; line-height: 1.35; }
+
+  .footprint {
+    background: #fff7ed;
+    border: 1.5px solid #fdba74;
+    border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .footprint .sec-k { color: #c2410c; }
+  .footprint p { font-size: 12px; color: #1c1917; line-height: 1.45; font-weight: 600; }
+  .sites {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .site {
+    background: #fff;
+    border-radius: 7px;
+    padding: 8px 9px;
+  }
+  .site strong { display: block; font-size: 11px; color: #1e1b4b; }
+  .site span { font-size: 9.5px; color: #6b7280; line-height: 1.3; }
+
+  .flow {
+    display: grid;
+    grid-template-columns: 1fr 12px 1fr 12px 1fr 12px 1fr;
+    align-items: stretch;
+  }
+  .step {
+    background: #eef2ff;
+    border-radius: 8px;
+    padding: 10px 9px;
+    text-align: center;
+  }
+  .step .t { font-size: 8px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #6366f1; margin-bottom: 3px; }
+  .step p { font-size: 10.5px; font-weight: 700; color: #1e1b4b; line-height: 1.3; }
+  .arr { display: flex; align-items: center; justify-content: center; color: #9ca3af; font-weight: 900; font-size: 14px; }
+
+  .closer {
+    background: #1e1b4b;
+    color: #e0e7ff;
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 12px;
+    line-height: 1.45;
+  }
+  .closer strong { color: #fff; }
+
+  .back-foot {
+    background: #1e1b4b;
+    color: #c7d2fe;
+    padding: 0.2in 0.48in;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .back-foot .who { font-size: 12px; color: #fff; font-weight: 800; line-height: 1.35; }
+  .back-foot .meta { font-size: 9.5px; color: #a5b4fc; margin-top: 3px; line-height: 1.4; }
+  .back-foot .cta { text-align: right; }
+  .back-foot .cta strong { display: block; color: #f97316; font-size: 12.5px; }
+  .back-foot .cta span { font-size: 10px; color: #c7d2fe; }
+
+  @media print {
+    body { background: #fff; padding: 0; margin: 0; }
+    .screen-only, .page-tag { display: none !important; }
+    .page {
+      box-shadow: none;
+      width: 8.5in;
+      height: 11in;
+      page-break-after: always;
+      break-after: page;
+    }
+    .page:last-child { page-break-after: auto; break-after: auto; }
+    .front, .back, .problem, .stat, .eco-item, .front-foot, .back-head, .back-foot, .footprint, .buyer, .step, .closer {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    @page { size: letter portrait; margin: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="screen-only">
+  <div class="screen-banner">LMT BROCHURE — 2 pages · Front + back · Letter 8.5×11 · Full color · Print double-sided, flip on long edge</div>
+  <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+  <div class="desktop-bar">
+    <p><strong>Save both pages to your Windows Desktop.</strong> Paste this in PowerShell:</p>
+    <code>Invoke-WebRequest -Uri "https://raw.githubusercontent.com/1Profmac/1Profmac.github.io/cursor/powershell-list-files-c07c/forms/lmt-brochure.pdf" -OutFile "$env:USERPROFILE\Desktop\lmt-brochure.pdf"</code>
+  </div>
+</div>
+
+<div class="page-tag">Front</div>
+<section class="page front">
+  <div class="front-top">
+    <div>
+      <div class="brand-kicker">Learn More Technologies</div>
+      <div class="brand-name">LMT · 50+<em>TechBridge</em></div>
+    </div>
+    <div class="pills">
+      <span class="pill">WIOA-Eligible</span>
+      <span class="pill">MBE-Certified</span>
+      <span class="pill">Austin, TX</span>
+    </div>
+  </div>
+
+  <div class="hero">
+    <h1>Adults 50+ were left out of AI.<br><em>We built the company that brings them in.</em></h1>
+    <p class="lede">Learn More Technologies delivers AI training, a public gallery, a free assistant, a podcast, and a speaker — funded by government and workforce contracts. The Pioneer Model: contracts prove it, the podcast tells it, the stage sells it.</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="n">9</div>
+      <div class="l">In-person locations<br>Central Texas</div>
+    </div>
+    <div class="stat">
+      <div class="n">6</div>
+      <div class="l">Austin Public<br>Library branches</div>
+    </div>
+    <div class="stat">
+      <div class="n">$18K</div>
+      <div class="l">Per worker<br>LSE &amp; Protiviti</div>
+    </div>
+    <div class="stat">
+      <div class="n">$850B</div>
+      <div class="l">Ageism cost / year<br>AARP &amp; Oxford</div>
+    </div>
+  </div>
+
+  <div class="problem">
+    <div class="k">The cost of doing nothing</div>
+    <p>Ageism costs the U.S. economy $850 billion a year (AARP &amp; Oxford Economics). The cost sits at $18K per worker (LSE &amp; Protiviti). LMT is the WIOA-eligible, MBE-certified partner that puts AI in the hands of adults 50+ — in the rooms they already trust.</p>
+  </div>
+
+  <div class="eco">
+    <div class="k">One company · five public faces</div>
+    <div class="eco-row">
+      <div class="eco-item"><strong>50+TechBridge</strong><span>Free funnel + paid cohort. WIOA-aligned spine.</span></div>
+      <div class="eco-item"><strong>Digital Pioneer Gallery</strong><span>Public exhibitions. Grant-ready proof.</span></div>
+      <div class="eco-item"><strong>Barb</strong><span>Free AI assistant. White-label next.</span></div>
+      <div class="eco-item"><strong>AGENTIC50</strong><span>Podcast on Apple + Spotify.</span></div>
+      <div class="eco-item"><strong>Brian McKinney</strong><span>Keynotes. Floor $5k. Every stage is pipeline.</span></div>
+    </div>
+  </div>
+
+  <div class="front-foot">
+    <p>9 in-person locations in central Texas — 6 Austin Public Library branches, AARP-affiliated senior centers, and the Foundation Communities veterans program.</p>
+    <div class="url">learnmoretechnologies.com</div>
+  </div>
+</section>
+
+<div class="page-tag">Back</div>
+<section class="page back">
+  <div class="back-head">
+    <h2>How to <em>work with</em> LMT</h2>
+    <div class="sub">Workforce boards · libraries · employers · conferences · brands</div>
+  </div>
+
+  <div class="back-body">
+    <div class="two">
+      <div>
+        <div class="sec-k">What we deliver</div>
+        <div class="offer"><strong>Digital Pioneer Core</strong><span>6-module AI spine. One tool per week. Talk to AI → Don’t get scammed → Stay connected → Health → Money/Work fork → Capstone.</span></div>
+        <div class="offer"><strong>50+TechBridge cohorts</strong><span>Community and employer / WIOA delivery. Certificate, attendance packet, outcomes report. 90-minute pilot ready now.</span></div>
+        <div class="offer"><strong>Digital Pioneer Gallery</strong><span>Adults 50+ exhibit AI-assisted work in public. Documentation for grants, tourism, and cultural arts partners.</span></div>
+        <div class="offer"><strong>Barb + AGENTIC50 + the stage</strong><span>Free assistant for 50+ adults. Podcast that books the room. Keynote that converts to the next contract.</span></div>
+      </div>
+      <div>
+        <div class="sec-k">Who pays — and for what</div>
+        <div class="buyers">
+          <div class="buyer">
+            <div class="t">Workforce / WIOA</div>
+            <strong>Training contracts</strong>
+            <p>Cohort delivery, outcomes, ITA-range pricing. ETPL in process.</p>
+          </div>
+          <div class="buyer">
+            <div class="t">Employers / HR / DEI</div>
+            <strong>Workforce cohort</strong>
+            <p>On-site AI training. Week 5 employer fork. $18K/worker cost of inaction.</p>
+          </div>
+          <div class="buyer">
+            <div class="t">Libraries / CBOs / Brands</div>
+            <strong>Site license · Barb · advisory</strong>
+            <p>Curriculum license, white-label assistant, 50+ audience retainer.</p>
+          </div>
+          <div class="buyer">
+            <div class="t">Conferences / Associations</div>
+            <strong>Keynote → contract</strong>
+            <p>Floor $5k. Every stage scopes a follow-on cohort or briefing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footprint">
+      <div class="sec-k">Where we deliver</div>
+      <p>9 in-person locations in central Texas. WIOA-eligible. MBE-certified.</p>
+      <div class="sites">
+        <div class="site"><strong>6 APL branches</strong><span>Austin Public Library</span></div>
+        <div class="site"><strong>AARP-affiliated senior centers</strong><span>Community locations</span></div>
+        <div class="site"><strong>Foundation Communities</strong><span>Veterans program</span></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="sec-k">The Pioneer Model</div>
+      <div class="flow">
+        <div class="step"><div class="t">Contracts</div><p>Fund delivery + Pioneer data</p></div>
+        <div class="arr">→</div>
+        <div class="step"><div class="t">Course + Gallery</div><p>Prove adults 50+ can create with AI</p></div>
+        <div class="arr">→</div>
+        <div class="step"><div class="t">AGENTIC50</div><p>Tell it to people who own stages</p></div>
+        <div class="arr">→</div>
+        <div class="step"><div class="t">Brian on stage</div><p>Keynote converts to the next buy</p></div>
+      </div>
+    </div>
+
+    <p class="closer"><strong>The one sentence:</strong> Brian McKinney is the AgeTech speaker on 50+ AI — host of AGENTIC50, founder of the WIOA-eligible, MBE-certified program delivered at 9 in-person locations in central Texas. Government pays LMT to prove it. The podcast tells it. The stage sells it.</p>
+  </div>
+
+  <div class="back-foot">
+    <div>
+      <div class="who">Brian McKinney · CEO &amp; Founder · Former AARP Community Development Manager</div>
+      <div class="meta">Learn More Technologies LLC dba 50+TechBridge · NAICS 611420 / 611430 / 624310 · 501(c)(3) in process</div>
+    </div>
+    <div class="cta">
+      <strong>hello@learnmoretechnologies.com</strong>
+      <span>learnmoretechnologies.com · agentic50.org · digitalpioneer.ai</span>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
