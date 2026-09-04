@@ -9,12 +9,11 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   @media screen {
     body { background: #e5e7eb; font-family: 'Inter', sans-serif; padding: 24px 16px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
-    .screen-banner { background: #facc15; color: #000; text-align: center; padding: 10px; font-weight: 700; font-size: 13px; width: 100%; max-width: 800px; border-radius: 6px; }
+    .screen-banner { background: #facc15; color: #000; text-align: center; padding: 10px; font-weight: 700; font-size: 13px; width: 100%; max-width: 1100px; border-radius: 6px; }
     .print-btn { background: #1e1b4b; color: #fff; border: none; padding: 12px 32px; border-radius: 8px; font-weight: 700; font-size: 14px; cursor: pointer; font-family: 'Inter', sans-serif; }
-    .sheet { width: 100%; max-width: 800px; background: #fff; border-radius: 8px; box-shadow: 0 4px 24px rgba(0,0,0,0.15); }
+    .sheet { width: 100%; max-width: 1100px; background: #fff; border-radius: 8px; box-shadow: 0 4px 24px rgba(0,0,0,0.15); }
   }
 
-  /* ONE PAGE */
   .sheet {
     font-family: 'Inter', sans-serif;
     background: #fff;
@@ -23,16 +22,16 @@
     flex-direction: column;
   }
 
-  /* HEADER BAND */
   .header-band {
     background: #1e1b4b;
-    padding: 22px 32px 18px;
+    padding: 16px 28px 14px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    gap: 20px;
   }
   .header-left h1 {
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 900;
     color: #fff;
     letter-spacing: -0.04em;
@@ -40,150 +39,176 @@
   }
   .header-left h1 span { color: #f97316; }
   .header-left p {
-    font-size: 11px;
+    font-size: 10.5px;
     color: #a5b4fc;
     margin-top: 5px;
-    line-height: 1.5;
-    max-width: 420px;
+    line-height: 1.45;
+    max-width: 460px;
   }
-  .header-right {
-    text-align: right;
-  }
+  .header-right { text-align: right; }
   .header-right .stat {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 900;
     color: #fff;
-    line-height: 1.1;
+    line-height: 1.05;
   }
   .header-right .stat-label {
-    font-size: 9px;
+    font-size: 8px;
     color: #a5b4fc;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.07em;
     text-transform: uppercase;
     margin-top: 2px;
   }
   .header-right .stats-row {
     display: flex;
-    gap: 20px;
+    gap: 16px;
     justify-content: flex-end;
   }
 
-  /* TAGLINE */
   .tagline-bar {
     background: #f97316;
-    padding: 8px 32px;
-    font-size: 11px;
+    padding: 7px 28px;
+    font-size: 10.5px;
     font-weight: 700;
     color: #fff;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
   }
 
-  /* BODY */
-  .body { padding: 18px 32px 16px; display: flex; flex-direction: column; gap: 14px; }
+  .body { padding: 12px 28px 12px; display: flex; flex-direction: column; gap: 10px; }
 
-  /* PROOF LINE */
   .proof-line {
-    font-size: 12.5px;
+    font-size: 11.5px;
     color: #374151;
-    line-height: 1.55;
+    line-height: 1.5;
     border-left: 3px solid #f97316;
-    padding-left: 12px;
+    padding-left: 11px;
   }
   .proof-line strong { color: #111; }
 
-  /* SEVEN LAYERS */
+  .sec-label {
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .legend { display: flex; gap: 10px; font-size: 8.5px; font-weight: 600; letter-spacing: 0; text-transform: none; color: #6b7280; }
+  .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 3px; vertical-align: 0; }
+  .dot-live { background: #22c55e; }
+  .dot-next { background: #f59e0b; }
+
   .layers-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 6px;
+    gap: 5px;
   }
   .layer {
     border-radius: 6px;
-    padding: 10px 8px;
+    padding: 8px 7px 9px;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 3px;
+    min-height: 148px;
   }
   .layer .l-num {
-    font-size: 9px;
+    font-size: 8px;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     opacity: 0.7;
   }
   .layer .l-name {
     font-size: 11px;
     font-weight: 800;
-    line-height: 1.2;
+    line-height: 1.15;
   }
   .layer .l-role {
-    font-size: 9.5px;
-    line-height: 1.35;
-    opacity: 0.85;
+    font-size: 8.5px;
+    line-height: 1.3;
+    opacity: 0.88;
+    margin-bottom: 2px;
   }
-  /* Layer colors */
+  .layer .l-status {
+    font-size: 7.5px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: rgba(255,255,255,0.55);
+    border-radius: 999px;
+    padding: 2px 6px;
+    width: fit-content;
+    margin: 1px 0 2px;
+  }
+  .layer .l-live, .layer .l-next {
+    font-size: 8px;
+    line-height: 1.3;
+  }
+  .layer .l-live strong, .layer .l-next strong {
+    font-weight: 800;
+  }
   .l1 { background: #eff6ff; color: #1e3a8a; }
   .l2 { background: #f0fdf4; color: #14532d; }
   .l3 { background: #fdf4ff; color: #581c87; }
   .l4 { background: #fff7ed; color: #7c2d12; }
   .l5 { background: #fefce8; color: #713f12; }
   .l6 { background: #fff1f2; color: #881337; }
-  .l7 { background: #f0f4ff; color: #1e1b4b; }
+  .l7 { background: #eef2ff; color: #1e1b4b; }
 
-  /* HOW IT WORKS */
   .flow {
     display: grid;
-    grid-template-columns: 1fr 16px 1fr 16px 1fr 16px 1fr;
+    grid-template-columns: 1fr 14px 1fr 14px 1fr 14px 1fr;
     align-items: center;
-    gap: 0;
   }
   .flow-step {
     background: #f8fafc;
     border: 1.5px solid #e2e8f0;
     border-radius: 6px;
-    padding: 9px 10px;
+    padding: 7px 9px;
     text-align: center;
   }
   .flow-step .f-label {
-    font-size: 8.5px;
+    font-size: 8px;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: #6b7280;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
   }
   .flow-step .f-text {
-    font-size: 10.5px;
+    font-size: 10px;
     font-weight: 700;
     color: #111;
     line-height: 1.3;
   }
   .flow-arrow {
     text-align: center;
-    font-size: 14px;
+    font-size: 13px;
     color: #9ca3af;
     font-weight: 900;
   }
 
-  /* BUYERS */
   .buyers {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 6px;
+    gap: 5px;
   }
   .buyer {
     border: 1px solid #e2e8f0;
     border-radius: 6px;
-    padding: 8px 10px;
+    padding: 7px 9px;
   }
   .buyer .b-type {
-    font-size: 8.5px;
+    font-size: 8px;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: #6b7280;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
   }
   .buyer .b-what {
     font-size: 10.5px;
@@ -192,15 +217,25 @@
     margin-bottom: 2px;
   }
   .buyer .b-pays {
-    font-size: 9.5px;
+    font-size: 9px;
     color: #6b7280;
     line-height: 1.35;
   }
 
-  /* BOTTOM */
+  .closer {
+    background: #f0f4ff;
+    border: 1px solid #c7d2fe;
+    border-radius: 5px;
+    padding: 7px 11px;
+    font-size: 10.5px;
+    color: #3730a3;
+    line-height: 1.45;
+  }
+  .closer strong { color: #1e1b4b; }
+
   .bottom-band {
     background: #1e1b4b;
-    padding: 10px 32px;
+    padding: 8px 28px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -208,37 +243,36 @@
     gap: 8px;
   }
   .bottom-band .b-line {
-    font-size: 10px;
+    font-size: 9.5px;
     color: #a5b4fc;
-    line-height: 1.5;
+    line-height: 1.45;
   }
   .bottom-band .b-line strong { color: #fff; }
   .bottom-band .b-cta {
-    font-size: 10px;
+    font-size: 9.5px;
     font-weight: 700;
     color: #f97316;
+    text-align: right;
   }
 
-  /* PRINT */
   @media print {
     body { background: #fff; padding: 0; }
     .screen-banner, .print-btn { display: none !important; }
     .sheet { box-shadow: none; border-radius: 0; max-width: 100%; }
-    .header-band, .tagline-bar, .bottom-band, .l1, .l2, .l3, .l4, .l5, .l6, .l7 {
+    .header-band, .tagline-bar, .bottom-band, .l1, .l2, .l3, .l4, .l5, .l6, .l7, .closer {
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
-    @page { margin: 0.4in; size: letter landscape; }
+    @page { margin: 0.32in; size: letter landscape; }
   }
 </style>
 </head>
 <body>
-<div class="screen-banner">THE PIONEER MODEL — One-pager for decision makers · Print landscape</div>
+<div class="screen-banner">THE PIONEER MODEL — One-pager for decision makers · Print landscape · Specs from Full Asset Map</div>
 <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
 
 <div class="sheet">
 
-  <!-- HEADER -->
   <div class="header-band">
     <div class="header-left">
       <h1>The <span>Pioneer</span> Model</h1>
@@ -249,79 +283,99 @@
       <div class="stats-row">
         <div>
           <div class="stat">~100</div>
-          <div class="stat-label">Adults Trained (Verified)</div>
+          <div class="stat-label">Adults Trained<br>(Verified)</div>
         </div>
         <div>
           <div class="stat">5–7</div>
-          <div class="stat-label">Library Branch Sites</div>
+          <div class="stat-label">APL Branch<br>Sites</div>
+        </div>
+        <div>
+          <div class="stat">3 + 1</div>
+          <div class="stat-label">Senior Centers<br>+ Veterans</div>
         </div>
         <div>
           <div class="stat">$5K</div>
-          <div class="stat-label">Prior City of Austin</div>
-        </div>
-        <div>
-          <div class="stat">1.67:1</div>
-          <div class="stat-label">Leverage Ratio</div>
+          <div class="stat-label">Nexus Grant<br>Delivered</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- TAGLINE -->
-  <div class="tagline-bar">MBE Certified · WIOA-Eligible · Austin, TX · Available Nationwide · learnmoretechnologies.com</div>
+  <div class="tagline-bar">MBE Certified TX · WIOA-Eligible · Elevate in review · ETPL next · Austin, TX · Available nationwide · learnmoretechnologies.com</div>
 
   <div class="body">
 
-    <!-- PROOF LINE -->
     <p class="proof-line">
-      <strong>The problem:</strong> 38 million adults 50+ are being left behind in the AI economy — not because they can't learn, because nobody's teaching them the right way. Adults 50+ control $76 trillion in wealth, 70% of disposable income, and receive 5% of AI training investment. <strong>Proof on file:</strong> ~100 adults 50+ trained with signed attendance and session photos, delivered at 5–7 Austin Public Library branches. Prior City of Austin Nexus Grant: $5,000 (1.67:1 leverage). <strong>The Pioneer Model closes that gap — and turns it into a business.</strong>
+      <strong>The problem:</strong> 38 million adults 50+ are being left behind in the AI economy — they control $76 trillion in wealth and receive 5% of AI training investment. <strong>Proof on file (Elevate / grant file):</strong> ~100 adults 50+ with signed attendance and session photos; 5–7 Austin Public Library branches; 3 senior centers; 1 veterans program. Prior City of Austin Nexus Grant: $5,000 awarded and delivered (1.67:1 leverage). AACME Elevate submitted 8/13/26 — in review. <strong>The Pioneer Model turns that proof into a business.</strong>
     </p>
 
-    <!-- SEVEN LAYERS -->
     <div>
-      <div style="font-size:9px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#6b7280; margin-bottom:7px;">The Seven Layers</div>
+      <div class="sec-label">
+        <span>The Seven Layers — live vs. next (from Full Asset Map)</span>
+        <span class="legend"><span><span class="dot dot-live"></span>Live / done</span><span><span class="dot dot-next"></span>Do next</span></span>
+      </div>
       <div class="layers-grid">
         <div class="layer l1">
           <div class="l-num">01 · Curriculum</div>
           <div class="l-name">Digital Pioneer Core</div>
-          <div class="l-role">6-module AI spine. One tool per week. 3 free lessons + paid cohort. WIOA-aligned.</div>
+          <div class="l-status">In Progress</div>
+          <div class="l-role">6-module spine. One tool per week. WIOA-aligned.</div>
+          <div class="l-live"><strong>Live:</strong> Spine, 110-min script, Weeks 1–6 guides, Week 5 fork, surveys</div>
+          <div class="l-next"><strong>Next:</strong> LMS Week 1 live + rename 3 free lessons to spine</div>
         </div>
         <div class="layer l2">
           <div class="l-num">02 · Product</div>
           <div class="l-name">50+TechBridge</div>
-          <div class="l-role">Free funnel → community cohort → employer / WIOA fork. Certificate + outcomes report.</div>
+          <div class="l-status">Needs Alignment</div>
+          <div class="l-role">Free funnel → cohort → employer / WIOA fork. Certificate + outcomes.</div>
+          <div class="l-live"><strong>Live:</strong> Free course, partners page, enrollment, pilot offer, outcomes sheet</div>
+          <div class="l-next"><strong>Next:</strong> Unify prices · submit / confirm ETPL</div>
         </div>
         <div class="layer l3">
           <div class="l-num">03 · Proof</div>
           <div class="l-name">Digital Pioneer Gallery</div>
-          <div class="l-role">Public exhibitions of AI-assisted art by 50+ adults. Grant documentation. Tourism hook.</div>
+          <div class="l-status">Launch Oct 2026</div>
+          <div class="l-role">Public exhibitions by 50+ adults. Grant documentation. Tourism hook.</div>
+          <div class="l-live"><strong>Live:</strong> digitalpioneer.ai · Oct–Dec cohorts posted · Elevate in review · Nexus 2024 awarded</div>
+          <div class="l-next"><strong>Next:</strong> 3 Pioneer profiles · APL confirmation letter</div>
         </div>
         <div class="layer l4">
           <div class="l-num">04 · Scale</div>
           <div class="l-name">Barb</div>
+          <div class="l-status">Productize</div>
           <div class="l-role">Free AI assistant for adults 50+. White-label for libraries, healthcare, insurers.</div>
+          <div class="l-live"><strong>Live:</strong> ask-barb — no login, plain language</div>
+          <div class="l-next"><strong>Next:</strong> Name B2B offer · one library / healthcare pilot</div>
         </div>
         <div class="layer l5">
           <div class="l-num">05 · Show</div>
           <div class="l-name">AGENTIC50</div>
-          <div class="l-role">Podcast on Apple + Spotify. Interviews buyers and Pioneers. Makes bookers hear Brian weekly.</div>
+          <div class="l-status">Restructure Guests</div>
+          <div class="l-role">Apple + Spotify. Interviews Pioneers and buyers. Bookers hear Brian weekly.</div>
+          <div class="l-live"><strong>Live:</strong> Podcast on Apple + Spotify · agentic50.org</div>
+          <div class="l-next"><strong>Next:</strong> Pioneer → Buyer → Peer cadence · 3 buyer guests this month</div>
         </div>
         <div class="layer l6">
           <div class="l-num">06 · Stage</div>
           <div class="l-name">Brian McKinney</div>
-          <div class="l-role">3 keynote tracks. $76T case, ageism + AI, AI in one hour. Global speaker goal. Every stage is pipeline.</div>
+          <div class="l-status">Fill the Gaps</div>
+          <div class="l-role">3 keynote tracks. Floor $5k. Every stage is pipeline for a contract or briefing.</div>
+          <div class="l-live"><strong>Live:</strong> Speaker site + 3 tracks + print one-sheet</div>
+          <div class="l-next"><strong>Next:</strong> Real photo + testimonials · $5k floor public · first $5k+ booking</div>
         </div>
         <div class="layer l7">
           <div class="l-num">07 · Fuel</div>
-          <div class="l-name">Gov't Contracts</div>
-          <div class="l-role">WIOA Title I, MBE set-asides, city/aging/library contracts. Pays facilitators. Builds proof.</div>
+          <div class="l-name">Gov't + MBE</div>
+          <div class="l-status">Unlock Now</div>
+          <div class="l-role">WIOA Title I, MBE set-asides, city / library / aging contracts. Pays facilitators.</div>
+          <div class="l-live"><strong>Live:</strong> MBE TX · WIOA-eligible · Nexus delivered · Elevate in review · verified footprint</div>
+          <div class="l-next"><strong>Next:</strong> SAM/UEI · capability statement · ETPL · named facilitator · first WIOA contract</div>
         </div>
       </div>
     </div>
 
-    <!-- HOW IT WORKS -->
     <div>
-      <div style="font-size:9px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#6b7280; margin-bottom:7px;">How it works</div>
+      <div class="sec-label"><span>How it works</span></div>
       <div class="flow">
         <div class="flow-step">
           <div class="f-label">Contracts</div>
@@ -345,36 +399,36 @@
       </div>
     </div>
 
-    <!-- WHO PAYS -->
     <div>
-      <div style="font-size:9px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#6b7280; margin-bottom:7px;">Who pays — and for what</div>
+      <div class="sec-label"><span>Who pays — and for what</span></div>
       <div class="buyers">
         <div class="buyer">
           <div class="b-type">Workforce / WIOA</div>
           <div class="b-what">Training contracts</div>
-          <div class="b-pays">Cohort delivery, outcomes report, ITA-range pricing, ETPL-eligible</div>
+          <div class="b-pays">Cohort delivery, outcomes report, ITA-range pricing, ETPL listing in process</div>
         </div>
         <div class="buyer">
           <div class="b-type">Employers / HR / DEI</div>
           <div class="b-what">Workforce cohort</div>
-          <div class="b-pays">On-site AI training, employer fork (Week 5), branded outcomes report</div>
+          <div class="b-pays">On-site AI training, Week 5 employer fork, branded outcomes report. 90-min pilot ready now.</div>
         </div>
         <div class="buyer">
           <div class="b-type">Conferences / Associations</div>
           <div class="b-what">Keynote → contract</div>
-          <div class="b-pays">$5k–$15k+ fee. Every stage scopes a follow-on cohort or briefing</div>
+          <div class="b-pays">Floor $5k. Target: state SHRM or AgeTech. Every stage scopes a follow-on cohort or briefing.</div>
         </div>
         <div class="buyer">
           <div class="b-type">Libraries / CBOs / Brands</div>
           <div class="b-what">Site license · Barb · Advisory</div>
-          <div class="b-pays">Curriculum license, Barb white-label, 50+ audience intelligence retainer</div>
+          <div class="b-pays">Curriculum license, Barb white-label (library or healthcare pilot next), 50+ audience retainer</div>
         </div>
       </div>
     </div>
 
+    <p class="closer"><strong>The one sentence:</strong> Brian McKinney is the AgeTech speaker on 50+ AI — host of AGENTIC50, founder of the only WIOA-eligible program workforce boards can actually buy, and the person who turned ~100 verified Pioneers into documented proof. Government pays LMT to prove it. The podcast tells it. The stage sells it.</p>
+
   </div>
 
-  <!-- BOTTOM -->
   <div class="bottom-band">
     <div class="b-line">
       <strong>Brian McKinney</strong> · CEO &amp; Founder · Former AARP Community Development Manager<br>
