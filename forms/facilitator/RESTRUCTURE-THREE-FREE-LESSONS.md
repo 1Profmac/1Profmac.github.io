@@ -37,6 +37,7 @@ That is Modules 0–2. That is the public free funnel.
    - One tool only
    - “Stop if it’s medical or legal”
    - Take-home as a PDF handout (open the HTML in Chrome → Ctrl+P → Microsoft Print to PDF)
+   - **Lesson 2c is built:** paste `lessons/lesson-02c/LMS.md` into the LMS. Learner preview: `lessons/lesson-02c-follow-up.html`. Print `lesson-02c-practice.html`. Record HeyGen from `lessons/lesson-02c/script.txt`.
 4. Add the five pre-survey questions to Welcome (`pre-post-survey.html`).
 5. Keep facilitator pages off the LMS: session script, week guides, `pilot-offer.html`, `outcomes-report.html`.
 
@@ -65,7 +66,9 @@ Drag old lessons under those names later. Phone help stays a short block inside 
 | `00-module-spine.html` | Official titles |
 | `week-01-talk-to-ai.html` | How to teach Lesson 2 |
 | `week-01-take-home.html` | Learner handout for Lesson 2 |
+| `../../lessons/lesson-02c/LMS.md` | WordPress blocks for free Lesson 2c |
+| `lesson-02c-practice.html` | Printable follow-up card |
 | `week-02-scams.html` | How to teach Lesson 3 |
 | `pre-post-survey.html` | Welcome + Week 6 |
 
-**This week’s win:** three new free-lesson titles + one live Talk to AI lesson + take-home PDF.
+**This week’s win:** three new free-lesson titles + one live Talk to AI lesson + take-home PDF + **Lesson 2c live** (follow-up).
